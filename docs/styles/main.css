@@ -1,1 +1,1338 @@
-/* Main styles placeholder */
+/* =========================================================
+   ROOT / BASE
+   ========================================================= */
+
+html, body {
+  height: 100%;
+}
+
+:root {
+  --dex-bg: #c62828;
+  --dex-dark: #8e0000;
+  --dex-screen: #0b2a2a;
+  --dex-border: #4a0000;
+  --dex-accent: #00e5ff;
+  --divider-color: rgba(0, 0, 0, 0.15);
+   --top-bar-height: 0px;
+}
+
+body.blue {
+  --dex-bg: #1565c0;
+  --dex-dark: #003c8f;
+  --dex-border: #002171;
+}
+
+body.yellow {
+  --dex-bg: #f9a825;
+  --dex-dark: #c17900;
+  --dex-border: #a36800;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Trebuchet MS, sans-serif;
+
+  /* prevent body scrolling */
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.mute-btn {
+  height: 28px;
+  padding: 0 10px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  background: linear-gradient(to bottom, #0f3d3d, #081f1f);
+  color: #e0ffff;
+
+  border: 2px solid #1de9b6;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.3),
+    0 2px 0 rgba(0,0,0,0.4);
+}
+
+.mute-btn:hover {
+  box-shadow:
+    inset 0 0 10px rgba(0,255,255,0.5),
+    0 0 8px rgba(0,229,255,0.6);
+}
+
+/* =========================================================
+   LOADING OVERLAY (POKEDEX STYLE)
+   ========================================================= */
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.95)
+  );
+
+  backdrop-filter: blur(4px);
+}
+
+.loading-overlay.hidden {
+  display: none;
+}
+
+/* Loader body */
+.dex-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  padding: 20px 28px;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    to bottom,
+    var(--dex-bg),
+    var(--dex-dark)
+  );
+
+  border: 3px solid var(--dex-border);
+
+  box-shadow:
+    0 0 25px rgba(0,0,0,0.8),
+    inset 0 0 10px rgba(255,255,255,0.15);
+}
+
+/* Pulsing Pokédex light */
+.dex-light {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 30% 30%, #fff, var(--dex-accent));
+  box-shadow:
+    0 0 10px var(--dex-accent),
+    0 0 25px rgba(0,229,255,0.8);
+
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.dex-text {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 13px;
+  color: #e0ffff;
+  text-shadow: 0 0 6px rgba(0,255,255,0.6);
+}
+
+/* =========================================================
+   TOP BAR (FIXED)
+   ========================================================= */
+.top-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+
+  background: linear-gradient(
+    to bottom,
+    var(--dex-bg),
+    var(--dex-dark)
+  );
+
+  border-bottom: 4px solid var(--dex-border);
+  box-shadow:
+    inset 0 -2px 0 rgba(255,255,255,0.2),
+    0 4px 8px rgba(0,0,0,0.4);
+
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1000;
+}
+
+/* =========================================================
+   SECTION COMPLETION CELEBRATION
+   ========================================================= */
+
+.celebration {
+  position: fixed;
+  top: 110px;
+  right: -100%;
+  padding: 12px 20px;
+
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #e0ffff;
+  background: linear-gradient(
+    to bottom,
+    var(--dex-bg),
+    var(--dex-dark)
+  );
+
+  border: 3px solid var(--dex-border);
+  border-radius: 8px;
+
+  box-shadow:
+    0 0 10px rgba(0,255,255,0.7),
+    0 0 20px rgba(0,255,255,0.4);
+
+  z-index: 2000;
+}
+
+.celebration.show {
+  animation: celebration-slide 2.4s ease forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes celebration-slide {
+  0% {
+    right: -100%;
+    opacity: 0;
+  }
+  15% {
+    right: 20px;
+    opacity: 1;
+  }
+  85% {
+    right: 20px;
+    opacity: 1;
+  }
+  100% {
+    right: -100%;
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   OBJECTIVE SLIDE-IN ANIMATION
+   ========================================================= */
+
+.objective-text {
+  display: inline-block;
+  margin-left: 6px;
+
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* animation state */
+.objective-text.swap {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.top-row,
+.control-row,
+.active-section,
+.current-objective {
+  background: linear-gradient(
+    to bottom,
+    #0f3d3d,
+    #081f1f
+  );
+
+  border: 2px solid #1de9b6;
+  border-radius: 6px;
+  padding: 6px 8px;
+
+  color: #e0ffff;
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.3);
+}
+
+.top-row::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #00e5ff);
+  box-shadow:
+    0 0 6px #00e5ff,
+    0 0 12px rgba(0,255,255,0.6);
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+  white-space: nowrap;
+  color: #ffffff;
+  text-shadow:
+    0 1px 0 #000,
+    0 0 6px rgba(0,255,255,0.6);
+}
+
+.top-row {
+  display: flex;
+  justify-content: center;   /* ← hard center */
+  align-items: center;
+}
+
+.top-row .title {
+  max-width: 100%;
+  padding: 0 12px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .title {
+    letter-spacing: 0.6px;
+    font-size: 15px;
+  }
+}
+
+.control-row {
+  display: flex;
+  gap: 8px;
+}
+
+.control-row select {
+  height: 28px;
+  font-size: 13px;
+}
+
+.dex-counter {
+  min-width: 64px;
+  padding: 3px 8px;
+
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+
+  text-align: center;
+  color: #e0ffff;
+
+  background: linear-gradient(
+    to bottom,
+    #0f3d3d,
+    #081f1f
+  );
+
+  border: 2px solid #1de9b6;
+  border-radius: 5px;
+
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.35),
+    0 0 6px rgba(0,229,255,0.4);
+
+  line-height: 1.2;
+}
+
+.dex-counter::after {
+  content: '';
+  display: block;
+  margin-top: 2px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #00e5ff,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .dex-counter {
+    font-size: 13px;
+    padding: 4px 10px;
+  }
+}
+
+/* =========================================================
+   POKEDEX DROPDOWNS
+   ========================================================= */
+
+.control-row select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background:
+    linear-gradient(to bottom, #0f3d3d, #081f1f);
+  color: #e0ffff;
+
+  border: 2px solid #1de9b6;
+  border-radius: 6px;
+
+  padding: 6px 32px 6px 10px;
+  font-size: 13px;
+  font-weight: 600;
+
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.3),
+    0 2px 0 rgba(0,0,0,0.4);
+
+  cursor: pointer;
+  position: relative;
+}
+
+/* Dropdown arrow */
+.control-row select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #1de9b6 50%),
+    linear-gradient(135deg, #1de9b6 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 55%,
+    calc(100% - 12px) 55%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* Hover */
+.control-row select:hover {
+  box-shadow:
+    inset 0 0 10px rgba(0,255,255,0.5),
+    0 0 8px rgba(0,229,255,0.6);
+}
+
+/* Focus (keyboard & mobile accessibility) */
+.control-row select:focus {
+  outline: none;
+  box-shadow:
+    inset 0 0 12px rgba(0,255,255,0.7),
+    0 0 12px rgba(0,229,255,0.8);
+}
+
+/* Disabled option look */
+.control-row select option {
+  background: #081f1f;
+  color: #e0ffff;
+}
+
+/* =========================================================
+   RESET DROPDOWN — MATCH TAB STYLE
+   ========================================================= */
+
+#reset {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: linear-gradient(
+    to bottom,
+    #0f3d3d,
+    #081f1f
+  );
+
+  color: #e0ffff;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+
+  border: 2px solid #1de9b6;
+  border-radius: 6px;
+
+  padding: 6px 32px 6px 10px;
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.3),
+    0 2px 0 rgba(0,0,0,0.4);
+
+  transition:
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Hover / focus */
+#reset:hover,
+#reset:focus {
+  box-shadow:
+    inset 0 0 10px rgba(0,255,255,0.5),
+    0 0 8px rgba(0,229,255,0.6);
+}
+
+#reset {
+  background-image:
+    linear-gradient(45deg, transparent 50%, #1de9b6 50%),
+    linear-gradient(135deg, #1de9b6 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 55%,
+    calc(100% - 12px) 55%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   POKEDEX CHECKBOX REPLACEMENT
+   ========================================================= */
+
+/* === ROW LAYOUT: single source of truth === */
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0px 22px 64px 1fr;
+  column-gap: 12px;
+  padding: 10px 14px;
+  align-items: start;
+
+  border-bottom: 1px solid var(--divider-color);
+  background: linear-gradient(
+    to right,
+    rgba(0, 229, 255, 0.04),
+    rgba(255, 255, 255, 0.85)
+  );
+}
+
+.row input[type="checkbox"] {
+  grid-column: 1;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.pokeball {
+  grid-column: 2;
+}
+
+.sprite-frame {
+  grid-column: 3;
+}
+
+.text {
+  grid-column: 4;
+}
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 0px 22px 56px 1fr;
+    column-gap: 10px;
+  }
+}
+
+/* Status indicator */
+.dex-status {
+  min-width: 92px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111;
+  border: 2px solid #555;
+  color: #777;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+#rows::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.02),
+      rgba(0,0,0,0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+/* =========================================================
+   POKEDEX POKEBALL INDICATOR
+   ========================================================= */
+
+.pokeball {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 4px;
+
+  background:
+    linear-gradient(to bottom, #555 50%, #eee 50%);
+  border: 2px solid #333;
+
+  opacity: 0.35;
+  filter: grayscale(1);
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.pokeball::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  right: -2px;
+  height: 2px;
+  background: #333;
+  transform: translateY(-50%);
+}
+
+.pokeball::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* REGISTERED STATE */
+.row.registered .pokeball {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.1);
+
+  box-shadow:
+    0 0 6px rgba(255, 0, 0, 0.8),
+    0 0 12px rgba(255, 255, 255, 0.6);
+
+  background:
+    linear-gradient(to bottom, #d32f2f 50%, #ffffff 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row.registered::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pokeball {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .control-row {
+    gap: 12px;
+  }
+
+  .control-row select {
+    height: 34px;
+    font-size: 14px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .row img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* everything mobile-specific goes here */
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    height: auto;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .controls select,
+  .controls button {
+    width: 100%;
+  }
+}
+
+#version {
+  letter-spacing: 0.3px;
+}
+
+.active-section {
+  padding-top: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.active-section.swap {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.current-objective {
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+
+/* =========================================================
+   SCROLL CONTAINER (ROWS)
+   ========================================================= */
+#rows {
+  position: relative;
+  height: calc(100vh - var(--top-bar-height));
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom: 48px;
+
+  background: linear-gradient(
+      to bottom,
+      #f7ffff,
+      #eefafa
+    );
+}
+
+/* =========================================================
+   REGISTERED POKÉDEX FLASH
+   ========================================================= */
+
+.row.registered {
+  position: relative;
+  background: linear-gradient(
+    to right,
+    rgba(0, 229, 255, 0.08),
+    rgba(29, 233, 182, 0.12)
+  );
+}
+
+.row.registered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(0, 229, 255, 0.55),
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  animation: dex-scan 0.7s ease-out;
+  pointer-events: none;
+}
+
+@keyframes dex-scan {
+  from {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   GLOBAL PROGRESS
+   ========================================================= */
+.global-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+#global-counter {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .global-progress {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+#global-counter.dex-counter {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .dex-counter {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+.progress-container {
+  flex: 1;
+  height: 10px;
+  background: #000;
+  border: 2px solid #1de9b6;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .global-progress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  #global-counter {
+    text-align: left;
+  }
+}
+
+#progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #00e5ff,
+    #1de9b6
+  );
+  box-shadow: 0 0 8px rgba(0,255,255,0.8);
+}
+
+/* =========================================================
+   SECTION HEADERS — POKEDEX STYLE
+   ========================================================= */
+
+.section-header {
+  position: sticky;
+  top: 0;
+
+  padding: 10px 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  user-select: none;
+
+  border-radius: 6px;
+  margin: 6px 8px;
+
+  color: #e0ffff;
+
+  background: linear-gradient(
+    to bottom,
+    #0f3d3d,
+    #081f1f
+  );
+
+  border: 2px solid #1de9b6;
+
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.35),
+    0 3px 0 rgba(0,0,0,0.4);
+
+  z-index: 40;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Hover / press feedback */
+.section-header:hover {
+  filter: brightness(1.1);
+}
+
+.section-header:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 0 10px rgba(0,255,255,0.6),
+    0 1px 0 rgba(0,0,0,0.4);
+}
+
+.section-header.completed {
+  opacity: 0.85;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 229, 255, 0.25),
+    #081f1f
+  );
+
+  box-shadow:
+    inset 0 0 8px rgba(0, 229, 255, 0.35),
+    0 3px 0 rgba(0,0,0,0.4);
+}
+
+.section-header.completed:hover {
+  filter: brightness(1.1);
+}
+
+/* =========================================================
+   VERSION ACCENTS
+   ========================================================= */
+
+body.red .section-header {
+  border-color: #ff5252;
+  box-shadow:
+    inset 0 0 6px rgba(255,82,82,0.4),
+    0 3px 0 rgba(0,0,0,0.4);
+}
+
+body.blue .section-header {
+  border-color: #42a5f5;
+  box-shadow:
+    inset 0 0 6px rgba(66,165,245,0.4),
+    0 3px 0 rgba(0,0,0,0.4);
+}
+
+body.yellow .section-header {
+  border-color: #fff176;
+  box-shadow:
+    inset 0 0 6px rgba(255,241,118,0.4),
+    0 3px 0 rgba(0,0,0,0.4);
+}
+
+/* =========================================================
+   ROWS (POKÉMON)
+   ========================================================= */
+
+.text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #003333;
+  line-height: 1.25;
+}
+
+.info {
+  margin-top: 2px;
+  font-size: 12px;
+  font-style: italic;
+  color: #355f5f;
+  line-height: 1.3;
+  white-space: pre-wrap;
+}
+
+.notes {
+  margin-top: 6px;
+  padding: 6px 8px;
+
+  font-size: 12px;
+  color: #004d4d;
+
+  background: rgba(0, 229, 255, 0.06);
+  border-left: 3px solid #00e5ff;
+  border-radius: 4px;
+
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 1rem;
+  }
+
+  .info,
+  .notes {
+    font-size: 0.85rem;
+  }
+}
+
+.sprite-frame {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+body.red .row::before {
+  background: #ff5252;
+}
+
+body.blue .row::before {
+  background: #42a5f5;
+}
+
+body.yellow .row::before {
+  background: #ffd54f;
+}
+
+.row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+
+  background: var(--dex-accent);
+  border-radius: 2px;
+
+  opacity: 0.15;
+}
+
+.row.hidden {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  pointer-events: none;
+}
+
+/* visible state */
+.row {
+  max-height: 200px; /* safely larger than tallest row */
+  opacity: 1;
+}
+
+.row img {
+  width: auto;
+  height: 48px;          /* consistent vertical rhythm */
+  max-width: 56px;       /* prevents extremely wide sprites */
+
+  image-rendering: pixelated;
+  flex-shrink: 0;
+
+  object-fit: contain;
+  object-position: center;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    box-shadow 0.25s ease;
+
+  cursor: pointer;
+}
+
+.row img {
+  margin-top: 2px;
+}
+
+.row {
+  overflow: hidden;
+
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    padding 0.35s ease,
+    margin 0.35s ease;
+}
+
+@media (max-width: 768px) {
+  .row img {
+    height: 56px;
+    max-width: 64px;
+  }
+}
+
+.sprite-frame img {
+  max-height: 100%;
+  max-width: 100%;
+
+  width: auto;
+  height: auto;
+
+  image-rendering: pixelated;
+  object-fit: contain;
+
+  /* 🔥 KEY FIX */
+  transform: scale(1.15);
+}
+
+@media (max-width: 768px) {
+  .sprite-frame {
+    width: 64px;
+    height: 64px;
+  }
+
+  .sprite-frame img {
+    transform: scale(1.2);
+  }
+}
+
+.row:hover img {
+  transform: scale(1.6);
+  z-index: 5;
+
+  filter:
+    drop-shadow(0 0 6px rgba(0, 229, 255, 0.9))
+    brightness(1.15);
+}
+
+.row img:active {
+  transform: scale(1.4);
+  filter:
+    drop-shadow(0 0 10px rgba(0, 255, 255, 1))
+    brightness(1.25);
+}
+
+.row img.mobile-zoom {
+  transform: scale(1.45);
+  z-index: 6;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* =========================================================
+   MOBILE SCROLL FIX (iOS SAFARI)
+   ========================================================= */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+}
+
+/* Desktop hover effects ONLY */
+@media (hover: hover) and (pointer: fine) {
+  .row:hover img {
+    transform: scale(1.6);
+    z-index: 5;
+    filter:
+      drop-shadow(0 0 6px rgba(0, 229, 255, 0.9))
+      brightness(1.15);
+  }
+
+  .section-header:hover {
+    filter: brightness(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .sprite-frame img {
+    transform: scale(1.1);
+  }
+
+  .row img.mobile-zoom {
+    transform: scale(1.45);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    padding: 12px 14px;
+    font-size: 15px;
+  }
+
+  .section-header:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .top-bar {
+    padding: 12px 16px;
+  }
+
+  .control-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  #rows {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 768px) {
+  .control-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .control-row select,
+  .mute-btn {
+    width: 100%;
+  }
+}
+
+.row {
+  transition-delay: 0ms;
+}
+
+.row.hidden {
+  transition-delay: 40ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   TOP BAR – ROW 3 FIXED 3-COLUMN LAYOUT (TABLET + MOBILE)
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  /* Keep top bar compact */
+  .top-bar {
+    padding: 8px 10px;
+    gap: 4px;
+  }
+
+  /* ROW 3: force single-row, 3-column layout */
+  .control-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+
+    gap: 6px;
+    padding: 4px 6px;
+
+    /* CRITICAL: prevent growth */
+    height: auto;
+  }
+
+  /* Version + Reset dropdowns */
+  .control-row select {
+    width: 100%;
+    height: 28px;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  /* Mute button stays compact */
+  .mute-btn {
+    height: 28px;
+    padding: 0 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+/* =========================================================
+   TOP BAR – ROW 2 GLOBAL PROGRESS (TABLET + MOBILE)
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .global-progress {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+
+    gap: 8px;
+    padding: 4px 6px;
+
+    width: 100%;
+  }
+
+  /* Counter stays readable but compact */
+  #global-counter {
+    font-size: 12px;
+    padding: 4px 8px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* Progress bar uses remaining space */
+  .progress-container {
+    height: 8px;
+    border-width: 2px;
+  }
+}
+
+/* =========================================================
+   TOP BAR – ROW 4 CURRENT OBJECTIVE (MOBILE + TABLET)
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .current-objective {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    padding: 6px 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 13px;
+  }
+
+  .current-objective .objective-text {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
