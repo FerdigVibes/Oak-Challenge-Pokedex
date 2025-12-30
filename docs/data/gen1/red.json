@@ -3,83 +3,83 @@
   "total": 124,
   "sections": [
     {
-  "key": "STARTER",
-  "title": "Choose Your Starter!",
-  "required": 3,
-  "exclusive": true,
-  "families": [
-    ["Bulbasaur", "Ivysaur", "Venusaur"],
-    ["Charmander", "Charmeleon", "Charizard"],
-    ["Squirtle", "Wartortle", "Blastoise"]
-  ],
-  "pokemon": [
-    {
-      "dex": "001",
-      "name": "Bulbasaur",
-      "image": "sprites/001-bulbasaur.gif",
-      "info": "Starter Pokémon",
-      "notes": ""
-    },
-    {
-      "dex": "002",
-      "name": "Ivysaur",
-      "image": "sprites/002-ivysaur.gif",
-      "info": "Evolution of Bulbasaur",
-      "notes": ""
-    },
-    {
-      "dex": "003",
-      "name": "Venusaur",
-      "image": "sprites/003-venusaur.gif",
-      "info": "Final evolution of Bulbasaur",
-      "notes": ""
-    },
+      "key": "STARTER",
+      "title": "Choose Your Starter!",
+      "required": 3,
+      "exclusive": true,
+      "families": [
+        ["Bulbasaur", "Ivysaur", "Venusaur"],
+        ["Charmander", "Charmeleon", "Charizard"],
+        ["Squirtle", "Wartortle", "Blastoise"]
+      ],
+      "pokemon": [
+        {
+          "dex": "001",
+          "name": "Bulbasaur",
+          "image": "sprites/001-bulbasaur.gif",
+          "info": "Starter Pokémon",
+          "notes": ""
+        },
+        {
+          "dex": "002",
+          "name": "Ivysaur",
+          "image": "sprites/002-ivysaur.gif",
+          "info": "Evolution of Bulbasaur",
+          "notes": ""
+        },
+        {
+          "dex": "003",
+          "name": "Venusaur",
+          "image": "sprites/003-venusaur.gif",
+          "info": "Final evolution of Bulbasaur",
+          "notes": ""
+        },
 
-    {
-      "dex": "004",
-      "name": "Charmander",
-      "image": "sprites/004-charmander.gif",
-      "info": "Starter Pokémon",
-      "notes": ""
-    },
-    {
-      "dex": "005",
-      "name": "Charmeleon",
-      "image": "sprites/005-charmeleon.gif",
-      "info": "Evolution of Charmander",
-      "notes": ""
-    },
-    {
-      "dex": "006",
-      "name": "Charizard",
-      "image": "sprites/006-charizard.gif",
-      "info": "Final evolution of Charmander",
-      "notes": ""
-    },
+        {
+          "dex": "004",
+          "name": "Charmander",
+          "image": "sprites/004-charmander.gif",
+          "info": "Starter Pokémon",
+          "notes": ""
+        },
+        {
+          "dex": "005",
+          "name": "Charmeleon",
+          "image": "sprites/005-charmeleon.gif",
+          "info": "Evolution of Charmander",
+          "notes": ""
+        },
+        {
+          "dex": "006",
+          "name": "Charizard",
+          "image": "sprites/006-charizard.gif",
+          "info": "Final evolution of Charmander",
+          "notes": ""
+        },
 
-    {
-      "dex": "007",
-      "name": "Squirtle",
-      "image": "sprites/007-squirtle.gif",
-      "info": "Starter Pokémon",
-      "notes": ""
+        {
+          "dex": "007",
+          "name": "Squirtle",
+          "image": "sprites/007-squirtle.gif",
+          "info": "Starter Pokémon",
+          "notes": ""
+        },
+        {
+          "dex": "008",
+          "name": "Wartortle",
+          "image": "sprites/008-wartortle.gif",
+          "info": "Evolution of Squirtle",
+          "notes": ""
+        },
+        {
+          "dex": "009",
+          "name": "Blastoise",
+          "image": "sprites/009-blastoise.gif",
+          "info": "Final evolution of Squirtle",
+          "notes": ""
+        }
+      ]
     },
-    {
-      "dex": "008",
-      "name": "Wartortle",
-      "image": "sprites/008-wartortle.gif",
-      "info": "Evolution of Squirtle",
-      "notes": ""
-    },
-    {
-      "dex": "009",
-      "name": "Blastoise",
-      "image": "sprites/009-blastoise.gif",
-      "info": "Final evolution of Squirtle",
-      "notes": ""
-    }
-  ]
-},
 
     {
       "key": "PEWTER",
@@ -87,12 +87,11 @@
       "required": 18,
       "pokemon": [
         {
-          "id": "caterpie",
-          "dex": 10,
+          "dex": "010",
           "name": "Caterpie",
+          "image": "sprites/010-caterpie.gif",
           "info": "Route 2",
-          "notes": "",
-          "image": "assets/sprites/010-caterpie.gif"
+          "notes": ""
         }
       ]
     }
