@@ -259,9 +259,54 @@ function loadStateForVersion(version) {
   catch { return {}; }
 }
 
+function getRowsForFamilyInRange(familyNames, startRow, endRow) {
+  const normalized = familyNames.map(normalizeName);
+
+  return pokemonList
+    .filter(p =>
+      p.type === 'pokemon' &&
+      p.row >= startRow &&
+      p.row <= endRow &&
+      normalized.includes(normalizeName(p.name))
+    )
+    .map(p => p.row);
+}
+
 function saveStateForVersion(version, newState) {
   const key = `${STORAGE_KEY_PREFIX}:${version}`;
   localStorage.setItem(key, JSON.stringify(newState));
+}
+
+function applyStarterExclusivity() {
+  // Only applies to Red / Blue
+  if (currentVersion !== 'Red' && currentVersion !== 'Blue') return;
+
+  const cfg = getLayout().STARTER;
+  if (!cfg) return;
+
+  const [startRow, endRow] = cfg.range;
+
+  const families = [
+    ['Bulbasaur', 'Ivysaur', 'Venusaur'],
+    ['Charmander', 'Charmeleon', 'Charizard'],
+    ['Squirtle', 'Wartortle', 'Blastoise']
+  ].map(family =>
+    getRowsForFamilyInRange(family, startRow, endRow)
+  );
+
+  // Determine which family (if any) is chosen
+  const chosenFamilyIndex = families.findIndex(rows =>
+    rows.some(r => state[r] === true)
+  );
+
+  // No starter chosen yet → show everything
+  if (chosenFamilyIndex === -1) return;
+
+  // Hide ALL other families
+  families.forEach((rows, index) => {
+    if (index === chosenFamilyIndex) return;
+    rows.forEach(hideRow);
+  });
 }
 
 const getLayout = () =>
@@ -836,12 +881,12 @@ function applyRules() {
     r.classList.remove('hidden')
   );
 
-  // 2. Exclusivity (must be BEFORE collapse)
+  // 2. Exclusivity rules
   applyStarterExclusivity();
   applyFinalEvolutionHiding();
   applyFossilExclusivity();
 
-  // 3. Collapse LAST
+  // 3. Section collapsing LAST
   collapsedSections.forEach(headerRow => {
     getRowsUnderHeader(headerRow).forEach(hideRow);
   });
