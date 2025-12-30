@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Oak Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="./styles/main.css">
 </head>
-<body>
-  Loading…
+
+<body class="red">
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="dex-loader">
+     <div class="dex-light"></div>
+     <div class="dex-text">LOADING DATA…</div>
+    </div>
+  </div>
+  <!-- ======================================================
+       TOP BAR (FIXED)
+       ====================================================== -->
+  <div class="top-bar">
+
+    <!-- Row 1: Title + Progress -->
+    <div class="top-row">
+      <div class="title">Pokémon Oak Challenge - Kanto</div>
+    </div>
+
+    <!-- Row 2: Active Section Reader -->
+      <div class="global-progress">
+        <div id="global-counter" class="dex-counter">0/124</div>
+        <div class="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+      </div>
+
+    <!-- Row 3: Controls -->
+    <div class="control-row">
+      <select id="version">
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Yellow">Yellow</option>
+      </select>
+
+      <select id="reset">
+        <option value="">Reset Section →</option>
+      </select>
+
+      <button id="mute-cries" class="mute-btn" title="Toggle Pokémon cries">
+        🔊
+      </button>
+    </div>
+
+    <div id="current-objective" class="current-objective">
+      Current Objective:
+      <span id="objective-text" class="objective-text">—</span>
+    </div>
+
+  </div>
+
+ <div id="celebration" class="celebration hidden"></div>
+
+  <!-- ======================================================
+       SCROLLING CONTENT
+       ====================================================== -->
+  <div id="rows"></div>
+ <script src="./scripts/app.js" defer></script>
 </body>
 </html>
