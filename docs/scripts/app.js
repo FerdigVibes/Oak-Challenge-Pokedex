@@ -628,18 +628,58 @@ function getRowsForFamilyInRange(familyNames, startRow, endRow) {
 /* =========================================================
    DATA LOADING & RENDERING
    ========================================================= */
-function loadPokemonData() {
+async function loadPokemonData() {
   appPhase = 'loading';
   showLoading();
 
-  // TEMP: GitHub Pages stub
-  pokemonList = [];
-  state = {};
+  try {
+    const res = await fetch(`data/gen1/${currentVersion.toLowerCase()}.json`);
+    const json = await res.json();
 
-  appPhase = 'active';
-  renderRows();
-  refreshUI();
-  hideLoading();
+    pokemonList = [];
+    state = {};
+
+    let virtualRow = 1;
+
+    json.sections.forEach(section => {
+      // Header
+      pokemonList.push({
+        type: 'header',
+        row: virtualRow++,
+        title: section.title,
+        key: section.key,
+        headerLevel: 'major'
+      });
+
+      section.pokemon.forEach(p => {
+        pokemonList.push({
+          type: 'pokemon',
+          row: virtualRow++,
+          dex: p.dex,
+          name: p.name,
+          info: p.info || '',
+          notes: p.notes || '',
+          image: p.image,
+          id: p.id
+        });
+      });
+    });
+
+    const saved = loadProgressForVersion(currentVersion);
+    pokemonList.forEach(i => {
+      if (i.type === 'pokemon') {
+        state[i.row] = saved[i.row] ?? false;
+      }
+    });
+
+    renderRows();
+    appPhase = 'active';
+    refreshUI();
+  } catch (err) {
+    console.error('Failed to load JSON:', err);
+  } finally {
+    hideLoading();
+  }
 }
 
 function renderRows() {
