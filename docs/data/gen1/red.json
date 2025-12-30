@@ -1,1 +1,53 @@
-Red info
+{
+  "version": "Red",
+  "total": 124,
+  "sections": [
+    {
+      "key": "STARTER",
+      "title": "Choose Your Starter!",
+      "required": 3,
+      "pokemon": [
+        {
+          "id": "bulbasaur",
+          "dex": 1,
+          "name": "Bulbasaur",
+          "info": "Pallet Town",
+          "notes": "",
+          "image": "assets/sprites/001-bulbasaur.gif"
+        },
+        {
+          "id": "charmander",
+          "dex": 4,
+          "name": "Charmander",
+          "info": "Pallet Town",
+          "notes": "",
+          "image": "assets/sprites/004-charmander.gif"
+        },
+        {
+          "id": "squirtle",
+          "dex": 7,
+          "name": "Squirtle",
+          "info": "Pallet Town",
+          "notes": "",
+          "image": "assets/sprites/007-squirtle.gif"
+        }
+      ]
+    },
+
+    {
+      "key": "PEWTER",
+      "title": "Pewter Pokémon",
+      "required": 18,
+      "pokemon": [
+        {
+          "id": "caterpie",
+          "dex": 10,
+          "name": "Caterpie",
+          "info": "Route 2",
+          "notes": "",
+          "image": "assets/sprites/010-caterpie.gif"
+        }
+      ]
+    }
+  ]
+}
