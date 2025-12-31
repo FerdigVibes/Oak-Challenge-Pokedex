@@ -1,48 +1,47 @@
 /* =========================================================
-   GLOBAL STATE
+   OAK CHALLENGE (GitHub/JSON Backend) — script.js
+   - Loads data from:   data/gen1/red.json | blue.json | yellow.json
+   - Loads sprites from: assets/sprites/{dex}-{slug}.gif
+   - Loads cries from:   assets/cries/{dex}.ogg
+   - Persists progress in localStorage per version
+   - All rules (starter exclusivity, etc.) are JSON-driven
    ========================================================= */
-let pokemonList = [];
-let state = {};
-let currentVersion = 'Red';
-let collapsedSections = new Set();
-let userExpandedSections = new Set();
-let autoCollapsedSections = new Set();
-let isInitialLoad = true;
-
-const sectionCompletion = { STARTER: false };
-const completedObjectives = new Set();
-
-const STORAGE_KEY = 'oak-challenge-v1';
 
 /* =========================================================
-   POKÉMON CRY SYSTEM
+   GLOBAL STATE
    ========================================================= */
+let currentVersion = 'Red';
+let currentData = null;             // the loaded JSON for the current version
+let pokemonList = [];               // flattened render list: headers + pokemon rows
+let state = {};                     // { [pokemonId]: true/false }
+let collapsedSections = new Set();  // Set<sectionKey> collapsed
+let userExpandedSections = new Set(); // Set<sectionKey> sections user forced open
 
+const STORAGE_KEY = 'oak-challenge-v1';
+const STORAGE_MUTE_KEY = 'criesMuted';
+
+/* =========================================================
+   CRY SYSTEM
+   ========================================================= */
 const CRY_BASE_URL = 'assets/cries/';
-
 let activeCry = null;
 
 let criesMuted = false;
+try { criesMuted = localStorage.getItem(STORAGE_MUTE_KEY) === 'true'; } catch {}
 
-// Load saved preference
-try {
-  criesMuted = localStorage.getItem('criesMuted') === 'true';
-} catch {}
+function playPokemonCry(dex) {
+  if (!dex || criesMuted) return;
 
-function playPokemonCry(dexNumber) {
-  if (!dexNumber || criesMuted) return;
-
-  // Stop any currently playing cry
   if (activeCry) {
     activeCry.pause();
     activeCry.currentTime = 0;
   }
 
-  const audio = new Audio(`${CRY_BASE_URL}${dexNumber}.ogg`);
+  const audio = new Audio(`${CRY_BASE_URL}${String(dex).padStart(3, '0')}.ogg`);
   audio.volume = 0.6;
 
   audio.play().catch(err => {
-    // Mobile Safari requires user interaction — this is expected
+    // mobile browsers may block autoplay; expected until user interacts
     console.warn('Cry playback blocked:', err);
   });
 
@@ -62,20 +61,19 @@ function wireMuteButton() {
   btn.addEventListener('click', () => {
     criesMuted = !criesMuted;
 
-    // Stop any current sound immediately
     if (criesMuted && activeCry) {
       activeCry.pause();
       activeCry.currentTime = 0;
     }
 
-    try {
-      localStorage.setItem('criesMuted', String(criesMuted));
-    } catch {}
-
+    try { localStorage.setItem(STORAGE_MUTE_KEY, String(criesMuted)); } catch {}
     updateIcon();
   });
 }
 
+/* =========================================================
+   LOCAL STORAGE
+   ========================================================= */
 function loadAllProgress() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -84,8 +82,10 @@ function loadAllProgress() {
   }
 }
 
-function saveAllProgress(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+function saveAllProgress(all) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  } catch {}
 }
 
 function loadProgressForVersion(version) {
@@ -93,9 +93,9 @@ function loadProgressForVersion(version) {
   return all[version] || {};
 }
 
-function saveProgressForVersion(version, state) {
+function saveProgressForVersion(version, versionState) {
   const all = loadAllProgress();
-  all[version] = state;
+  all[version] = versionState;
   saveAllProgress(all);
 }
 
@@ -105,545 +105,162 @@ function clearProgressForVersion(version) {
   saveAllProgress(all);
 }
 
-function clearAllProgress() {
-  localStorage.removeItem(STORAGE_KEY);
-}
-
-const STORAGE_KEY_PREFIX = 'oak-challenge';
-
-function loadStateForVersion(version) {
-  const key = `${STORAGE_KEY_PREFIX}:${version}`;
-  try { return JSON.parse(localStorage.getItem(key)) || {}; }
-  catch { return {}; }
-}
-
-function getRowsForFamilyInRange(familyNames, startRow, endRow) {
-  const normalized = familyNames.map(normalizeName);
-
-  return pokemonList
-    .filter(p =>
-      p.type === 'pokemon' &&
-      p.row >= startRow &&
-      p.row <= endRow &&
-      normalized.includes(normalizeName(p.name))
-    )
-    .map(p => p.row);
-}
-
-function saveStateForVersion(version, newState) {
-  const key = `${STORAGE_KEY_PREFIX}:${version}`;
-  localStorage.setItem(key, JSON.stringify(newState));
-}
-
-function applyStarterExclusivity() {
-  // Only applies to Red / Blue
-  if (currentVersion !== 'Red' && currentVersion !== 'Blue') return;
-
-  const cfg = getLayout().STARTER;
-  if (!cfg) return;
-
-  const [startRow, endRow] = cfg.range;
-
-  const families = [
-    ['Bulbasaur', 'Ivysaur', 'Venusaur'],
-    ['Charmander', 'Charmeleon', 'Charizard'],
-    ['Squirtle', 'Wartortle', 'Blastoise']
-  ].map(family =>
-    getRowsForFamilyInRange(family, startRow, endRow)
-  );
-
-  // Determine which family (if any) is chosen
-  const chosenFamilyIndex = families.findIndex(rows =>
-    rows.some(r => state[r] === true)
-  );
-
-  // No starter chosen yet → show everything
-  if (chosenFamilyIndex === -1) return;
-
-  // Hide ALL other families
-  families.forEach((rows, index) => {
-    if (index === chosenFamilyIndex) return;
-    rows.forEach(hideRow);
-  });
-}
-
-const getLayout = () =>
-  currentVersion === 'Yellow'
-    ? SECTION_LAYOUTS.Yellow
-    : SECTION_LAYOUTS.RedBlue;
-
-const SECTION_UNLOCK_RULES = {
-  'MOON STONE 1': () => {
-    if (currentVersion === 'Yellow') return true; // count-based handles it
-    const cfg = SECTION_LAYOUTS.RedBlue.PEWTER;
-    return isAnyChecked(cfg.range[0], cfg.range[1]);
-  },
-
-  'MOON STONE 2': () => {
-    if (currentVersion === 'Yellow') return true;
-    const cfg = SECTION_LAYOUTS.RedBlue.CELADON;
-    return isAnyChecked(cfg.range[0], cfg.range[1]);
-  },
-
-  'FOSSIL': () => {
-    if (currentVersion === 'Yellow') return true;
-    const cfg = SECTION_LAYOUTS.RedBlue['MOON STONE 1'];
-    return isAnyChecked(cfg.range[0], cfg.range[1]);
-  }
-};
-
-const EXCLUSIVE_GROUPS = [
-  {
-    section: 'FOSSIL',
-    families: [
-      ['Omanyte', 'Omastar'],
-      ['Kabuto', 'Kabutops']
-    ]
-  }
-];
-
-const SECTION_HEADER_TITLES = {
-  STARTER: {
-    Red: 'Choose Your Starter!',
-    Blue: 'Choose Your Starter!',
-    Yellow: 'I CHOOSE YOU, PIKACHU!!!'
-  },
-
-  PEWTER: {
-    Red: 'Pewter Pokemon',
-    Blue: 'Pewter Pokemon',
-    Yellow: 'Pewter Pokemon'
-  },
-
-  CERULEAN: {
-    Red: 'Cerulean Pokemon',
-    Blue: 'Cerulean Pokemon',
-    Yellow: 'Cerulean Pokemon'
-  },
-
-  'MOON STONE 1': {
-    Red: 'Choose Two Moon Stone Evolutions',
-    Blue: 'Choose Two Moon Stone Evolutions',
-    Yellow: 'Choose Two Moon Stone Evolutions'
-  },
-
-  FUCHSIA: {
-    Red: 'Fuchsia Pokemon',
-    Blue: 'Fuchsia Pokemon',
-    Yellow: 'Fuchsia Pokemon'
-  },
-
-  'MOON STONE 2': {
-    Red: 'Remaining Two Moon Stone Evolutions',
-    Blue: 'Remaining Two Moon Stone Evolutions',
-    Yellow: 'Remaining Two Moon Stone Evolutions'
-  },
-
-  EEVEE: {
-    Red: 'Choose Your Eevee Evolution',
-    Blue: 'Choose Your Eevee Evolution',
-    Yellow: 'Choose Your Eevee Evolution'
-  },
-
-  DOJO: {
-    Red: 'Choose One Fighting Dojo Prize',
-    Blue: 'Choose One Fighting Dojo Prize',
-    Yellow: 'Choose One Fighting Dojo Prize'
-  },
-
-  CELADON: {
-    Red: 'Celadon Pokemon',
-    Blue: 'Celadon Pokemon',
-    Yellow: 'Celadon Pokemon'
-  },
-
-  FOSSIL: {
-    Red: 'Revive One Fossil Line',
-    Blue: 'Revive One Fossil Line',
-    Yellow: 'Revive One Fossil Line'
-  },
-
-  SQUIRTLE: {
-    Yellow: 'Squirtle Line'
-  },
-
-  ARTICUNO: {
-    Red: 'Articuno',
-    Blue: 'Articuno',
-    Yellow: 'Articuno'
-  },
-
-  MOLTRES: {
-    Red: 'Moltres',
-    Blue: 'Moltres',
-    Yellow: 'Moltres'
-  },
-
-  'CERULEAN CAVE': {
-    Red: 'Cerulean Cave Pokemon',
-    Blue: 'Cerulean Cave Pokemon',
-    Yellow: 'Cerulean Cave Pokemon'
-  },
-};
-
-const FINAL_MOONSTONE_EVOS = [
-  'Nidoking',
-  'Nidoqueen',
-  'Clefable',
-  'Wigglytuff'
-];
-
-const STARTER_EXCLUSIVE_GROUP = {
-  section: 'STARTER',
-  versions: ['Red', 'Blue'],
-  families: [
-    ['Bulbasaur', 'Ivysaur', 'Venusaur'],
-    ['Charmander', 'Charmeleon', 'Charizard'],
-    ['Squirtle', 'Wartortle', 'Blastoise']
-  ]
-};
-
 /* =========================================================
-   HELPERS
+   UTILITIES
    ========================================================= */
-const hideRow = r => {
-  const el = document.querySelector(`.row[data-row="${r}"]`);
-  if (el) el.classList.add('hidden');
-};
-
-const isAnyChecked = (s,e) => {
-  for (let r=s;r<=e;r++) if (state[r]) return true;
-  return false;
-};
-
-const getRowsUnderHeader = hr => {
-  const rows=[];
-  for (let i=0;i<pokemonList.length;i++){
-    if(pokemonList[i].type==='header'&&pokemonList[i].row===hr){
-      for(let j=i+1;j<pokemonList.length;j++){
-        if(pokemonList[j].type==='header') break;
-        if(pokemonList[j].type==='pokemon') rows.push(pokemonList[j].row);
-      }
-      break;
-    }
-  }
-  return rows;
-};
-
-function setRegistered(rowEl, isRegistered) {
-  if (!rowEl) return;
-  rowEl.classList.toggle('registered', !!isRegistered);
-}
-
-function syncTopBarOffset() {
-  const topBar = document.querySelector('.top-bar');
-  if (!topBar) return;
-
-  const height = topBar.getBoundingClientRect().height;
-  document.documentElement.style.setProperty(
-    '--top-bar-offset',
-    `${height}px`
-  );
-}
-
-function normalizeName(str) {
-  return String(str)
+function slugifyName(name) {
+  return String(name)
     .toLowerCase()
     .replace(/\.(gif|png|jpg|jpeg)$/i, '')
     .replace(/#[0-9]+/g, '')
-    .replace(/[^a-z0-9]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')   // hyphenate
+    .replace(/^-+|-+$/g, '')
     .trim();
 }
 
-function getResetLabelForKey(sectionKey) {
-  const opts = RESET_OPTIONS[currentVersion] || [];
-  const hit = opts.find(o => o.key === sectionKey);
-  return hit ? hit.label : sectionKey;
+function dex3(dex) {
+  // supports numeric or string
+  const n = String(dex).replace(/\D/g, '');
+  return n.padStart(3, '0');
 }
 
-function getHeaderBySectionName(sectionKey) {
-  const titles = SECTION_HEADER_TITLES[sectionKey];
-  if (!titles) return null;
-
-  const title = titles[currentVersion];
-  if (!title) return null;
-
-  return pokemonList.find(
-    i => i.type === 'header' && i.title === title
-  );
+function pokemonId(sectionKey, dex) {
+  return `${sectionKey}:${dex3(dex)}`;
 }
 
-function resetSectionByKey(sectionKey) {
-  const layout = getLayout();
-  const cfg = layout[sectionKey];
-  if (!cfg) return;
-
-  const [start, end] = cfg.range;
-
-  for (let r = start; r <= end; r++) {
-    state[r] = false;
-
-    const rowEl = document.querySelector(`.row[data-row="${r}"]`);
-    if (rowEl) {
-      rowEl.classList.remove('registered');
-
-      const cb = rowEl.querySelector('input[type="checkbox"]');
-      if (cb) cb.checked = false;
-    }
-  }
-
-  // 🔥 CRITICAL FIX
-  const header = getHeaderBySectionName(sectionKey);
-  if (header) {
-    collapsedSections.delete(header.row);
-    autoCollapsedSections.delete(header.row);
-    userExpandedSections.delete(header.row);
-  }
-
-  saveProgressForVersion(currentVersion, state);
-  refreshUI();
-}
-
-function getHeaderRowByTitle(title) {
-  const h = pokemonList.find(
-    i => i.type === 'header' && i.title === title
-  );
-  return h ? h.row : null;
-}
-
-function getRowsForFamilyInSection(familyNames, sectionTitle) {
-  const headerRow = getHeaderRowByTitle(sectionTitle);
-  if (!headerRow) return [];
-
-  const sectionRows = new Set(getRowsUnderHeader(headerRow)); // rows in this section only
-  const normalized = familyNames.map(normalizeName);
-
-  return pokemonList
-    .filter(i =>
-      i.type === 'pokemon' &&
-      sectionRows.has(i.row) &&
-      normalized.includes(normalizeName(i.name))
-    )
-    .map(i => i.row);
-}
-
-function isFamilyChosen(rows) {
-  return rows.some(r => state[r]);
-}
-
-function applyFinalEvolutionHiding() {
-  const finals = FINAL_MOONSTONE_EVOS.map(normalizeName);
-
-  // Group rows by normalized Pokémon name
-  const groups = {};
-
-  pokemonList.forEach(i => {
-    if (
-      i.type === 'pokemon' &&
-      finals.includes(normalizeName(i.name))
-    ) {
-      const key = normalizeName(i.name);
-      if (!groups[key]) groups[key] = [];
-      groups[key].push(i.row);
-    }
-  });
-
-  // For each group, if one is checked, hide the unchecked duplicates
-  Object.values(groups).forEach(rows => {
-    const checkedRow = rows.find(r => state[r] === true);
-    if (!checkedRow) return;
-
-    rows.forEach(r => {
-      if (r !== checkedRow) {
-        hideRow(r);
-      }
-    });
-  });
-}
-
-function applyStarterExclusivity() {
-  // Only applies to Red / Blue
-  if (currentVersion !== 'Red' && currentVersion !== 'Blue') return;
-
-  const cfg = getLayout().STARTER; // uses SECTION_LAYOUTS
-  const [startRow, endRow] = cfg.range;
-
-  const families = STARTER_EXCLUSIVE_GROUP.families.map(f =>
-    getRowsForFamilyInRange(f, startRow, endRow)
-  );
-
-  const chosenIndex = families.findIndex(isFamilyChosen);
-  if (chosenIndex === -1) return;
-
-  families.forEach((rows, idx) => {
-    if (idx === chosenIndex) return;
-    rows.forEach(hideRow);
-  });
-}
-
-function updateCurrentObjective() {
-  const container = document.getElementById('current-objective');
-  const textEl = document.getElementById('objective-text');
-  if (!container || !textEl) return;
-
-  const totalCaught = pokemonList
-    .filter(i => i.type === 'pokemon' && state[i.row] === true)
-    .length;
-
-  const rules = OBJECTIVE_THRESHOLDS[currentVersion];
-  if (!rules) return;
-
-  let newLabel = 'ALL OBJECTIVES COMPLETE';
-
-  for (const rule of rules) {
-    if (totalCaught < rule.limit) {
-      newLabel = rule.label;
-      break;
-    }
-  }
-
-  // 🔁 Do nothing if text did not change
-  if (textEl.textContent === newLabel) return;
-
-  // Animate out
-  textEl.classList.add('swap');
-
-  // After fade-out, swap text and animate in
-  setTimeout(() => {
-    textEl.textContent = newLabel;
-    textEl.classList.remove('swap');
-  }, 180);
-}
-
-function getRowsForFamilyInRange(familyNames, startRow, endRow) {
-  const normalized = familyNames.map(normalizeName);
-
-  return pokemonList
-    .filter(i =>
-      i.type === 'pokemon' &&
-      i.row >= startRow &&
-      i.row <= endRow &&
-      normalized.includes(normalizeName(i.name))
-    )
-    .map(i => i.row);
+function setBodyTheme(version) {
+  document.body.classList.remove('red', 'blue', 'yellow');
+  document.body.classList.add(String(version).toLowerCase());
 }
 
 /* =========================================================
-   DATA LOADING & RENDERING
+   DATA LOADING
    ========================================================= */
 async function loadPokemonData() {
-  const path = `data/gen1/${currentVersion.toLowerCase()}.json`;
+  const versionKey = String(currentVersion).toLowerCase();
+  const path = `data/gen1/${versionKey}.json`;
 
-  const res = await fetch(path);
-  if (!res.ok) {
-    console.error('Failed to load data:', path);
-    return;
-  }
+  const overlay = document.getElementById('loading-overlay');
+  if (overlay) overlay.classList.remove('hidden');
 
-  const data = await res.json();
+  try {
+    const res = await fetch(path, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Failed to load ${path} (${res.status})`);
 
-  pokemonList = [];
-  state = loadProgressForVersion(currentVersion);
+    const data = await res.json();
+    currentData = data;
 
-  data.sections.forEach(section => {
+    // load state
+    state = loadProgressForVersion(currentVersion) || {};
 
-    // SECTION HEADER
-    pokemonList.push({
-      type: 'header',
-      key: section.key,
-      title: section.title
-    });
-
-    // POKÉMON ROWS
-    section.pokemon.forEach(p => {
+    // flatten into render list
+    pokemonList = [];
+    data.sections.forEach(section => {
       pokemonList.push({
-        type: 'pokemon',
-        dex: p.dex,
-        name: p.name,
-        image: `assets/sprites/${p.dex}-${normalizeName(p.name)}.gif`,
-        info: p.info || '',
-        notes: p.notes || ''
+        type: 'header',
+        key: section.key,
+        title: section.title
+      });
+
+      section.pokemon.forEach(p => {
+        const d = dex3(p.dex);
+        pokemonList.push({
+          type: 'pokemon',
+          sectionKey: section.key,
+          id: pokemonId(section.key, d),
+          dex: d,
+          name: p.name,
+          info: p.info || '',
+          notes: p.notes || '',
+          image: p.image
+            ? p.image
+            : `assets/sprites/${d}-${slugifyName(p.name)}.gif`
+        });
       });
     });
-  });
 
-  renderRows();
-  refreshUI();
+    // reset UI state
+    collapsedSections.clear();
+    userExpandedSections.clear();
+
+    rebuildResetDropdown();
+    renderRows();
+    refreshUI();
+
+  } catch (err) {
+    console.error(err);
+    alert(`Could not load data for ${currentVersion}. Check console for details.`);
+  } finally {
+    if (overlay) overlay.classList.add('hidden');
+  }
 }
 
+/* =========================================================
+   RENDERING
+   ========================================================= */
 function renderRows() {
   const c = document.getElementById('rows');
   if (!c) return;
 
   c.innerHTML = '';
 
-  pokemonList.forEach(i => {
-
-    /* ================= HEADER ================= */
-    if (i.type === 'header') {
+  pokemonList.forEach(item => {
+    if (item.type === 'header') {
       const h = document.createElement('div');
+      h.className = 'section-header major-header';
+      h.dataset.section = item.key;
+      h.textContent = item.title;
 
-      const level = i.headerLevel === 'major';
-      h.className = `section-header ${level}-header`;
-      h.dataset.row = i.row;
-      h.textContent = i.title;
-
-      h.onclick = () => {
-        const rowId = i.row;
-
-        if (collapsedSections.has(rowId)) {
-          collapsedSections.delete(rowId);
-          userExpandedSections.add(rowId);
+      h.addEventListener('click', () => {
+        const key = item.key;
+        if (collapsedSections.has(key)) {
+          collapsedSections.delete(key);
+          userExpandedSections.add(key);
         } else {
-          collapsedSections.add(rowId);
-          userExpandedSections.delete(rowId);
-          autoCollapsedSections.delete(rowId);
+          collapsedSections.add(key);
+          userExpandedSections.delete(key);
         }
-
         refreshUI();
-      };
+      });
 
       c.appendChild(h);
+      return;
     }
 
-    /* ================= POKÉMON ROW ================= */
-    else if (i.type === 'pokemon') {
+    if (item.type === 'pokemon') {
       const r = document.createElement('div');
       r.className = 'row';
-      r.dataset.row = i.row;
+      r.dataset.id = item.id;
+      r.dataset.section = item.sectionKey;
 
+      // functional checkbox (hidden in CSS)
       const cb = document.createElement('input');
       cb.type = 'checkbox';
-      cb.checked = state[i.row] === true;
+      cb.checked = !!state[item.id];
       cb.style.display = 'none';
 
       const ball = document.createElement('div');
       ball.className = 'pokeball';
 
-      if (cb.checked) {
-        r.classList.add('registered');
-      }
+      if (cb.checked) r.classList.add('registered');
 
-      /* --- toggle logic --- */
       const toggle = () => {
         const wasChecked = cb.checked;
-
         cb.checked = !cb.checked;
-        state[i.row] = cb.checked;
+
+        state[item.id] = cb.checked;
+        if (!cb.checked) delete state[item.id];
 
         saveProgressForVersion(currentVersion, state);
         r.classList.toggle('registered', cb.checked);
 
-        // 🔊 PLAY CRY ONLY WHEN TURNING TRUE
-        if (!wasChecked && cb.checked && i.dex) {
-          playPokemonCry(i.dex);
-        }
+        if (!wasChecked && cb.checked) playPokemonCry(item.dex);
 
         refreshUI();
       };
 
+      // Make entire row toggle, but don't double-toggle
       r.addEventListener('click', toggle);
-
       ball.addEventListener('click', e => {
         e.stopPropagation();
         toggle();
@@ -653,206 +270,259 @@ function renderRows() {
       sprite.className = 'sprite-frame';
 
       const img = document.createElement('img');
-      if (i.image) img.src = i.image;
+      img.alt = item.name;
+      img.loading = 'lazy';
+      img.src = item.image;
       sprite.appendChild(img);
 
       const t = document.createElement('div');
       t.className = 'text';
       t.innerHTML = `
-        <div class="name">${i.name}</div>
-        ${i.info ? `<div class="info">${i.info}</div>` : ''}
-        ${i.notes ? `<div class="notes">${i.notes}</div>` : ''}
+        <div class="name">${escapeHtml(item.name)}</div>
+        ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
+        ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
       `;
 
       r.append(cb, ball, sprite, t);
       c.appendChild(r);
     }
-
   });
 }
 
-function updateTopBarHeight() {
-  const bar = document.querySelector('.top-bar');
-  if (bar) {
-    document.documentElement.style.setProperty(
-      '--top-bar-height',
-      `${bar.offsetHeight}px`
+// minimal escaping so a note can’t break your layout
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+/* =========================================================
+   UI RULES (JSON-DRIVEN)
+   ========================================================= */
+function hideById(id) {
+  const el = document.querySelector(`.row[data-id="${cssEscape(id)}"]`);
+  if (el) el.classList.add('hidden');
+}
+
+function showAllRows() {
+  document.querySelectorAll('.row').forEach(r => r.classList.remove('hidden'));
+}
+
+function cssEscape(s) {
+  // basic CSS.escape fallback
+  if (window.CSS && CSS.escape) return CSS.escape(s);
+  return String(s).replace(/["\\]/g, '\\$&');
+}
+
+function applySectionCollapseRules() {
+  if (!currentData) return;
+  collapsedSections.forEach(sectionKey => {
+    document
+      .querySelectorAll(`.row[data-section="${cssEscape(sectionKey)}"]`)
+      .forEach(r => r.classList.add('hidden'));
+  });
+}
+
+function applyStarterExclusivity() {
+  if (!currentData) return;
+  const section = currentData.sections.find(s => s.key === 'STARTER');
+  if (!section || !section.exclusive || !Array.isArray(section.families)) return;
+
+  const families = section.families.map(fam => {
+    // fam = ["Bulbasaur","Ivysaur","Venusaur"]
+    return fam
+      .map(name => {
+        // find by name within STARTER section
+        return pokemonList.find(p =>
+          p.type === 'pokemon' &&
+          p.sectionKey === 'STARTER' &&
+          String(p.name) === String(name)
+        );
+      })
+      .filter(Boolean);
+  });
+
+  const chosenFamily = families.find(fam => fam.some(p => !!state[p.id]));
+  if (!chosenFamily) return; // nothing chosen yet
+
+  families.forEach(fam => {
+    if (fam === chosenFamily) return;
+    fam.forEach(p => hideById(p.id));
+  });
+}
+
+function applyExclusiveGroups() {
+  // optional: supports "exclusiveGroups" at root of JSON:
+  // "exclusiveGroups": [{ "section":"FOSSIL", "families":[["Omanyte","Omastar"],["Kabuto","Kabutops"]] }]
+  if (!currentData || !Array.isArray(currentData.exclusiveGroups)) return;
+
+  currentData.exclusiveGroups.forEach(group => {
+    const sectionKey = group.section;
+    if (!sectionKey || !Array.isArray(group.families) || group.families.length < 2) return;
+
+    // build family rows
+    const famRows = group.families.map(fam =>
+      fam
+        .map(name => pokemonList.find(p =>
+          p.type === 'pokemon' &&
+          p.sectionKey === sectionKey &&
+          p.name === name
+        ))
+        .filter(Boolean)
     );
-  }
-}
 
-window.addEventListener('load', updateTopBarHeight);
-window.addEventListener('resize', updateTopBarHeight);
+    const chosenIndex = famRows.findIndex(fam => fam.some(p => !!state[p.id]));
+    if (chosenIndex === -1) return;
 
-function applyFossilExclusivity() {
-  const header = getHeaderBySectionName('FOSSIL');
-  if (!header) return;
-
-  const omanyteFamily = getRowsForFamilyInSection(
-    ['Omanyte', 'Omastar'],
-    header.title
-  );
-
-  const kabutoFamily = getRowsForFamilyInSection(
-    ['Kabuto', 'Kabutops'],
-    header.title
-  );
-
-  const omanyteChosen = omanyteFamily.some(r => state[r] === true);
-  const kabutoChosen  = kabutoFamily.some(r => state[r] === true);
-
-  if (omanyteChosen) kabutoFamily.forEach(hideRow);
-  if (kabutoChosen)  omanyteFamily.forEach(hideRow);
-}
-
-
-function refreshUI() {
-  // ❌ Do NOTHING unless the app is fully ready
-
-  try {
-    updateProgress();
-    applyRules();
-    updateCurrentObjective();
-  } catch (err) {
-    console.error('refreshUI failed:', err);
-  }
-}
-
-function applyRules() {
-  // 1. Reset visibility
-  document.querySelectorAll('.row').forEach(r =>
-    r.classList.remove('hidden')
-  );
-
-  // 2. Exclusivity rules
-  applyStarterExclusivity();
-  applyFinalEvolutionHiding();
-  applyFossilExclusivity();
-
-  // 3. Section collapsing LAST
-  collapsedSections.forEach(headerRow => {
-    getRowsUnderHeader(headerRow).forEach(hideRow);
+    famRows.forEach((fam, idx) => {
+      if (idx === chosenIndex) return;
+      fam.forEach(p => hideById(p.id));
+    });
   });
 }
 
+function applyFinalEvolutionDeduping() {
+  // optional: supports "dedupeFinalEvos": ["Nidoking","Nidoqueen",...]
+  if (!currentData || !Array.isArray(currentData.dedupeFinalEvos)) return;
 
-function updateProgress() {
-  isInitialLoad = false;
+  const targets = new Set(currentData.dedupeFinalEvos.map(slugifyName));
+  const groups = {}; // { slugName: [pokemonItem,...] }
 
-  const layout = getLayout();
+  pokemonList.forEach(p => {
+    if (p.type !== 'pokemon') return;
+    const slug = slugifyName(p.name);
+    if (!targets.has(slug)) return;
 
-  Object.entries(layout).forEach(([sectionKey, cfg]) => {
-    const header = getHeaderBySectionName(sectionKey);
-    if (!header) return;
-
-    const caughtInSection = getRowsUnderHeader(header.row)
-      .filter(r => state[r] === true).length;
-
-    const isComplete = !isInitialLoad && caughtInSection >= cfg.required;
-
-    // ✅ Only auto-collapse if complete AND user has NOT forced it open
-    if (isComplete && !userExpandedSections.has(header.row)) {
-      collapsedSections.add(header.row);
-      autoCollapsedSections.add(header.row);
-    }
-
-    // ✅ If it is NOT complete anymore, remove auto-collapse status
-    if (!isComplete) {
-      autoCollapsedSections.delete(header.row);
-    }
+    if (!groups[slug]) groups[slug] = [];
+    groups[slug].push(p);
   });
 
-  // ✅ FIXED COUNTER (THIS IS THE IMPORTANT PART)
-  const total = currentVersion === 'Yellow' ? 129 : 124;
+  Object.values(groups).forEach(list => {
+    const checked = list.find(p => !!state[p.id]);
+    if (!checked) return;
+    list.forEach(p => {
+      if (p.id !== checked.id) hideById(p.id);
+    });
+  });
+}
 
-  const caught = pokemonList
-    .filter(i => i.type === 'pokemon' && state[i.row] === true)
-    .length;
+/* =========================================================
+   PROGRESS + OBJECTIVE
+   ========================================================= */
+function getTotalCaught() {
+  return Object.keys(state).length;
+}
+
+function updateCounterAndBar() {
+  if (!currentData) return;
+
+  const caught = getTotalCaught();
+  const total = Number(currentData.total) || 0;
 
   const counterEl = document.getElementById('global-counter');
-  if (counterEl) {
-    counterEl.textContent = `${caught}/${total} Caught`;
+  if (counterEl) counterEl.textContent = `${caught}/${total} Caught`;
+
+  const bar = document.getElementById('progress-bar');
+  if (bar && total > 0) {
+    bar.style.width = `${Math.min(caught / total, 1) * 100}%`;
+  }
+}
+
+function updateCurrentObjective() {
+  // If your HTML uses IDs for these, prefer that.
+  // Your earlier HTML had class="current-objective" and spans.
+  const objectiveText = document.querySelector('.objective-text');
+  if (!objectiveText || !currentData) return;
+
+  // Find first section that isn't complete (based on required)
+  let label = 'CHALLENGE COMPLETE!';
+  for (const section of currentData.sections) {
+    const required = Number(section.required) || 0;
+    if (required <= 0) continue;
+
+    const caughtInSection = section.pokemon.reduce((acc, p) => {
+      const id = pokemonId(section.key, p.dex);
+      return acc + (state[id] ? 1 : 0);
+    }, 0);
+
+    if (caughtInSection < required) {
+      label = section.objectiveLabel || section.title;
+      break;
+    }
   }
 
-  updateProgressBar(caught, total);
-
-  triggerCelebrationIfNeeded(caught);
+  // small swap animation if you kept your .swap class
+  if (objectiveText.textContent !== label) {
+    objectiveText.classList.add('swap');
+    setTimeout(() => {
+      objectiveText.textContent = label;
+      objectiveText.classList.remove('swap');
+    }, 180);
+  }
 }
 
-function updateProgressBar(c,t){
-  const b=document.getElementById('progress-bar');
-  if (!b) return;
-  b.style.width=`${Math.min(c/t,1)*100}%`;
-}
-
+/* =========================================================
+   RESET DROPDOWN
+   ========================================================= */
 function rebuildResetDropdown() {
   const select = document.getElementById('reset');
-  if (!select) return;
+  if (!select || !currentData) return;
 
-  select.innerHTML = '<option value="">Reset</option>';
+  select.innerHTML = '';
 
-  // Reset All
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = 'Reset →';
+  select.appendChild(placeholder);
+
   const resetAll = document.createElement('option');
   resetAll.value = 'RESET_ALL';
   resetAll.textContent = 'Reset All';
   select.appendChild(resetAll);
 
-  const options = RESET_OPTIONS[currentVersion];
-  if (!options) return;
-
-  options.forEach(o => {
+  currentData.sections.forEach(section => {
     const opt = document.createElement('option');
-    opt.value = o.key;
-    opt.textContent = o.label;
+    opt.value = section.key;
+    opt.textContent = section.resetLabel || section.title;
     select.appendChild(opt);
   });
 }
 
-function resetAllProgress() {
-  // 1️⃣ Clear state
+function resetAll() {
+  if (!currentData) return;
+
   state = {};
+  saveProgressForVersion(currentVersion, state);
 
-  // 2️⃣ Clear visual rows
-  document.querySelectorAll('.row').forEach(row => {
-    const r = Number(row.dataset.row);
-    state[r] = false;
-
-    const cb = row.querySelector('input[type="checkbox"]');
-    if (cb) cb.checked = false;
-
-    row.classList.remove('registered', 'hidden');
-  });
-
-  // 3️⃣ Clear collapses
   collapsedSections.clear();
-  autoCollapsedSections.clear();
-  isInitialLoad = true;
+  userExpandedSections.clear();
 
-  // 4️⃣ Clear saved state
-  saveStateForVersion(currentVersion, state);
-
-  // 5️⃣ Re-evaluate UI
+  renderRows();
   refreshUI();
 }
 
-function wireVersionDropdown() {
-  const select = document.getElementById('version');
-  if (!select) return;
+function resetSection(sectionKey) {
+  if (!currentData) return;
 
-  select.value = currentVersion;
+  const section = currentData.sections.find(s => s.key === sectionKey);
+  if (!section) return;
 
-  select.addEventListener('change', () => {
-     currentVersion = select.value;
-   
-     document.body.className = currentVersion.toLowerCase();
-   
-     collapsedSections.clear();
-     autoCollapsedSections.clear();
-     userExpandedSections.clear();
-   
-     rebuildResetDropdown();
-     loadPokemonData();
-   });
+  section.pokemon.forEach(p => {
+    const id = pokemonId(sectionKey, p.dex);
+    delete state[id];
+  });
+
+  saveProgressForVersion(currentVersion, state);
+
+  // ensure section is expanded after reset
+  collapsedSections.delete(sectionKey);
+  userExpandedSections.delete(sectionKey);
+
+  renderRows();
+  refreshUI();
 }
 
 function wireResetDropdown() {
@@ -860,50 +530,43 @@ function wireResetDropdown() {
   if (!select) return;
 
   select.addEventListener('change', () => {
-    const sectionKey = select.value;
-    if (!sectionKey) return;
+    const value = select.value;
+    if (!value) return;
 
-    if (sectionKey === 'RESET_ALL') {
-      if (confirm('Reset all progress?')) {
-        clearProgressForVersion(currentVersion);
-
-        // 1. Clear state
-        state = {};
-
-        // 2. Clear visual state (CRITICAL)
-        document.querySelectorAll('.row').forEach(row => {
-          row.classList.remove('registered');
-
-          const cb = row.querySelector('input[type="checkbox"]');
-          if (cb) cb.checked = false;
-        });
-
-        // 3. Reset UI behavior
-        collapsedSections.clear();
-        autoCollapsedSections.clear();
-        userExpandedSections.clear();
-        isInitialLoad = true;
-
-        refreshUI();
-      }
-
+    if (value === 'RESET_ALL') {
+      if (confirm('Reset all progress?')) resetAll();
       select.value = '';
       return;
     }
 
-    /* ===== RESET SINGLE SECTION ===== */
-    if (!confirm(`Reset "${sectionKey}" for ${currentVersion}?`)) {
-      select.value = '';
-      return;
+    if (confirm(`Reset "${value}" for ${currentVersion}?`)) {
+      resetSection(value);
     }
 
-    resetSectionByKey(sectionKey);
     select.value = '';
   });
 }
 
 /* =========================================================
-   MOBILE IMAGE ZOOM HELPER (POKEDEX STYLE)
+   VERSION DROPDOWN
+   ========================================================= */
+function wireVersionDropdown() {
+  const select = document.getElementById('version');
+  if (!select) return;
+
+  select.value = currentVersion;
+
+  select.addEventListener('change', () => {
+    currentVersion = select.value || 'Red';
+    setBodyTheme(currentVersion);
+
+    // load new JSON + state
+    loadPokemonData();
+  });
+}
+
+/* =========================================================
+   MOBILE IMAGE ZOOM HELPER
    ========================================================= */
 function enableMobileImageZoom() {
   let activeImg = null;
@@ -911,7 +574,6 @@ function enableMobileImageZoom() {
   document.addEventListener('touchstart', e => {
     const img = e.target.closest('.row img');
     if (!img) {
-      // Tapped outside → reset zoom
       if (activeImg) {
         activeImg.classList.remove('mobile-zoom');
         activeImg = null;
@@ -919,17 +581,13 @@ function enableMobileImageZoom() {
       return;
     }
 
-    // If tapping the same image → toggle off
     if (activeImg === img) {
       img.classList.remove('mobile-zoom');
       activeImg = null;
       return;
     }
 
-    // Otherwise, zoom new image
-    if (activeImg) {
-      activeImg.classList.remove('mobile-zoom');
-    }
+    if (activeImg) activeImg.classList.remove('mobile-zoom');
 
     img.classList.add('mobile-zoom');
     activeImg = img;
@@ -937,44 +595,40 @@ function enableMobileImageZoom() {
 }
 
 /* =========================================================
-   LOADING OVERLAY HELPERS
+   REFRESH UI (single orchestrator)
    ========================================================= */
+function refreshUI() {
+  if (!currentData) return;
 
-function triggerCelebrationIfNeeded(totalCaught) {
-  const map = OBJECTIVE_COMPLETIONS[currentVersion];
-  if (!map) return;
+  // 1) show everything
+  showAllRows();
 
-  const message = map[totalCaught];
-  if (!message) return;
+  // 2) apply rule sets
+  applyStarterExclusivity();
+  applyExclusiveGroups();
+  applyFinalEvolutionDeduping();
 
-  if (completedObjectives.has(message)) return;
-  completedObjectives.add(message);
+  // 3) apply collapses last
+  applySectionCollapseRules();
 
-  const el = document.getElementById('celebration');
-  if (!el) return;
-
-  el.textContent = message;
-  el.classList.remove('hidden', 'show');
-
-  // force reflow to restart animation
-  void el.offsetWidth;
-
-  el.classList.add('show');
-
-  setTimeout(() => {
-    el.classList.remove('show');
-    el.classList.add('hidden');
-  }, 2500);
+  // 4) update progress + objective
+  updateCounterAndBar();
+  updateCurrentObjective();
 }
 
 /* =========================================================
-   EVENT WIRING
+   INIT
    ========================================================= */
 window.addEventListener('load', () => {
+  // theme
+  setBodyTheme(currentVersion);
+
+  // wires
   wireVersionDropdown();
   wireResetDropdown();
-  rebuildResetDropdown();
   wireMuteButton();
+  enableMobileImageZoom();
 
+  // load initial data
   loadPokemonData();
 });
