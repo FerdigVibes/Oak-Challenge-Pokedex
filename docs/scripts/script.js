@@ -8,7 +8,6 @@ let collapsedSections = new Set();
 let userExpandedSections = new Set();
 let autoCollapsedSections = new Set();
 let isInitialLoad = true;
-let appPhase = 'loading'; // 'loading' | 'rendering' | 'active'
 
 const sectionCompletion = { STARTER: false };
 const completedObjectives = new Set();
@@ -19,8 +18,7 @@ const STORAGE_KEY = 'oak-challenge-v1';
    POKÉMON CRY SYSTEM
    ========================================================= */
 
-const CRY_BASE_URL =
-  'https://raw.githubusercontent.com/FerdigVibes/Gen_1-5_Animated_Sprites/main/';
+const CRY_BASE_URL = 'assets/cries/';
 
 let activeCry = null;
 
@@ -110,146 +108,6 @@ function clearProgressForVersion(version) {
 function clearAllProgress() {
   localStorage.removeItem(STORAGE_KEY);
 }
-
-/* =========================================================
-   RESET OPTIONS
-   ========================================================= */
-const RESET_OPTIONS = {
-  Red: [
-    { key: 'STARTER', label: 'Choose Your Starter!' },
-    { key: 'PEWTER', label: 'Pewter Pokémon' },
-    { key: 'CERULEAN', label: 'Cerulean Pokémon' },
-    { key: 'MOON STONE 1', label: 'Choose Two Moon Stone Evolutions' },
-    { key: 'FUCHSIA', label: 'Fuchsia Pokémon' },
-    { key: 'MOON STONE 2', label: 'Remaining Moon Stone Evolutions' },
-    { key: 'EEVEE', label: 'Choose Your Eevee Evolution' },
-    { key: 'DOJO', label: 'Choose One Fighting Dojo Prize' },
-    { key: 'CELADON', label: 'Celadon Pokémon' },
-    { key: 'FOSSIL', label: 'Revive One Fossil Line' },
-    { key: 'ARTICUNO', label: 'Articuno' },
-    { key: 'MOLTRES', label: 'Moltres' },
-    { key: 'CERULEAN CAVE', label: 'Cerulean Cave pokemon' },
-  ],
-  Blue: null,
-  Yellow: [
-    { key: 'STARTER', label: 'I Choose You, Pikachu!' },
-    { key: 'PEWTER', label: 'Pewter Pokémon' },
-    { key: 'CERULEAN', label: 'Cerulean Pokémon' },
-    { key: 'MOON STONE 1', label: 'Choose Two Moon Stone Evolutions' },
-    { key: 'FUCHSIA', label: 'Fuchsia Pokémon' },
-    { key: 'MOON STONE 2', label: 'Remaining Moon Stone Evolutions' },
-    { key: 'EEVEE', label: 'Choose Your Eevee Evolution' },
-    { key: 'DOJO', label: 'Choose One Fighting Dojo Prize' },
-    { key: 'CELADON', label: 'Celadon Pokémon' },
-    { key: 'FOSSIL', label: 'Revive One Fossil Line' },
-    { key: 'SQUIRTLE', label: 'Get Squirtle' },
-    { key: 'ARTICUNO', label: 'Articuno' },
-    { key: 'MOLTRES', label: 'Moltres' },
-    { key: 'CERULEAN CAVE', label: 'Cerulean Cave' },
-  ]
-};
-RESET_OPTIONS.Blue = RESET_OPTIONS.Red;
-
-/* =========================================================
-   SECTION LAYOUTS
-   ========================================================= */
-const SECTION_LAYOUTS = {
-  RedBlue: {
-    STARTER:{range:[6,23],required:3},
-    PEWTER:{range:[25,60],required:18},
-    CERULEAN:{range:[63,110],required:24},
-    'MOON STONE 1':{range:[112,119],required:2},
-    FUCHSIA:{range:[122,229],required:54},
-    'MOON STONE 2':{range:[231,238],required:2},
-    EEVEE:{range:[240,245],required:1},
-    DOJO:{range:[247,250],required:1},
-    CELADON:{range:[253,280],required:14},
-    FOSSIL:{range:[282,289],required:2},
-    ARTICUNO:{range:[292,293],required:1},
-    MOLTRES:{range:[296,297],required:1},
-    'CERULEAN CAVE':{range:[300,301],required:1}
-  },
-  Yellow: {
-    STARTER:{range:[6,7],required:1},
-    PEWTER:{range:[9,40],required:16},
-    CERULEAN:{range:[43,104],required:31},
-    'MOON STONE 1':{range:[106,113],required:2},
-    FUCHSIA:{range:[116,217],required:51},
-    'MOON STONE 2':{range:[219,226],required:2},
-    EEVEE:{range:[228,233],required:1},
-    DOJO:{range:[235,238],required:1},
-    CELADON:{range:[241,270],required:15},
-    FOSSIL:{range:[272,279],required:2},
-    SQUIRTLE:{range:[282,287],required:3},
-    ARTICUNO:{range:[290,291],required:1},
-    MOLTRES:{range:[294,295],required:1},
-    'CERULEAN CAVE':{range:[298,301],required:2}
-  }
-};
-
-const OBJECTIVE_THRESHOLDS = {
-  Red: [
-    { limit: 21,  label: 'BEFORE PEWTER GYM' },
-    { limit: 47,  label: 'BEFORE CERULEAN GYM' },
-    { limit: 105, label: 'BEFORE FUCHSIA GYM' },
-    { limit: 121, label: 'BEFORE CELADON GYM' },
-    { limit: 122, label: 'BEFORE BADGES 5–8' },
-    { limit: 123, label: 'BEFORE ELITE FOUR' },
-    { limit: 124, label: 'CERULEAN CAVE' }
-  ],
-
-  Blue: [
-    { limit: 21,  label: 'BEFORE PEWTER GYM' },
-    { limit: 47,  label: 'BEFORE CERULEAN GYM' },
-    { limit: 105, label: 'BEFORE FUCHSIA GYM' },
-    { limit: 121, label: 'BEFORE CELADON GYM' },
-    { limit: 122, label: 'BEFORE BADGES 5–8' },
-    { limit: 123, label: 'BEFORE ELITE FOUR' },
-    { limit: 124, label: 'CERULEAN CAVE' }
-  ],
-
-  Yellow: [
-    { limit: 17,  label: 'BEFORE PEWTER GYM' },
-    { limit: 50,  label: 'BEFORE CERULEAN GYM' },
-    { limit: 105, label: 'BEFORE FUCHSIA GYM' },
-    { limit: 122, label: 'BEFORE CELADON GYM' },
-    { limit: 125, label: 'ONLY AVAILABLE AFTER VERMILION GYM BADGE' },
-    { limit: 126, label: 'BEFORE BADGES 5–8' },
-    { limit: 127, label: 'BEFORE ELITE FOUR' },
-    { limit: 129, label: 'CERULEAN CAVE' }
-  ]
-};
-
-const OBJECTIVE_COMPLETIONS = {
-  Red: {
-    21: 'PEWTER COMPLETE!',
-    47: 'CERULEAN COMPLETE!',
-    105: 'FUCHSIA COMPLETE!',
-    121: 'CELADON COMPLETE!',
-    122: 'ARTICUNO CAUGHT!',
-    123: 'MOLRES CLAIMED!',
-    124: 'CHALLENGE COMPLETE!!'
-  },
-  Blue: {
-    21: 'PEWTER COMPLETE!',
-    47: 'CERULEAN COMPLETE!',
-    105: 'FUCHSIA COMPLETE!',
-    121: 'CELADON COMPLETE!',
-    122: 'ARTICUNO CAUGHT!',
-    123: 'MOLRES CLAIMED!',
-    124: 'CHALLENGE COMPLETE!!'
-  },
-  Yellow: {
-    17: 'PEWTER COMPLETE!',
-    50: 'CERULEAN COMPLETE!',
-    105: 'FUCHSIA COMPLETE!',
-    122: 'CELADON COMPLETE!',
-    125: 'SQUIRTLE SQUAD DONE!',
-    126: 'ARTICUNO CAUGHT!',
-    127: 'MOLTRES CLAIMED!',
-    129: 'CHALLENGE COMPLETE!!!'
-  }
-};
 
 const STORAGE_KEY_PREFIX = 'oak-challenge';
 
@@ -674,57 +532,43 @@ function getRowsForFamilyInRange(familyNames, startRow, endRow) {
    DATA LOADING & RENDERING
    ========================================================= */
 async function loadPokemonData() {
-  appPhase = 'loading';
-  showLoading();
+  const path = `data/gen1/${currentVersion.toLowerCase()}.json`;
 
-  try {
-    const res = await fetch(`data/gen1/${currentVersion.toLowerCase()}.json`);
-    const json = await res.json();
-
-    pokemonList = [];
-    state = {};
-
-    let virtualRow = 1;
-
-    json.sections.forEach(section => {
-      // Header
-      pokemonList.push({
-        type: 'header',
-        row: virtualRow++,
-        title: section.title,
-        key: section.key,
-        headerLevel: 'major'
-      });
-
-      section.pokemon.forEach(p => {
-        pokemonList.push({
-          type: 'pokemon',
-          row: virtualRow++,
-          dex: p.dex,
-          name: p.name,
-          info: p.info || '',
-          notes: p.notes || '',
-          image: p.image,
-          id: p.id
-        });
-      });
-    });
-
-    const saved = loadProgressForVersion(currentVersion);
-    pokemonList.forEach(i => {
-      if (i.type === 'pokemon') {
-        state[i.row] = saved[i.row] ?? false;
-      }
-    });
-
-    renderRows();
-    appPhase = 'active';
-    refreshUI();
-  } catch (err) {
-    console.error('Failed to load JSON:', err);
-  } finally {
-    hideLoading();
+  const res = await fetch(path);
+  if (!res.ok) {
+    console.error('Failed to load data:', path);
+    return;
   }
+
+  const data = await res.json();
+
+  pokemonList = [];
+  state = loadProgressForVersion(currentVersion);
+
+  data.sections.forEach(section => {
+
+    // SECTION HEADER
+    pokemonList.push({
+      type: 'header',
+      key: section.key,
+      title: section.title
+    });
+
+    // POKÉMON ROWS
+    section.pokemon.forEach(p => {
+      pokemonList.push({
+        type: 'pokemon',
+        dex: p.dex,
+        name: p.name,
+        image: `assets/sprites/${p.dex}-${normalizeName(p.name)}.gif`,
+        info: p.info || '',
+        notes: p.notes || ''
+      });
+    });
+  });
+
+  renderRows();
+  refreshUI();
 }
 
 function renderRows() {
@@ -864,7 +708,6 @@ function applyFossilExclusivity() {
 
 function refreshUI() {
   // ❌ Do NOTHING unless the app is fully ready
-  if (appPhase !== 'active') return;
 
   try {
     updateProgress();
@@ -999,26 +842,17 @@ function wireVersionDropdown() {
   select.value = currentVersion;
 
   select.addEventListener('change', () => {
-    showLoading();
-    appPhase = 'loading';
-
-    currentVersion = select.value;
-
-    // version theme
-    document.body.classList.remove('red', 'blue', 'yellow');
-    document.body.classList.add(currentVersion.toLowerCase());
-
-    // reset UI-only state
-    collapsedSections.clear();
-    autoCollapsedSections.clear();
-    isInitialLoad = true;
-    completedObjectives.clear();
-
-    rebuildResetDropdown();
-
-    // ✅ SINGLE data load
-    loadPokemonData();
-  });
+     currentVersion = select.value;
+   
+     document.body.className = currentVersion.toLowerCase();
+   
+     collapsedSections.clear();
+     autoCollapsedSections.clear();
+     userExpandedSections.clear();
+   
+     rebuildResetDropdown();
+     loadPokemonData();
+   });
 }
 
 function wireResetDropdown() {
@@ -1105,15 +939,6 @@ function enableMobileImageZoom() {
 /* =========================================================
    LOADING OVERLAY HELPERS
    ========================================================= */
-function showLoading() {
-  const el = document.getElementById('loading-overlay');
-  if (el) el.classList.remove('hidden');
-}
-
-function hideLoading() {
-  const el = document.getElementById('loading-overlay');
-  if (el) el.classList.add('hidden');
-}
 
 function triggerCelebrationIfNeeded(totalCaught) {
   const map = OBJECTIVE_COMPLETIONS[currentVersion];
@@ -1149,10 +974,7 @@ window.addEventListener('load', () => {
   wireVersionDropdown();
   wireResetDropdown();
   rebuildResetDropdown();
+  wireMuteButton();
 
   loadPokemonData();
-  enableMobileImageZoom();
-  syncTopBarOffset();
-
-  wireMuteButton();
 });
