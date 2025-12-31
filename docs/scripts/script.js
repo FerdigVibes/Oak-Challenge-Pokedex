@@ -19,11 +19,13 @@ let userExpandedSections = new Set(); // Set<sectionKey> sections user forced op
 
 const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
+const BASE_URL = new URL('.', document.baseURI); // folder containing index.html
+const urlFromBase = (p) => new URL(p, BASE_URL).toString();
 
 /* =========================================================
    CRY SYSTEM
    ========================================================= */
-const CRY_BASE_URL = 'assets/cries/';
+const CRY_BASE_URL = urlFromBase('assets/cries/');
 let activeCry = null;
 
 let criesMuted = false;
@@ -138,7 +140,7 @@ function setBodyTheme(version) {
    ========================================================= */
 async function loadPokemonData() {
   const versionKey = String(currentVersion).toLowerCase();
-  const path = `data/gen1/${versionKey}.json`;
+  const path = urlFromBase(`data/gen1/${versionKey}.json`);
 
   const overlay = document.getElementById('loading-overlay');
   if (overlay) overlay.classList.remove('hidden');
@@ -172,9 +174,7 @@ async function loadPokemonData() {
           name: p.name,
           info: p.info || '',
           notes: p.notes || '',
-          image: p.image
-            ? p.image
-            : `assets/sprites/${d}-${slugifyName(p.name)}.gif`
+          image: p.image ? p.image : urlFromBase(`assets/sprites/${d}-${slugifyName(p.name)}.gif`)
         });
       });
     });
