@@ -125,7 +125,7 @@
       "key": "FUCHSIA",
       "title": "Fuchsia Pokémon",
       "required": 54,
-      "objectiveLabel": "Catch & evolve all available before Koga",
+      "objectiveLabel": "BEFORE FUCHSIA GYM",
       "pokemon": [
         {"dex":"026","name":"Raichu","image":"assets/sprites/026-raichu.gif","info":"Evolve Pikachu with Thunder Stone (Celadon Dept. Store 4F)","notes":""},
         {"dex":"045","name":"Vileplume","image":"assets/sprites/045-vileplume.gif","info":"Evolve Gloom with Leaf Stone (Celadon Dept. Store 4F)","notes":""},
