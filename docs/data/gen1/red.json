@@ -247,10 +247,10 @@
         ["Wigglytuff"]
       ],
       "pokemon": [
-        {"dex":"031","name":"Nidoqueen","image":"assets/sprites/031-nidoqueen.gif","info":"Evolve Nidorina with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"},
-        {"dex":"034","name":"Nidoking","image":"assets/sprites/034-nidoking.gif","info":"Evolve Nidorino with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"},
-        {"dex":"036","name":"Clefable","image":"assets/sprites/036-clefable.gif","info":"Evolve Clefairy with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"},
-        {"dex":"040","name":"Wigglytuff","image":"assets/sprites/040-wigglytuff.gif","info":"Evolve Jigglypuff with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"}
+        {"dex":"031","name":"Nidoqueen","image":"assets/sprites/031-nidoqueen.gif","info":"Evolve Nidorina with a Moon Stone","notes":"Two Moon Stones Available:\n1. Mt Moon 1F near the Hiker (Item ball).\n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)."},
+        {"dex":"034","name":"Nidoking","image":"assets/sprites/034-nidoking.gif","info":"Evolve Nidorino with a Moon Stone","notes":"Two Moon Stones Available:\n1. Mt Moon 1F near the Hiker (Item ball).\n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)."},
+        {"dex":"036","name":"Clefable","image":"assets/sprites/036-clefable.gif","info":"Evolve Clefairy with a Moon Stone","notes":"Two Moon Stones Available:\n1. Mt Moon 1F near the Hiker (Item ball).\n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)."},
+        {"dex":"040","name":"Wigglytuff","image":"assets/sprites/040-wigglytuff.gif","info":"Evolve Jigglypuff with a Moon Stone","notes":"Two Moon Stones Available:\n1. Mt Moon 1F near the Hiker (Item ball).\n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)."}
       ]
     },
 
