@@ -2,9 +2,21 @@
   "version": "Red",
   "total": 124,
   "sections": [
+
+    /* ===============================
+       BEFORE PEWTER GYM
+       =============================== */
+    {
+      "key": "HDR_PEWTER",
+      "title": "BEFORE PEWTER GYM",
+      "headerLevel": "major",
+      "required": 0,
+      "pokemon": []
+    },
+
     {
       "key": "STARTER",
-      "title": "Choose Your Starter!",
+      "title": "CHOOSE YOUR STARTER!",
       "required": 3,
       "exclusive": true,
       "families": [
@@ -13,87 +25,126 @@
         ["Squirtle", "Wartortle", "Blastoise"]
       ],
       "pokemon": [
-        {
-          "dex": "001",
-          "name": "Bulbasaur",
-          "image": "assets/sprites/001-bulbasaur.gif",
-          "info": "Starter Pokémon",
-          "notes": ""
-        },
-        {
-          "dex": "002",
-          "name": "Ivysaur",
-          "image": "assets/sprites/002-ivysaur.gif",
-          "info": "Evolution of Bulbasaur",
-          "notes": ""
-        },
-        {
-          "dex": "003",
-          "name": "Venusaur",
-          "image": "assets/sprites/003-venusaur.gif",
-          "info": "Final evolution of Bulbasaur",
-          "notes": ""
-        },
+        { "dex": "001", "name": "Bulbasaur",  "image": "assets/sprites/001-bulbasaur.gif",  "info": "• Your first Pokémon, enjoy your journey!", "notes": "" },
+        { "dex": "002", "name": "Ivysaur",    "image": "assets/sprites/002-ivysaur.gif",    "info": "• Evolve Bulbasaur at Lv 16",             "notes": "" },
+        { "dex": "003", "name": "Venusaur",  "image": "assets/sprites/003-venusaur.gif",  "info": "• Evolve Ivysaur at Lv 32",               "notes": "" },
 
-        {
-          "dex": "004",
-          "name": "Charmander",
-          "image": "assets/sprites/004-charmander.gif",
-          "info": "Starter Pokémon",
-          "notes": ""
-        },
-        {
-          "dex": "005",
-          "name": "Charmeleon",
-          "image": "assets/sprites/005-charmeleon.gif",
-          "info": "Evolution of Charmander",
-          "notes": ""
-        },
-        {
-          "dex": "006",
-          "name": "Charizard",
-          "image": "assets/sprites/006-charizard.gif",
-          "info": "Final evolution of Charmander",
-          "notes": ""
-        },
+        { "dex": "004", "name": "Charmander","image": "assets/sprites/004-charmander.gif","info": "• Your first Pokémon, enjoy your journey!", "notes": "" },
+        { "dex": "005", "name": "Charmeleon","image": "assets/sprites/005-charmeleon.gif","info": "• Evolve Charmander at Lv 16",             "notes": "" },
+        { "dex": "006", "name": "Charizard", "image": "assets/sprites/006-charizard.gif", "info": "• Evolve Charmeleon at Lv 36",             "notes": "" },
 
-        {
-          "dex": "007",
-          "name": "Squirtle",
-          "image": "assets/sprites/007-squirtle.gif",
-          "info": "Starter Pokémon",
-          "notes": ""
-        },
-        {
-          "dex": "008",
-          "name": "Wartortle",
-          "image": "assets/sprites/008-wartortle.gif",
-          "info": "Evolution of Squirtle",
-          "notes": ""
-        },
-        {
-          "dex": "009",
-          "name": "Blastoise",
-          "image": "assets/sprites/009-blastoise.gif",
-          "info": "Final evolution of Squirtle",
-          "notes": ""
-        }
+        { "dex": "007", "name": "Squirtle",  "image": "assets/sprites/007-squirtle.gif",  "info": "• Your first Pokémon, enjoy your journey!", "notes": "" },
+        { "dex": "008", "name": "Wartortle", "image": "assets/sprites/008-wartortle.gif", "info": "• Evolve Squirtle at Lv 16",               "notes": "" },
+        { "dex": "009", "name": "Blastoise", "image": "assets/sprites/009-blastoise.gif", "info": "• Evolve Wartortle at Lv 36",              "notes": "" }
       ]
     },
 
     {
       "key": "PEWTER",
-      "title": "Pewter Pokémon",
+      "title": "PEWTER POKÉMON",
       "required": 18,
       "pokemon": [
-        {
-          "dex": "010",
-          "name": "Caterpie",
-          "image": "assets/sprites/010-caterpie.gif",
-          "info": "Route 2",
-          "notes": ""
-        }
+        { "dex": "010", "name": "Caterpie",   "image": "assets/sprites/010-caterpie.gif",   "info": "• Viridian Forest", "notes": "" },
+        { "dex": "011", "name": "Metapod",    "image": "assets/sprites/011-metapod.gif",    "info": "• Viridian Forest • Evolve Caterpie at Lv 7", "notes": "" },
+        { "dex": "012", "name": "Butterfree", "image": "assets/sprites/012-butterfree.gif", "info": "• Evolve Metapod at Lv 10", "notes": "" },
+
+        { "dex": "013", "name": "Weedle",     "image": "assets/sprites/013-weedle.gif",     "info": "• Route 2 • Viridian Forest", "notes": "" },
+        { "dex": "014", "name": "Kakuna",     "image": "assets/sprites/014-kakuna.gif",     "info": "• Viridian Forest • Evolve Weedle at Lv 7", "notes": "" },
+        { "dex": "015", "name": "Beedrill",   "image": "assets/sprites/015-beedrill.gif",   "info": "• Evolve Kakuna at Lv 10", "notes": "" },
+
+        { "dex": "016", "name": "Pidgey",     "image": "assets/sprites/016-pidgey.gif",     "info": "• Route 1 • Route 2", "notes": "" },
+        { "dex": "017", "name": "Pidgeotto",  "image": "assets/sprites/017-pidgeotto.gif",  "info": "• Evolve Pidgey at Lv 18", "notes": "" },
+        { "dex": "018", "name": "Pidgeot",    "image": "assets/sprites/018-pidgeot.gif",    "info": "• Evolve Pidgeotto at Lv 36", "notes": "" },
+
+        { "dex": "019", "name": "Rattata",    "image": "assets/sprites/019-rattata.gif",    "info": "• Route 1 • Route 2 • Route 22", "notes": "" },
+        { "dex": "020", "name": "Raticate",   "image": "assets/sprites/020-raticate.gif",   "info": "• Evolve Rattata at Lv 20", "notes": "" },
+
+        { "dex": "021", "name": "Spearow",    "image": "assets/sprites/021-spearow.gif",    "info": "• Route 22", "notes": "" },
+        { "dex": "022", "name": "Fearow",     "image": "assets/sprites/022-fearow.gif",     "info": "• Evolve Spearow at Lv 20", "notes": "" },
+
+        { "dex": "025", "name": "Pikachu",    "image": "assets/sprites/025-pikachu.gif",    "info": "• Viridian Forest", "notes": "" },
+
+        { "dex": "029", "name": "Nidoran F",  "image": "assets/sprites/029-nidoranf.gif",   "info": "• Route 22", "notes": "" },
+        { "dex": "030", "name": "Nidorina",   "image": "assets/sprites/030-nidorina.gif",   "info": "• Evolve Nidoran F at Lv 16", "notes": "" },
+        { "dex": "032", "name": "Nidoran M",  "image": "assets/sprites/032-nidoranm.gif",   "info": "• Route 22", "notes": "" },
+        { "dex": "033", "name": "Nidorino",   "image": "assets/sprites/033-nidorino.gif",   "info": "• Evolve Nidoran M at Lv 16", "notes": "" }
+      ]
+    },
+
+    /* ===============================
+       BEFORE CERULEAN GYM
+       =============================== */
+    {
+      "key": "HDR_CERULEAN",
+      "title": "BEFORE CERULEAN GYM",
+      "headerLevel": "major",
+      "required": 0,
+      "pokemon": []
+    },
+
+    {
+      "key": "CERULEAN",
+      "title": "CERULEAN POKÉMON",
+      "required": 24,
+      "pokemon": [
+        { "dex": "023", "name": "Ekans",      "image": "assets/sprites/023-ekans.gif",      "info": "• Route 4 • Route 11", "notes": "" },
+        { "dex": "024", "name": "Arbok",      "image": "assets/sprites/024-arbok.gif",      "info": "• Evolve Ekans at Lv 22", "notes": "" },
+
+        { "dex": "035", "name": "Clefairy",   "image": "assets/sprites/035-clefairy.gif",   "info": "• Mt Moon", "notes": "Catch before leaving Mt Moon!" },
+        { "dex": "039", "name": "Jigglypuff", "image": "assets/sprites/039-jigglypuff.gif", "info": "• Route 3", "notes": "Catch before leaving Mt Moon!" },
+
+        { "dex": "041", "name": "Zubat",      "image": "assets/sprites/041-zubat.gif",      "info": "• Mt Moon", "notes": "Catch before leaving Mt Moon!" },
+        { "dex": "042", "name": "Golbat",     "image": "assets/sprites/042-golbat.gif",     "info": "• Evolve Zubat at Lv 22", "notes": "" },
+
+        { "dex": "043", "name": "Oddish",     "image": "assets/sprites/043-oddish.gif",     "info": "• Routes 5, 6, 24, 25", "notes": "" },
+        { "dex": "044", "name": "Gloom",      "image": "assets/sprites/044-gloom.gif",      "info": "• Evolve Oddish at Lv 21", "notes": "" },
+
+        { "dex": "046", "name": "Paras",      "image": "assets/sprites/046-paras.gif",      "info": "• Mt Moon", "notes": "Catch before leaving Mt Moon!" },
+        { "dex": "047", "name": "Parasect",   "image": "assets/sprites/047-parasect.gif",   "info": "• Evolve Paras at Lv 24", "notes": "" },
+
+        { "dex": "050", "name": "Diglett",    "image": "assets/sprites/050-diglett.gif",    "info": "• Diglett's Cave", "notes": "" },
+        { "dex": "051", "name": "Dugtrio",    "image": "assets/sprites/051-dugtrio.gif",    "info": "• Diglett's Cave • Evolve Diglett at Lv 26", "notes": "" },
+
+        { "dex": "056", "name": "Mankey",     "image": "assets/sprites/056-mankey.gif",     "info": "• Route 5 • Route 6", "notes": "" },
+        { "dex": "057", "name": "Primeape",   "image": "assets/sprites/057-primeape.gif",   "info": "• Evolve Mankey at Lv 28", "notes": "" },
+
+        { "dex": "063", "name": "Abra",       "image": "assets/sprites/063-abra.gif",       "info": "• Route 24 • Route 25", "notes": "Knows Teleport — need second for trade" },
+        { "dex": "064", "name": "Kadabra",    "image": "assets/sprites/064-kadabra.gif",    "info": "• Evolve Abra at Lv 16", "notes": "" },
+
+        { "dex": "074", "name": "Geodude",    "image": "assets/sprites/074-geodude.gif",    "info": "• Mt Moon", "notes": "Catch before leaving Mt Moon!" },
+        { "dex": "075", "name": "Graveler",   "image": "assets/sprites/075-graveler.gif",   "info": "• Evolve Geodude at Lv 25", "notes": "" },
+
+        { "dex": "083", "name": "Farfetch'd","image": "assets/sprites/083-farfetchd.gif",  "info": "• Trade for Spearow (Vermilion City)", "notes": "" },
+
+        { "dex": "096", "name": "Drowzee",    "image": "assets/sprites/096-drowzee.gif",    "info": "• Route 11", "notes": "" },
+        { "dex": "097", "name": "Hypno",      "image": "assets/sprites/097-hypno.gif",      "info": "• Evolve Drowzee at Lv 26", "notes": "" },
+
+        { "dex": "122", "name": "Mr Mime",    "image": "assets/sprites/122-mrmime.gif",     "info": "• Trade for Abra (Route 2)", "notes": "" },
+
+        { "dex": "129", "name": "Magikarp",   "image": "assets/sprites/129-magikarp.gif",   "info": "• Old Rod • Route 3 Pokémon Center", "notes": "" },
+        { "dex": "130", "name": "Gyarados",   "image": "assets/sprites/130-gyarados.gif",   "info": "• Evolve Magikarp at Lv 20", "notes": "" }
+      ]
+    },
+
+    {
+      "key": "MOON_STONE_1",
+      "title": "CHOOSE TWO MOON STONE EVOLUTIONS",
+      "required": 2,
+      "exclusive": true,
+      "families": [
+        ["Nidoqueen"],
+        ["Nidoking"],
+        ["Clefable"],
+        ["Wigglytuff"]
+      ],
+      "pokemon": [
+        { "dex": "031", "name": "Nidoqueen",  "image": "assets/sprites/031-nidoqueen.gif",  "info": "• Moon Stone", "notes": "" },
+        { "dex": "034", "name": "Nidoking",   "image": "assets/sprites/034-nidoking.gif",   "info": "• Moon Stone", "notes": "" },
+        { "dex": "036", "name": "Clefable",   "image": "assets/sprites/036-clefable.gif",   "info": "• Moon Stone", "notes": "" },
+        { "dex": "040", "name": "Wigglytuff", "image": "assets/sprites/040-wigglytuff.gif", "info": "• Moon Stone", "notes": "" }
       ]
     }
+
   ]
 }
+
