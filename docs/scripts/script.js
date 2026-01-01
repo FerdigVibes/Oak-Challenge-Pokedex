@@ -589,6 +589,26 @@ function wireVersionDropdown() {
   });
 }
 
+function applyAutoSectionCompletion() {
+  if (!currentData) return;
+
+  currentData.sections.forEach(section => {
+    const required = Number(section.required) || 0;
+    if (required <= 0) return;
+
+    // Count caught Pokémon in this section
+    const caught = section.pokemon.reduce((count, p) => {
+      const id = pokemonId(section.key, p.dex);
+      return count + (state[id] ? 1 : 0);
+    }, 0);
+
+    // If completed and user has not manually expanded it
+    if (caught >= required && !userExpandedSections.has(section.key)) {
+      collapsedSections.add(section.key);
+    }
+  });
+}
+
 /* =========================================================
    MOBILE IMAGE ZOOM HELPER
    ========================================================= */
@@ -632,10 +652,13 @@ function refreshUI() {
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
 
-  // 3) apply collapses last
+  // 4) auto-collapse completed sections
+  applyAutoSectionCompletion();
+
+  // 5) apply collapses last
   applySectionCollapseRules();
 
-  // 4) update progress + objective
+  // 6) update progress + objective
   updateCounterAndBar();
   updateCurrentObjective();
 }
