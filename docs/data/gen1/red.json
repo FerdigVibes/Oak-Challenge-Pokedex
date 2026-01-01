@@ -6,7 +6,17 @@
     "Nidoqueen",
     "Clefable",
     "Wigglytuff"
-  ]
+  ],
+
+  "exclusiveGroups": [
+    {
+      "section": "FOSSIL",
+      "families": [
+        ["Omanyte", "Omastar"],
+        ["Kabuto", "Kabutops"]
+      ]
+    }
+  ],
   
   "sections": [
 
