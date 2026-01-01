@@ -1,5 +1,13 @@
 {
   "total": 124,
+
+  "dedupeFinalEvos": [
+    "Nidoking",
+    "Nidoqueen",
+    "Clefable",
+    "Wigglytuff"
+  ]
+  
   "sections": [
 
     {
