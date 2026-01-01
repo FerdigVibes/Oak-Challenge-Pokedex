@@ -105,7 +105,7 @@
     },
     {
       "key": "MOON_STONE_1",
-      "title": "Cerulean Pokémon",
+      "title": "Evolve your first two Moon Stone Pokémon",
       "required": 2,
       "exclusive": true,
       "families": [
@@ -189,8 +189,8 @@
         {"dex":"118","name":"Goldeen","image":"assets/sprites/118-goldeen.gif","info":"Fishing with Good Rod most areas","notes":""},
         {"dex":"119","name":"Seaking","image":"assets/sprites/119-seaking.gif","info":"Evolve Goldeen at Lv. 33","notes":""},
 
-        {"dex":"120","name":"Staryu","image":"assets/sprites/120-staryu.gif","info":"Super Rod - Route 19","notes":""}
-        {"dex":"121","name":"Starmie","image":"assets/sprites/121-starmie.gif","info":"Evolve Staryu with a Water Stone","notes":"The Evolution Stones can be bought from the Celadon Mall on Floor 4"}
+        {"dex":"120","name":"Staryu","image":"assets/sprites/120-staryu.gif","info":"Super Rod - Route 19","notes":""},
+        {"dex":"121","name":"Starmie","image":"assets/sprites/121-starmie.gif","info":"Evolve Staryu with a Water Stone","notes":"The Evolution Stones can be bought from the Celadon Mall on Floor 4"},
     
         {"dex":"123","name":"Scyther","image":"assets/sprites/123-scyther.gif","info":"Safari Zone Areas 1 and 2\nCeladon Game Corner - 5,500 Coins","notes":""},
         {"dex":"124","name":"Jynx","image":"assets/sprites/124-jynx.gif","info":"Trade Poliwhirl in Cerulean City, check the house next to the Pokemon Center","notes":""},
@@ -213,8 +213,8 @@
       ]
     },
     {
-      "key": "MOON_STONE_",
-      "title": "Fuchsia Pokémon",
+      "key": "MOON_STONE_2",
+      "title": "Evolve your other two Moon Stone Pokémon",
       "required": 2,
       "exclusive": true,
       "families": [
@@ -233,7 +233,7 @@
 
     {
       "key": "EEVEE",
-      "title": "Fuchsia Pokémon",
+      "title": "Choose your Eevee Evolution!",
       "required": 1,
       "exclusive": true,
       "families": [
@@ -250,7 +250,7 @@
 
     {
       "key": "HITMON",
-      "title": "Fuchsia Pokémon",
+      "title": "Choose your Hitmon Prize!",
       "required": 1,
       "exclusive": true,
       "families": [
@@ -294,7 +294,7 @@
     },
     {
       "key": "FOSSIL",
-      "title": "Celadon Pokémon",
+      "title": "Revive One Fossil Line",
       "required": 2,
       "exclusive": true,
       "families": [
