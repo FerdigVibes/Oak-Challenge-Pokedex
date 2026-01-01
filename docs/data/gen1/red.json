@@ -314,7 +314,7 @@
       "required": 1,
       "objectiveLabel": "Catch Articuno",
       "pokemon": [
-        {"dex":"144","name":"Articuno","image":"assets/sprites/144-Articuno.gif","info":"Seafoam Islands B4F - SAVE BEFORE INTERACTING!!!","notes":""}
+        {"dex":"144","name":"Articuno","image":"assets/sprites/144-articuno.gif","info":"Seafoam Islands B4F - SAVE BEFORE INTERACTING!!!","notes":""}
       ]
     },
     {
@@ -323,7 +323,7 @@
       "required": 1,
       "objectiveLabel": "Catch Moltres",
       "pokemon": [
-        {"dex":"146","name":"Moltres","image":"assets/sprites/146-Moltres.gif","info":"Victory Road 2F - SAVE BEFORE INTERACTING!!!","notes":""}
+        {"dex":"146","name":"Moltres","image":"assets/sprites/146-moltres.gif","info":"Victory Road 2F - SAVE BEFORE INTERACTING!!!","notes":""}
       ]
     },
 
