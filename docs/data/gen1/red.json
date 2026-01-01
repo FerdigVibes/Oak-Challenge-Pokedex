@@ -7,7 +7,7 @@
       "title": "Choose Your Starter!",
       "required": 3,
       "exclusive": true,
-      "objectiveLabel": "Fully evolve your chosen starter",
+      "objectiveLabel": "BEFORE PEWTER GYM",
       "families": [
         ["Bulbasaur","Ivysaur","Venusaur"],
         ["Charmander","Charmeleon","Charizard"],
@@ -53,13 +53,188 @@
 
         {"dex":"025","name":"Pikachu","image":"assets/sprites/025-pikachu.gif","info":"Viridian Forest","notes":""},
 
-        {"dex":"029","name":"Nidoran♀","image":"assets/sprites/029-nidoran-f.gif","info":"Route 22","notes":""},
+        {"dex":"029","name":"Nidoran-f","image":"assets/sprites/029-nidoran-f.gif","info":"Route 22","notes":""},
         {"dex":"030","name":"Nidorina","image":"assets/sprites/030-nidorina.gif","info":"Evolve Nidoran♀ at Lv. 16","notes":""},
-        {"dex":"032","name":"Nidoran♂","image":"assets/sprites/032-nidoran-m.gif","info":"Route 22","notes":""},
+        {"dex":"032","name":"Nidoran-m","image":"assets/sprites/032-nidoran-m.gif","info":"Route 22","notes":""},
         {"dex":"033","name":"Nidorino","image":"assets/sprites/033-nidorino.gif","info":"Evolve Nidoran♂ at Lv. 16","notes":""}
       ]
     },
-
+    {
+      "key": "CERULEAN",
+      "title": "Cerulean Pokémon",
+      "required": 24,
+      "objectiveLabel": "BEFORE CERULEAN GYM",
+      "pokemon": [
+        {
+          "dex": "023",
+          "name": "Ekans",
+          "image": "assets/sprites/023-ekans.gif",
+          "info": "Route 4\nRoute 11",
+          "notes": ""
+        },
+        {
+          "dex": "024",
+          "name": "Arbok",
+          "image": "assets/sprites/024-arbok.gif",
+          "info": "Evolve Ekans at Lv. 22",
+          "notes": ""
+        },
+        {
+          "dex": "035",
+          "name": "Clefairy",
+          "image": "assets/sprites/035-clefairy.gif",
+          "info": "Mt. Moon",
+          "notes": "Catch before leaving Mt. Moon!"
+        },
+        {
+          "dex": "039",
+          "name": "Jigglypuff",
+          "image": "assets/sprites/039-jigglypuff.gif",
+          "info": "Route 3",
+          "notes": "Catch before leaving Mt. Moon!"
+        },
+        {
+          "dex": "041",
+          "name": "Zubat",
+          "image": "assets/sprites/041-zubat.gif",
+          "info": "Mt. Moon",
+          "notes": "Catch before leaving Mt. Moon!"
+        },
+        {
+          "dex": "042",
+          "name": "Golbat",
+          "image": "assets/sprites/042-golbat.gif",
+          "info": "Evolve Zubat at Lv. 22",
+          "notes": ""
+        },
+        {
+          "dex": "043",
+          "name": "Oddish",
+          "image": "assets/sprites/043-oddish.gif",
+          "info": "Route 5\nRoute 6\nRoute 24\nRoute 25",
+          "notes": ""
+        },
+        {
+          "dex": "044",
+          "name": "Gloom",
+          "image": "assets/sprites/044-gloom.gif",
+          "info": "Evolve Oddish at Lv. 21",
+          "notes": ""
+        },
+        {
+          "dex": "046",
+          "name": "Paras",
+          "image": "assets/sprites/046-paras.gif",
+          "info": "Mt. Moon",
+          "notes": "Catch before leaving Mt. Moon!"
+        },
+        {
+          "dex": "047",
+          "name": "Parasect",
+          "image": "assets/sprites/047-parasect.gif",
+          "info": "Evolve Paras at Lv. 24",
+          "notes": ""
+        },
+        {
+          "dex": "050",
+          "name": "Diglett",
+          "image": "assets/sprites/050-diglett.gif",
+          "info": "Diglett’s Cave",
+          "notes": ""
+        },
+        {
+          "dex": "051",
+          "name": "Dugtrio",
+          "image": "assets/sprites/051-dugtrio.gif",
+          "info": "Evolve Diglett at Lv. 26\nDiglett’s Cave",
+          "notes": ""
+        },
+        {
+          "dex": "056",
+          "name": "Mankey",
+          "image": "assets/sprites/056-mankey.gif",
+          "info": "Route 5\nRoute 6",
+          "notes": ""
+        },
+        {
+          "dex": "057",
+          "name": "Primeape",
+          "image": "assets/sprites/057-primeape.gif",
+          "info": "Evolve Mankey at Lv. 28",
+          "notes": ""
+        },
+        {
+          "dex": "063",
+          "name": "Abra",
+          "image": "assets/sprites/063-abra.gif",
+          "info": "Route 24\nRoute 25",
+          "notes": "Knows Teleport\nYou will need a second one for trade"
+        },
+        {
+          "dex": "064",
+          "name": "Kadabra",
+          "image": "assets/sprites/064-kadabra.gif",
+          "info": "Evolve Abra at Lv. 16",
+          "notes": ""
+        },
+        {
+          "dex": "074",
+          "name": "Geodude",
+          "image": "assets/sprites/074-geodude.gif",
+          "info": "Mt. Moon",
+          "notes": "Catch before leaving Mt. Moon!"
+        },
+        {
+          "dex": "075",
+          "name": "Graveler",
+          "image": "assets/sprites/075-graveler.gif",
+          "info": "Evolve Geodude at Lv. 25",
+          "notes": ""
+        },
+        {
+          "dex": "083",
+          "name": "Farfetch’d",
+          "image": "assets/sprites/083-farfetchd.gif",
+          "info": "Trade for Spearow",
+          "notes": "Vermilion City trade"
+        },
+        {
+          "dex": "096",
+          "name": "Drowzee",
+          "image": "assets/sprites/096-drowzee.gif",
+          "info": "Route 11",
+          "notes": ""
+        },
+        {
+          "dex": "097",
+          "name": "Hypno",
+          "image": "assets/sprites/097-hypno.gif",
+          "info": "Evolve Drowzee at Lv. 26",
+          "notes": ""
+        },
+        {
+          "dex": "122",
+          "name": "Mr. Mime",
+          "image": "assets/sprites/122-mr-mime.gif",
+          "info": "Route 2 trade for Abra",
+          "notes": "House when exiting Diglett’s Cave"
+        },
+        {
+          "dex": "129",
+          "name": "Magikarp",
+          "image": "assets/sprites/129-magikarp.gif",
+          "info": "Route 3 Pokémon Center (¥500)\nOld Rod: Anywhere with water",
+          "notes": ""
+        },
+        {
+          "dex": "130",
+          "name": "Gyarados",
+          "image": "assets/sprites/130-gyarados.gif",
+          "info": "Evolve Magikarp at Lv. 20",
+          "notes": ""
+        }
+      ]
+    },
     {
       "key": "MOON_STONE_1",
       "title": "Choose Two Moon Stone Evolutions",
@@ -72,10 +247,10 @@
         ["Wigglytuff"]
       ],
       "pokemon": [
-        {"dex":"031","name":"Nidoqueen","image":"assets/sprites/031-nidoqueen.gif","info":"Evolve Nidorina with a Moon Stone","notes":"Two Moon Stones available in Mt. Moon"},
-        {"dex":"034","name":"Nidoking","image":"assets/sprites/034-nidoking.gif","info":"Evolve Nidorino with a Moon Stone","notes":""},
-        {"dex":"036","name":"Clefable","image":"assets/sprites/036-clefable.gif","info":"Evolve Clefairy with a Moon Stone","notes":""},
-        {"dex":"040","name":"Wigglytuff","image":"assets/sprites/040-wigglytuff.gif","info":"Evolve Jigglypuff with a Moon Stone","notes":""}
+        {"dex":"031","name":"Nidoqueen","image":"assets/sprites/031-nidoqueen.gif","info":"Evolve Nidorina with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"},
+        {"dex":"034","name":"Nidoking","image":"assets/sprites/034-nidoking.gif","info":"Evolve Nidorino with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"},
+        {"dex":"036","name":"Clefable","image":"assets/sprites/036-clefable.gif","info":"Evolve Clefairy with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"},
+        {"dex":"040","name":"Wigglytuff","image":"assets/sprites/040-wigglytuff.gif","info":"Evolve Jigglypuff with a Moon Stone","notes":"Two Moon Stones Available:/n1. Mt Moon 1F near the Hiker (Item ball)/n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden)"}
       ]
     },
 
