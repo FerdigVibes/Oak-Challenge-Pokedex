@@ -220,6 +220,8 @@ function renderRows() {
           collapsedSections.add(key);
           userExpandedSections.delete(key);
         }
+
+        h.classList.toggle('collapsed', collapsedSections.has(key));
         refreshUI();
       });
 
@@ -319,10 +321,23 @@ function cssEscape(s) {
 
 function applySectionCollapseRules() {
   if (!currentData) return;
+
   collapsedSections.forEach(sectionKey => {
+    // If the user explicitly expanded it, do NOT collapse
+    if (userExpandedSections.has(sectionKey)) return;
+
+    // Hide rows
     document
       .querySelectorAll(`.row[data-section="${cssEscape(sectionKey)}"]`)
-      .forEach(r => r.classList.add('hidden'));
+      .forEach(row => row.classList.add('hidden'));
+
+    // Mark header as collapsed (for styling + state clarity)
+    const header = document.querySelector(
+      `.section-header[data-section="${cssEscape(sectionKey)}"]`
+    );
+    if (header) {
+      header.classList.add('collapsed');
+    }
   });
 }
 
@@ -385,14 +400,19 @@ function applyExclusiveGroups() {
 }
 
 function applyFinalEvolutionDeduping() {
-  // optional: supports "dedupeFinalEvos": ["Nidoking","Nidoqueen",...]
   if (!currentData || !Array.isArray(currentData.dedupeFinalEvos)) return;
 
-  const targets = new Set(currentData.dedupeFinalEvos.map(slugifyName));
-  const groups = {}; // { slugName: [pokemonItem,...] }
+  // Normalize names for matching
+  const targets = new Set(
+    currentData.dedupeFinalEvos.map(name => slugifyName(name))
+  );
+
+  // Group all matching Pokémon by name, across ALL sections
+  const groups = {}; // { slugName: [pokemonItem, pokemonItem] }
 
   pokemonList.forEach(p => {
     if (p.type !== 'pokemon') return;
+
     const slug = slugifyName(p.name);
     if (!targets.has(slug)) return;
 
@@ -400,11 +420,15 @@ function applyFinalEvolutionDeduping() {
     groups[slug].push(p);
   });
 
+  // If one is checked, hide the others
   Object.values(groups).forEach(list => {
-    const checked = list.find(p => !!state[p.id]);
-    if (!checked) return;
+    const chosen = list.find(p => state[p.id]);
+    if (!chosen) return;
+
     list.forEach(p => {
-      if (p.id !== checked.id) hideById(p.id);
+      if (p.id !== chosen.id) {
+        hideById(p.id);
+      }
     });
   });
 }
