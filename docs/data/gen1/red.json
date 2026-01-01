@@ -53,9 +53,9 @@
 
         {"dex":"025","name":"Pikachu","image":"assets/sprites/025-pikachu.gif","info":"Viridian Forest","notes":""},
 
-        {"dex":"029","name":"Nidoran-f","image":"assets/sprites/029-nidoran-f.gif","info":"Route 22","notes":""},
+        {"dex":"029","name":"Nidoran♀","image":"assets/sprites/029-nidoranf.gif","info":"Route 22","notes":""},
         {"dex":"030","name":"Nidorina","image":"assets/sprites/030-nidorina.gif","info":"Evolve Nidoran♀ at Lv. 16","notes":""},
-        {"dex":"032","name":"Nidoran-m","image":"assets/sprites/032-nidoran-m.gif","info":"Route 22","notes":""},
+        {"dex":"032","name":"Nidoran♂","image":"assets/sprites/032-nidoranm.gif","info":"Route 22","notes":""},
         {"dex":"033","name":"Nidorino","image":"assets/sprites/033-nidorino.gif","info":"Evolve Nidoran♂ at Lv. 16","notes":""}
       ]
     },
@@ -215,7 +215,7 @@
         {
           "dex": "122",
           "name": "Mr. Mime",
-          "image": "assets/sprites/122-mr-mime.gif",
+          "image": "assets/sprites/122-mrmime.gif",
           "info": "Route 2 trade for Abra",
           "notes": "House when exiting Diglett’s Cave"
         },
@@ -231,6 +231,343 @@
           "name": "Gyarados",
           "image": "assets/sprites/130-gyarados.gif",
           "info": "Evolve Magikarp at Lv. 20",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "key": "FUCHSIA",
+      "title": "Fuchsia Pokémon",
+      "required": 54,
+      "objectiveLabel": "Catch & evolve all available before Koga",
+      "pokemon": [
+        {
+          "dex": "026",
+          "name": "Raichu",
+          "image": "assets/sprites/026-raichu.gif",
+          "info": "Evolve Pikachu with a Thunder Stone",
+          "notes": "Evolution Stones can be bought at Celadon Dept. Store (4F)"
+        },
+        {
+          "dex": "045",
+          "name": "Vileplume",
+          "image": "assets/sprites/045-vileplume.gif",
+          "info": "Evolve Gloom with a Leaf Stone",
+          "notes": "Evolution Stones can be bought at Celadon Dept. Store (4F)"
+        },
+        {
+          "dex": "048",
+          "name": "Venonat",
+          "image": "assets/sprites/048-venonat.gif",
+          "info": "Safari Zone Area 1 & 4\nRoute 12\nRoute 13\nRoute 14\nRoute 15",
+          "notes": "You will need a second one for trade"
+        },
+        {
+          "dex": "049",
+          "name": "Venomoth",
+          "image": "assets/sprites/049-venomoth.gif",
+          "info": "Evolve Venonat at Lv. 31\nSafari Zone Area 3 & 4",
+          "notes": ""
+        },
+        {
+          "dex": "054",
+          "name": "Psyduck",
+          "image": "assets/sprites/054-psyduck.gif",
+          "info": "Super Rod: Safari Zone, Cerulean Gym, Route 24, Route 25",
+          "notes": ""
+        },
+        {
+          "dex": "055",
+          "name": "Golduck",
+          "image": "assets/sprites/055-golduck.gif",
+          "info": "Evolve Psyduck at Lv. 33",
+          "notes": ""
+        },
+        {
+          "dex": "058",
+          "name": "Growlithe",
+          "image": "assets/sprites/058-growlithe.gif",
+          "info": "Route 7\nRoute 8",
+          "notes": ""
+        },
+        {
+          "dex": "059",
+          "name": "Arcanine",
+          "image": "assets/sprites/059-arcanine.gif",
+          "info": "Evolve Growlithe with a Fire Stone",
+          "notes": "Evolution Stones can be bought at Celadon Dept. Store (4F)"
+        },
+        {
+          "dex": "060",
+          "name": "Poliwag",
+          "image": "assets/sprites/060-poliwag.gif",
+          "info": "Good Rod: Most fishing spots\nSuper Rod: Pallet Town, Viridian City, Route 22",
+          "notes": ""
+        },
+        {
+          "dex": "061",
+          "name": "Poliwhirl",
+          "image": "assets/sprites/061-poliwhirl.gif",
+          "info": "Evolve Poliwag at Lv. 25\nSuper Rod: Route 10, Celadon City",
+          "notes": "You will need a second one for trade"
+        },
+        {
+          "dex": "062",
+          "name": "Poliwrath",
+          "image": "assets/sprites/062-poliwrath.gif",
+          "info": "Evolve Poliwhirl with a Water Stone",
+          "notes": "Evolution Stones can be bought at Celadon Dept. Store (4F)"
+        },
+        {
+          "dex": "066",
+          "name": "Machop",
+          "image": "assets/sprites/066-machop.gif",
+          "info": "Rock Tunnel",
+          "notes": ""
+        },
+        {
+          "dex": "067",
+          "name": "Machoke",
+          "image": "assets/sprites/067-machoke.gif",
+          "info": "Evolve Machop at Lv. 28",
+          "notes": ""
+        },
+        {
+          "dex": "072",
+          "name": "Tentacool",
+          "image": "assets/sprites/072-tentacool.gif",
+          "info": "Super Rod: Pallet Town, Viridian City, Routes 12, 13, 17, 18",
+          "notes": ""
+        },
+        {
+          "dex": "073",
+          "name": "Tentacruel",
+          "image": "assets/sprites/073-tentacruel.gif",
+          "info": "Evolve Tentacool at Lv. 30",
+          "notes": ""
+        },
+        {
+          "dex": "079",
+          "name": "Slowpoke",
+          "image": "assets/sprites/079-slowpoke.gif",
+          "info": "Super Rod: Route 10, Celadon City, Safari Zone",
+          "notes": ""
+        },
+        {
+          "dex": "080",
+          "name": "Slowbro",
+          "image": "assets/sprites/080-slowbro.gif",
+          "info": "Evolve Slowpoke at Lv. 37",
+          "notes": "You will need a second one for trade"
+        },
+        {
+          "dex": "084",
+          "name": "Doduo",
+          "image": "assets/sprites/084-doduo.gif",
+          "info": "Route 16\nRoute 17\nRoute 18\nSafari Zone Area 4",
+          "notes": ""
+        },
+        {
+          "dex": "085",
+          "name": "Dodrio",
+          "image": "assets/sprites/085-dodrio.gif",
+          "info": "Evolve Doduo at Lv. 31",
+          "notes": ""
+        },
+        {
+          "dex": "090",
+          "name": "Shellder",
+          "image": "assets/sprites/090-shellder.gif",
+          "info": "Super Rod: Route 6, Vermilion City, Route 19",
+          "notes": ""
+        },
+        {
+          "dex": "091",
+          "name": "Cloyster",
+          "image": "assets/sprites/091-cloyster.gif",
+          "info": "Evolve Shellder with a Water Stone",
+          "notes": "Evolution Stones can be bought at Celadon Dept. Store (4F)"
+        },
+        {
+          "dex": "092",
+          "name": "Gastly",
+          "image": "assets/sprites/092-gastly.gif",
+          "info": "Pokémon Tower",
+          "notes": ""
+        },
+        {
+          "dex": "093",
+          "name": "Haunter",
+          "image": "assets/sprites/093-haunter.gif",
+          "info": "Evolve Gastly at Lv. 25\nPokémon Tower",
+          "notes": ""
+        },
+        {
+          "dex": "095",
+          "name": "Onix",
+          "image": "assets/sprites/095-onix.gif",
+          "info": "Rock Tunnel",
+          "notes": ""
+        },
+        {
+          "dex": "098",
+          "name": "Krabby",
+          "image": "assets/sprites/098-krabby.gif",
+          "info": "Super Rod: Routes 6, 12, 13, 17, 18, 24, 25\nCerulean Gym, Vermilion City, Fuchsia City, Safari Zone",
+          "notes": ""
+        },
+        {
+          "dex": "099",
+          "name": "Kingler",
+          "image": "assets/sprites/099-kingler.gif",
+          "info": "Evolve Krabby at Lv. 28",
+          "notes": ""
+        },
+        {
+          "dex": "100",
+          "name": "Voltorb",
+          "image": "assets/sprites/100-voltorb.gif",
+          "info": "Route 10",
+          "notes": ""
+        },
+        {
+          "dex": "101",
+          "name": "Electrode",
+          "image": "assets/sprites/101-electrode.gif",
+          "info": "Evolve Voltorb at Lv. 30",
+          "notes": ""
+        },
+        {
+          "dex": "102",
+          "name": "Exeggcute",
+          "image": "assets/sprites/102-exeggcute.gif",
+          "info": "Safari Zone",
+          "notes": ""
+        },
+        {
+          "dex": "105",
+          "name": "Marowak",
+          "image": "assets/sprites/105-marowak.gif",
+          "info": "Evolve Cubone at Lv. 28",
+          "notes": ""
+        },
+        {
+          "dex": "108",
+          "name": "Lickitung",
+          "image": "assets/sprites/108-lickitung.gif",
+          "info": "Trade for Slowbro at Route 18 Gate House",
+          "notes": ""
+        },
+        {
+          "dex": "111",
+          "name": "Rhyhorn",
+          "image": "assets/sprites/111-rhyhorn.gif",
+          "info": "Safari Zone Area 1 & 3",
+          "notes": ""
+        },
+        {
+          "dex": "112",
+          "name": "Rhydon",
+          "image": "assets/sprites/112-rhydon.gif",
+          "info": "Evolve Rhyhorn at Lv. 42",
+          "notes": ""
+        },
+        {
+          "dex": "113",
+          "name": "Chansey",
+          "image": "assets/sprites/113-chansey.gif",
+          "info": "Safari Zone Area 1 & 3",
+          "notes": ""
+        },
+        {
+          "dex": "115",
+          "name": "Kangaskhan",
+          "image": "assets/sprites/115-kangaskhan.gif",
+          "info": "Safari Zone Area 2 & 4",
+          "notes": ""
+        },
+        {
+          "dex": "116",
+          "name": "Horsea",
+          "image": "assets/sprites/116-horsea.gif",
+          "info": "Super Rod: Route 19",
+          "notes": ""
+        },
+        {
+          "dex": "117",
+          "name": "Seadra",
+          "image": "assets/sprites/117-seadra.gif",
+          "info": "Evolve Horsea at Lv. 32",
+          "notes": ""
+        },
+        {
+          "dex": "118",
+          "name": "Goldeen",
+          "image": "assets/sprites/118-goldeen.gif",
+          "info": "Good Rod: Most fishing spots",
+          "notes": ""
+        },
+        {
+          "dex": "119",
+          "name": "Seaking",
+          "image": "assets/sprites/119-seaking.gif",
+          "info": "Evolve Goldeen at Lv. 33\nSuper Rod: Fuchsia City",
+          "notes": ""
+        },
+        {
+          "dex": "123",
+          "name": "Scyther",
+          "image": "assets/sprites/123-scyther.gif",
+          "info": "Celadon Game Corner (5,500 coins)\nSafari Zone Area 1 & 2",
+          "notes": ""
+        },
+        {
+          "dex": "124",
+          "name": "Jynx",
+          "image": "assets/sprites/124-jynx.gif",
+          "info": "Trade for Poliwhirl in Cerulean City",
+          "notes": ""
+        },
+        {
+          "dex": "128",
+          "name": "Tauros",
+          "image": "assets/sprites/128-tauros.gif",
+          "info": "Safari Zone Area 2 & 4",
+          "notes": ""
+        },
+        {
+          "dex": "131",
+          "name": "Lapras",
+          "image": "assets/sprites/131-lapras.gif",
+          "info": "Silph Co. employee gift in Saffron City",
+          "notes": "Make sure you have party space"
+        },
+        {
+          "dex": "132",
+          "name": "Ditto",
+          "image": "assets/sprites/132-ditto.gif",
+          "info": "Route 13\nRoute 14\nRoute 15",
+          "notes": ""
+        },
+        {
+          "dex": "147",
+          "name": "Dratini",
+          "image": "assets/sprites/147-dratini.gif",
+          "info": "Celadon Game Corner (2,800 coins)\nSuper Rod: Safari Zone",
+          "notes": ""
+        },
+        {
+          "dex": "148",
+          "name": "Dragonair",
+          "image": "assets/sprites/148-dragonair.gif",
+          "info": "Evolve Dratini at Lv. 30",
+          "notes": ""
+        },
+        {
+          "dex": "149",
+          "name": "Dragonite",
+          "image": "assets/sprites/149-dragonite.gif",
+          "info": "Evolve Dragonair at Lv. 55",
           "notes": ""
         }
       ]
