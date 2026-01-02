@@ -73,20 +73,15 @@
   <!-- ==============================
        DESKTOP EMULATOR OVERLAY
        ============================== -->
-  <div id="emulator-overlay" class="emulator-overlay hidden">
-    <div class="emulator-window">
-      <div class="emulator-header">
-        <span id="emulator-title">Playing: Pokémon Red</span>
-        <button id="close-emulator">✕</button>
-      </div>
-
-      <iframe
-        id="emulator-frame"
-        src=""
-        loading="lazy"
-        allowfullscreen
-      ></iframe>
+  <div id="emulator-panel" class="emulator-panel hidden">
+    <div class="emulator-header">
+      <span>Pokémon Yellow</span>
+      <button id="close-emulator">✕</button>
     </div>
+
+    <input type="file" id="rom-input" accept=".gb" />
+
+    <canvas id="emulator-canvas" width="160" height="144"></canvas>
   </div>
 
   <script src="./scripts/script.js" defer></script>
