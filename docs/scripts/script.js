@@ -693,6 +693,7 @@ function wireVersionDropdown() {
 }
 
 function applyAutoSectionCompletion() {
+  console.log('AUTO-COLLAPSE RUNNING');
   if (!currentData) return;
 
   currentData.sections.forEach(section => {
