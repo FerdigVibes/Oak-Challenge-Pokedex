@@ -383,9 +383,10 @@ body {
   position: fixed;
   top: var(--top-bar-height);
   right: 0;
-  bottom: 0;
 
   width: 420px;
+  height: calc(100vh - var(--top-bar-height));
+
   background: linear-gradient(
     to bottom,
     var(--dex-bg),
@@ -396,9 +397,19 @@ body {
   box-shadow: -6px 0 18px rgba(0,0,0,0.6);
 
   transform: translateX(100%);
-  transition: transform 0.35s ease;
+  transition: transform 0.4s ease;
 
-  z-index: 900;
+  z-index: 1500;
+}
+
+.emulator-panel.open {
+  transform: translateX(0);
+}
+
+.emulator-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* OPEN STATE ONLY */
