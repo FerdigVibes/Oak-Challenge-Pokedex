@@ -206,16 +206,12 @@ function showSectionAchievement(text) {
   if (!el) return;
 
   el.textContent = text;
-  el.classList.remove('hidden', 'show');
 
-  // force reflow to restart animation
-  void el.offsetWidth;
+  // Reset animation cleanly
+  el.classList.remove('show');
+  void el.offsetWidth; // force reflow
 
   el.classList.add('show');
-
-  setTimeout(() => {
-    el.classList.remove('show');
-  }, 2600);
 }
 
 function loadCompletedAchievements(version) {
