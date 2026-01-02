@@ -36,7 +36,14 @@ const GAMEPAD_KEYMAP_STANDARD_STR = "standard"; // Try to use "standard" HTML5 m
 const $ = document.querySelector.bind(document);
 let emulator = null;
 
-const binjgbPromise = Binjgb();
+const binjgbPromise = Binjgb({
+  locateFile: (path) => path.endsWith('.wasm') ? 'binjgb.wasm' : path
+});
+
+binjgbPromise.then(
+  () => console.log('binjgb WASM loaded successfully'),
+  err => console.error('binjgb WASM FAILED', err)
+);
 
 const dbPromise = idb.open('db', 1, upgradeDb => {
   const objectStore = upgradeDb.createObjectStore('games', {keyPath : 'sha1'});
