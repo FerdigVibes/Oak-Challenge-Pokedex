@@ -98,6 +98,11 @@ let vm = new Vue({
   },
   mounted: function() {
     $('.main').classList.add('ready');
+
+    // AUTO-OPEN FILE DIALOG WHEN EMBEDDED IN IFRAME
+    if (window.self !== window.top) {
+      this.files.show = true;
+    }
   },
   computed: {
     canvasWidth: function() {
