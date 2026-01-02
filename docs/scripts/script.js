@@ -209,22 +209,18 @@ function showSectionAchievement(text) {
 
   el.textContent = text;
 
-  // Ensure element is renderable
-  el.style.display = 'block';
-
-  // Reset animation state
+  // Ensure clean state
   el.classList.remove('show');
-  el.style.opacity = '0';
-  el.style.transform = 'translateX(120%)';
 
-  // Force reflow
+  // Force reflow so animation always restarts
   void el.offsetWidth;
 
   // Animate in
   el.classList.add('show');
 
   // Animate out after 3 seconds
-  setTimeout(() => {
+  clearTimeout(el._hideTimer);
+  el._hideTimer = setTimeout(() => {
     el.classList.remove('show');
   }, 3000);
 }
