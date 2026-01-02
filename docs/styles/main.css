@@ -182,11 +182,11 @@ body {
 
 .celebration {
   position: fixed;
-  top: 110px;
-  right: -100%;
-  padding: 12px 20px;
+  top: calc(var(--top-bar-height) + 12px);
+  right: -420px;               /* start fully offscreen */
+  padding: 14px 22px;
 
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 1px;
   text-transform: uppercase;
 
@@ -198,17 +198,43 @@ body {
   );
 
   border: 3px solid var(--dex-border);
-  border-radius: 8px;
+  border-radius: 10px;
 
   box-shadow:
-    0 0 10px rgba(0,255,255,0.7),
-    0 0 20px rgba(0,255,255,0.4);
+    0 0 12px rgba(0,255,255,0.7),
+    0 0 24px rgba(0,255,255,0.4);
 
   z-index: 2000;
+  pointer-events: none;
+
+  opacity: 0;
+  transform: translateX(0);
 }
 
 .celebration.show {
-  animation: celebration-slide 2.4s ease forwards;
+  animation: achievement-slide 3.2s ease forwards;
+}
+
+@keyframes achievement-slide {
+  0% {
+    right: -420px;
+    opacity: 0;
+  }
+
+  15% {
+    right: 20px;
+    opacity: 1;
+  }
+
+  80% {
+    right: 20px;
+    opacity: 1;
+  }
+
+  100% {
+    right: -420px;
+    opacity: 0;
+  }
 }
 
 .hidden {
