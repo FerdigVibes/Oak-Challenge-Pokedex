@@ -1180,9 +1180,8 @@ body.yellow .row::before {
   overflow: hidden;
 
   transition:
-    max-height 0.45s cubic-bezier(.4,0,.2,1),
+    max-height 0.35s ease,
     opacity 0.25s ease,
-    transform 0.35s ease,
     padding 0.35s ease,
     margin 0.35s ease;
 }
