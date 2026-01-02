@@ -1172,6 +1172,17 @@ body.yellow .row::before {
   pointer-events: none;
 }
 
+.row {
+  max-height: 200px; /* must exist BEFORE .hidden */
+  overflow: hidden;
+
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    padding 0.35s ease,
+    margin 0.35s ease;
+}
+
 /* visible state */
 .row {
   max-height: 240px;
