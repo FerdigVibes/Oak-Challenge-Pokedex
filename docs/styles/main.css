@@ -152,11 +152,11 @@ body {
    TOP BAR (FIXED)
    ========================================================= */
 .top-bar {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: auto;
+  z-index: 1000;
 
   background: linear-gradient(
     to bottom,
