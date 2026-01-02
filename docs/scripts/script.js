@@ -772,25 +772,24 @@ function enableMobileImageZoom() {
 function refreshUI() {
   if (!currentData) return;
 
-  // 1) reset visibility
+  // 1) show everything
   showAllRows();
 
-  // 2) rule-based hiding
+  // 2) apply rule sets
   applyStarterExclusivity();
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
 
-  // 3) completion + achievements
+  // 4) auto-collapse completed sections
   applyAutoSectionCompletion();
 
-  // 4) collapse LAST (do not override after this)
+  // 5) apply collapses last
   applySectionCollapseRules();
 
-  // 5) UI updates
+  // 6) update progress + objective
   updateCounterAndBar();
   updateCurrentObjective();
 }
-
 /* =========================================================
    INIT
    ========================================================= */
