@@ -185,6 +185,7 @@ async function loadPokemonData() {
 
     rebuildResetDropdown();
     renderRows();
+    syncTopBarHeight();
     refreshUI();
 
   } catch (err) {
@@ -367,6 +368,17 @@ function applyStarterExclusivity() {
     if (fam === chosenFamily) return;
     fam.forEach(p => hideById(p.id));
   });
+}
+
+function syncTopBarHeight() {
+  const topBar = document.querySelector('.top-bar');
+  if (!topBar) return;
+
+  const height = topBar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty(
+    '--top-bar-height',
+    `${height}px`
+  );
 }
 
 function applyExclusiveGroups() {
@@ -675,7 +687,12 @@ window.addEventListener('load', () => {
   wireResetDropdown();
   wireMuteButton();
   enableMobileImageZoom();
+  syncTopBarHeight();
 
   // load initial data
   loadPokemonData();
+});
+
+window.addEventListener('resize', () => {
+  syncTopBarHeight();
 });
