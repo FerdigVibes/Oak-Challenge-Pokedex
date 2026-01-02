@@ -205,22 +205,24 @@ async function loadPokemonData() {
 
 function showSectionAchievement(text) {
   console.log('ACHIEVEMENT TRIGGERED:', text);
+
   const el = document.getElementById('celebration');
-  if (!el)
-   console.warn('❌ celebration element not found');
-   return;
+  if (!el) {
+    console.warn('❌ celebration element not found');
+    return;
   }
 
   el.textContent = text;
 
-  // reset
+  // reset animation
   el.classList.remove('show');
+  el.classList.remove('hidden');
+
+  // force reflow
   void el.offsetWidth;
 
-  // show
   el.classList.add('show');
 
-  // auto-hide after 3s
   setTimeout(() => {
     el.classList.remove('show');
   }, 3000);
