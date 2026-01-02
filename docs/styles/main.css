@@ -4,6 +4,8 @@
 
 html, body {
   height: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 :root {
@@ -729,10 +731,16 @@ body {
    SCROLL CONTAINER (ROWS)
    ========================================================= */
 #rows {
-  position: relative;
-  height: calc(100vh - var(--top-bar-height));
+  position: absolute;
+  top: 140px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+   
   overflow-y: auto;
   overflow-x: hidden;
+   
   -webkit-overflow-scrolling: touch;
 
   padding-bottom: 48px;
@@ -742,6 +750,10 @@ body {
       #f7ffff,
       #eefafa
     );
+}
+
+#rows {
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
 }
 
 /* =========================================================
