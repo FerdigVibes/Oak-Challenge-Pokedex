@@ -176,6 +176,19 @@ body {
   z-index: 1000;
 }
 
+.objective-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.current-objective {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* =========================================================
    SECTION COMPLETION CELEBRATION
    ========================================================= */
