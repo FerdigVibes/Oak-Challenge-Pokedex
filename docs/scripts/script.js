@@ -193,6 +193,8 @@ async function loadPokemonData() {
     syncTopBarHeight();
     refreshUI();
 
+    isInitialLoad = false;
+
   } catch (err) {
     console.error(err);
     alert(`Could not load data for ${currentVersion}. Check console for details.`);
@@ -349,15 +351,8 @@ function hideById(id) {
   if (el) el.classList.add('hidden');
 }
 
-function showEligibleRows() {
-  document.querySelectorAll('.row').forEach(row => {
-    const section = row.dataset.section;
-
-    // Do not unhide rows from collapsed sections
-    if (collapsedSections.has(section)) return;
-
-    row.classList.remove('hidden');
-  });
+function showAllRows() {
+  document.querySelectorAll('.row').forEach(r => r.classList.remove('hidden'));
 }
 
 function cssEscape(s) {
@@ -715,19 +710,19 @@ function applyAutoSectionCompletion() {
     const isComplete = caught >= required;
     const alreadyAwarded = completedAchievements.has(section.key);
 
-    // 🎉 ACHIEVEMENT TRIGGER
+    // 🎉 Achievement (once)
     if (isComplete && !alreadyAwarded) {
       completedAchievements.add(section.key);
       saveCompletedAchievements(currentVersion, completedAchievements);
 
       const label =
         section.title?.toUpperCase() ||
-        `${section.key.replace(/_/g, ' ')} COMPLETE!`;
+        section.key.replace(/_/g, ' ');
 
       showSectionAchievement(`${label} COMPLETE!`);
     }
 
-    // Auto-collapse if completed and not user-expanded
+    // Auto-collapse only if user did not manually expand
     if (!isInitialLoad && isComplete && !userExpandedSections.has(section.key)) {
       collapsedSections.add(section.key);
     }
@@ -739,7 +734,10 @@ function applyAutoSectionCompletion() {
 
     if (header) {
       header.classList.toggle('completed', isComplete);
-      header.classList.toggle('collapsed', isComplete);
+      header.classList.toggle(
+        'collapsed',
+        isComplete && !userExpandedSections.has(section.key)
+      );
     }
   });
 }
@@ -781,19 +779,20 @@ function refreshUI() {
 
   console.log('REFRESH UI RUNNING');
 
-  // 1) apply logic first
+  // 1) Reset visibility baseline
+  showAllRows();
+
+  // 2) Decide which sections are complete/collapsed (updates collapsedSections)
+  applyAutoSectionCompletion();
+
+  // 3) Apply collapses (hides rows in collapsed sections)
+  applySectionCollapseRules();
+
+  // 4) Apply other hide rules (starter/fossil/dedupe) LAST
+  //    so they can't be undone by later "show" passes
   applyStarterExclusivity();
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
-
-  // 2) determine completed sections
-  applyAutoSectionCompletion();
-
-  // 3) show only rows that are allowed to be visible
-  showEligibleRows();
-
-  // 4) collapse completed sections
-  applySectionCollapseRules();
 
   // 5) UI updates
   updateCounterAndBar();
