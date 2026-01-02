@@ -379,62 +379,6 @@ body {
   }
 }
 
-.emulator-panel {
-  position: fixed;
-  top: var(--top-bar-height);
-  right: 0;
-
-  width: 420px;
-  height: calc(100vh - var(--top-bar-height));
-
-  transform: translateX(100%);
-  transition: transform 0.4s ease;
-
-  z-index: 1500;
-}
-
-.emulator-panel.open {
-  transform: translateX(0);
-}
-
-.emulator-panel iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.emulator-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 10px 14px;
-
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  color: #e0ffff;
-  background: linear-gradient(#0f3d3d, #081f1f);
-
-  border-bottom: 2px solid #1de9b6;
-}
-
-.emulator-header button {
-  background: none;
-  border: none;
-  color: #e0ffff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#emulator-frame {
-  width: 100%;
-  height: calc(100% - 44px);
-  border: none;
-  background: #000;
-}
-
 .objective-row {
   display: flex;
   justify-content: space-between;
@@ -859,46 +803,6 @@ body {
   to {
     transform: translateX(120%);
     opacity: 0;
-  }
-}
-
-.play-btn {
-  margin-left: auto;
-
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  padding: 6px 12px;
-
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-
-  color: #e0ffff;
-  background: linear-gradient(to bottom, #0f3d3d, #081f1f);
-
-  border: 2px solid #1de9b6;
-  border-radius: 6px;
-
-  cursor: pointer;
-
-  box-shadow:
-    inset 0 0 6px rgba(0,255,255,0.3),
-    0 2px 0 rgba(0,0,0,0.4);
-}
-
-.play-btn:hover {
-  box-shadow:
-    inset 0 0 10px rgba(0,255,255,0.6),
-    0 0 8px rgba(0,229,255,0.7);
-}
-
-/* Desktop only */
-@media (max-width: 1024px) {
-  .play-btn {
-    display: none;
   }
 }
 
