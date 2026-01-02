@@ -17,6 +17,7 @@ let state = {};                     // { [pokemonId]: true/false }
 let collapsedSections = new Set();  // Set<sectionKey> collapsed
 let userExpandedSections = new Set(); // Set<sectionKey> sections user forced open
 let completedAchievements = new Set();
+let isInitialLoad = true;
 
 const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
@@ -176,7 +177,9 @@ async function loadPokemonData() {
           name: p.name,
           info: p.info || '',
           notes: p.notes || '',
-          image: p.image ? p.image : urlFromBase(`assets/sprites/${d}-${slugifyName(p.name)}.gif`)
+          image: p.image
+            ? p.image
+            : urlFromBase(`assets/sprites/${d}-${slugifyName(p.name)}.gif`)
         });
       });
     });
@@ -663,7 +666,7 @@ function applyAutoSectionCompletion() {
     }
 
     // Auto-collapse if completed and not user-expanded
-    if (isComplete && !userExpandedSections.has(section.key)) {
+    if (!isInitialLoad && isComplete && !userExpandedSections.has(section.key)) {
       collapsedSections.add(section.key);
     }
 
