@@ -647,6 +647,22 @@ function wireEmulator() {
   });
 }
 
+function wireEmulatorPanel() {
+  const panel = document.getElementById('emulator-panel');
+  const openBtn = document.getElementById('play-emulator');
+  const closeBtn = document.getElementById('close-emulator');
+
+  if (!panel || !openBtn || !closeBtn) return;
+
+  openBtn.addEventListener('click', () => {
+    panel.classList.add('open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('open');
+  });
+}
+
 function wireEmulatorButton() {
   const btn = document.getElementById('play-emulator');
   const panel = document.getElementById('emulator-panel');
@@ -790,6 +806,7 @@ window.addEventListener('load', () => {
   syncTopBarHeight();
   wireEmulator();
   wireEmulatorButton();
+  wireEmulatorpanel();
 
   // load initial data
   loadPokemonData();
