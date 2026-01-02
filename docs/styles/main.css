@@ -385,6 +385,67 @@ body {
   }
 }
 
+.emulator-panel {
+  position: fixed;
+  top: var(--top-bar-height);
+  right: -420px;
+
+  width: 420px;
+  height: calc(100% - var(--top-bar-height));
+
+  background: linear-gradient(
+    to bottom,
+    var(--dex-bg),
+    var(--dex-dark)
+  );
+
+  border-left: 4px solid var(--dex-border);
+
+  box-shadow:
+    -6px 0 12px rgba(0,0,0,0.6),
+    inset 0 0 10px rgba(255,255,255,0.15);
+
+  z-index: 3000;
+
+  transition: right 0.35s ease;
+}
+
+.emulator-panel.open {
+  right: 0;
+}
+
+.emulator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 14px;
+
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #e0ffff;
+  background: linear-gradient(#0f3d3d, #081f1f);
+
+  border-bottom: 2px solid #1de9b6;
+}
+
+.emulator-header button {
+  background: none;
+  border: none;
+  color: #e0ffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#emulator-frame {
+  width: 100%;
+  height: calc(100% - 44px);
+  border: none;
+  background: #000;
+}
+
 /* =========================================================
    POKEDEX DROPDOWNS
    ========================================================= */
