@@ -67,5 +67,19 @@
        ====================================================== -->
   <div id="rows"></div>
  <script src="./scripts/script.js" defer></script>
+
+  <div id="emulator-panel" class="emulator-panel hidden">
+    <div class="emulator-header">
+      <span>Pokédex Emulator</span>
+      <button id="close-emulator">✕</button>
+    </div>
+  
+    <iframe
+      id="emulator-frame"
+      src=""
+      loading="lazy"
+      sandbox="allow-scripts allow-pointer-lock"
+    ></iframe>
+  </div>
 </body>
 </html>
