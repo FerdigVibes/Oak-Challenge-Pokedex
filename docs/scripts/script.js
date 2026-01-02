@@ -204,25 +204,26 @@ async function loadPokemonData() {
 }
 
 function showSectionAchievement(text) {
-  console.log('ACHIEVEMENT TRIGGERED:', text);
-
   const el = document.getElementById('celebration');
-  if (!el) {
-    console.warn('❌ celebration element not found');
-    return;
-  }
+  if (!el) return;
 
   el.textContent = text;
 
-  // reset animation
-  el.classList.remove('show');
-  el.classList.remove('hidden');
+  // Ensure element is renderable
+  el.style.display = 'block';
 
-  // force reflow
+  // Reset animation state
+  el.classList.remove('show');
+  el.style.opacity = '0';
+  el.style.transform = 'translateX(120%)';
+
+  // Force reflow
   void el.offsetWidth;
 
+  // Animate in
   el.classList.add('show');
 
+  // Animate out after 3 seconds
   setTimeout(() => {
     el.classList.remove('show');
   }, 3000);
