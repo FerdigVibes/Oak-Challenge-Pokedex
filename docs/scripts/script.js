@@ -349,8 +349,15 @@ function hideById(id) {
   if (el) el.classList.add('hidden');
 }
 
-function showAllRows() {
-  document.querySelectorAll('.row').forEach(r => r.classList.remove('hidden'));
+function showEligibleRows() {
+  document.querySelectorAll('.row').forEach(row => {
+    const section = row.dataset.section;
+
+    // Do not unhide rows from collapsed sections
+    if (collapsedSections.has(section)) return;
+
+    row.classList.remove('hidden');
+  });
 }
 
 function cssEscape(s) {
@@ -770,24 +777,25 @@ function enableMobileImageZoom() {
    REFRESH UI (single orchestrator)
    ========================================================= */
 function refreshUI() {
-  console.log('REFRESH UI RUNNING');
   if (!currentData) return;
 
-  // 1) show everything
-  showAllRows();
+  console.log('REFRESH UI RUNNING');
 
-  // 2) apply rule sets
+  // 1) apply logic first
   applyStarterExclusivity();
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
 
-  // 4) auto-collapse completed sections
+  // 2) determine completed sections
   applyAutoSectionCompletion();
 
-  // 5) apply collapses last
+  // 3) show only rows that are allowed to be visible
+  showEligibleRows();
+
+  // 4) collapse completed sections
   applySectionCollapseRules();
 
-  // 6) update progress + objective
+  // 5) UI updates
   updateCounterAndBar();
   updateCurrentObjective();
 }
