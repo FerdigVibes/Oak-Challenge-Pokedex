@@ -1,36 +1,36 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 
-<!-- pages rebuild -->
-  
 <body class="red">
   <div id="loading-overlay" class="loading-overlay hidden">
     <div class="dex-loader">
-     <div class="dex-light"></div>
-     <div class="dex-text">LOADING DATA…</div>
+      <div class="dex-light"></div>
+      <div class="dex-text">LOADING DATA…</div>
     </div>
   </div>
+
   <!-- ======================================================
        TOP BAR (FIXED)
        ====================================================== -->
   <div class="top-bar">
 
-    <!-- Row 1: Title + Progress -->
+    <!-- Row 1: Title -->
     <div class="top-row">
       <div class="title">Pokémon Oak Challenge - Kanto</div>
     </div>
 
-    <!-- Row 2: Active Section Reader -->
-      <div class="global-progress">
-        <div id="global-counter" class="dex-counter">0/124</div>
-        <div class="progress-container">
-          <div id="progress-bar"></div>
-        </div>
+    <!-- Row 2: Global Progress -->
+    <div class="global-progress">
+      <div id="global-counter" class="dex-counter">0/124</div>
+      <div class="progress-container">
+        <div id="progress-bar"></div>
       </div>
+    </div>
 
     <!-- Row 3: Controls -->
     <div class="control-row">
@@ -49,19 +49,24 @@
       </button>
     </div>
 
+    <!-- Row 4: Current Objective -->
     <div class="objective-row">
       <div class="current-objective">
         Current Objective:
         <span id="objective-text" class="objective-text">—</span>
+      </div>
+    </div>
 
-  </div>
+  </div> <!-- END top-bar -->
 
- <div id="celebration" class="celebration"></div>
+  <!-- Achievement Toast -->
+  <div id="celebration" class="celebration"></div>
 
   <!-- ======================================================
        SCROLLING CONTENT
        ====================================================== -->
   <div id="rows"></div>
- <script src="./scripts/script.js" defer></script>
+
+  <script src="./scripts/script.js" defer></script>
 </body>
 </html>
