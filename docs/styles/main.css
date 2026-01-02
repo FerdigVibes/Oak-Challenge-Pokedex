@@ -212,7 +212,7 @@ body {
 }
 
 .celebration.show {
-  animation: achievement-slide 3.2s ease forwards;
+  animation: achievement-slide 3.0s ease forwards;
 }
 
 @keyframes achievement-slide {
@@ -239,25 +239,6 @@ body {
 
 .hidden {
   display: none;
-}
-
-@keyframes celebration-slide {
-  0% {
-    right: -100%;
-    opacity: 0;
-  }
-  15% {
-    right: 20px;
-    opacity: 1;
-  }
-  85% {
-    right: 20px;
-    opacity: 1;
-  }
-  100% {
-    right: -100%;
-    opacity: 0;
-  }
 }
 
 /* =========================================================
