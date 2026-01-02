@@ -732,7 +732,7 @@ body {
    ========================================================= */
 #rows {
   position: absolute;
-  top: 140px;
+  top: var(--top-bar-height);
   left: 0;
   right: 0;
   bottom: 0;
@@ -1095,16 +1095,6 @@ body.yellow .row::before {
   margin-top: 2px;
 }
 
-.row {
-  overflow: hidden;
-
-  transition:
-    max-height 0.35s ease,
-    opacity 0.25s ease,
-    padding 0.35s ease,
-    margin 0.35s ease;
-}
-
 @media (max-width: 768px) {
   .row img {
     height: 56px;
@@ -1165,11 +1155,6 @@ body {
 /* =========================================================
    MOBILE SCROLL FIX (iOS SAFARI)
    ========================================================= */
-@media (max-width: 768px) {
-  body {
-    overflow: auto;
-  }
-}
 
 /* Desktop hover effects ONLY */
 @media (hover: hover) and (pointer: fine) {
@@ -1214,17 +1199,6 @@ body {
 
   .control-row {
     flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    overflow: hidden;
-  }
-
-  #rows {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
 }
 
