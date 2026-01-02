@@ -567,7 +567,7 @@ body {
 
 #rows::after {
   content: '';
-  position: fixed;
+  position: absolute;   /* ✅ was fixed */
   inset: 0;
   pointer-events: none;
 
@@ -879,7 +879,7 @@ body {
   user-select: none;
 
   border-radius: 6px;
-  margin: 6px 8px;
+  margin: 0 8px;              /* ✅ horizontal only */
 
   color: #e0ffff;
 
@@ -901,6 +901,10 @@ body {
     transform 0.2s ease,
     box-shadow 0.2s ease,
     filter 0.2s ease;
+}
+
+.section-header + .row {
+  margin-top: 6px;
 }
 
 /* Hover / press feedback */
