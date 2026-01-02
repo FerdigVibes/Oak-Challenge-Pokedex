@@ -867,7 +867,7 @@ body {
    ========================================================= */
 
 :root {
-  --top-bar-height: 140px; /* must match #rows top */
+  --top-bar-height: 0px; /* must match #rows top */
 }
 
 .section-header {
