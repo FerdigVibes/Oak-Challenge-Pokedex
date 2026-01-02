@@ -614,10 +614,32 @@ function applyAutoSectionCompletion() {
       return count + (state[id] ? 1 : 0);
     }, 0);
 
-    // If completed and user has not manually expanded it
+    // Auto-collapse completed sections (unless user forced open)
     if (caught >= required && !userExpandedSections.has(section.key)) {
       collapsedSections.add(section.key);
     }
+
+    // Update header visual state
+    const header = document.querySelector(
+      `.section-header[data-section="${section.key}"]`
+    );
+
+    if (header) {
+      if (caught >= required) {
+        header.classList.add('completed', 'collapsed');
+      } else {
+        header.classList.remove('completed', 'collapsed');
+      }
+    }
+  });
+}
+
+ if (header) {
+  if (caught >= required) {
+    header.classList.add('completed', 'collapsed');
+  } else {
+    header.classList.remove('completed', 'collapsed');
+   }
   });
 }
 
