@@ -207,11 +207,17 @@ function showSectionAchievement(text) {
 
   el.textContent = text;
 
-  // Reset animation cleanly
+  // reset
   el.classList.remove('show');
-  void el.offsetWidth; // force reflow
+  void el.offsetWidth;
 
+  // show
   el.classList.add('show');
+
+  // auto-hide after 3s
+  setTimeout(() => {
+    el.classList.remove('show');
+  }, 3000);
 }
 
 function loadCompletedAchievements(version) {
@@ -749,21 +755,21 @@ function enableMobileImageZoom() {
 function refreshUI() {
   if (!currentData) return;
 
-  // 1) show everything
+  // 1) reset visibility
   showAllRows();
 
-  // 2) apply rule sets
+  // 2) rule-based hiding
   applyStarterExclusivity();
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
 
-  // 4) auto-collapse completed sections
+  // 3) completion + achievements
   applyAutoSectionCompletion();
 
-  // 5) apply collapses last
+  // 4) collapse LAST (do not override after this)
   applySectionCollapseRules();
 
-  // 6) update progress + objective
+  // 5) UI updates
   updateCounterAndBar();
   updateCurrentObjective();
 }
