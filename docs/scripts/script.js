@@ -640,6 +640,18 @@ function wireEmulator() {
   });
 }
 
+function wireEmulatorButton() {
+  const btn = document.getElementById('play-emulator');
+  const panel = document.getElementById('emulator-panel');
+
+  if (!btn || !panel) return;
+
+  btn.addEventListener('click', () => {
+    panel.classList.toggle('hidden');
+    panel.classList.toggle('open');
+  });
+}
+
 /* =========================================================
    VERSION DROPDOWN
    ========================================================= */
@@ -770,6 +782,7 @@ window.addEventListener('load', () => {
   enableMobileImageZoom();
   syncTopBarHeight();
   wireEmulator();
+  wireEmulatorButton();
 
   // load initial data
   loadPokemonData();
