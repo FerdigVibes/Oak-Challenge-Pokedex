@@ -635,36 +635,6 @@ function wireResetDropdown() {
   });
 }
 
-function wireEmulator() {
-  const btn = document.getElementById('play-emulator');
-  const panel = document.getElementById('emulator-panel');
-  const frame = document.getElementById('emulator-frame');
-  const close = document.getElementById('close-emulator');
-  const versionLabel = document.getElementById('play-version');
-
-  if (!btn || !panel || !frame || !close || !versionLabel) return;
-
-  const ensureLoaded = () => {
-    // lazy-load emulator only once
-    if (!frame.src) frame.src = 'emulator/index.html';
-  };
-
-  btn.addEventListener('click', () => {
-    versionLabel.textContent = currentVersion;
-    ensureLoaded();
-    panel.classList.add('open');
-  });
-
-  close.addEventListener('click', () => {
-    panel.classList.remove('open');
-  });
-
-  // Optional: ESC closes panel
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') panel.classList.remove('open');
-  });
-}
-
 /* =========================================================
    VERSION DROPDOWN
    ========================================================= */
@@ -800,7 +770,6 @@ window.addEventListener('load', () => {
   wireMuteButton();
   enableMobileImageZoom();
   syncTopBarHeight();
-  wireEmulator();
 
   // load initial data
   loadPokemonData();
