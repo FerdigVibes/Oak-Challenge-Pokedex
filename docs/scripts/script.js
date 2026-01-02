@@ -18,7 +18,7 @@ let collapsedSections = new Set();  // Set<sectionKey> collapsed
 let userExpandedSections = new Set(); // Set<sectionKey> sections user forced open
 let completedAchievements = new Set();
 let isInitialLoad = true;
-let pendingAchievementText = null;
+let achievementQueue = [];
 
 const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
@@ -690,35 +690,39 @@ function applyAutoSectionCompletion() {
     }, 0);
 
     const isComplete = caught >= required;
+    const alreadyAwarded = completedAchievements.has(section.key);
 
-    // Collapse as soon as complete (including on initial load),
-    // unless the user manually expanded it.
-    if (isComplete && !userExpandedSections.has(section.key)) {
-      collapsedSections.add(section.key);
-    } else {
-      collapsedSections.delete(section.key);
-    }
-
-    // Achievement (only after initial load, and only once)
-    if (!isInitialLoad && isComplete && !completedAchievements.has(section.key)) {
+    // 🎉 Detect transition ONLY
+    if (isComplete && !alreadyAwarded) {
       completedAchievements.add(section.key);
       saveCompletedAchievements(currentVersion, completedAchievements);
 
-      const label = (section.title || section.key).toUpperCase();
-      pendingAchievementText = `${label} COMPLETE!`;
+      const label =
+        section.title?.toUpperCase() ||
+        section.key.replace(/_/g, ' ');
+
+      achievementQueue.push(`${label} COMPLETE!`);
     }
 
-    // Header visuals
+    // Auto-collapse
+    if (isComplete && !userExpandedSections.has(section.key)) {
+      collapsedSections.add(section.key);
+    }
+
+    // Header state
     const header = document.querySelector(
       `.section-header[data-section="${section.key}"]`
     );
+
     if (header) {
       header.classList.toggle('completed', isComplete);
-      header.classList.toggle('collapsed', isComplete && !userExpandedSections.has(section.key));
+      header.classList.toggle(
+        'collapsed',
+        isComplete && !userExpandedSections.has(section.key)
+      );
     }
   });
 }
-
 /* =========================================================
    MOBILE IMAGE ZOOM HELPER
    ========================================================= */
@@ -757,7 +761,7 @@ function refreshUI() {
   // 1) Reset visibility baseline
   showAllRows();
 
-  // 2) Apply “hide” rules first (these define what rows can exist)
+  // 2) Apply “hide” rules first
   applyStarterExclusivity();
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
@@ -765,18 +769,16 @@ function refreshUI() {
   // 3) Compute completion + collapse + header state
   applyAutoSectionCompletion();
 
-  // 4) Apply collapses last (so they override other visibility)
+  // 4) Apply collapses last
   applySectionCollapseRules();
 
   // 5) UI updates
   updateCounterAndBar();
   updateCurrentObjective();
 
-  // 6) Achievement after DOM is stable
-  if (pendingAchievementText) {
-    const msg = pendingAchievementText;
-    pendingAchievementText = null;
-    showSectionAchievement(msg);
+  // 6) Fire ONE queued achievement after UI settles
+  if (achievementQueue.length) {
+    showSectionAchievement(achievementQueue.shift());
   }
 }
 /* =========================================================
