@@ -866,9 +866,13 @@ body {
    SECTION HEADERS — POKEDEX STYLE
    ========================================================= */
 
+:root {
+  --top-bar-height: 140px; /* must match #rows top */
+}
+
 .section-header {
   position: sticky;
-  top: 0;
+  top: var(--top-bar-height);
 
   padding: 10px 14px;
   font-weight: 800;
@@ -901,6 +905,10 @@ body {
     transform 0.2s ease,
     box-shadow 0.2s ease,
     filter 0.2s ease;
+}
+
+#rows > .section-header:first-child {
+  margin-top: 8px;
 }
 
 .section-header + .row {
