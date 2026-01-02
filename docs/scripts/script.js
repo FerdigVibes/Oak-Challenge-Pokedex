@@ -23,7 +23,6 @@ const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
 const BASE_URL = new URL('.', document.baseURI); // folder containing index.html
 const urlFromBase = (p) => new URL(p, BASE_URL).toString();
-const emulatorPanel = document.getElementById('emulator-panel');
 
 /* =========================================================
    CRY SYSTEM
