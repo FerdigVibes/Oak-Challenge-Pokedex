@@ -576,9 +576,15 @@ function rebuildResetDropdown() {
 function resetAll() {
   if (!currentData) return;
 
+  // Clear Pokémon progress
   state = {};
   saveProgressForVersion(currentVersion, state);
 
+  // Clear achievements for this version
+  completedAchievements.clear();
+  saveCompletedAchievements(currentVersion, completedAchievements);
+
+  // Reset UI state
   collapsedSections.clear();
   userExpandedSections.clear();
 
