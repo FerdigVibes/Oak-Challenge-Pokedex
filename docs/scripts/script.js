@@ -805,7 +805,7 @@ window.addEventListener('load', () => {
   syncTopBarHeight();
   wireEmulator();
   wireEmulatorButton();
-  wireEmulatorpanel();
+  wireEmulatorPanel();
 
   // load initial data
   loadPokemonData();
