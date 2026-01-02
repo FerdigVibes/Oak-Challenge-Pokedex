@@ -728,6 +728,34 @@ function enableMobileImageZoom() {
   }, { passive: true });
 }
 
+function wireEmulatorOverlay() {
+  const openBtn = document.getElementById('play-emulator');
+  const overlay = document.getElementById('emulator-overlay');
+  const frame = document.getElementById('emulator-frame');
+  const closeBtn = document.getElementById('close-emulator');
+  const title = document.getElementById('emulator-title');
+  const versionLabel = document.getElementById('play-version');
+
+  if (!openBtn || !overlay || !frame || !closeBtn) return;
+
+  openBtn.addEventListener('click', () => {
+    const version = currentVersion || 'Red';
+
+    versionLabel.textContent = version;
+    title.textContent = `Playing: Pokémon ${version}`;
+
+    if (!frame.src) {
+      frame.src = 'emulator/index.html';
+    }
+
+    overlay.classList.remove('hidden');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.add('hidden');
+  });
+}
+
 /* =========================================================
    REFRESH UI (single orchestrator)
    ========================================================= */
@@ -770,6 +798,7 @@ window.addEventListener('load', () => {
   wireMuteButton();
   enableMobileImageZoom();
   syncTopBarHeight();
+  wireEmulatorOverlay();
 
   // load initial data
   loadPokemonData();
