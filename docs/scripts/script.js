@@ -204,8 +204,12 @@ async function loadPokemonData() {
 }
 
 function showSectionAchievement(text) {
+  console.log('ACHIEVEMENT TRIGGERED:', text);
   const el = document.getElementById('celebration');
-  if (!el) return;
+  if (!el)
+   console.warn('❌ celebration element not found');
+   return;
+  }
 
   el.textContent = text;
 
