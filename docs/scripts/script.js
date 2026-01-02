@@ -16,6 +16,7 @@ let pokemonList = [];               // flattened render list: headers + pokemon 
 let state = {};                     // { [pokemonId]: true/false }
 let collapsedSections = new Set();  // Set<sectionKey> collapsed
 let userExpandedSections = new Set(); // Set<sectionKey> sections user forced open
+let completedAchievements = new Set();
 
 const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
@@ -154,6 +155,7 @@ async function loadPokemonData() {
 
     // load state
     state = loadProgressForVersion(currentVersion) || {};
+    completedAchievements = loadCompletedAchievements(currentVersion);
 
     // flatten into render list
     pokemonList = [];
@@ -194,6 +196,38 @@ async function loadPokemonData() {
   } finally {
     if (overlay) overlay.classList.add('hidden');
   }
+}
+
+function showSectionAchievement(text) {
+  const el = document.getElementById('celebration');
+  if (!el) return;
+
+  el.textContent = text;
+  el.classList.remove('hidden', 'show');
+
+  // force reflow to restart animation
+  void el.offsetWidth;
+
+  el.classList.add('show');
+
+  setTimeout(() => {
+    el.classList.remove('show');
+  }, 2600);
+}
+
+function loadCompletedAchievements(version) {
+  try {
+    const all = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    return new Set(all[`${version}_completed`] || []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveCompletedAchievements(version, set) {
+  const all = loadAllProgress();
+  all[`${version}_completed`] = Array.from(set);
+  saveAllProgress(all);
 }
 
 /* =========================================================
@@ -608,38 +642,40 @@ function applyAutoSectionCompletion() {
     const required = Number(section.required) || 0;
     if (required <= 0) return;
 
-    // Count caught Pokémon in this section
     const caught = section.pokemon.reduce((count, p) => {
       const id = pokemonId(section.key, p.dex);
       return count + (state[id] ? 1 : 0);
     }, 0);
 
-    // Auto-collapse completed sections (unless user forced open)
-    if (caught >= required && !userExpandedSections.has(section.key)) {
+    const isComplete = caught >= required;
+    const alreadyAwarded = completedAchievements.has(section.key);
+
+    // 🎉 ACHIEVEMENT TRIGGER
+    if (isComplete && !alreadyAwarded) {
+      completedAchievements.add(section.key);
+      saveCompletedAchievements(currentVersion, completedAchievements);
+
+      const label =
+        section.title?.toUpperCase() ||
+        `${section.key.replace(/_/g, ' ')} COMPLETE!`;
+
+      showSectionAchievement(`${label} COMPLETE!`);
+    }
+
+    // Auto-collapse if completed and not user-expanded
+    if (isComplete && !userExpandedSections.has(section.key)) {
       collapsedSections.add(section.key);
     }
 
-    // Update header visual state
+    // Header visual state
     const header = document.querySelector(
       `.section-header[data-section="${section.key}"]`
     );
 
     if (header) {
-      if (caught >= required) {
-        header.classList.add('completed', 'collapsed');
-      } else {
-        header.classList.remove('completed', 'collapsed');
-      }
+      header.classList.toggle('completed', isComplete);
+      header.classList.toggle('collapsed', isComplete);
     }
-  });
-}
-
- if (header) {
-  if (caught >= required) {
-    header.classList.add('completed', 'collapsed');
-  } else {
-    header.classList.remove('completed', 'collapsed');
-   }
   });
 }
 
