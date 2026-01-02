@@ -770,6 +770,7 @@ function enableMobileImageZoom() {
    REFRESH UI (single orchestrator)
    ========================================================= */
 function refreshUI() {
+  console.log('REFRESH UI RUNNING');
   if (!currentData) return;
 
   // 1) show everything
