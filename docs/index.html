@@ -67,6 +67,25 @@
        ====================================================== -->
   <div id="rows"></div>
 
+  <!-- ==============================
+         DESKTOP EMULATOR OVERLAY
+         ============================== -->
+    <div id="emulator-overlay" class="emulator-overlay hidden">
+      <div class="emulator-window">
+        <div class="emulator-header">
+          <span id="emulator-title">Playing: Pokémon Red</span>
+          <button id="close-emulator">✕</button>
+        </div>
+    
+        <iframe
+          id="emulator-frame"
+          src=""
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+
   <script src="./scripts/script.js" defer></script>
 </body>
 </html>
