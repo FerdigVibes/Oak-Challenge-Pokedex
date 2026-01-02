@@ -18,6 +18,7 @@ let collapsedSections = new Set();  // Set<sectionKey> collapsed
 let userExpandedSections = new Set(); // Set<sectionKey> sections user forced open
 let completedAchievements = new Set();
 let isInitialLoad = true;
+let pendingAchievementText = null;
 
 const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
@@ -209,20 +210,21 @@ function showSectionAchievement(text) {
 
   el.textContent = text;
 
-  // Ensure clean state
+  // restart animation cleanly
   el.classList.remove('show');
 
-  // Force reflow so animation always restarts
+  // Force reflow
   void el.offsetWidth;
 
-  // Animate in
-  el.classList.add('show');
+  // Show next frame so the browser actually paints it
+  requestAnimationFrame(() => {
+    el.classList.add('show');
 
-  // Animate out after 3 seconds
-  clearTimeout(el._hideTimer);
-  el._hideTimer = setTimeout(() => {
-    el.classList.remove('show');
-  }, 3000);
+    clearTimeout(el._hideTimer);
+    el._hideTimer = setTimeout(() => {
+      el.classList.remove('show');
+    }, 3000);
+  });
 }
 
 function loadCompletedAchievements(version) {
@@ -634,48 +636,26 @@ function wireEmulator() {
   const close = document.getElementById('close-emulator');
   const versionLabel = document.getElementById('play-version');
 
-  if (!btn || !panel || !frame) return;
+  if (!btn || !panel || !frame || !close || !versionLabel) return;
+
+  const ensureLoaded = () => {
+    // lazy-load emulator only once
+    if (!frame.src) frame.src = 'emulator/index.html';
+  };
 
   btn.addEventListener('click', () => {
     versionLabel.textContent = currentVersion;
-
-    if (!frame.src) {
-      frame.src = 'emulator/index.html';
-    }
-
+    ensureLoaded();
     panel.classList.add('open');
   });
 
   close.addEventListener('click', () => {
     panel.classList.remove('open');
   });
-}
 
-function wireEmulatorPanel() {
-  const panel = document.getElementById('emulator-panel');
-  const openBtn = document.getElementById('play-emulator');
-  const closeBtn = document.getElementById('close-emulator');
-
-  if (!panel || !openBtn || !closeBtn) return;
-
-  openBtn.addEventListener('click', () => {
-    panel.classList.add('open');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    panel.classList.remove('open');
-  });
-}
-
-function wireEmulatorButton() {
-  const btn = document.getElementById('play-emulator');
-  const panel = document.getElementById('emulator-panel');
-
-  if (!btn || !panel) return;
-
-  btn.addEventListener('click', () => {
-    panel.classList.toggle('hidden');
-    panel.classList.toggle('open');
+  // Optional: ESC closes panel
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') panel.classList.remove('open');
   });
 }
 
@@ -698,7 +678,6 @@ function wireVersionDropdown() {
 }
 
 function applyAutoSectionCompletion() {
-  console.log('AUTO-COLLAPSE RUNNING');
   if (!currentData) return;
 
   currentData.sections.forEach(section => {
@@ -711,36 +690,31 @@ function applyAutoSectionCompletion() {
     }, 0);
 
     const isComplete = caught >= required;
-    const alreadyAwarded = completedAchievements.has(section.key);
 
-    // 🎉 Achievement (once)
-    if (isComplete && !alreadyAwarded) {
+    // Collapse as soon as complete (including on initial load),
+    // unless the user manually expanded it.
+    if (isComplete && !userExpandedSections.has(section.key)) {
+      collapsedSections.add(section.key);
+    } else {
+      collapsedSections.delete(section.key);
+    }
+
+    // Achievement (only after initial load, and only once)
+    if (!isInitialLoad && isComplete && !completedAchievements.has(section.key)) {
       completedAchievements.add(section.key);
       saveCompletedAchievements(currentVersion, completedAchievements);
 
-      const label =
-        section.title?.toUpperCase() ||
-        section.key.replace(/_/g, ' ');
-
-      showSectionAchievement(`${label} COMPLETE!`);
+      const label = (section.title || section.key).toUpperCase();
+      pendingAchievementText = `${label} COMPLETE!`;
     }
 
-    // Auto-collapse only if user did not manually expand
-    if (!isInitialLoad && isComplete && !userExpandedSections.has(section.key)) {
-      collapsedSections.add(section.key);
-    }
-
-    // Header visual state
+    // Header visuals
     const header = document.querySelector(
       `.section-header[data-section="${section.key}"]`
     );
-
     if (header) {
       header.classList.toggle('completed', isComplete);
-      header.classList.toggle(
-        'collapsed',
-        isComplete && !userExpandedSections.has(section.key)
-      );
+      header.classList.toggle('collapsed', isComplete && !userExpandedSections.has(section.key));
     }
   });
 }
@@ -780,26 +754,30 @@ function enableMobileImageZoom() {
 function refreshUI() {
   if (!currentData) return;
 
-  console.log('REFRESH UI RUNNING');
-
   // 1) Reset visibility baseline
   showAllRows();
 
-  // 2) Decide which sections are complete/collapsed (updates collapsedSections)
-  applyAutoSectionCompletion();
-
-  // 3) Apply collapses (hides rows in collapsed sections)
-  applySectionCollapseRules();
-
-  // 4) Apply other hide rules (starter/fossil/dedupe) LAST
-  //    so they can't be undone by later "show" passes
+  // 2) Apply “hide” rules first (these define what rows can exist)
   applyStarterExclusivity();
   applyExclusiveGroups();
   applyFinalEvolutionDeduping();
 
+  // 3) Compute completion + collapse + header state
+  applyAutoSectionCompletion();
+
+  // 4) Apply collapses last (so they override other visibility)
+  applySectionCollapseRules();
+
   // 5) UI updates
   updateCounterAndBar();
   updateCurrentObjective();
+
+  // 6) Achievement after DOM is stable
+  if (pendingAchievementText) {
+    const msg = pendingAchievementText;
+    pendingAchievementText = null;
+    showSectionAchievement(msg);
+  }
 }
 /* =========================================================
    INIT
@@ -815,8 +793,6 @@ window.addEventListener('load', () => {
   enableMobileImageZoom();
   syncTopBarHeight();
   wireEmulator();
-  wireEmulatorButton();
-  wireEmulatorPanel();
 
   // load initial data
   loadPokemonData();
