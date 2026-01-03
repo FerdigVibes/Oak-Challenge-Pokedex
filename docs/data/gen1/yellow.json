@@ -277,24 +277,20 @@
       "required": 14,
       "objectiveLabel": "Before Celadon Gym",
       "pokemon": [
-        {"dex":"054","name":"Psyduck","image":"assets/sprites/054-psyduck.gif","info":"Super Rod in Cerulean Gym, Safari Zone, or Routes 24–25","notes":""},
-        {"dex":"055","name":"Golduck","image":"assets/sprites/055-golduck.gif","info":"Evolve Psyduck at Lv. 33","notes":""},
+        {"dex":"054","name":"Psyduck","image":"assets/sprites/054-psyduck.gif","info":"SURF on Route 6","notes":""},
+        {"dex":"055","name":"Golduck","image":"assets/sprites/055-golduck.gif","info":"Evolve Psyduck at Lv. 33\nSURF on Route 6","notes":""},
     
-        {"dex":"058","name":"Growlithe","image":"assets/sprites/058-growlithe.gif","info":"Route 7\nRoute 8","notes":""},
+        {"dex":"058","name":"Growlithe","image":"assets/sprites/058-growlithe.gif","info":"Cinnabar Insland's Pokémon Mansion 1F","notes":"Catch a 2nd one for a helpful trade!"},
         {"dex":"059","name":"Arcanine","image":"assets/sprites/059-arcanine.gif","info":"Evolve Growlithe with Fire Stone (Celadon Dept. Store 4F)","notes":""},
+
+        {"dex":"079","name":"Slowpoke","image":"assets/sprites/079-slowpoke.gif","info":"SURF on Route 12 & 13\nSeafoam Islands","notes":""},
+        {"dex":"080","name":"Slowbro","image":"assets/sprites/080-slowbro.gif","info":"Evolve Slowpoke at Lv. 37\nSURF on Route 12 & 13\nSeafoam Islands B2F","notes":"Second Slowbro required for trade"},
+        
+        {"dex":"086","name":"Seel","image":"assets/sprites/086-seel.gif","info":"Seafoam Islands","notes":""},
+        {"dex":"087","name":"Dewgong","image":"assets/sprites/087-dewgong.gif","info":"Evolve Seel at Lv. 34\nSeafoam Islands B1F & B3F\nTrade for Growlithe at the Cinnabar Island Lab","notes":""},
     
-        {"dex":"086","name":"Seel","image":"assets/sprites/086-seel.gif","info":"Seafoam Islands or trade Ponyta at Cinnabar Lab","notes":""},
-        {"dex":"087","name":"Dewgong","image":"assets/sprites/087-dewgong.gif","info":"Evolve Seel at Lv. 34","notes":""},
-    
-        {"dex":"088","name":"Grimer","image":"assets/sprites/088-grimer.gif","info":"Pokémon Mansion on Cinnabar Island","notes":""},
-        {"dex":"089","name":"Muk","image":"assets/sprites/089-muk.gif","info":"Evolve Grimer at Lv. 38","notes":""},
-    
-        {"dex":"109","name":"Koffing","image":"assets/sprites/109-koffing.gif","info":"Pokémon Mansion on Cinnabar Island","notes":""},
-        {"dex":"110","name":"Weezing","image":"assets/sprites/110-weezing.gif","info":"Evolve Koffing at Lv. 35","notes":""},
-    
-        {"dex":"114","name":"Tangela","image":"assets/sprites/114-tangela.gif","info":"Route 21\nTrade Venonat at Cinnabar Lab","notes":""},
-    
-        {"dex":"126","name":"Magmar","image":"assets/sprites/126-magmar.gif","info":"Pokémon Mansion on Cinnabar Island","notes":""},
+        {"dex":"088","name":"Grimer","image":"assets/sprites/088-grimer.gif","info":"Pokémon Mansion on Cinnabar Island\nPower Plant on Route 10","notes":""},
+        {"dex":"089","name":"Muk","image":"assets/sprites/089-muk.gif","info":"Evolve Grimer at Lv. 38\nPower Plant on Route 10\nPokémon Mansion on Cinnabar Island","notes":""},
     
         {"dex":"142","name":"Aerodactyl","image":"assets/sprites/142-aerodactyl.gif","info":"Revive Old Amber at Cinnabar Lab","notes":"Find the Old Amber by using the side entrance of the Pewter City Museum"},
     
