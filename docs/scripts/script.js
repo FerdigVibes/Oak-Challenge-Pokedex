@@ -577,7 +577,7 @@ function updateCurrentObjective() {
   const objectiveText = document.querySelector('.objective-text');
   if (!objectiveText || !currentData) return;
 
-  let label = t('ui.complete', 'CHALLENGE COMPLETE!');
+  let label = t('ui.challengeComplete', 'CHALLENGE COMPLETE!');
 
   for (const section of currentData.sections) {
     const required = Number(section.required) || 0;
