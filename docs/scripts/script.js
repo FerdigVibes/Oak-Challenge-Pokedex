@@ -704,16 +704,18 @@ function wireResetDropdown() {
     if (!value) return;
 
     if (value === 'RESET_ALL') {
-      if (confirm('Reset all progress?')) resetAll();
-      select.value = '';
-      return;
-    }
-
-    if (confirm(`Reset "${value}" for ${currentVersion}?`)) {
-      resetSection(value);
-    }
-
-    select.value = '';
+     if (confirm(t('ui.resetAllConfirm', 'Reset all progress?'))) {
+       resetAll();
+     }
+     select.value = '';
+     return;
+   }
+   
+   if (confirm(t('ui.resetConfirm', 'Reset this section?'))) {
+     resetSection(value);
+   }
+   
+   select.value = '';
   });
 }
 
