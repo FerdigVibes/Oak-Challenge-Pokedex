@@ -141,8 +141,13 @@ function setBodyTheme(version) {
   document.body.classList.add(String(version).toLowerCase());
 }
 
+async function loadLanguage(lang) {
+  const res = await fetch(`docs/lang/${lang}.json`);
+  langData = await res.json();
+}
+
 function t(path, fallback = '') {
-  return path.split('.').reduce((o, k) => o?.[k], translations) ?? fallback;
+  return path.split('.').reduce((o, k) => o?.[k], langData) ?? fallback;
 }
 
 /* =========================================================
@@ -172,19 +177,19 @@ async function loadPokemonData() {
       pokemonList.push({
         type: 'header',
         key: section.key,
-        title: section.title
+        title: t(`sections.${section.key}.title`, section.title)
       });
 
       section.pokemon.forEach(p => {
-        const d = dex3(p.dex);
+        const dex = String(p.dex).padStart(3, '0');
         pokemonList.push({
           type: 'pokemon',
           sectionKey: section.key,
           id: pokemonId(section.key, d),
           dex: d,
-          name: p.name,
-          info: p.info || '',
-          notes: p.notes || '',
+          name: t(`pokemon.${dex}.name`, p.name),
+          info: t(`pokemon.${dex}.info`, p.info),
+          notes: t(`pokemon.${dex}.notes`, p.notes),
           image: p.image
             ? p.image
             : urlFromBase(`assets/sprites/${d}-${slugifyName(p.name)}.gif`)
