@@ -286,7 +286,12 @@ function renderRows() {
       const h = document.createElement('div');
       h.className = 'section-header major-header';
       h.dataset.section = item.key;
-      h.textContent = item.title;
+
+      // 🔑 LOCALIZED SECTION TITLE
+      h.textContent = t(
+        `sections.${item.key}.title`,
+        item.title
+      );
 
       h.addEventListener('click', () => {
         const key = item.key;
@@ -355,8 +360,14 @@ function renderRows() {
     const sprite = document.createElement('div');
     sprite.className = 'sprite-frame';
 
+    // 🔑 LOCALIZED POKÉMON NAME
+    const localizedName = t(
+      `pokemon.${item.dex}.name`,
+      item.name
+    );
+
     const img = document.createElement('img');
-    img.alt = item.name;
+    img.alt = localizedName;
     img.loading = 'lazy';
     img.src = item.image;
     sprite.appendChild(img);
@@ -365,7 +376,7 @@ function renderRows() {
     text.className = 'text';
 
     text.innerHTML = `
-      <div class="name">${escapeHtml(item.name)}</div>
+      <div class="name">${escapeHtml(localizedName)}</div>
       ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
       ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
     `;
