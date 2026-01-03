@@ -145,13 +145,20 @@ function setBodyTheme(version) {
 async function loadLanguage(lang = 'en') {
   currentLang = lang;
 
+  if (lang === 'en') {
+    langData = {}; // empty = fallback to JSON
+    return;
+  }
+
   try {
-    const res = await fetch(urlFromBase(`lang/${lang}.json`), { cache: 'no-store' });
+    const res = await fetch(urlFromBase(`lang/${lang}.json`), {
+      cache: 'no-store'
+    });
     if (!res.ok) throw new Error('lang load failed');
 
     langData = await res.json();
   } catch (e) {
-    console.warn(`Language ${lang} failed to load, using English defaults.`);
+    console.warn(`Language ${lang} failed to load, using English.`);
     langData = {};
   }
 }
@@ -776,6 +783,24 @@ function enableMobileImageZoom() {
     img.classList.add('mobile-zoom');
     activeImg = img;
   }, { passive: true });
+}
+
+// Translation helper
+function t(path, fallback = '') {
+  if (!langData || typeof path !== 'string') return fallback;
+
+  const parts = path.split('.');
+  let cur = langData;
+
+  for (const p of parts) {
+    if (cur && typeof cur === 'object' && p in cur) {
+      cur = cur[p];
+    } else {
+      return fallback;
+    }
+  }
+
+  return typeof cur === 'string' ? cur : fallback;
 }
 
 /* =========================================================
