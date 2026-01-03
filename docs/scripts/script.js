@@ -614,16 +614,6 @@ function updateCurrentObjective() {
   }
 }
 
-  // small swap animation if you kept your .swap class
-  if (objectiveText.textContent !== label) {
-    objectiveText.classList.add('swap');
-    setTimeout(() => {
-      objectiveText.textContent = label;
-      objectiveText.classList.remove('swap');
-    }, 180);
-  }
-}
-
 /* =========================================================
    RESET DROPDOWN
    ========================================================= */
