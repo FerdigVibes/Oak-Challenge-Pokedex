@@ -325,6 +325,7 @@
         {"dex":"009","name":"Blastoise","image":"assets/sprites/009-blastoise.gif","info":"Evolve Wartortle at Lv. 36","notes":""}
       ]
     },
+    {
       "key": "ARTICUNO",
       "title": "Articuno",
       "required": 1,
@@ -333,6 +334,7 @@
         {"dex":"144","name":"Articuno","image":"assets/sprites/144-articuno.gif","info":"Seafoam Islands B4F - SAVE BEFORE INTERACTING!!!","notes":""}
       ]
     },
+    
     {
       "key": "MOLTRES",
       "title": "Moltres",
