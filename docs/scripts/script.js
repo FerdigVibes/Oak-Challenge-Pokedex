@@ -147,8 +147,20 @@ async function loadLanguage(lang) {
 }
 
 function t(path, fallback = '') {
-  return langData[key] || fallback;
-  return path.split('.').reduce((o, k) => o?.[k], langData) ?? fallback;
+  if (!langData) return fallback;
+
+  const parts = path.split('.');
+  let cur = langData;
+
+  for (const p of parts) {
+    if (cur && typeof cur === 'object' && p in cur) {
+      cur = cur[p];
+    } else {
+      return fallback;
+    }
+  }
+
+  return typeof cur === 'string' ? cur : fallback;
 }
 
 /* =========================================================
