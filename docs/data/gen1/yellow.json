@@ -33,15 +33,11 @@
     {
       "key": "PEWTER",
       "title": "Pewter Pokémon",
-      "required": 18,
+      "required": 16,
       "pokemon": [
         {"dex":"010","name":"Caterpie","image":"assets/sprites/010-caterpie.gif","info":"Viridian Forest","notes":""},
         {"dex":"011","name":"Metapod","image":"assets/sprites/011-metapod.gif","info":"Evolve Caterpie at Lv. 7\nViridian Forest","notes":""},
-        {"dex":"012","name":"Butterfree","image":"assets/sprites/012-butterfree.gif","info":"Evolve Metapod at Lv. 10","notes":""},
-
-        {"dex":"013","name":"Weedle","image":"assets/sprites/013-weedle.gif","info":"Route 2\nViridian Forest","notes":""},
-        {"dex":"014","name":"Kakuna","image":"assets/sprites/014-kakuna.gif","info":"Evolve Weedle at Lv. 7\nViridian Forest","notes":""},
-        {"dex":"015","name":"Beedrill","image":"assets/sprites/015-beedrill.gif","info":"Evolve Kakuna at Lv. 10","notes":""},
+        {"dex":"012","name":"Butterfree","image":"assets/sprites/012-butterfree.gif","info":"Evolve Metapod at Lv. 10","notes":""}
 
         {"dex":"016","name":"Pidgey","image":"assets/sprites/016-pidgey.gif","info":"Route 1\nRoute 2","notes":""},
         {"dex":"017","name":"Pidgeotto","image":"assets/sprites/017-pidgeotto.gif","info":"Evolve Pidgey at Lv. 18","notes":""},
@@ -53,12 +49,13 @@
         {"dex":"021","name":"Spearow","image":"assets/sprites/021-spearow.gif","info":"Route 22","notes":"You will need a second one for trade"},
         {"dex":"022","name":"Fearow","image":"assets/sprites/022-fearow.gif","info":"Evolve Spearow at Lv. 20","notes":""},
 
-        {"dex":"025","name":"Pikachu","image":"assets/sprites/025-pikachu.gif","info":"Viridian Forest","notes":""},
-
         {"dex":"029","name":"Nidoran♀","image":"assets/sprites/029-nidoranf.gif","info":"Route 22","notes":""},
         {"dex":"030","name":"Nidorina","image":"assets/sprites/030-nidorina.gif","info":"Evolve Nidoran♀ at Lv. 16","notes":""},
         {"dex":"032","name":"Nidoran♂","image":"assets/sprites/032-nidoranm.gif","info":"Route 22","notes":""},
         {"dex":"033","name":"Nidorino","image":"assets/sprites/033-nidorino.gif","info":"Evolve Nidoran♂ at Lv. 16","notes":""}
+
+        {"dex":"056","name":"Mankey","image":"assets/sprites/056-mankey.gif","info":"Route 22","notes":""},
+        {"dex":"057","name":"Primeape","image":"assets/sprites/057-primeape.gif","info":"Evolve Mankey at Lv. 28","notes":""}
       ]
     },
     {
