@@ -177,10 +177,8 @@
         {"dex":"102","name":"Exeggcute","image":"assets/sprites/102-exeggcute.gif","info":"Safari Zone","notes":""},
         {"dex":"103","name":"Exeggutor","image":"assets/sprites/103-exeggutor.gif","info":"Evolve Exeggcute with a Leaf Stone","notes":"The Evolution Stones can be bought from the Celadon Mall on Floor 4"},
 
-        {"dex":"104","name":"Cubone","image":"assets/sprites/104-cubone.gif","info":"Pokémon Tower Floors 5-7\nSDafari Zone Areas 2-4","notes":""},
+        {"dex":"104","name":"Cubone","image":"assets/sprites/104-cubone.gif","info":"Pokémon Tower Floors 5-7\nSafari Zone Areas 2-4","notes":""},
         {"dex":"105","name":"Marowak","image":"assets/sprites/105-marowak.gif","info":"Evolve Cubone at Lv. 28\nSafari Zone Areas 2 & 4","notes":""},
-    
-        {"dex":"108","name":"Lickitung","image":"assets/sprites/108-lickitung.gif","info":"Trade for Slowbro at Route 18 gatehouse","notes":""},
     
         {"dex":"111","name":"Rhyhorn","image":"assets/sprites/111-rhyhorn.gif","info":"Safari Zone Areas 1 & 3","notes":""},
         {"dex":"112","name":"Rhydon","image":"assets/sprites/112-rhydon.gif","info":"Evolve Rhyhorn at Lv. 42","notes":""},
