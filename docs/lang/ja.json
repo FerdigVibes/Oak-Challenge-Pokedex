@@ -18,17 +18,17 @@
     "muteCries": "ポケモンの鳴き声",
     "caught": "捕まえた",
     "complete": "完了！",
-    "challengeComplete": "チャレンジ達成！"
+    "challengeComplete": "チャレンジ達成！",
     "confirmResetAll": "すべての進行状況をリセットしますか？",
     "confirmResetSection": "このセクションをリセットしますか？",
-    "confirmResetVersion": "このバージョンの進行状況をリセットしますか？",
+    "confirmResetVersion": "このバージョンの進行状況をリセットしますか？"
   },
 
   "versions": {
     "Red": "赤",
     "Blue": "青",
     "Yellow": "ピカチュウ"
-  }
+  },
 
   "sections": {
     "STARTER": {
@@ -114,7 +114,7 @@
       "objective": "ミュウツーを捕まえよう",
       "reset": "ハナダのどうくつをリセット"
     }
-  }
+  },
 
   "pokemon": {
     "001": { "name": "フシギダネ" },
