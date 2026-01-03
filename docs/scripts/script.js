@@ -91,6 +91,14 @@ function AllProgress() {
   }
 }
 
+function loadAllProgress() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
 function saveAllProgress(all) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
