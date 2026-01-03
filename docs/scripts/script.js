@@ -730,13 +730,22 @@ function wireVersionDropdown() {
   const select = document.getElementById('version');
   if (!select) return;
 
+  select.innerHTML = '';
+
+  const versions = ['Red', 'Blue', 'Yellow'];
+
+  versions.forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v;
+    opt.textContent = t(`versions.${v}`, v);
+    select.appendChild(opt);
+  });
+
   select.value = currentVersion;
 
   select.addEventListener('change', () => {
     currentVersion = select.value || 'Red';
     setBodyTheme(currentVersion);
-
-    // load new JSON + state
     loadPokemonData();
   });
 }
@@ -745,10 +754,18 @@ function localizeVersionDropdown() {
   const select = document.getElementById('version');
   if (!select) return;
 
-  Array.from(select.options).forEach(opt => {
-    const key = opt.value;
-    opt.textContent = t(`versions.${key}`, key);
+  const current = select.value || currentVersion;
+
+  select.innerHTML = '';
+
+  ['Red', 'Blue', 'Yellow'].forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v;
+    opt.textContent = t(`versions.${v}`, v);
+    select.appendChild(opt);
   });
+
+  select.value = current;
 }
 
 function applyAutoSectionCompletion() {
