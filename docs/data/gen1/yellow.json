@@ -61,7 +61,7 @@
     {
       "key": "CERULEAN",
       "title": "Cerulean Pokémon",
-      "required": 24,
+      "required": 31,
       "objectiveLabel": "BEFORE CERULEAN GYM",
       "pokemon": [
         {"dex":"001","name":"Bulbasaur","image":"assets/sprites/001-bulbasaur.gif","info":"Given by Melanie in Cerulean City","notes":"Requires Pikachu to have high happiness"},
@@ -72,11 +72,11 @@
         {"dex":"005","name":"Charmeleon","image":"assets/sprites/005-charmeleon.gif","info":"Evolve Charmander at Lv. 16","notes":""},
         {"dex":"006","name":"Charizard","image":"assets/sprites/006-charizard.gif","info":"Evolve Charmeleon at Lv. 36","notes":""},
         
-        {"dex":"027","name":"Sandshrew","image":"assets/sprites/027-sandshrew.gif","info":"Routes 4\nRoute 11","notes":""},
+        {"dex":"027","name":"Sandshrew","image":"assets/sprites/027-sandshrew.gif","info":"Routes 3 & 4\nMt. Moon 1F","notes":""},
         {"dex":"028","name":"Sandslash","image":"assets/sprites/028-sandslash.gif","info":"Evolve Sandshrew at Lv. 22","notes":""},
     
-        {"dex":"035","name":"Clefairy","image":"assets/sprites/035-clefairy.gif","info":"Mt. Moon — catch before leaving","notes":""},
-        {"dex":"039","name":"Jigglypuff","image":"assets/sprites/039-jigglypuff.gif","info":"Route 3 — catch before leaving Mt. Moon","notes":""},
+        {"dex":"035","name":"Clefairy","image":"assets/sprites/035-clefairy.gif","info":"Mt. Moon — catch before leaving","notes":"You'll need a 2nd one for trade!"},
+        {"dex":"039","name":"Jigglypuff","image":"assets/sprites/039-jigglypuff.gif","info":"Route 5 & 6 — catch before leaving Mt. Moon","notes":""},
     
         {"dex":"041","name":"Zubat","image":"assets/sprites/041-zubat.gif","info":"Mt. Moon — catch before leaving","notes":""},
         {"dex":"042","name":"Golbat","image":"assets/sprites/042-golbat.gif","info":"Evolve Zubat at Lv. 22","notes":""},
@@ -86,28 +86,26 @@
     
         {"dex":"046","name":"Paras","image":"assets/sprites/046-paras.gif","info":"Mt. Moon — catch before leaving","notes":""},
         {"dex":"047","name":"Parasect","image":"assets/sprites/047-parasect.gif","info":"Evolve Paras at Lv. 24","notes":""},
+
+        {"dex":"048","name":"Venonat","image":"assets/sprites/048-venonat.gif","info":"Routes 24 & 25","notes":""},
+        {"dex":"049","name":"Venomoth","image":"assets/sprites/049-venomoth.gif","info":"Evolve Venonat at Lv. 31","notes":""},
     
         {"dex":"050","name":"Diglett","image":"assets/sprites/050-diglett.gif","info":"Diglett’s Cave","notes":""},
-        {"dex":"051","name":"Dugtrio","image":"assets/sprites/051-dugtrio.gif","info":"Diglett’s Cave or evolve Diglett at Lv. 26","notes":""},
-    
-        {"dex":"052","name":"Meowth","image":"assets/sprites/052-meowth.gif","info":"Route 5\nRoute 6 — knows Teleport","notes":""},
-        {"dex":"053","name":"Persian","image":"assets/sprites/053-persian.gif","info":"Evolve Meowth at Lv. 28","notes":""},
+        {"dex":"051","name":"Dugtrio","image":"assets/sprites/051-dugtrio.gif","info":"Diglett’s Cave\nEvolve Diglett at Lv. 26","notes":""},
 
-        {"dex":"063","name":"Abra","image":"assets/sprites/063-abra.gif","info":"Route 24\nRoute 25","notes":"Second Abra required for trade"},
+        {"dex":"063","name":"Abra","image":"assets/sprites/063-abra.gif","info":"Routes 5 & 6","notes":""},
         {"dex":"064","name":"Kadabra","image":"assets/sprites/064-kadabra.gif","info":"Evolve Abra at Lv. 16","notes":""},
 
-        {"dex":"069","name":"Bellsprout","image":"assets/sprites/069-bellsprout.gif","info":"Route 5 & 6\nRoute 24 & 25","notes":""},
+        {"dex":"069","name":"Bellsprout","image":"assets/sprites/069-bellsprout.gif","info":"Route 24 & 25","notes":""},
         {"dex":"070","name":"Weepinbell","image":"assets/sprites/070-weepinbell.gif","info":"Evolve Bellsprout at Lv. 21","notes":""},
     
         {"dex":"074","name":"Geodude","image":"assets/sprites/074-geodude.gif","info":"Mt. Moon — catch before leaving","notes":""},
         {"dex":"075","name":"Graveler","image":"assets/sprites/075-graveler.gif","info":"Evolve Geodude at Lv. 25","notes":""},
     
-        {"dex":"083","name":"Farfetch’d","image":"assets/sprites/083-farfetchd.gif","info":"Trade for Spearow in Vermilion City","notes":""},
-    
         {"dex":"096","name":"Drowzee","image":"assets/sprites/096-drowzee.gif","info":"Route 11","notes":""},
         {"dex":"097","name":"Hypno","image":"assets/sprites/097-hypno.gif","info":"Evolve Drowzee at Lv. 26","notes":""},
     
-        {"dex":"122","name":"Mr. Mime","image":"assets/sprites/122-mrmime.gif","info":"Trade Abra on Route 2","notes":""},
+        {"dex":"122","name":"Mr. Mime","image":"assets/sprites/122-mrmime.gif","info":"Trade Clefairy on Route 2","notes":"Located in the house outside Diglett's Cave"},
     
         {"dex":"129","name":"Magikarp","image":"assets/sprites/129-magikarp.gif","info":"Old Rod anywhere or buy at Route 3 Pokémon Center for 500 Pokedollars","notes":""},
         {"dex":"130","name":"Gyarados","image":"assets/sprites/130-gyarados.gif","info":"Evolve Magikarp at Lv. 20","notes":""}
@@ -137,8 +135,6 @@
       "required": 54,
       "objectiveLabel": "BEFORE FUCHSIA GYM",
       "pokemon": [
-        {"dex":"026","name":"Raichu","image":"assets/sprites/026-raichu.gif","info":"Evolve Pikachu with Thunder Stone (Celadon Dept. Store 4F)","notes":""},
-        
         {"dex":"037","name":"Vulpix","image":"assets/sprites/037-vulpix.gif","info":"Route 7 & 8","notes":""},
         {"dex":"038","name":"Ninetales","image":"assets/sprites/038-ninetales.gif","info":"Evolve Vulpix with a Fire Stone (Celadon Dept. Store 4F)","notes":""},
     
