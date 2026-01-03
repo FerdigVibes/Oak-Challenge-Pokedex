@@ -616,23 +616,29 @@ function rebuildResetDropdown() {
 
   select.innerHTML = '';
 
+  // Placeholder
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = t('ui.reset', 'Reset →');
+  placeholder.textContent = t('ui.resetSection', 'Reset →');
   select.appendChild(placeholder);
 
+  // Reset all
   const resetAll = document.createElement('option');
   resetAll.value = 'RESET_ALL';
   resetAll.textContent = t('ui.resetAll', 'Reset All');
   select.appendChild(resetAll);
 
+  // Per-section resets (localized)
   currentData.sections.forEach(section => {
     const opt = document.createElement('option');
     opt.value = section.key;
+
+    // 🔑 THIS is where it goes
     opt.textContent = t(
-     `sections.${section.key}.reset`,
-     section.resetLabel || section.title
+      `sections.${section.key}.title`,
+      section.title
     );
+
     select.appendChild(opt);
   });
 }
