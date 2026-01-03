@@ -154,7 +154,7 @@ async function loadLanguage(lang = 'en') {
   currentLang = lang;
 
   if (lang === 'en') {
-    langData = {}; // empty = fallback to JSON
+    langData = null; // empty = fallback to JSON
     return;
   }
 
@@ -845,16 +845,16 @@ function wireLanguageDropdown() {
   select.addEventListener('change', async () => {
     await loadLanguage(select.value);
 
-    // Update static UI text
-    document.querySelector('.title').textContent =
-      t('ui.title', 'Pokémon Oak Challenge - Kanto');
+    // 🔑 Re-apply body theme (some CSS depends on it)
+    setBodyTheme(currentVersion);
 
-    localizeVersionDropdown();
+    // 🔑 Static UI
     applyStaticUIText();
+    localizeVersionDropdown();
 
-    // 🔑 IMPORTANT FIX:
-    // Rebuild pokemonList using the SAME currentData, but new language
+    // 🔑 HARD reset of derived data
     rebuildPokemonListFromCurrentData();
+    rebuildResetDropdown();
 
     renderRows();
     refreshUI();
@@ -892,7 +892,7 @@ function enableMobileImageZoom() {
 
 // Translation helper
 function t(path, fallback = '') {
-  if (!langData || typeof path !== 'string') return fallback;
+  if (!langData) return fallback;
 
   const parts = path.split('.');
   let cur = langData;
@@ -909,18 +909,15 @@ function t(path, fallback = '') {
 }
 
 function applyStaticUIText() {
-  const titleEl = document.querySelector('.title');
-  if (titleEl) {
-    titleEl.textContent = t(
-      'ui.title',
-      'Pokémon Oak Challenge - Kanto'
-    );
+  const title = document.querySelector('.title');
+  if (title) {
+    title.textContent = t('ui.title', 'Pokémon Oak Challenge - Kanto');
   }
 
   const objectiveLabel = document.querySelector('.current-objective');
   if (objectiveLabel) {
     objectiveLabel.childNodes[0].textContent =
-      `${t('ui.currentObjective', 'Current Objective')}: `;
+      t('ui.currentObjective', 'Current Objective: ');
   }
 }
 
