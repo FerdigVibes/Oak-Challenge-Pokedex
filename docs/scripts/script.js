@@ -804,18 +804,21 @@ function applyAutoSectionCompletion() {
 
     // 🎉 Detect transition ONLY
     if (isComplete && !alreadyAwarded) {
-      completedAchievements.add(section.key);
-      saveCompletedAchievements(currentVersion, completedAchievements);
-
-      const sectionTitle = t(
-        `sections.${section.key}.title`,
-        section.title || section.key.replace(/_/g, ' ')
-      );
-      
-      achievementQueue.push(
-        `${sectionTitle} ${t('ui.complete', 'COMPLETE!')}`
-      );
-    }
+     completedAchievements.add(section.key);
+     saveCompletedAchievements(currentVersion, completedAchievements);
+   
+     const sectionTitle = t(
+       `sections.${section.key}.title`,
+       section.title || section.key.replace(/_/g, ' ')
+     );
+   
+     const achievementText = t(
+       'ui.achievementComplete',
+       '{section} COMPLETE!'
+     ).replace('{section}', sectionTitle);
+   
+     achievementQueue.push(achievementText);
+   }
 
     // Auto-collapse
     if (isComplete && !userExpandedSections.has(section.key)) {
