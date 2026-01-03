@@ -19,6 +19,12 @@
     "complete": "完了！"
   },
 
+  "versions": {
+    "Red": "赤",
+    "Blue": "青",
+    "Yellow": "ピカチュウ"
+  }
+
   "sections": {
     "STARTER": {
       "title": "最初のポケモンを選ぼう！",
