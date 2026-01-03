@@ -316,12 +316,14 @@
       ]
     },
     {
-      "key": "ARTICUNO",
-      "title": "Articuno",
-      "required": 1,
-      "objectiveLabel": "Catch Articuno",
+      "key": "SQUIRTLE",
+      "title": "Squirtle Squad",
+      "required": 3,
+      "objectiveLabel": "Only Available After Vermilion Gym",
       "pokemon": [
-        
+        {"dex":"007","name":"Squirtle","image":"assets/sprites/007-squirtle.gif","info":"Given by Officer Jenny in Vermilion City","notes":""},
+        {"dex":"008","name":"Wartortle","image":"assets/sprites/008-wartortle.gif","info":"Evolve Squirtle at Lv. 16","notes":""},
+        {"dex":"009","name":"Blastoise","image":"assets/sprites/009-blastoise.gif","info":"Evolve Wartortle at Lv. 36","notes":""}
     {
       "key": "ARTICUNO",
       "title": "Articuno",
@@ -344,8 +346,8 @@
     {
       "key": "CERULEAN_CAVE",
       "title": "Cerulean Cave",
-      "required": 1,
-      "objectiveLabel": "Catch Mewtwo",
+      "required": 2,
+      "objectiveLabel": "Cerulean Cave Pokémon",
       "pokemon": [
         {"dex":"150","name":"Mewtwo","image":"assets/sprites/150-mewtwo.gif","info":"Cerulean Cave B1F - SAVE BEFORE INTERACTING!!!","notes":""}
       ]
