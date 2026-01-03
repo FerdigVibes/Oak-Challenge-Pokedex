@@ -64,6 +64,14 @@
       "required": 24,
       "objectiveLabel": "BEFORE CERULEAN GYM",
       "pokemon": [
+        {"dex":"001","name":"Bulbasaur","image":"assets/sprites/001-bulbasaur.gif","info":"Given by Melanie in Cerulean City","notes":"Requires Pikachu to have high happiness"},
+        {"dex":"002","name":"Ivysaur","image":"assets/sprites/002-ivysaur.gif","info":"Evolve Bulbasaur at Lv. 16","notes":""},
+        {"dex":"003","name":"Venusaur","image":"assets/sprites/003-venusaur.gif","info":"Evolve Ivysaur at Lv. 32","notes":""},
+
+        {"dex":"004","name":"Charmander","image":"assets/sprites/004-charmander.gif","info":"Given by Damien on Route 24","notes":""},
+        {"dex":"005","name":"Charmeleon","image":"assets/sprites/005-charmeleon.gif","info":"Evolve Charmander at Lv. 16","notes":""},
+        {"dex":"006","name":"Charizard","image":"assets/sprites/006-charizard.gif","info":"Evolve Charmeleon at Lv. 36","notes":""},
+        
         {"dex":"027","name":"Sandshrew","image":"assets/sprites/027-sandshrew.gif","info":"Routes 4\nRoute 11","notes":""},
         {"dex":"028","name":"Sandslash","image":"assets/sprites/028-sandslash.gif","info":"Evolve Sandshrew at Lv. 22","notes":""},
     
