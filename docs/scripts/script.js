@@ -807,12 +807,13 @@ function applyAutoSectionCompletion() {
       completedAchievements.add(section.key);
       saveCompletedAchievements(currentVersion, completedAchievements);
 
-      const label =
-        section.title?.toUpperCase() ||
-        section.key.replace(/_/g, ' ');
-
+      const sectionTitle = t(
+        `sections.${section.key}.title`,
+        section.title || section.key.replace(/_/g, ' ')
+      );
+      
       achievementQueue.push(
-        `${label} ${t('ui.complete', 'COMPLETE!')}`
+        `${sectionTitle} ${t('ui.complete', 'COMPLETE!')}`
       );
     }
 
