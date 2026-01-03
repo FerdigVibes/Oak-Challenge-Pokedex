@@ -19,7 +19,10 @@ let userExpandedSections = new Set(); // Set<sectionKey> sections user forced op
 let completedAchievements = new Set();
 let isInitialLoad = true;
 let achievementQueue = [];
+let currentLang = 'en';
+let translations = {};
 
+const LANG_STORAGE_KEY = 'oak-language';
 const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
 const BASE_URL = new URL('.', document.baseURI); // folder containing index.html
@@ -138,6 +141,10 @@ function setBodyTheme(version) {
   document.body.classList.add(String(version).toLowerCase());
 }
 
+function t(path, fallback = '') {
+  return path.split('.').reduce((o, k) => o?.[k], translations) ?? fallback;
+}
+
 /* =========================================================
    DATA LOADING
    ========================================================= */
@@ -227,6 +234,29 @@ function showSectionAchievement(text) {
   });
 }
 
+async function loadLanguage(lang) {
+  try {
+    const res = await fetch(urlFromBase(`lang/${lang}.json`), { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Language ${lang} not found`);
+    translations = await res.json();
+    currentLang = lang;
+    localStorage.setItem(LANG_STORAGE_KEY, lang);
+  } catch (err) {
+    console.warn(`Falling back to English (${lang})`, err);
+    if (lang !== 'en') {
+      await loadLanguage('en');
+    }
+  }
+}
+
+function loadSavedLanguage() {
+  try {
+    return localStorage.getItem(LANG_STORAGE_KEY) || 'en';
+  } catch {
+    return 'en';
+  }
+}
+
 function loadCompletedAchievements(version) {
   try {
     const all = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -256,7 +286,7 @@ function renderRows() {
       const h = document.createElement('div');
       h.className = 'section-header major-header';
       h.dataset.section = item.key;
-      h.textContent = item.title;
+      h.textContent = t(`sections.${item.key}`, item.title);
 
       h.addEventListener('click', () => {
         const key = item.key;
@@ -327,7 +357,10 @@ function renderRows() {
       const t = document.createElement('div');
       t.className = 'text';
       t.innerHTML = `
-        <div class="name">${escapeHtml(item.name)}</div>
+        const localizedName =
+           t(`pokemon.${item.dex}`, item.name);
+         
+         <div class="name">${escapeHtml(localizedName)}</div>
         ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
         ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
       `;
@@ -505,7 +538,7 @@ function updateCounterAndBar() {
   const total = Number(currentData.total) || 0;
 
   const counterEl = document.getElementById('global-counter');
-  if (counterEl) counterEl.textContent = `${caught}/${total} Caught`;
+  if counterEl.textContent = `${caught}/${total} ${t('ui.caught', 'Caught')}`;
 
   const bar = document.getElementById('progress-bar');
   if (bar && total > 0) {
@@ -531,7 +564,7 @@ function updateCurrentObjective() {
     }, 0);
 
     if (caughtInSection < required) {
-      label = section.objectiveLabel || section.title;
+      t(`sections.${section.key}`, section.objectiveLabel || section.title);
       break;
     }
   }
@@ -677,7 +710,9 @@ function applyAutoSectionCompletion() {
         section.title?.toUpperCase() ||
         section.key.replace(/_/g, ' ');
 
-      achievementQueue.push(`${label} COMPLETE!`);
+      achievementQueue.push(
+        `${label} ${t('ui.complete', 'COMPLETE!')}`
+      );
     }
 
     // Auto-collapse
