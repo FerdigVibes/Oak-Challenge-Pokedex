@@ -66,23 +66,6 @@ body {
     0 0 8px rgba(0,229,255,0.6);
 }
 
-/* =========================================================
-   LANGUAGE SELECT (POKEDEX STYLE)
-   ========================================================= */
-
-.language-select select:hover {
-  box-shadow:
-    inset 0 0 10px rgba(0,255,255,0.5),
-    0 0 8px rgba(0,229,255,0.6);
-}
-
-.language-select select:focus {
-  outline: none;
-  box-shadow:
-    inset 0 0 12px rgba(0,255,255,0.6),
-    0 0 10px rgba(0,229,255,0.9);
-}
-
 /* =========================================
    LANGUAGE SELECT (POKEDEX STYLE)
    ========================================= */
