@@ -29,7 +29,6 @@
         {"dex":"025","name":"Pikachu","image":"assets/sprites/025-pikachu.gif","info":"Your bestest friend!","notes":"Give Pikachu potions at full health to make them happy! Useful for Bulbasaur later on."},
       ]
     },
-
     {
       "key": "PEWTER",
       "title": "Pewter Pokémon",
