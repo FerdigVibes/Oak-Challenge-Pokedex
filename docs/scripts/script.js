@@ -631,7 +631,7 @@ function rebuildResetDropdown() {
   // Placeholder
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = t('ui.resetSection', 'Reset →');
+  placeholder.textContent = t('ui.resetPlaceholder', 'Reset →');
   select.appendChild(placeholder);
 
   // Reset all
@@ -640,17 +640,14 @@ function rebuildResetDropdown() {
   resetAll.textContent = t('ui.resetAll', 'Reset All');
   select.appendChild(resetAll);
 
-  // Per-section resets (localized)
+  // Section resets
   currentData.sections.forEach(section => {
     const opt = document.createElement('option');
     opt.value = section.key;
-
-    // 🔑 THIS is where it goes
     opt.textContent = t(
       `sections.${section.key}.title`,
       section.title
     );
-
     select.appendChild(opt);
   });
 }
