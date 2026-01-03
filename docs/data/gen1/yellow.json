@@ -80,6 +80,9 @@
     
         {"dex":"041","name":"Zubat","image":"assets/sprites/041-zubat.gif","info":"Mt. Moon — catch before leaving","notes":""},
         {"dex":"042","name":"Golbat","image":"assets/sprites/042-golbat.gif","info":"Evolve Zubat at Lv. 22","notes":""},
+
+        {"dex":"043","name":"Oddish","image":"assets/sprites/043-oddish.gif","info":"Routes 24 & 25","notes":""},
+        {"dex":"044","name":"Gloom","image":"assets/sprites/044-gloom.gif","info":"Evolve Oddish at Lv. 21","notes":""},
     
         {"dex":"046","name":"Paras","image":"assets/sprites/046-paras.gif","info":"Mt. Moon — catch before leaving","notes":""},
         {"dex":"047","name":"Parasect","image":"assets/sprites/047-parasect.gif","info":"Evolve Paras at Lv. 24","notes":""},
