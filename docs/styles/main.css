@@ -123,6 +123,23 @@ body {
     0 0 10px rgba(0,229,255,0.9);
 }
 
+@media (max-width: 640px) {
+  .language-select select {
+    height: 36px;
+    font-size: 14px;
+    padding-left: 12px;
+    padding-right: 34px;
+  }
+
+  .objective-row {
+    gap: 8px;
+  }
+
+  .objective-text {
+    font-size: 13px;
+  }
+}
+
 /* =========================================================
    LOADING OVERLAY (POKEDEX STYLE)
    ========================================================= */
