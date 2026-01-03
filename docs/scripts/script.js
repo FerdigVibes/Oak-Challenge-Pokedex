@@ -21,6 +21,7 @@ let isInitialLoad = true;
 let achievementQueue = [];
 let currentLang = 'en';
 let translations = {};
+let langData = {};
 
 const LANG_STORAGE_KEY = 'oak-language';
 const STORAGE_KEY = 'oak-challenge-v1';
@@ -563,10 +564,11 @@ function updateCurrentObjective() {
       return acc + (state[id] ? 1 : 0);
     }, 0);
 
-    if (caughtInSection < required) {
-      t(`sections.${section.key}`, section.objectiveLabel || section.title);
-      break;
-    }
+    label = t(
+      `sections.${section.key}.objective`,
+      section.objectiveLabel || section.title
+    );
+    break;
   }
 
   // small swap animation if you kept your .swap class
