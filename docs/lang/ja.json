@@ -11,7 +11,9 @@
     "resetSection": "セクションをリセット",
     "loading": "データを読み込み中…",
     "version": "バージョン",
-    "muteCries": "ポケモンの鳴き声"
+    "muteCries": "ポケモンの鳴き声",
+    "caught": "捕まえた",
+    "complete": "完了！"
   },
 
   "sections": {
