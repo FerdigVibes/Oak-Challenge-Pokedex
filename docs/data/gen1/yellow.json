@@ -349,6 +349,7 @@
       "required": 2,
       "objectiveLabel": "Cerulean Cave Pokémon",
       "pokemon": [
+        {"dex":"108","name":"Lickitung","image":"assets/sprites/108-lickitung.gif","info":"Cerulean Cave B1F","notes":""},
         {"dex":"150","name":"Mewtwo","image":"assets/sprites/150-mewtwo.gif","info":"Cerulean Cave B1F - SAVE BEFORE INTERACTING!!!","notes":""}
       ]
     }
