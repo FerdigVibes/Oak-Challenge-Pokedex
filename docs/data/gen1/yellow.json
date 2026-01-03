@@ -175,9 +175,6 @@
         {"dex":"098","name":"Krabby","image":"assets/sprites/098-krabby.gif","info":"Super Rod: Route 10 & 25","notes":""},
         {"dex":"099","name":"Kingler","image":"assets/sprites/099-kingler.gif","info":"Evolve Krabby at Lv. 28\nSuper Rod: Route 10 & 25","notes":""},
     
-        {"dex":"100","name":"Voltorb","image":"assets/sprites/100-voltorb.gif","info":"Route 10","notes":""},
-        {"dex":"101","name":"Electrode","image":"assets/sprites/101-electrode.gif","info":"Evolve Voltorb at Lv. 30","notes":""},
-    
         {"dex":"102","name":"Exeggcute","image":"assets/sprites/102-exeggcute.gif","info":"Safari Zone","notes":""},
         {"dex":"103","name":"Exeggutor","image":"assets/sprites/103-exeggutor.gif","info":"Evolve Exeggcute with a Leaf Stone","notes":"The Evolution Stones can be bought from the Celadon Mall on Floor 4"},
 
@@ -274,7 +271,7 @@
     {
       "key": "CELADON",
       "title": "Celadon Pokémon",
-      "required": 14,
+      "required": 15,
       "objectiveLabel": "Before Celadon Gym",
       "pokemon": [
         {"dex":"054","name":"Psyduck","image":"assets/sprites/054-psyduck.gif","info":"SURF on Route 6","notes":""},
@@ -294,6 +291,8 @@
 
         {"dex":"100","name":"Voltorb","image":"assets/sprites/100-voltorb.gif","info":"Power Plant on Route 10","notes":""},
         {"dex":"101","name":"Electrode","image":"assets/sprites/101-electrode.gif","info":"Evolve Voltorb at Lv. 30\nPower Plant on Route 10","notes":""},
+
+        {"dex":"132","name":"Ditto","image":"assets/sprites/132-ditto.gif","info":"Pokémon Mansion on Cinnabar Island B1F","notes":""},
     
         {"dex":"142","name":"Aerodactyl","image":"assets/sprites/142-aerodactyl.gif","info":"Revive Old Amber at Cinnabar Lab","notes":"Find the Old Amber by using the side entrance of the Pewter City Museum"},
     
@@ -316,6 +315,13 @@
         {"dex":"141","name":"Kabutops","image":"assets/sprites/141-kabutops.gif","info":"Evolve Kabuto at Lv. 40","notes":""}
       ]
     },
+    {
+      "key": "ARTICUNO",
+      "title": "Articuno",
+      "required": 1,
+      "objectiveLabel": "Catch Articuno",
+      "pokemon": [
+        
     {
       "key": "ARTICUNO",
       "title": "Articuno",
