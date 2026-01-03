@@ -287,92 +287,70 @@ function renderRows() {
   c.innerHTML = '';
 
   pokemonList.forEach(item => {
-    if (item.type === 'header') {
-      const h = document.createElement('div');
-      h.className = 'section-header major-header';
-      h.dataset.section = item.key;
-      h.textContent = t(`sections.${item.key}`, item.title);
 
-      h.addEventListener('click', () => {
-        const key = item.key;
-        if (collapsedSections.has(key)) {
-          collapsedSections.delete(key);
-          userExpandedSections.add(key);
-        } else {
-          collapsedSections.add(key);
-          userExpandedSections.delete(key);
-        }
+    if (item.type !== 'pokemon') return;
 
-        h.classList.toggle('collapsed', collapsedSections.has(key));
-        refreshUI();
-      });
+    const r = document.createElement('div');
+    r.className = 'row';
+    r.dataset.id = item.id;
+    r.dataset.section = item.sectionKey;
 
-      c.appendChild(h);
-      return;
-    }
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = !!state[item.id];
+    cb.style.display = 'none';
 
-    if (item.type === 'pokemon') {
-      const r = document.createElement('div');
-      r.className = 'row';
-      r.dataset.id = item.id;
-      r.dataset.section = item.sectionKey;
+    const ball = document.createElement('div');
+    ball.className = 'pokeball';
 
-      // functional checkbox (hidden in CSS)
-      const cb = document.createElement('input');
-      cb.type = 'checkbox';
-      cb.checked = !!state[item.id];
-      cb.style.display = 'none';
+    if (cb.checked) r.classList.add('registered');
 
-      const ball = document.createElement('div');
-      ball.className = 'pokeball';
+    const toggle = () => {
+      const wasChecked = cb.checked;
+      cb.checked = !cb.checked;
 
-      if (cb.checked) r.classList.add('registered');
+      state[item.id] = cb.checked;
+      if (!cb.checked) delete state[item.id];
 
-      const toggle = () => {
-        const wasChecked = cb.checked;
-        cb.checked = !cb.checked;
+      saveProgressForVersion(currentVersion, state);
+      r.classList.toggle('registered', cb.checked);
 
-        state[item.id] = cb.checked;
-        if (!cb.checked) delete state[item.id];
+      if (!wasChecked && cb.checked) {
+        playPokemonCry(item.dex);
+      }
 
-        saveProgressForVersion(currentVersion, state);
-        r.classList.toggle('registered', cb.checked);
+      refreshUI();
+    };
 
-        if (!wasChecked && cb.checked) playPokemonCry(item.dex);
+    r.addEventListener('click', toggle);
+    ball.addEventListener('click', e => {
+      e.stopPropagation();
+      toggle();
+    });
 
-        refreshUI();
-      };
+    const sprite = document.createElement('div');
+    sprite.className = 'sprite-frame';
 
-      // Make entire row toggle, but don't double-toggle
-      r.addEventListener('click', toggle);
-      ball.addEventListener('click', e => {
-        e.stopPropagation();
-        toggle();
-      });
+    const img = document.createElement('img');
+    const localizedName = t(`pokemon.${item.dex}`, item.name);
 
-      const sprite = document.createElement('div');
-      sprite.className = 'sprite-frame';
+    img.alt = localizedName;
+    img.loading = 'lazy';
+    img.src = item.image;
 
-      const img = document.createElement('img');
-      img.alt = item.name;
-      img.loading = 'lazy';
-      img.src = item.image;
-      sprite.appendChild(img);
+    sprite.appendChild(img);
 
-      const t = document.createElement('div');
-      t.className = 'text';
-      t.innerHTML = `
-        const localizedName =
-           t(`pokemon.${item.dex}`, item.name);
-         
-         <div class="name">${escapeHtml(localizedName)}</div>
-        ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
-        ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
-      `;
+    const text = document.createElement('div');
+    text.className = 'text';
 
-      r.append(cb, ball, sprite, t);
-      c.appendChild(r);
-    }
+    text.innerHTML = `
+      <div class="name">${escapeHtml(localizedName)}</div>
+      ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
+      ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
+    `;
+
+    r.append(cb, ball, sprite, text);
+    c.appendChild(r);
   });
 }
 
