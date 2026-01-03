@@ -626,7 +626,7 @@ function rebuildResetDropdown() {
   // Placeholder
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = t('ui.resetPlaceholder', 'Reset →');
+  placeholder.textContent = t('ui.resetSectionLabel', 'Reset Section');
   select.appendChild(placeholder);
 
   // Reset all
