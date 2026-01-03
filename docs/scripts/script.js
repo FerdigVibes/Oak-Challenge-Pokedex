@@ -610,18 +610,21 @@ function rebuildResetDropdown() {
 
   const placeholder = document.createElement('option');
   placeholder.value = '';
-  placeholder.textContent = 'Reset →';
+  placeholder.textContent = t('ui.reset', 'Reset →');
   select.appendChild(placeholder);
 
   const resetAll = document.createElement('option');
   resetAll.value = 'RESET_ALL';
-  resetAll.textContent = 'Reset All';
+  resetAll.textContent = t('ui.resetAll', 'Reset All');
   select.appendChild(resetAll);
 
   currentData.sections.forEach(section => {
     const opt = document.createElement('option');
     opt.value = section.key;
-    opt.textContent = section.resetLabel || section.title;
+    opt.textContent = t(
+     `sections.${section.key}.reset`,
+     section.resetLabel || section.title
+    );
     select.appendChild(opt);
   });
 }
