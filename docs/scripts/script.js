@@ -180,6 +180,11 @@ async function loadPokemonData() {
   const overlay = document.getElementById('loading-overlay');
   if (overlay) overlay.classList.remove('hidden');
 
+  const loadingText = document.getElementById('loading-text');
+  if (loadingText) {
+     loadingText.textContent = t('ui.loading', 'LOADING DATA…');
+  }
+
   try {
     const res = await fetch(path, { cache: 'no-store' });
     if (!res.ok) throw new Error(`Failed to load ${path} (${res.status})`);
