@@ -22,7 +22,6 @@
     "confirmResetAll": "すべての進行状況をリセットしますか？",
     "confirmResetSection": "このセクションをリセットしますか？",
     "confirmResetVersion": "このバージョンの進行状況をリセットしますか？",
-    "loading": "データを読み込み中…"
   },
 
   "versions": {
