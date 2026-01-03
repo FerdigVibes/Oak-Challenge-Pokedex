@@ -700,19 +700,21 @@ function wireResetDropdown() {
     const value = select.value;
     if (!value) return;
 
+    // Reset everything
     if (value === 'RESET_ALL') {
-     if (confirm(t('ui.resetAllConfirm', 'Reset all progress?'))) {
-       resetAll();
-     }
-     select.value = '';
-     return;
-   }
-   
-   if (confirm(t('ui.resetConfirm', 'Reset this section?'))) {
-     resetSection(value);
-   }
-   
-   select.value = '';
+      if (confirm(t('ui.confirmResetAll', 'Reset all progress?'))) {
+        resetAll();
+      }
+      select.value = '';
+      return;
+    }
+
+    // Reset a single section
+    if (confirm(t('ui.confirmResetSection', 'Reset this section?'))) {
+      resetSection(value);
+    }
+
+    select.value = '';
   });
 }
 
