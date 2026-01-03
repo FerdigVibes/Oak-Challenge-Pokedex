@@ -837,28 +837,25 @@ function applyAutoSectionCompletion() {
 }
 
 function wireLanguageDropdown() {
-  const select = document.getElementById('language');
-  if (!select) return;
+   const select = document.getElementById('language');
+   if (!select) return;
 
-  select.value = currentLang;
+   select.value = currentLang;
 
-  select.addEventListener('change', async () => {
-    await loadLanguage(select.value);
+   select.addEventListener('change', async () => {
+      await loadLanguage(select.value);
 
-    // 🔑 Re-apply body theme (some CSS depends on it)
-    setBodyTheme(currentVersion);
+      setBodyTheme(currentVersion);
 
-    // 🔑 Static UI
-    applyStaticUIText();
-    localizeVersionDropdown();
+      applyStaticUIText();
+      localizeVersionDropdown();
 
-    // 🔑 HARD reset of derived data
-    rebuildPokemonListFromCurrentData();
-    rebuildResetDropdown();
+      rebuildPokemonListFromCurrentData();
+      rebuildResetDropdown();
 
-    renderRows();
-    refreshUI();
-  });
+      renderRows();
+      refreshUI();
+   });
 }
 
 /* =========================================================
@@ -968,7 +965,7 @@ window.addEventListener('load', async () => {
   // ✅ LOAD LANGUAGE FIRST
   await loadLanguage('en');
 
-   localizeVersionDropdown();
+  localizeVersionDropdown();
 
   // ✅ APPLY LOCALIZED STATIC UI TEXT
   applyStaticUIText();
