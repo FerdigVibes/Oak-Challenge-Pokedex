@@ -21,7 +21,8 @@
     "challengeComplete": "チャレンジ達成！",
     "confirmResetAll": "すべての進行状況をリセットしますか？",
     "confirmResetSection": "このセクションをリセットしますか？",
-    "confirmResetVersion": "このバージョンの進行状況をリセットしますか？"
+    "confirmResetVersion": "このバージョンの進行状況をリセットしますか？",
+    "achievementComplete": "{section} を完了しました！"
   },
 
   "versions": {
