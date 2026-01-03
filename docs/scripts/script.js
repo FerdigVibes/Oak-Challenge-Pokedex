@@ -737,6 +737,16 @@ function wireVersionDropdown() {
   });
 }
 
+function localizeVersionDropdown() {
+  const select = document.getElementById('version');
+  if (!select) return;
+
+  Array.from(select.options).forEach(opt => {
+    const key = opt.value;
+    opt.textContent = t(`versions.${key}`, key);
+  });
+}
+
 function applyAutoSectionCompletion() {
   if (!currentData) return;
 
@@ -797,7 +807,8 @@ function wireLanguageDropdown() {
 
     document.querySelector('.title').textContent =
       t('ui.title', 'Pokémon Oak Challenge - Kanto');
-     
+
+    localizeVersionDropdown();
     applyStaticUIText();
     renderRows();
     refreshUI();
@@ -912,6 +923,8 @@ window.addEventListener('load', async () => {
 
   // ✅ LOAD LANGUAGE FIRST
   await loadLanguage('en');
+
+   localizeVersionDropdown();
 
   // ✅ APPLY LOCALIZED STATIC UI TEXT
   applyStaticUIText();
