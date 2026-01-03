@@ -734,6 +734,19 @@ function applyAutoSectionCompletion() {
     }
   });
 }
+
+function wireLanguageDropdown() {
+  const select = document.getElementById('language');
+  if (!select) return;
+
+  select.value = currentLang;
+
+  select.addEventListener('change', async () => {
+    await loadLanguage(select.value);
+    renderRows();
+    refreshUI();
+  });
+}
 /* =========================================================
    MOBILE IMAGE ZOOM HELPER
    ========================================================= */
@@ -800,6 +813,7 @@ window.addEventListener('load', () => {
   setBodyTheme(currentVersion);
 
   // wires
+  wireLanguageDropdown();
   wireVersionDropdown();
   wireResetDropdown();
   wireMuteButton();
