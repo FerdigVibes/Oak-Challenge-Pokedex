@@ -291,6 +291,9 @@
     
         {"dex":"088","name":"Grimer","image":"assets/sprites/088-grimer.gif","info":"Pokémon Mansion on Cinnabar Island\nPower Plant on Route 10","notes":""},
         {"dex":"089","name":"Muk","image":"assets/sprites/089-muk.gif","info":"Evolve Grimer at Lv. 38\nPower Plant on Route 10\nPokémon Mansion on Cinnabar Island","notes":""},
+
+        {"dex":"100","name":"Voltorb","image":"assets/sprites/100-voltorb.gif","info":"Power Plant on Route 10","notes":""},
+        {"dex":"101","name":"Electrode","image":"assets/sprites/101-electrode.gif","info":"Evolve Voltorb at Lv. 30\nPower Plant on Route 10","notes":""},
     
         {"dex":"142","name":"Aerodactyl","image":"assets/sprites/142-aerodactyl.gif","info":"Revive Old Amber at Cinnabar Lab","notes":"Find the Old Amber by using the side entrance of the Pewter City Museum"},
     
