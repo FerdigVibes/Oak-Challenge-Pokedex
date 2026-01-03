@@ -135,30 +135,30 @@
       "required": 54,
       "objectiveLabel": "BEFORE FUCHSIA GYM",
       "pokemon": [
-        {"dex":"037","name":"Vulpix","image":"assets/sprites/037-vulpix.gif","info":"Route 7 & 8","notes":""},
+        {"dex":"037","name":"Vulpix","image":"assets/sprites/037-vulpix.gif","info":"Celadon Game Corner - 1,000 Coins","notes":""},
         {"dex":"038","name":"Ninetales","image":"assets/sprites/038-ninetales.gif","info":"Evolve Vulpix with a Fire Stone (Celadon Dept. Store 4F)","notes":""},
+
+        {"dex":"045","name":"Vileplume","image":"assets/sprites/045-vileplume.gif","info":"Evolve Gloom with Leaf Stone (Celadon Dept. Store 4F)","notes":""},
     
-        {"dex":"048","name":"Venonat","image":"assets/sprites/048-venonat.gif","info":"Safari Zone Area 1 and 4\nRoutes 12–15","notes":"Second Venonat required for trade"},
-        {"dex":"049","name":"Venomoth","image":"assets/sprites/049-venomoth.gif","info":"Evolve Venonat at Lv. 31","notes":""},
-    
-        {"dex":"054","name":"Psyduck","image":"assets/sprites/054-psyduck.gif","info":"Super Rod in Cerulean Gym, Safari Zone, or Routes 24–25","notes":""},
-        {"dex":"055","name":"Golduck","image":"assets/sprites/055-golduck.gif","info":"Evolve Psyduck at Lv. 33","notes":""},
-    
-        {"dex":"058","name":"Growlithe","image":"assets/sprites/058-growlithe.gif","info":"Route 7\nRoute 8","notes":""},
-        {"dex":"059","name":"Arcanine","image":"assets/sprites/059-arcanine.gif","info":"Evolve Growlithe with Fire Stone (Celadon Dept. Store 4F)","notes":""},
-    
-        {"dex":"060","name":"Poliwag","image":"assets/sprites/060-poliwag.gif","info":"Fishing with Good Rod most areas or Super Rod in Kanto","notes":""},
-        {"dex":"061","name":"Poliwhirl","image":"assets/sprites/061-poliwhirl.gif","info":"Evolve Poliwag at Lv. 25","notes":"Second Poliwhirl required for trade"},
+        {"dex":"060","name":"Poliwag","image":"assets/sprites/060-poliwag.gif","info":"Fishing with Good Rod most areas\nSuper Rod: Pallet Town, Viridian City, Route 22","notes":""},
+        {"dex":"061","name":"Poliwhirl","image":"assets/sprites/061-poliwhirl.gif","info":"Evolve Poliwag at Lv. 25\nSuper Rod: Route 22","notes":"Second Poliwhirl required for trade"},
         {"dex":"062","name":"Poliwrath","image":"assets/sprites/062-poliwrath.gif","info":"Evolve Poliwhirl with Water Stone (Celadon Dept. Store 4F)","notes":""},
     
-        {"dex":"066","name":"Machop","image":"assets/sprites/066-machop.gif","info":"Rock Tunnel","notes":""},
-        {"dex":"067","name":"Machoke","image":"assets/sprites/067-machoke.gif","info":"Evolve Machop at Lv. 28","notes":""},
+        {"dex":"066","name":"Machop","image":"assets/sprites/066-machop.gif","info":"Rock Tunnel\nRoute 10","notes":""},
+        {"dex":"067","name":"Machoke","image":"assets/sprites/067-machoke.gif","info":"Evolve Machop at Lv. 28\nTrade for a Cubone near the Underground Path south of Cerulean City: REQUIRED FOR MACHAMP","notes":""},
+        {"dex":"068","name":"Machamp","image":"assets/sprites/068-machamp.gif","info":"Trade Machoke for a Cubone near the Underground Path south of Cerulean City","notes":""},
 
         {"dex":"071","name":"Victreebel","image":"assets/sprites/071-victreebel.gif","info":"Evolve Weepinbell with a Leaf Stone (Celadon Dept. Store 4F)","notes":""},
     
         {"dex":"072","name":"Tentacool","image":"assets/sprites/072-tentacool.gif","info":"Fishing with Super Rod on coastal routes","notes":""},
-        {"dex":"073","name":"Tentacruel","image":"assets/sprites/073-tentacruel.gif","info":"Evolve Tentacool at Lv. 30","notes":""},
-    
+        {"dex":"073","name":"Tentacruel","image":"assets/sprites/073-tentacruel.gif","info":"Evolve Tentacool at Lv. 30\nSuper Rod: Route 19","notes":""},
+
+        {"dex":"077","name":"Ponyta","image":"assets/sprites/077-ponyta.gif","info":"Route 17","notes":""},
+        {"dex":"078","name":"Rapidash","image":"assets/sprites/078-rapidash.gif","info":"Evolve Ponyta at Lv. 40","notes":""},
+
+        {"dex":"081","name":"Magnemite","image":"assets/sprites/081-magnemite.gif","info":"Route 10","notes":""},
+        {"dex":"082","name":"Magneton","image":"assets/sprites/082-magneton.gif","info":"Evolve Magnemite at Lv. 30","notes":""},
+        
         {"dex":"079","name":"Slowpoke","image":"assets/sprites/079-slowpoke.gif","info":"Super Rod in Route 10, Celadon City, or Safari Zone","notes":""},
         {"dex":"080","name":"Slowbro","image":"assets/sprites/080-slowbro.gif","info":"Evolve Slowpoke at Lv. 37","notes":"Second Slowbro required for trade"},
     
