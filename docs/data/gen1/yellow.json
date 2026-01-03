@@ -158,23 +158,22 @@
 
         {"dex":"081","name":"Magnemite","image":"assets/sprites/081-magnemite.gif","info":"Route 10","notes":""},
         {"dex":"082","name":"Magneton","image":"assets/sprites/082-magneton.gif","info":"Evolve Magnemite at Lv. 30","notes":""},
-        
-        {"dex":"079","name":"Slowpoke","image":"assets/sprites/079-slowpoke.gif","info":"Super Rod in Route 10, Celadon City, or Safari Zone","notes":""},
-        {"dex":"080","name":"Slowbro","image":"assets/sprites/080-slowbro.gif","info":"Evolve Slowpoke at Lv. 37","notes":"Second Slowbro required for trade"},
+
+        {"dex":"083","name":"Farfetch’d","image":"assets/sprites/083-farfetchd.gif","info":"Route 12 & 13","notes":""},
+            
+        {"dex":"084","name":"Doduo","image":"assets/sprites/084-doduo.gif","info":"Routes 16–18","notes":""},
+        {"dex":"085","name":"Dodrio","image":"assets/sprites/085-dodrio.gif","info":"Evolve Doduo at Lv. 31\nRoute 17","notes":""},
     
-        {"dex":"084","name":"Doduo","image":"assets/sprites/084-doduo.gif","info":"Routes 16–18\nSafari Zone Area 4","notes":""},
-        {"dex":"085","name":"Dodrio","image":"assets/sprites/085-dodrio.gif","info":"Evolve Doduo at Lv. 31","notes":""},
-    
-        {"dex":"090","name":"Shellder","image":"assets/sprites/090-shellder.gif","info":"Fishing with Super Rod near Vermilion or Route 19","notes":""},
+        {"dex":"090","name":"Shellder","image":"assets/sprites/090-shellder.gif","info":"Super Rod: Route 17 & 18","notes":""},
         {"dex":"091","name":"Cloyster","image":"assets/sprites/091-cloyster.gif","info":"Evolve Shellder with Water Stone (Celadon Dept. Store 4F)","notes":""},
     
         {"dex":"092","name":"Gastly","image":"assets/sprites/092-gastly.gif","info":"Pokémon Tower","notes":""},
-        {"dex":"093","name":"Haunter","image":"assets/sprites/093-haunter.gif","info":"Evolve Gastly at Lv. 25","notes":""},
+        {"dex":"093","name":"Haunter","image":"assets/sprites/093-haunter.gif","info":"Evolve Gastly at Lv. 25\nPokémon Tower","notes":""},
     
-        {"dex":"095","name":"Onix","image":"assets/sprites/095-onix.gif","info":"Rock Tunnel","notes":""},
+        {"dex":"095","name":"Onix","image":"assets/sprites/095-onix.gif","info":"Rock Tunnel B1F","notes":""},
     
-        {"dex":"098","name":"Krabby","image":"assets/sprites/098-krabby.gif","info":"Fishing with Super Rod: Route 6, 12, 13, 17, 18, 24, and 25\nCerulean Gym, Vermilion City, Fuchsia City, Safari Zone","notes":""},
-        {"dex":"099","name":"Kingler","image":"assets/sprites/099-kingler.gif","info":"Evolve Krabby at Lv. 28","notes":""},
+        {"dex":"098","name":"Krabby","image":"assets/sprites/098-krabby.gif","info":"Super Rod: Route 10 & 25","notes":""},
+        {"dex":"099","name":"Kingler","image":"assets/sprites/099-kingler.gif","info":"Evolve Krabby at Lv. 28\nSuper Rod: Route 10 & 25","notes":""},
     
         {"dex":"100","name":"Voltorb","image":"assets/sprites/100-voltorb.gif","info":"Route 10","notes":""},
         {"dex":"101","name":"Electrode","image":"assets/sprites/101-electrode.gif","info":"Evolve Voltorb at Lv. 30","notes":""},
@@ -182,27 +181,28 @@
         {"dex":"102","name":"Exeggcute","image":"assets/sprites/102-exeggcute.gif","info":"Safari Zone","notes":""},
         {"dex":"103","name":"Exeggutor","image":"assets/sprites/103-exeggutor.gif","info":"Evolve Exeggcute with a Leaf Stone","notes":"The Evolution Stones can be bought from the Celadon Mall on Floor 4"},
 
-        {"dex":"104","name":"Cubone","image":"assets/sprites/104-cubone.gif","info":"Pokémon Tower","notes":""},
-        {"dex":"105","name":"Marowak","image":"assets/sprites/105-marowak.gif","info":"Evolve Cubone at Lv. 28","notes":""},
+        {"dex":"104","name":"Cubone","image":"assets/sprites/104-cubone.gif","info":"Pokémon Tower Floors 5-7\nSDafari Zone Areas 2-4","notes":""},
+        {"dex":"105","name":"Marowak","image":"assets/sprites/105-marowak.gif","info":"Evolve Cubone at Lv. 28\nSafari Zone Areas 2 & 4","notes":""},
     
         {"dex":"108","name":"Lickitung","image":"assets/sprites/108-lickitung.gif","info":"Trade for Slowbro at Route 18 gatehouse","notes":""},
     
-        {"dex":"111","name":"Rhyhorn","image":"assets/sprites/111-rhyhorn.gif","info":"Safari Zone Areas 1 and 3","notes":""},
+        {"dex":"111","name":"Rhyhorn","image":"assets/sprites/111-rhyhorn.gif","info":"Safari Zone Areas 1 & 3","notes":""},
         {"dex":"112","name":"Rhydon","image":"assets/sprites/112-rhydon.gif","info":"Evolve Rhyhorn at Lv. 42","notes":""},
     
-        {"dex":"113","name":"Chansey","image":"assets/sprites/113-chansey.gif","info":"Safari Zone Areas 1 and 3","notes":""},
-        {"dex":"115","name":"Kangaskhan","image":"assets/sprites/115-kangaskhan.gif","info":"Safari Zone Areas 2 and 4","notes":""},
+        {"dex":"113","name":"Chansey","image":"assets/sprites/113-chansey.gif","info":"Safari Zone Areas 1 & 2","notes":""},
+        {"dex":"114","name":"Tangela","image":"assets/sprites/114-tangela.gif","info":"Safari Zone Areas 1 & 4","notes":""},
+        {"dex":"115","name":"Kangaskhan","image":"assets/sprites/115-kangaskhan.gif","info":"Safari Zone Area 3","notes":""},
     
-        {"dex":"116","name":"Horsea","image":"assets/sprites/116-horsea.gif","info":"Fishing with Super Rod on Route 19","notes":""},
-        {"dex":"117","name":"Seadra","image":"assets/sprites/117-seadra.gif","info":"Evolve Horsea at Lv. 32","notes":""},
+        {"dex":"116","name":"Horsea","image":"assets/sprites/116-horsea.gif","info":"Super Rod: Vermilion City, Route 10/12/13","notes":""},
+        {"dex":"117","name":"Seadra","image":"assets/sprites/117-seadra.gif","info":"Evolve Horsea at Lv. 32\nSuper Rod: Route 12 & 13","notes":""},
     
-        {"dex":"118","name":"Goldeen","image":"assets/sprites/118-goldeen.gif","info":"Fishing with Good Rod most areas","notes":""},
-        {"dex":"119","name":"Seaking","image":"assets/sprites/119-seaking.gif","info":"Evolve Goldeen at Lv. 33","notes":""},
+        {"dex":"118","name":"Goldeen","image":"assets/sprites/118-goldeen.gif","info":"Fishing with Good Rod most areas\nSuper Rod: Celadon City, Cerulean Gym, Route 6 & 24","notes":""},
+        {"dex":"119","name":"Seaking","image":"assets/sprites/119-seaking.gif","info":"Evolve Goldeen at Lv. 33\n Super Rod: Cerulean Gym & Route 24","notes":""},
 
-        {"dex":"120","name":"Staryu","image":"assets/sprites/120-staryu.gif","info":"Super Rod - Route 19","notes":""},
+        {"dex":"120","name":"Staryu","image":"assets/sprites/120-staryu.gif","info":"Super Rod - Route 19 & Pallet Town","notes":""},
         {"dex":"121","name":"Starmie","image":"assets/sprites/121-starmie.gif","info":"Evolve Staryu with a Water Stone","notes":"The Evolution Stones can be bought from the Celadon Mall on Floor 4"},
-    
-        {"dex":"124","name":"Jynx","image":"assets/sprites/124-jynx.gif","info":"Trade Poliwhirl in Cerulean City, check the house next to the Pokemon Center","notes":""},
+
+        
 
         {"dex":"127","name":"Pinsir","image":"assets/sprites/127-pinsir.gif","info":"Safari Zone Areas 1 and 2\nCeladon Game Corner - 5,500 Coins","notes":""},
     
