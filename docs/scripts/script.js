@@ -521,11 +521,15 @@ function updateCounterAndBar() {
   const total = Number(currentData.total) || 0;
 
   const counterEl = document.getElementById('global-counter');
-  if counterEl.textContent = `${caught}/${total} ${t('ui.caught', 'Caught')}`;
+  if (counterEl) {
+    counterEl.textContent = `${caught}/${total} ${t('ui.caught', 'Caught')}`;
+  }
 
   const bar = document.getElementById('progress-bar');
   if (bar && total > 0) {
     bar.style.width = `${Math.min(caught / total, 1) * 100}%`;
+  } else if (bar) {
+    bar.style.width = '0%';
   }
 }
 
