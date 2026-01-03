@@ -574,13 +574,11 @@ function updateCounterAndBar() {
 }
 
 function updateCurrentObjective() {
-  // If your HTML uses IDs for these, prefer that.
-  // Your earlier HTML had class="current-objective" and spans.
   const objectiveText = document.querySelector('.objective-text');
   if (!objectiveText || !currentData) return;
 
-  // Find first section that isn't complete (based on required)
-  let label = 'CHALLENGE COMPLETE!';
+  let label = t('ui.complete', 'CHALLENGE COMPLETE!');
+
   for (const section of currentData.sections) {
     const required = Number(section.required) || 0;
     if (required <= 0) continue;
@@ -590,12 +588,26 @@ function updateCurrentObjective() {
       return acc + (state[id] ? 1 : 0);
     }, 0);
 
-    label = t(
-      `sections.${section.key}.objective`,
-      section.objectiveLabel || section.title
-    );
-    break;
+    if (caughtInSection < required) {
+      label = t(
+        `sections.${section.key}.objective`,
+        t(
+          `sections.${section.key}.title`,
+          section.objectiveLabel || section.title
+        )
+      );
+      break;
+    }
   }
+
+  if (objectiveText.textContent !== label) {
+    objectiveText.classList.add('swap');
+    setTimeout(() => {
+      objectiveText.textContent = label;
+      objectiveText.classList.remove('swap');
+    }, 180);
+  }
+}
 
   // small swap animation if you kept your .swap class
   if (objectiveText.textContent !== label) {
