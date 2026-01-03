@@ -83,7 +83,7 @@ function wireMuteButton() {
 /* =========================================================
    LOCAL STORAGE
    ========================================================= */
-function loadAllProgress() {
+function AllProgress() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
   } catch {
@@ -766,6 +766,11 @@ function wireLanguageDropdown() {
 
   select.addEventListener('change', async () => {
     await loadLanguage(select.value);
+
+    document.querySelector('.title').textContent =
+      t('ui.title', 'Pokémon Oak Challenge - Kanto');
+     
+    applyStaticUIText();
     renderRows();
     refreshUI();
   });
@@ -817,6 +822,22 @@ function t(path, fallback = '') {
   return typeof cur === 'string' ? cur : fallback;
 }
 
+function applyStaticUIText() {
+  const titleEl = document.querySelector('.title');
+  if (titleEl) {
+    titleEl.textContent = t(
+      'ui.title',
+      'Pokémon Oak Challenge - Kanto'
+    );
+  }
+
+  const objectiveLabel = document.querySelector('.current-objective');
+  if (objectiveLabel) {
+    objectiveLabel.childNodes[0].textContent =
+      `${t('ui.currentObjective', 'Current Objective')}: `;
+  }
+}
+
 /* =========================================================
    REFRESH UI (single orchestrator)
    ========================================================= */
@@ -863,6 +884,9 @@ window.addEventListener('load', async () => {
 
   // ✅ LOAD LANGUAGE FIRST
   await loadLanguage('en');
+
+  // ✅ APPLY LOCALIZED STATIC UI TEXT
+  applyStaticUIText();
 
   // load initial data
   loadPokemonData();
