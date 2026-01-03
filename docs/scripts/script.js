@@ -147,6 +147,7 @@ async function loadLanguage(lang) {
 }
 
 function t(path, fallback = '') {
+  return langData[key] || fallback;
   return path.split('.').reduce((o, k) => o?.[k], langData) ?? fallback;
 }
 
