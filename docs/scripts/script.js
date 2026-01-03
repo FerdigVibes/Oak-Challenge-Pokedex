@@ -170,6 +170,35 @@ async function loadLanguage(lang = 'en') {
     langData = {};
   }
 }
+
+function rebuildPokemonListFromCurrentData() {
+  if (!currentData) return;
+
+  pokemonList = [];
+
+  currentData.sections.forEach(section => {
+    pokemonList.push({
+      type: 'header',
+      key: section.key,
+      title: t(`sections.${section.key}.title`, section.title)
+    });
+
+    section.pokemon.forEach(p => {
+      const dex = String(p.dex).padStart(3, '0');
+
+      pokemonList.push({
+        type: 'pokemon',
+        sectionKey: section.key,
+        id: pokemonId(section.key, dex),
+        dex,
+        name: t(`pokemon.${dex}.name`, p.name),
+        info: t(`pokemon.${dex}.info`, p.info),
+        notes: t(`pokemon.${dex}.notes`, p.notes),
+        image: p.image
+      });
+    });
+  });
+}
 /* =========================================================
    DATA LOADING
    ========================================================= */
@@ -816,15 +845,22 @@ function wireLanguageDropdown() {
   select.addEventListener('change', async () => {
     await loadLanguage(select.value);
 
+    // Update static UI text
     document.querySelector('.title').textContent =
       t('ui.title', 'Pokémon Oak Challenge - Kanto');
 
     localizeVersionDropdown();
     applyStaticUIText();
+
+    // 🔑 IMPORTANT FIX:
+    // Rebuild pokemonList using the SAME currentData, but new language
+    rebuildPokemonListFromCurrentData();
+
     renderRows();
     refreshUI();
   });
 }
+
 /* =========================================================
    MOBILE IMAGE ZOOM HELPER
    ========================================================= */
