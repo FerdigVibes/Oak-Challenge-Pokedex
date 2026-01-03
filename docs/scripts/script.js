@@ -163,6 +163,19 @@ function t(path, fallback = '') {
   return typeof cur === 'string' ? cur : fallback;
 }
 
+async function loadLanguage(lang = 'en') {
+  currentLang = lang;
+
+  try {
+    const res = await fetch(urlFromBase(`lang/${lang}.json`), { cache: 'no-store' });
+    if (!res.ok) throw new Error('lang load failed');
+
+    langData = await res.json();
+  } catch (e) {
+    console.warn(`Language ${lang} failed to load, using English defaults.`);
+    langData = {};
+  }
+}
 /* =========================================================
    DATA LOADING
    ========================================================= */
@@ -252,29 +265,6 @@ function showSectionAchievement(text) {
       el.classList.remove('show');
     }, 3000);
   });
-}
-
-async function loadLanguage(lang) {
-  try {
-    const res = await fetch(urlFromBase(`lang/${lang}.json`), { cache: 'no-store' });
-    if (!res.ok) throw new Error(`Language ${lang} not found`);
-    translations = await res.json();
-    currentLang = lang;
-    localStorage.setItem(LANG_STORAGE_KEY, lang);
-  } catch (err) {
-    console.warn(`Falling back to English (${lang})`, err);
-    if (lang !== 'en') {
-      await loadLanguage('en');
-    }
-  }
-}
-
-function loadSavedLanguage() {
-  try {
-    return localStorage.getItem(LANG_STORAGE_KEY) || 'en';
-  } catch {
-    return 'en';
-  }
 }
 
 function loadCompletedAchievements(version) {
@@ -810,7 +800,7 @@ function refreshUI() {
 /* =========================================================
    INIT
    ========================================================= */
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   // theme
   setBodyTheme(currentVersion);
 
@@ -821,6 +811,9 @@ window.addEventListener('load', () => {
   wireMuteButton();
   enableMobileImageZoom();
   syncTopBarHeight();
+
+  // ✅ LOAD LANGUAGE FIRST
+  await loadLanguage('en');
 
   // load initial data
   loadPokemonData();
