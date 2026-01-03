@@ -141,28 +141,6 @@ function setBodyTheme(version) {
   document.body.classList.add(String(version).toLowerCase());
 }
 
-async function loadLanguage(lang) {
-  const res = await fetch(`docs/lang/${lang}.json`);
-  langData = await res.json();
-}
-
-function t(path, fallback = '') {
-  if (!langData) return fallback;
-
-  const parts = path.split('.');
-  let cur = langData;
-
-  for (const p of parts) {
-    if (cur && typeof cur === 'object' && p in cur) {
-      cur = cur[p];
-    } else {
-      return fallback;
-    }
-  }
-
-  return typeof cur === 'string' ? cur : fallback;
-}
-
 async function loadLanguage(lang = 'en') {
   currentLang = lang;
 
@@ -293,6 +271,36 @@ function renderRows() {
 
   pokemonList.forEach(item => {
 
+    /* =========================
+       SECTION HEADER
+       ========================= */
+    if (item.type === 'header') {
+      const h = document.createElement('div');
+      h.className = 'section-header major-header';
+      h.dataset.section = item.key;
+      h.textContent = item.title;
+
+      h.addEventListener('click', () => {
+        const key = item.key;
+
+        if (collapsedSections.has(key)) {
+          collapsedSections.delete(key);
+          userExpandedSections.add(key);
+        } else {
+          collapsedSections.add(key);
+          userExpandedSections.delete(key);
+        }
+
+        refreshUI();
+      });
+
+      c.appendChild(h);
+      return;
+    }
+
+    /* =========================
+       POKÉMON ROW
+       ========================= */
     if (item.type !== 'pokemon') return;
 
     const r = document.createElement('div');
@@ -314,8 +322,11 @@ function renderRows() {
       const wasChecked = cb.checked;
       cb.checked = !cb.checked;
 
-      state[item.id] = cb.checked;
-      if (!cb.checked) delete state[item.id];
+      if (cb.checked) {
+        state[item.id] = true;
+      } else {
+        delete state[item.id];
+      }
 
       saveProgressForVersion(currentVersion, state);
       r.classList.toggle('registered', cb.checked);
@@ -337,19 +348,16 @@ function renderRows() {
     sprite.className = 'sprite-frame';
 
     const img = document.createElement('img');
-    const localizedName = t(`pokemon.${item.dex}`, item.name);
-
-    img.alt = localizedName;
+    img.alt = item.name;
     img.loading = 'lazy';
     img.src = item.image;
-
     sprite.appendChild(img);
 
     const text = document.createElement('div');
     text.className = 'text';
 
     text.innerHTML = `
-      <div class="name">${escapeHtml(localizedName)}</div>
+      <div class="name">${escapeHtml(item.name)}</div>
       ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
       ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
     `;
