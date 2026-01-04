@@ -532,34 +532,32 @@ function applyExclusiveGroups() {
 
   currentData.exclusiveGroups.forEach(group => {
     const sectionKey = group.section;
-    if (!sectionKey || !Array.isArray(group.families)) return;
+    if (!sectionKey || !Array.isArray(group.families) || group.families.length < 2) return;
 
-    // 1️⃣ Resolve each family to a list of dex numbers (once)
-    const familyDexes = group.families.map(family =>
-      family
+    // Build dex-based families (language safe)
+    const famDexes = group.families.map(fam =>
+      fam
         .map(name => {
-          const match = pokemonList.find(p =>
+          const p = pokemonList.find(p =>
             p.type === 'pokemon' &&
             p.sectionKey === sectionKey &&
-            p.originalName === name
+            slugifyName(p.originalName) === slugifyName(name)
           );
-          return match?.dex;
+          return p?.dex;
         })
         .filter(Boolean)
     );
 
-    if (familyDexes.length < 2) return;
-
-    // 2️⃣ Determine which family (if any) has been chosen
-    const chosenFamilyIndex = familyDexes.findIndex(fam =>
+    // Determine which family was chosen
+    const chosenFamilyIndex = famDexes.findIndex(fam =>
       fam.some(dex => state[pokemonId(sectionKey, dex)])
     );
 
     if (chosenFamilyIndex === -1) return;
 
-    // 3️⃣ Hide all Pokémon not in the chosen family
-    familyDexes.forEach((fam, index) => {
-      if (index === chosenFamilyIndex) return;
+    // Hide all Pokémon from non-chosen families
+    famDexes.forEach((fam, idx) => {
+      if (idx === chosenFamilyIndex) return;
 
       fam.forEach(dex => {
         hideById(pokemonId(sectionKey, dex));
