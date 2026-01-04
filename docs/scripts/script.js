@@ -585,24 +585,6 @@ function applyExclusiveGroups() {
   });
 }
 
-    // Determine which family was chosen
-    const chosenFamilyIndex = famDexes.findIndex(fam =>
-      fam.some(dex => state[pokemonId(sectionKey, dex)])
-    );
-
-    if (chosenFamilyIndex === -1) return;
-
-    // Hide all Pokémon from non-chosen families
-    famDexes.forEach((fam, idx) => {
-      if (idx === chosenFamilyIndex) return;
-
-      fam.forEach(dex => {
-        hideById(pokemonId(sectionKey, dex));
-      });
-    });
-  });
-}
-
 function applyFinalEvolutionDeduping() {
   if (!currentData || !Array.isArray(currentData.dedupeFinalEvos)) return;
 
