@@ -569,23 +569,18 @@ function applyExclusiveGroups() {
 function applyFinalEvolutionDeduping() {
   if (!currentData || !Array.isArray(currentData.dedupeFinalEvos)) return;
 
-  // 1️⃣ Resolve final-evo names → dex ONCE
+  // Normalize ENGLISH dex targets ONCE
   const targetDexes = new Set(
-    currentData.dedupeFinalEvos
-      .map(name => {
-        const match = pokemonList.find(p =>
-          p.type === 'pokemon' &&
-          p.originalName === name
-        );
-        return match?.dex;
-      })
-      .filter(Boolean)
+    currentData.dedupeFinalEvos.map(name => {
+      const p = pokemonList.find(p =>
+        slugifyName(p.originalName || p.name) === slugifyName(name)
+      );
+      return p?.dex;
+    }).filter(Boolean)
   );
 
-  if (!targetDexes.size) return;
-
-  // 2️⃣ Group Pokémon by dex
   const groups = {};
+
   pokemonList.forEach(p => {
     if (p.type !== 'pokemon') return;
     if (!targetDexes.has(p.dex)) return;
@@ -594,7 +589,6 @@ function applyFinalEvolutionDeduping() {
     groups[p.dex].push(p);
   });
 
-  // 3️⃣ If one is registered, hide the rest
   Object.values(groups).forEach(list => {
     const chosen = list.find(p => state[p.id]);
     if (!chosen) return;
