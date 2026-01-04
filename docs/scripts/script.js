@@ -528,6 +528,7 @@ function syncTopBarHeight() {
 }
 
 function applyExclusiveGroups() {
+  console.log('[exclusive] running');
   if (!currentData || !Array.isArray(currentData.exclusiveGroups)) return;
 
   currentData.exclusiveGroups.forEach(group => {
