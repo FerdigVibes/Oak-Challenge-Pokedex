@@ -184,37 +184,34 @@ function rebuildPokemonListFromCurrentData() {
     });
 
     section.pokemon.forEach(p => {
-      const dex = String(p.dex).padStart(3, '0');
-
-      pokemonList.push({
-        type: 'pokemon',
-        sectionKey: section.key,
-        id: pokemonId(section.key, dex),
-        dex,
-      
-        // 🔑 ALWAYS keep English as canonical key
-        originalName: p.name,
-      
-        // 🔑 Localized display name
-        name: t(`pokemon.${dex}.name`, p.name),
-      
-        info: resolveLocalizedField(
-           `pokemon.${p.dex}.info`,
-           currentVersion,
-           p.info
-         ),
-         
-        notes: resolveLocalizedField(
-           `pokemon.${p.dex}.notes`,
-           currentVersion,
-           p.notes
-         ),
-      
-        image: p.image
-          ? p.image
-          : urlFromBase(`assets/sprites/${dex}-${slugifyName(p.name)}.gif`)
-      });
-    });
+     const dex = String(p.dex).padStart(3, '0');
+   
+     pokemonList.push({
+       type: 'pokemon',
+       sectionKey: section.key,
+       id: pokemonId(section.key, dex),
+       dex,
+   
+       originalName: p.name,
+       name: t(`pokemon.${dex}.name`, p.name),
+   
+       info: resolveLocalizedField(
+         `pokemon.${dex}.info`,
+         currentVersion,
+         p.info
+       ),
+   
+       notes: resolveLocalizedField(
+         `pokemon.${dex}.notes`,
+         currentVersion,
+         p.notes
+       ),
+   
+       image: p.image
+         ? p.image
+         : urlFromBase(`assets/sprites/${dex}-${slugifyName(p.name)}.gif`)
+     });
+   });
   });
 }
 /* =========================================================
