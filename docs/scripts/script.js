@@ -528,7 +528,7 @@ function syncTopBarHeight() {
 }
 
 function applyExclusiveGroups() {
-  if (!currentData) return;
+  if (!currentData || !Array.isArray(currentData.sections)) return;
 
   const groups = [];
 
@@ -544,7 +544,7 @@ function applyExclusiveGroups() {
     });
   }
 
-  // 2️⃣ Section-level exclusive families (STARTER, etc.)
+  // 2️⃣ Section-level exclusive families (STARTER, EEVEE, HITMON, etc.)
   currentData.sections.forEach(section => {
     if (section.exclusive && Array.isArray(section.families)) {
       groups.push({
@@ -559,6 +559,11 @@ function applyExclusiveGroups() {
     const { sectionKey, families } = group;
     if (families.length < 2) return;
 
+    // 🔑 Resolve the actual section definition
+    const section = currentData.sections.find(s => s.key === sectionKey);
+    const allowed = section?.required ?? 1;
+
+    // Build dex-based families (language-safe)
     const famDexes = families.map(fam =>
       fam
         .map(name => {
@@ -578,16 +583,13 @@ function applyExclusiveGroups() {
         fam.some(dex => state[pokemonId(sectionKey, dex)]) ? idx : -1
       )
       .filter(idx => idx !== -1);
-   
-    // If none chosen yet, do nothing
+
+    // Nothing chosen yet → do nothing
     if (chosenFamilyIndexes.length === 0) return;
-   
-    // How many families are allowed?
-    const allowed = section.required ?? 1;
-   
-    // Only start hiding once the limit is reached
+
+    // Not enough choices yet → allow more
     if (chosenFamilyIndexes.length < allowed) return;
-   
+
     // Hide all non-chosen families
     famDexes.forEach((fam, idx) => {
       if (chosenFamilyIndexes.includes(idx)) return;
