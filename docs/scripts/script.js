@@ -572,14 +572,25 @@ function applyExclusiveGroups() {
         .filter(Boolean)
     );
 
-    const chosenFamilyIndex = famDexes.findIndex(fam =>
-      fam.some(dex => state[pokemonId(sectionKey, dex)])
-    );
-
-    if (chosenFamilyIndex === -1) return;
-
+    // Determine which families have been chosen
+    const chosenFamilyIndexes = famDexes
+      .map((fam, idx) =>
+        fam.some(dex => state[pokemonId(sectionKey, dex)]) ? idx : -1
+      )
+      .filter(idx => idx !== -1);
+   
+    // If none chosen yet, do nothing
+    if (chosenFamilyIndexes.length === 0) return;
+   
+    // How many families are allowed?
+    const allowed = section.required ?? 1;
+   
+    // Only start hiding once the limit is reached
+    if (chosenFamilyIndexes.length < allowed) return;
+   
+    // Hide all non-chosen families
     famDexes.forEach((fam, idx) => {
-      if (idx === chosenFamilyIndex) return;
+      if (chosenFamilyIndexes.includes(idx)) return;
       fam.forEach(dex => hideById(pokemonId(sectionKey, dex)));
     });
   });
