@@ -72,13 +72,11 @@
       "objective": "どちらかの化石を復活させよう",
       "reset": "化石をリセット"
     },
-
-    "SQUIRTLE": { 
-      "title": "ゼニガメ団", 
-      "objective": "ゼニガメ団からゼニガメをもらおう", 
-      "reset": "ゼニガメ団をリセット" 
+    "SQUIRTLE": {
+      "title": "ゼニガメ団",
+      "objective": "ゼニガメ団からゼニガメをもらおう",
+      "reset": "ゼニガメ団をリセット"
     },
-    
     "EEVEE": {
       "title": "イーブイの進化",
       "objective": "進化を1つ選ぼう",
@@ -94,13 +92,11 @@
       "objective": "フリーザーを捕まえよう",
       "reset": "フリーザーをリセット"
     },
-    
     "MOLTRES": {
       "title": "ファイヤー",
       "objective": "ファイヤーを捕まえよう",
       "reset": "ファイヤーをリセット"
     },
-    
     "CERULEAN_CAVE": {
       "title": "ハナダのどうくつ",
       "objective": "ミュウツーを捕まえよう",
@@ -108,6 +104,7 @@
     }
   },
 
+  "strings": {
     "Your first Pokémon, enjoy your journey!": "最初にもらうポケモン。冒険を楽しもう！",
     "Your bestest friend!": "最高の相棒！",
     "Evolve at Lv. 16": "レベル16で進化",
@@ -125,7 +122,7 @@
     "Evolve at Lv. 40": "レベル40で進化",
     "Evolve at Lv. 42": "レベル42で進化",
     "Evolve at Lv. 55": "レベル55で進化",
-  
+
     "Viridian Forest": "トキワのもり",
     "Route 1": "1ばんどうろ",
     "Route 2": "2ばんどうろ",
@@ -147,7 +144,7 @@
     "Route 22": "22ばんどうろ",
     "Route 24": "24ばんどうろ",
     "Route 25": "25ばんどうろ",
-  
+
     "Mt. Moon — catch before leaving": "おつきみやまで入手（出る前に捕まえる）",
     "Diglett’s Cave": "ディグダのあな",
     "Rock Tunnel": "いわやまトンネル",
@@ -156,59 +153,27 @@
     "Seafoam Islands": "ふたごじま",
     "Power Plant on Route 10": "10ばんどうろのはつでんしょ",
     "Cerulean Cave B1F": "ハナダどうくつ B1F",
-  
+
     "Old Rod anywhere": "ボロのつりざお：水辺ならどこでも",
     "Good Rod: most areas": "いいつりざお：多くの場所",
     "Super Rod: coastal routes": "すごいつりざお：かいがんルート",
-    "Fishing with Good Rod most areas": "いいつりざおで多くの場所",
-    "Fishing with Super Rod on coastal routes": "すごいつりざおでかいがんルート",
-  
+
     "Evolve with a Moon Stone": "つきのいしで進化",
     "Evolve with a Fire Stone": "ほのおのいしで進化",
     "Evolve with a Water Stone": "みずのいしで進化",
     "Evolve with a Thunder Stone": "かみなりのいしで進化",
     "Evolve with a Leaf Stone": "リーフのいしで進化",
-  
+
     "The Evolution Stones can be bought from the Celadon Mall on Floor 4": "進化のいしはタマムシデパート4かいで購入できる",
-  
-    "Two Moon Stones Available:\n1. Mt Moon 1F near the Hiker (Item ball).\n2. Mt Moon B2F in a hidden alcove on the right side just before collecting your Fossil (Hidden).":
-    "つきのいしは2こ入手可能：\n1. おつきみやま1F（やまおとこ付近のどうぐ）。\n2. おつきみやまB2F（かせき手前の右側のかくし場所）。",
-  
-    "Two last two moon stones are:\n1. Team Rocket hideout.\n2. Celadon City using CUT.":
-    "残りのつきのいし2こ：\n1. ロケットだんアジト。\n2. タマムシシティ（いあいぎり使用）。",
-  
-    "Second Abra required for trade": "こうかんのために2匹目のケーシィが必要",
-    "Second Spearow required for trade": "こうかんのために2匹目のオニスズメが必要",
-    "Second Venonat required for trade": "こうかんのために2匹目のコンパンが必要",
-    "Second Ponyta required for trade": "こうかんのために2匹目のポニータが必要",
-    "Second Poliwhirl required for trade": "こうかんのために2匹目のニョロゾが必要",
-    "Second Slowbro required for trade": "こうかんのために2匹目のヤドランが必要",
-  
+
     "SAVE BEFORE INTERACTING!!!": "※話しかける前に必ずセーブ！",
-  
     "Make sure you have space in your party": "パーティに空きを作っておこう"
   },
 
   "pokemon": {
-    "001": {
-      "name": "フシギダネ",
-      "info": {
-        "Red": "最初にもらうポケモン。冒険を楽しもう！",
-        "Blue": "最初にもらうポケモン。冒険を楽しもう！",
-        "Yellow": "ハナダシティでメラニーからもらう。"
-      },
-      "notes": {
-        "Yellow": "ピカチュウのなつき度が高い必要がある。"
-      }
-    },
-    "002": {
-      "name": "フシギソウ",
-      "info": "フシギダネをレベル16で進化させる。"
-    },
-    "003": {
-      "name": "フシギバナ",
-      "info": "フシギソウをレベル32で進化させる。"
-    },
+    "001": { "name": "フシギダネ", "info": { "Red": "最初にもらうポケモン。冒険を楽しもう！", "Blue": "最初にもらうポケモン。冒険を楽しもう！", "Yellow": "ハナダシティでメラニーからもらう。" } },
+    "002": { "name": "フシギソウ", "info": "フシギダネをレベル16で進化させる。" },
+    "003": { "name": "フシギバナ", "info": "フシギソウをレベル32で進化させる。" },
   
     "004": {
       "name": "ヒトカゲ",
