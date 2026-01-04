@@ -506,14 +506,14 @@ body {
 
   height: 28px;
   padding: 6px 32px 6px 10px;
+  text-align: center;          /* center the label text */
+  text-align-last: center;     /* Firefox / Edge */
+  box-sizing: border-box;   
 
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.3px;
   line-height: 1.2;
-  text-align: center;          /* center the label text */
-  text-align-last: center;     /* Firefox / Edge */
-  box-sizing: border-box;      /* prevent clipping */
 
   color: #e0ffff;
 
