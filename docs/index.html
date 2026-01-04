@@ -33,9 +33,9 @@
 
     <!-- Row 3: Controls -->
     <div class="control-row">
-      <select id="version"></select>
+      <select id="version" class="dex-select"></select>
 
-      <select id="reset">
+      <select id="reset" class="dex-select">
         <option value=""></option>
       </select>
 
@@ -50,11 +50,13 @@
         <span class="objective-label"></span>
         <span id="objective-text" class="objective-text">—</span>
       </div>
-    
-      <select id="language" class="dex-select">
-       <option value="en">English</option>
-       <option value="ja">日本語</option>
-      </select>
+
+      <div class="select-wrap">
+        <select id="language" class="dex-select">
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
     </div>
 
   </div> <!-- END top-bar -->
@@ -66,10 +68,6 @@
        SCROLLING CONTENT
        ====================================================== -->
   <div id="rows"></div>
-
-  <!-- ==============================
-       DESKTOP EMULATOR OVERLAY
-       ============================== -->
 
   <script src="./scripts/script.js" defer></script>
 </body>
