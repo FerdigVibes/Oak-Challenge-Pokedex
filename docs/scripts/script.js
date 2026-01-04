@@ -243,34 +243,7 @@ async function loadPokemonData() {
     state = loadProgressForVersion(currentVersion) || {};
     completedAchievements = loadCompletedAchievements(currentVersion);
 
-    // flatten into render list
-    pokemonList = [];
-
-    data.sections.forEach(section => {
-      pokemonList.push({
-        type: 'header',
-        key: section.key,
-        title: t(`sections.${section.key}.title`, section.title)
-      });
-
-      section.pokemon.forEach(p => {
-        const dex = String(p.dex).padStart(3, '0');
-
-        pokemonList.push({
-          type: 'pokemon',
-          sectionKey: section.key,
-          id: pokemonId(section.key, dex),
-          dex,
-          name: t(`pokemon.${dex}.name`, p.name),
-          originalName: p.name,
-          info: t(`pokemon.${dex}.info`, p.info),
-          notes: t(`pokemon.${dex}.notes`, p.notes),
-          image: p.image
-            ? p.image
-            : urlFromBase(`assets/sprites/${dex}-${slugifyName(p.name)}.gif`)
-        });
-      });
-    });
+    rebuildPokemonListFromCurrentData();
 
     // reset UI state
     collapsedSections.clear();
