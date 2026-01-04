@@ -959,14 +959,19 @@ function applyStaticUIText() {
 function resolveLocalizedField(path, version, fallback) {
   const val = t(path);
 
-  if (!val) return fallback ?? "";
+  // Nothing in lang file → fallback
+  if (val == null) return fallback ?? "";
 
-  // If it’s version-keyed, resolve it
+  // Versioned object
   if (typeof val === "object") {
-    return val[version] ?? fallback ?? "";
+    // Use version if available
+    if (val[version]) return val[version];
+
+    // Otherwise, DO NOT leak object — fallback only
+    return fallback ?? "";
   }
 
-  // Otherwise it’s already a string
+  // Already a string
   return val;
 }
 
