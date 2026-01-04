@@ -961,14 +961,17 @@ function resolveLocalizedField(path, version, fallback) {
 
   // Versioned object
   if (typeof val === "object") {
-    // Use version if available
+    // 1️⃣ Exact version match
     if (val[version]) return val[version];
 
-    // Otherwise, DO NOT leak object — fallback only
+    // 2️⃣ Generic fallback inside language file
+    if (val.default) return val.default;
+
+    // 3️⃣ Absolute fallback (English JSON)
     return fallback ?? "";
   }
 
-  // Already a string
+  // Plain string
   return val;
 }
 
