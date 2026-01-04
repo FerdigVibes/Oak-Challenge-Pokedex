@@ -525,28 +525,36 @@ function applyExclusiveGroups() {
     const sectionKey = group.section;
     if (!sectionKey || !Array.isArray(group.families)) return;
 
-    // Convert family names → dex list ONCE
-    const famDexes = group.families.map(fam =>
-      fam
+    // 1️⃣ Resolve each family to a list of dex numbers (once)
+    const familyDexes = group.families.map(family =>
+      family
         .map(name => {
           const match = pokemonList.find(p =>
             p.type === 'pokemon' &&
             p.sectionKey === sectionKey &&
-            slugifyName(p.originalName || p.name) === slugifyName(name)
+            p.originalName === name
           );
           return match?.dex;
         })
         .filter(Boolean)
     );
 
-    const chosenIndex = famDexes.findIndex(fam =>
+    if (familyDexes.length < 2) return;
+
+    // 2️⃣ Determine which family (if any) has been chosen
+    const chosenFamilyIndex = familyDexes.findIndex(fam =>
       fam.some(dex => state[pokemonId(sectionKey, dex)])
     );
-    if (chosenIndex === -1) return;
 
-    famDexes.forEach((fam, idx) => {
-      if (idx === chosenIndex) return;
-      fam.forEach(dex => hideById(pokemonId(sectionKey, dex)));
+    if (chosenFamilyIndex === -1) return;
+
+    // 3️⃣ Hide all Pokémon not in the chosen family
+    familyDexes.forEach((fam, index) => {
+      if (index === chosenFamilyIndex) return;
+
+      fam.forEach(dex => {
+        hideById(pokemonId(sectionKey, dex));
+      });
     });
   });
 }
@@ -554,18 +562,23 @@ function applyExclusiveGroups() {
 function applyFinalEvolutionDeduping() {
   if (!currentData || !Array.isArray(currentData.dedupeFinalEvos)) return;
 
-  // Normalize ENGLISH dex targets ONCE
+  // 1️⃣ Resolve final-evo names → dex ONCE
   const targetDexes = new Set(
-    currentData.dedupeFinalEvos.map(name => {
-      const p = pokemonList.find(p =>
-        slugifyName(p.originalName || p.name) === slugifyName(name)
-      );
-      return p?.dex;
-    }).filter(Boolean)
+    currentData.dedupeFinalEvos
+      .map(name => {
+        const match = pokemonList.find(p =>
+          p.type === 'pokemon' &&
+          p.originalName === name
+        );
+        return match?.dex;
+      })
+      .filter(Boolean)
   );
 
-  const groups = {};
+  if (!targetDexes.size) return;
 
+  // 2️⃣ Group Pokémon by dex
+  const groups = {};
   pokemonList.forEach(p => {
     if (p.type !== 'pokemon') return;
     if (!targetDexes.has(p.dex)) return;
@@ -574,6 +587,7 @@ function applyFinalEvolutionDeduping() {
     groups[p.dex].push(p);
   });
 
+  // 3️⃣ If one is registered, hide the rest
   Object.values(groups).forEach(list => {
     const chosen = list.find(p => state[p.id]);
     if (!chosen) return;
