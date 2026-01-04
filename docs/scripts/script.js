@@ -923,7 +923,7 @@ function enableMobileImageZoom() {
 }
 
 // Translation helper
-function t(path, fallback = '') {
+function t(path, fallback = null) {
   if (!langData) return fallback;
 
   const parts = path.split('.');
@@ -937,7 +937,7 @@ function t(path, fallback = '') {
     }
   }
 
-  return typeof cur === 'string' ? cur : fallback;
+  return cur ??fallback;
 }
 
 function applyStaticUIText() {
