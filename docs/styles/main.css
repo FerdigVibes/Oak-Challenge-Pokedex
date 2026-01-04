@@ -501,6 +501,10 @@ body {
 
 #language {
   background-color: #081f1f !important;
+  line-height: 1.2;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 36px;
 
   background-image:
     linear-gradient(to bottom, #0f3d3d, #081f1f),
@@ -509,8 +513,8 @@ body {
 
   background-position:
     left top,
-    calc(100% - 18px) 55%,
-    calc(100% - 12px) 55%;
+    calc(100% - 14px) center,
+    calc(100% - 8px) center;
 
   background-size:
     auto,
@@ -522,6 +526,11 @@ body {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+#language {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 /* =========================================================
    RESET DROPDOWN — MATCH TAB STYLE
