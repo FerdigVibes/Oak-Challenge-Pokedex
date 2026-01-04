@@ -198,8 +198,17 @@ function rebuildPokemonListFromCurrentData() {
         // 🔑 Localized display name
         name: t(`pokemon.${dex}.name`, p.name),
       
-        info: t(`pokemon.${dex}.info`, p.info),
-        notes: t(`pokemon.${dex}.notes`, p.notes),
+        info: resolveLocalizedField(
+           `pokemon.${p.dex}.info`,
+           currentVersion,
+           p.info
+         ),
+         
+        notes: resolveLocalizedField(
+           `pokemon.${p.dex}.notes`,
+           currentVersion,
+           p.notes
+         ),
       
         image: p.image
           ? p.image
