@@ -191,10 +191,19 @@ function rebuildPokemonListFromCurrentData() {
         sectionKey: section.key,
         id: pokemonId(section.key, dex),
         dex,
+      
+        // 🔑 ALWAYS keep English as canonical key
+        originalName: p.name,
+      
+        // 🔑 Localized display name
         name: t(`pokemon.${dex}.name`, p.name),
+      
         info: t(`pokemon.${dex}.info`, p.info),
         notes: t(`pokemon.${dex}.notes`, p.notes),
+      
         image: p.image
+          ? p.image
+          : urlFromBase(`assets/sprites/${dex}-${slugifyName(p.name)}.gif`)
       });
     });
   });
