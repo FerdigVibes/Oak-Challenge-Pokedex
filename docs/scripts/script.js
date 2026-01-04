@@ -954,20 +954,20 @@ function applyStaticUIText() {
 }
 
 function resolveLocalizedField(path, version, fallback) {
-  const val = t(path);
+  // 🔑 English mode → always use JSON
+  if (!langData) {
+    return fallback ?? "";
+  }
 
-  // Nothing in lang file → fallback
+  const val = t(path, null);
+
+  // Nothing in lang file
   if (val == null) return fallback ?? "";
 
   // Versioned object
   if (typeof val === "object") {
-    // 1️⃣ Exact version match
     if (val[version]) return val[version];
-
-    // 2️⃣ Generic fallback inside language file
     if (val.default) return val.default;
-
-    // 3️⃣ Absolute fallback (English JSON)
     return fallback ?? "";
   }
 
