@@ -505,15 +505,17 @@ body {
   -moz-appearance: none;
 
   height: 28px;
-  padding: 6px 32px;
+
+  /* LEFT text, RIGHT arrow space */
+  padding: 6px 32px 6px 12px;
 
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.3px;
   line-height: 1.2;
 
-  text-align: center;
-  text-align-last: center;
+  /* 🔑 KEY FIX */
+  text-align: left;
   box-sizing: border-box;
 
   color: #e0ffff;
