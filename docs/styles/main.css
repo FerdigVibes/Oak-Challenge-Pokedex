@@ -188,23 +188,6 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-/* Make Row 4 match Pokédex panel background */
-.objective-row {
-  background: linear-gradient(
-    to bottom,
-    #0f3d3d,
-    #081f1f
-  );
-
-  border: 2px solid #1de9b6;
-  border-radius: 6px;
-
-  padding: 6px 8px;
-
-  box-shadow:
-    inset 0 0 6px rgba(0,255,255,0.3);
-}
 /* =========================================================
    SECTION COMPLETION CELEBRATION
    ========================================================= */
@@ -463,6 +446,58 @@ body {
   color: #e0ffff;
 }
 
+.dex-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: 28px;
+
+  background: linear-gradient(
+    to bottom,
+    #0f3d3d,
+    #081f1f
+  );
+
+  color: #e0ffff;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+
+  border: 2px solid #1de9b6;
+  border-radius: 6px;
+
+  padding: 6px 32px 6px 10px;
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 0 6px rgba(0,255,255,0.3),
+    0 2px 0 rgba(0,0,0,0.4);
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #1de9b6 50%),
+    linear-gradient(135deg, #1de9b6 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 18px) 55%,
+    calc(100% - 12px) 55%;
+
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.dex-select:hover,
+.dex-select:focus {
+  outline: none;
+  box-shadow:
+    inset 0 0 10px rgba(0,255,255,0.5),
+    0 0 8px rgba(0,229,255,0.6);
+}
+
+.dex-select option {
+  background: #081f1f;
+  color: #e0ffff;
+}
 /* =========================================================
    RESET DROPDOWN — MATCH TAB STYLE
    ========================================================= */
