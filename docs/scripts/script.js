@@ -528,15 +528,38 @@ function syncTopBarHeight() {
 }
 
 function applyExclusiveGroups() {
-  console.log('[exclusive] running');
-  if (!currentData || !Array.isArray(currentData.exclusiveGroups)) return;
+  if (!currentData) return;
 
-  currentData.exclusiveGroups.forEach(group => {
-    const sectionKey = group.section;
-    if (!sectionKey || !Array.isArray(group.families) || group.families.length < 2) return;
+  const groups = [];
 
-    // Build dex-based families (language safe)
-    const famDexes = group.families.map(fam =>
+  // 1️⃣ Root-level exclusiveGroups (fossils, moon stones)
+  if (Array.isArray(currentData.exclusiveGroups)) {
+    currentData.exclusiveGroups.forEach(g => {
+      if (g.section && Array.isArray(g.families)) {
+        groups.push({
+          sectionKey: g.section,
+          families: g.families
+        });
+      }
+    });
+  }
+
+  // 2️⃣ Section-level exclusive families (STARTER, etc.)
+  currentData.sections.forEach(section => {
+    if (section.exclusive && Array.isArray(section.families)) {
+      groups.push({
+        sectionKey: section.key,
+        families: section.families
+      });
+    }
+  });
+
+  // Apply exclusivity
+  groups.forEach(group => {
+    const { sectionKey, families } = group;
+    if (families.length < 2) return;
+
+    const famDexes = families.map(fam =>
       fam
         .map(name => {
           const p = pokemonList.find(p =>
@@ -548,6 +571,19 @@ function applyExclusiveGroups() {
         })
         .filter(Boolean)
     );
+
+    const chosenFamilyIndex = famDexes.findIndex(fam =>
+      fam.some(dex => state[pokemonId(sectionKey, dex)])
+    );
+
+    if (chosenFamilyIndex === -1) return;
+
+    famDexes.forEach((fam, idx) => {
+      if (idx === chosenFamilyIndex) return;
+      fam.forEach(dex => hideById(pokemonId(sectionKey, dex)));
+    });
+  });
+}
 
     // Determine which family was chosen
     const chosenFamilyIndex = famDexes.findIndex(fam =>
