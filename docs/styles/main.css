@@ -508,6 +508,8 @@ body {
 
   /* LEFT text, RIGHT arrow space */
   padding: 6px 32px 6px 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
   font-size: 13px;
   font-weight: 600;
