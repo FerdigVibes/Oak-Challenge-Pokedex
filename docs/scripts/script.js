@@ -974,6 +974,20 @@ function applyStaticUIText() {
   }
 }
 
+function resolveLocalizedField(path, version, fallback) {
+  const val = t(path);
+
+  if (!val) return fallback ?? "";
+
+  // If it’s version-keyed, resolve it
+  if (typeof val === "object") {
+    return val[version] ?? fallback ?? "";
+  }
+
+  // Otherwise it’s already a string
+  return val;
+}
+
 /* =========================================================
    REFRESH UI (single orchestrator)
    ========================================================= */
