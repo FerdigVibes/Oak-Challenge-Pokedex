@@ -1,1 +1,1021 @@
+{
+  "meta": {
+    "language": "Español",
+    "code": "es",
+    "fallback": "en"
+  },
 
+  "ui": {
+    "title": "Desafío del Profesor Oak – Región Kanto",
+    "currentObjective": "Objetivo actual",
+    "resetSection": "Restablecer sección",
+    "resetAll": "Restablecer todo",
+    "resetConfirm": "¿Deseas restablecer esta sección?",
+    "resetAllConfirm": "¿Deseas restablecer todo el progreso?",
+    "resetSectionLabel": "Restablecer sección",
+    "loading": "Cargando datos…",
+    "version": "Versión",
+    "muteCries": "Gritos de Pokémon",
+    "caught": "Capturado",
+    "complete": "¡Completado!",
+    "challengeComplete": "¡Desafío completado!",
+    "confirmResetAll": "¿Deseas restablecer todo el progreso?",
+    "confirmResetSection": "¿Deseas restablecer esta sección?",
+    "confirmResetVersion": "¿Deseas restablecer el progreso de esta versión?",
+    "achievementComplete": "¡{section} completada!"
+  },
+
+  "versions": {
+    "Red": "Rojo",
+    "Blue": "Azul",
+    "Yellow": "Amarillo"
+  },
+
+  "sections": {
+    "STARTER": {
+      "title": "¡Elige tu primer Pokémon!",
+      "objective": "Elige a tu primer compañero",
+      "reset": "Restablecer inicial"
+    },
+    "PEWTER": {
+      "title": "Pokémon de Ciudad Plateada",
+      "objective": "Reúne Pokémon antes del Gimnasio Plateada",
+      "reset": "Restablecer Ciudad Plateada"
+    },
+    "CERULEAN": {
+      "title": "Pokémon de Ciudad Celeste",
+      "objective": "Reúne Pokémon antes del Gimnasio Celeste",
+      "reset": "Restablecer Ciudad Celeste"
+    },
+    "MOON_STONE_1": {
+      "title": "Primeras evoluciones con Piedra Lunar",
+      "objective": "Evoluciona 2 Pokémon con Piedras Lunares",
+      "reset": "Restablecer Piedras Lunares (primera parte)",
+      "note": "Solo se pueden obtener 2 Piedras Lunares. ① Monte Luna, 1F, cerca del montañero (objeto). ② Monte Luna, B2F, a la derecha antes de los fósiles (objeto oculto)."
+    },
+    "FUCHSIA": {
+      "title": "Pokémon de Ciudad Fucsia",
+      "objective": "Reúne Pokémon antes del Gimnasio Fucsia",
+      "reset": "Restablecer Ciudad Fucsia"
+    },
+    "MOON_STONE_2": {
+      "title": "Evoluciones restantes con Piedra Lunar",
+      "objective": "Evoluciona 2 Pokémon más con Piedras Lunares",
+      "reset": "Restablecer Piedras Lunares (segunda parte)"
+    },
+    "CELADON": {
+      "title": "Pokémon de Ciudad Azulona",
+      "objective": "Reúne Pokémon antes del Gimnasio Azulona",
+      "reset": "Restablecer Ciudad Azulona"
+    },
+    "FOSSIL": {
+      "title": "Pokémon fósil",
+      "objective": "Revive uno de los fósiles",
+      "reset": "Restablecer fósiles"
+    },
+    "SQUIRTLE": {
+      "title": "Escuadrón Squirtle",
+      "objective": "Obtén a Squirtle del Escuadrón Squirtle",
+      "reset": "Restablecer Escuadrón Squirtle"
+    },
+    "EEVEE": {
+      "title": "Evoluciones de Eevee",
+      "objective": "Elige una evolución",
+      "reset": "Restablecer evolución de Eevee"
+    },
+    "HITMON": {
+      "title": "Dojo de Combate",
+      "objective": "Elige tu Pokémon de recompensa",
+      "reset": "Restablecer Dojo de Combate"
+    },
+    "ARTICUNO": {
+      "title": "Articuno",
+      "objective": "Captura a Articuno",
+      "reset": "Restablecer Articuno"
+    },
+    "MOLTRES": {
+      "title": "Moltres",
+      "objective": "Captura a Moltres",
+      "reset": "Restablecer Moltres"
+    },
+    "CERULEAN_CAVE": {
+      "title": "Cueva Celeste",
+      "objective": "Captura a Mewtwo",
+      "reset": "Restablecer Cueva Celeste"
+    }
+  },
+
+  "strings": {
+    "Your first Pokémon, enjoy your journey!": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+    "Your bestest friend!": "¡Tu mejor amigo!",
+    "Evolve at Lv. 16": "Evoluciona al nivel 16",
+    "Evolve at Lv. 20": "Evoluciona al nivel 20",
+    "Evolve at Lv. 22": "Evoluciona al nivel 22",
+    "Evolve at Lv. 25": "Evoluciona al nivel 25",
+    "Evolve at Lv. 28": "Evoluciona al nivel 28",
+    "Evolve at Lv. 30": "Evoluciona al nivel 30",
+    "Evolve at Lv. 31": "Evoluciona al nivel 31",
+    "Evolve at Lv. 32": "Evoluciona al nivel 32",
+    "Evolve at Lv. 33": "Evoluciona al nivel 33",
+    "Evolve at Lv. 34": "Evoluciona al nivel 34",
+    "Evolve at Lv. 36": "Evoluciona al nivel 36",
+    "Evolve at Lv. 37": "Evoluciona al nivel 37",
+    "Evolve at Lv. 40": "Evoluciona al nivel 40",
+    "Evolve at Lv. 42": "Evoluciona al nivel 42",
+    "Evolve at Lv. 55": "Evoluciona al nivel 55",
+
+    "Viridian Forest": "Bosque Verde",
+    "Route 1": "Ruta 1",
+    "Route 2": "Ruta 2",
+    "Route 3": "Ruta 3",
+    "Route 4": "Ruta 4",
+    "Route 5": "Ruta 5",
+    "Route 6": "Ruta 6",
+    "Route 7": "Ruta 7",
+    "Route 8": "Ruta 8",
+    "Route 10": "Ruta 10",
+    "Route 11": "Ruta 11",
+    "Route 12": "Ruta 12",
+    "Route 13": "Ruta 13",
+    "Route 16": "Ruta 16",
+    "Route 17": "Ruta 17",
+    "Route 18": "Ruta 18",
+    "Route 19": "Ruta 19",
+    "Route 21": "Ruta 21",
+    "Route 22": "Ruta 22",
+    "Route 24": "Ruta 24",
+    "Route 25": "Ruta 25",
+
+    "Mt. Moon — catch before leaving": "Monte Luna: capturar antes de salir",
+    "Diglett’s Cave": "Cueva Diglett",
+    "Rock Tunnel": "Túnel Roca",
+    "Pokémon Tower": "Torre Pokémon",
+    "Safari Zone": "Zona Safari",
+    "Seafoam Islands": "Islas Espuma",
+    "Power Plant on Route 10": "Central Eléctrica en Ruta 10",
+    "Cerulean Cave B1F": "Cueva Celeste B1F",
+
+    "Old Rod anywhere": "Caña Vieja: en cualquier zona con agua",
+    "Good Rod: most areas": "Caña Buena: en la mayoría de zonas",
+    "Super Rod: coastal routes": "Súper Caña: rutas costeras",
+
+    "SAVE BEFORE INTERACTING!!!": "¡GUARDA ANTES DE INTERACTUAR!",
+    "Make sure you have space in your party": "Asegúrate de tener espacio en el equipo",
+    "Requires Pikachu to have high happiness": "Pikachu debe tener alta felicidad"
+  },
+  "pokemon": {
+    "001": {
+      "name": "Bulbasaur",
+      "info": {
+        "Red": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+        "Blue": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+        "Yellow": "Entregado por Melanie en Ciudad Celeste."
+      },
+      "notes": {
+        "Yellow": "Pikachu debe tener alta felicidad."
+      }
+    },
+    "002": {
+      "name": "Ivysaur",
+      "info": "Evoluciona de Bulbasaur al nivel 16."
+    },
+    "003": {
+      "name": "Venusaur",
+      "info": "Evoluciona de Ivysaur al nivel 32."
+    },
+    "004": {
+      "name": "Charmander",
+      "info": {
+        "Red": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+        "Blue": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+        "Yellow": "Entregado por Damián en la Ruta 24."
+      }
+    },
+    "005": {
+      "name": "Charmeleon",
+      "info": "Evoluciona de Charmander al nivel 16."
+    },
+    "006": {
+      "name": "Charizard",
+      "info": "Evoluciona de Charmeleon al nivel 36."
+    },
+
+    "007": {
+      "name": "Squirtle",
+      "info": {
+        "Red": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+        "Blue": "Tu primer Pokémon. ¡Disfruta tu aventura!",
+        "Yellow": "Entregado por la Oficial Jenny en Ciudad Carmín."
+      }
+    },
+    "008": {
+      "name": "Wartortle",
+      "info": "Evoluciona de Squirtle al nivel 16."
+    },
+    "009": {
+      "name": "Blastoise",
+      "info": "Evoluciona de Wartortle al nivel 36."
+    },
+
+    "010": {
+      "name": "Caterpie",
+      "info": {
+        "Red": "Aparece en el Bosque Verde.",
+        "Blue": "Aparece en el Bosque Verde.",
+        "Yellow": "Aparece en el Bosque Verde."
+      }
+    },
+    "011": {
+      "name": "Metapod",
+      "info": "Evoluciona de Caterpie al nivel 7. Aparece en el Bosque Verde."
+    },
+    "012": {
+      "name": "Butterfree",
+      "info": "Evoluciona de Metapod al nivel 10."
+    },
+
+    "013": {
+      "name": "Weedle",
+      "info": {
+        "Red": "Aparece en la Ruta 2 y en el Bosque Verde.",
+        "Blue": "Aparece en la Ruta 2 y en el Bosque Verde."
+      }
+    },
+    "014": {
+      "name": "Kakuna",
+      "info": "Evoluciona de Weedle al nivel 7. Aparece en el Bosque Verde."
+    },
+    "015": {
+      "name": "Beedrill",
+      "info": "Evoluciona de Kakuna al nivel 10."
+    },
+
+    "016": {
+      "name": "Pidgey",
+      "info": "Aparece en la Ruta 1 y Ruta 2."
+    },
+    "017": {
+      "name": "Pidgeotto",
+      "info": "Evoluciona de Pidgey al nivel 18."
+    },
+    "018": {
+      "name": "Pidgeot",
+      "info": "Evoluciona de Pidgeotto al nivel 36."
+    },
+
+    "019": {
+      "name": "Rattata",
+      "info": "Aparece en la Ruta 1, Ruta 2 y Ruta 22."
+    },
+    "020": {
+      "name": "Raticate",
+      "info": "Evoluciona de Rattata al nivel 20."
+    },
+
+    "021": {
+      "name": "Spearow",
+      "info": "Aparece en la Ruta 22.",
+      "notes": {
+        "Red": "Se necesita un segundo ejemplar para intercambio.",
+        "Blue": "Se necesita un segundo ejemplar para intercambio."
+      }
+    },
+    "022": {
+      "name": "Fearow",
+      "info": "Evoluciona de Spearow al nivel 20."
+    },
+
+    "023": {
+      "name": "Ekans",
+      "info": "Aparece en la Ruta 4 y Ruta 11."
+    },
+    "024": {
+      "name": "Arbok",
+      "info": "Evoluciona de Ekans al nivel 22."
+    },
+
+    "025": {
+      "name": "Pikachu",
+      "info": {
+        "Red": "Aparece en el Bosque Verde.",
+        "Blue": "Aparece en el Bosque Verde.",
+        "Yellow": "Pokémon compañero del jugador."
+      },
+      "notes": {
+        "Yellow": "La felicidad es importante. No puede evolucionar."
+      }
+    },
+    "026": {
+      "name": "Raichu",
+      "info": "Evoluciona de Pikachu con una Piedra Trueno.",
+      "notes": {
+        "Red": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso).",
+        "Blue": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso)."
+      }
+    },
+
+    "027": {
+      "name": "Sandshrew",
+      "info": {
+        "Blue": "Aparece en la Ruta 4 y Ruta 11.",
+        "Yellow": "Aparece en la Ruta 3 y Ruta 4."
+      }
+    },
+    "028": {
+      "name": "Sandslash",
+      "info": "Evoluciona de Sandshrew al nivel 22."
+    },
+
+    "029": {
+      "name": "Nidoran♀",
+      "info": "Aparece en la Ruta 22."
+    },
+    "030": {
+      "name": "Nidorina",
+      "info": "Evoluciona de Nidoran♀ al nivel 16."
+    },
+    "031": {
+      "name": "Nidoqueen",
+      "info": "Evoluciona de Nidorina con una Piedra Lunar."
+    },
+
+    "032": {
+      "name": "Nidoran♂",
+      "info": "Aparece en la Ruta 22."
+    },
+    "033": {
+      "name": "Nidorino",
+      "info": "Evoluciona de Nidoran♂ al nivel 16."
+    },
+    "034": {
+      "name": "Nidoking",
+      "info": "Evoluciona de Nidorino con una Piedra Lunar."
+    },
+
+    "035": {
+      "name": "Clefairy",
+      "info": {
+        "Red": "Aparece en el Monte Luna.",
+        "Blue": "Aparece en el Monte Luna.",
+        "Yellow": "Captura uno adicional en el Monte Luna para un intercambio futuro."
+      }
+    },
+    "036": {
+      "name": "Clefable",
+      "info": "Evoluciona de Clefairy con una Piedra Lunar."
+    },
+
+    "037": {
+      "name": "Vulpix",
+      "info": {
+        "Blue": "Aparece en la Ruta 7 y Ruta 8.",
+        "Yellow": "Intercambio en el Casino de Ciudad Azulona."
+      }
+    },
+    "038": {
+      "name": "Ninetales",
+      "info": "Evoluciona de Vulpix con una Piedra Fuego."
+    },
+
+    "039": {
+      "name": "Jigglypuff",
+      "info": "Aparece en la Ruta 3."
+    },
+    "040": {
+      "name": "Wigglytuff",
+      "info": "Evoluciona de Jigglypuff con una Piedra Lunar."
+    },
+
+    "041": {
+      "name": "Zubat",
+      "info": "Aparece en el Monte Luna."
+    },
+    "042": {
+      "name": "Golbat",
+      "info": "Evoluciona de Zubat al nivel 22."
+    },
+
+    "043": {
+      "name": "Oddish",
+      "info": {
+        "Red": "Aparece en las Rutas 5, 6, 24 y 25.",
+        "Yellow": "Aparece en las Rutas 24 y 25."
+      }
+    },
+    "044": {
+      "name": "Gloom",
+      "info": "Evoluciona de Oddish al nivel 21."
+    },
+    "045": {
+      "name": "Vileplume",
+      "info": "Evoluciona de Gloom con una Piedra Hoja.",
+      "notes": {
+        "Red": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso).",
+        "Blue": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso).",
+        "Yellow": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso)."
+      }
+    },
+
+    "046": {
+      "name": "Paras",
+      "info": "Aparece en el Monte Luna."
+    },
+    "047": {
+      "name": "Parasect",
+      "info": "Evoluciona de Paras al nivel 24."
+    },
+
+    "048": {
+      "name": "Venonat",
+      "info": {
+        "Red": "Aparece en las Rutas 12–15 y en la Zona Safari.",
+        "Yellow": "Aparece en las Rutas 24 y 25."
+      },
+      "notes": {
+        "Red": "Se necesita un segundo ejemplar para intercambio.",
+        "Blue": "Se necesita un segundo ejemplar para intercambio.",
+        "Yellow": "Se necesita un segundo ejemplar para intercambio."
+      }
+    },
+    "049": {
+      "name": "Venomoth",
+      "info": {
+        "Red": "Evoluciona de Venonat al nivel 31. Aparece en la Zona Safari (Áreas 3–4).",
+        "Blue": "Evoluciona de Venonat al nivel 31. Aparece en la Zona Safari (Áreas 3–4).",
+        "Yellow": "Evoluciona de Venonat al nivel 31."
+      }
+    },
+
+    "050": {
+      "name": "Diglett",
+      "info": "Aparece en la Cueva Diglett."
+    },
+    "051": {
+      "name": "Dugtrio",
+      "info": "Evoluciona de Diglett al nivel 26. Aparece en la Cueva Diglett."
+    },
+    "052": {
+      "name": "Meowth",
+      "info": {
+        "Red": "Aparece en las Rutas 5 y 6.",
+        "Blue": "Aparece en las Rutas 5 y 6.",
+        "Yellow": "Se obtiene en lugares como el escondite del Team Rocket."
+      }
+    },
+    "053": {
+      "name": "Persian",
+      "info": "Evoluciona de Meowth al nivel 28."
+    },
+    "054": {
+      "name": "Psyduck",
+      "info": {
+        "Red": "Capturable con la Súper Caña. Aparece en la Zona Safari, el Gimnasio Celeste y en las Rutas 24 y 25.",
+        "Blue": "Capturable con la Súper Caña. Aparece en la Zona Safari, el Gimnasio Celeste y en las Rutas 24 y 25.",
+        "Yellow": "Aparece en la Ruta 6 al usar SURF."
+      }
+    },
+    "055": {
+      "name": "Golduck",
+      "info": {
+        "Red": "Evoluciona de Psyduck al nivel 33.",
+        "Blue": "Evoluciona de Psyduck al nivel 33.",
+        "Yellow": "Evoluciona de Psyduck al nivel 33. También aparece en la Ruta 6 usando SURF."
+      }
+    },
+    "056": {
+      "name": "Mankey",
+      "info": {
+        "Red": "Aparece en las Rutas 5 y 6.",
+        "Blue": "Aparece en las Rutas 5 y 6.",
+        "Yellow": "Aparece en la Ruta 22."
+      }
+    },
+    "057": {
+      "name": "Primeape",
+      "info": "Evoluciona de Mankey al nivel 28."
+    },
+    "058": {
+      "name": "Growlithe",
+      "info": {
+        "Red": "Aparece en las Rutas 7 y 8.",
+        "Blue": "Aparece en las Rutas 7 y 8.",
+        "Yellow": "Aparece en la Mansión Pokémon."
+      },
+      "notes": {
+        "Yellow": "Es útil capturar un segundo ejemplar para un intercambio."
+      }
+    },
+    "059": {
+      "name": "Arcanine",
+      "info": "Evoluciona de Growlithe con una Piedra Fuego.",
+      "notes": {
+        "Red": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso).",
+        "Blue": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso).",
+        "Yellow": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso)."
+      }
+    },
+    "060": {
+      "name": "Poliwag",
+      "info": "• Caña Buena: en la mayoría de zonas (aprox. 90 %)\n• Súper Caña: Pueblo Paleta, Ciudad Verde y Ruta 22"
+    },
+    "061": {
+      "name": "Poliwhirl",
+      "info": "Evoluciona de Poliwag al nivel 25.",
+      "notes": {
+        "Red": "• Evoluciona de Poliwag al nivel 25\n• Súper Caña: Ruta 10 y Ciudad Azulona\n• Se necesita un segundo ejemplar para intercambio",
+        "Blue": "• Evoluciona de Poliwag al nivel 25\n• Súper Caña: Ruta 10 y Ciudad Azulona\n• Se necesita un segundo ejemplar para intercambio",
+        "Yellow": "• Evoluciona de Poliwag al nivel 25\n• Súper Caña: Ruta 10 y Ciudad Azulona"
+      }
+    },
+    "062": {
+      "name": "Poliwrath",
+      "info": "Evoluciona de Poliwhirl con una Piedra Agua.",
+      "notes": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso)."
+    },
+    "063": {
+      "name": "Abra",
+      "info": {
+        "Red": "Aparece en las Rutas 24 y 25. Se necesita un segundo ejemplar para intercambio.",
+        "Blue": "Aparece en las Rutas 24 y 25. Se necesita un segundo ejemplar para intercambio.",
+        "Yellow": "Aparece en las Rutas 5 y 6."
+      }
+    },
+    "064": {
+      "name": "Kadabra",
+      "info": "Evoluciona de Abra al nivel 16."
+    },
+    "065": {
+      "name": "Alakazam",
+      "info": "Evoluciona de Kadabra mediante intercambio."
+    },
+    "066": {
+      "name": "Machop",
+      "info": "• Ruta 10\n• Túnel Roca"
+    },
+    "067": {
+      "name": "Machoke",
+      "info": {
+        "Red": "Evoluciona de Machop al nivel 28.",
+        "Blue": "Evoluciona de Machop al nivel 28.",
+        "Yellow": "• Evoluciona al nivel 28\n• Intercambio por Cubone en el pasaje subterráneo de las Rutas 5/6 (para Machamp)"
+      }
+    },
+    "068": {
+      "name": "Machamp",
+      "info": "Evoluciona de Machoke mediante intercambio."
+    },
+    "069": {
+      "name": "Bellsprout",
+      "info": {
+        "Red": "Aparece en las Rutas 24 y 25.",
+        "Blue": "Aparece en las Rutas 24 y 25.",
+        "Yellow": "Aparece en las Rutas 24 y 25."
+      }
+    },
+    "070": {
+      "name": "Weepinbell",
+      "info": "Evoluciona de Bellsprout al nivel 21."
+    },
+    "071": {
+      "name": "Victreebel",
+      "info": "Evoluciona de Weepinbell con una Piedra Hoja."
+    },
+    "072": {
+      "name": "Tentacool",
+      "info": "Aparece en el mar usando SURF."
+    },
+    "073": {
+      "name": "Tentacruel",
+      "info": {
+        "Red": "Evoluciona de Tentacool al nivel 30.",
+        "Blue": "Evoluciona de Tentacool al nivel 30.",
+        "Yellow": "Evoluciona de Tentacool al nivel 30. Súper Caña: Ruta 19"
+      }
+    },
+    "074": {
+      "name": "Geodude",
+      "info": "Aparece en el Monte Luna."
+    },
+    "075": {
+      "name": "Graveler",
+      "info": "Evoluciona de Geodude al nivel 25."
+    },
+    "076": {
+      "name": "Golem",
+      "info": "Evoluciona de Graveler mediante intercambio."
+    },
+    "077": {
+      "name": "Ponyta",
+      "info": "Aparece en la Ruta 17.",
+      "notes": {
+        "Red": "Se necesita un segundo ejemplar para intercambio.",
+        "Blue": "Se necesita un segundo ejemplar para intercambio."
+      }
+    },
+    "078": {
+      "name": "Rapidash",
+      "info": "Evoluciona de Ponyta al nivel 40."
+    },
+    "079": {
+      "name": "Slowpoke",
+      "info": {
+        "Red": "Súper Caña: Ruta 10, Ciudad Azulona y Zona Safari.",
+        "Blue": "Súper Caña: Ruta 10, Ciudad Azulona y Zona Safari."
+      }
+    },
+    "080": {
+      "name": "Slowbro",
+      "info": "Evoluciona de Slowpoke al nivel 37. Se necesita un segundo ejemplar para intercambio."
+    },
+    "081": {
+      "name": "Magnemite",
+      "info": {
+        "Red": "Central Eléctrica en Ruta 10: requiere SURF.",
+        "Blue": "Central Eléctrica en Ruta 10: requiere SURF.",
+        "Yellow": "Ruta 10"
+      }
+    },
+    "082": {
+      "name": "Magneton",
+      "info": "Evoluciona de Magnemite al nivel 30."
+    },
+    "083": {
+      "name": "Farfetch’d",
+      "info": {
+        "Red": "Intercambio en Ciudad Carmín por Spearow.",
+        "Blue": "Intercambio en Ciudad Carmín por Spearow.",
+        "Yellow": "Aparece en las Rutas 12 y 13."
+      }
+    },
+    "084": {
+      "name": "Doduo",
+      "info": {
+        "Red": "Aparece en las Rutas 16–18 y en la Zona Safari (Área 4).",
+        "Blue": "Aparece en las Rutas 16–18 y en la Zona Safari (Área 4).",
+        "Yellow": "Aparece en las Rutas 16–18."
+      }
+    },
+    "085": {
+      "name": "Dodrio",
+      "info": {
+        "Red": "Evoluciona de Doduo al nivel 31.",
+        "Blue": "Evoluciona de Doduo al nivel 31.",
+        "Yellow": "Ruta 17. Evoluciona de Doduo al nivel 31."
+      }
+    },
+    "086": {
+      "name": "Seel",
+      "info": {
+        "Red": "Intercambio por Ponyta en el laboratorio de Isla Canela. Islas Espuma.",
+        "Blue": "Intercambio por Ponyta en el laboratorio de Isla Canela. Islas Espuma.",
+        "Yellow": "Islas Espuma"
+      }
+    },
+    "087": {
+      "name": "Dewgong",
+      "info": {
+        "Red": "Seel evoluciona al nivel 34. Islas Espuma B1F y B3F.",
+        "Blue": "Seel evoluciona al nivel 34. Islas Espuma B1F y B3F.",
+        "Yellow": "Seel evoluciona al nivel 34. Islas Espuma B1F y B3F. Intercambio en el laboratorio de Isla Canela por Growlithe."
+      }
+    },
+    "088": {
+      "name": "Grimer",
+      "info": {
+        "Red": "Mansión Pokémon en Isla Canela.",
+        "Blue": "Mansión Pokémon en Isla Canela.",
+        "Yellow": "Central Eléctrica en Ruta 10: requiere SURF. Mansión Pokémon en Isla Canela."
+      }
+    },
+    "089": {
+      "name": "Muk",
+      "info": {
+        "Red": "Evoluciona de Grimer al nivel 38. Mansión Pokémon en Isla Canela.",
+        "Blue": "Evoluciona de Grimer al nivel 38. Mansión Pokémon en Isla Canela.",
+        "Yellow": "Evoluciona de Grimer al nivel 38. Central Eléctrica en Ruta 10: requiere SURF. Mansión Pokémon en Isla Canela."
+      }
+    },
+    "090": {
+      "name": "Shellder",
+      "info": {
+        "Red": "Súper Caña: Ruta 6, Ciudad Carmín y Ruta 19.",
+        "Blue": "Súper Caña: Ruta 6, Ciudad Carmín y Ruta 19.",
+        "Yellow": "Súper Caña: Ruta 17."
+      }
+    },
+    "091": {
+      "name": "Cloyster",
+      "info": "Evoluciona de Shellder con una Piedra Agua."
+    },
+    "092": {
+      "name": "Gastly",
+      "info": "Aparece en la Torre Pokémon."
+    },
+    "093": {
+      "name": "Haunter",
+      "info": "Evoluciona de Gastly al nivel 25. Aparece en la Torre Pokémon."
+    },
+    "094": {
+      "name": "Gengar",
+      "info": "Evoluciona de Haunter mediante intercambio."
+    },
+    "095": {
+      "name": "Onix",
+      "info": "Aparece en el Túnel Roca."
+    },
+    "096": {
+      "name": "Drowzee",
+      "info": "Aparece en la Ruta 11."
+    },
+    "097": {
+      "name": "Hypno",
+      "info": "Evoluciona de Drowzee al nivel 26."
+    },
+    "098": {
+      "name": "Krabby",
+      "info": {
+        "Red": "Súper Caña: Rutas 6, 12, 13, 17, 18, 24, 25; Gimnasio Celeste; Ciudad Carmín; Ciudad Fucsia; Zona Safari.",
+        "Blue": "Súper Caña: Rutas 6, 12, 13, 17, 18, 24, 25; Gimnasio Celeste; Ciudad Carmín; Ciudad Fucsia; Zona Safari.",
+        "Yellow": "Súper Caña: Ruta 10 y Ruta 25."
+      }
+    },
+    "099": {
+      "name": "Kingler",
+      "info": {
+        "Red": "Evoluciona de Krabby al nivel 28.",
+        "Blue": "Evoluciona de Krabby al nivel 28.",
+        "Yellow": "Evoluciona de Krabby al nivel 28. Súper Caña: Ruta 10 y Ruta 25."
+      }
+    },
+    "100": {
+      "name": "Voltorb",
+      "info": {
+        "Red": "Ruta 10.",
+        "Blue": "Ruta 10.",
+        "Yellow": "Central Eléctrica en Ruta 10: requiere SURF."
+      }
+    },
+    "101": {
+      "name": "Electrode",
+      "info": {
+        "Red": "Evoluciona de Voltorb al nivel 30.",
+        "Blue": "Evoluciona de Voltorb al nivel 30.",
+        "Yellow": "Central Eléctrica en Ruta 10: requiere SURF."
+      }
+    },
+    "102": {
+      "name": "Exeggcute",
+      "info": "Aparece en la Zona Safari."
+    },
+    "103": {
+      "name": "Exeggutor",
+      "info": "Evoluciona de Exeggcute con una Piedra Hoja.",
+      "notes": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso)."
+    },
+    "104": {
+      "name": "Cubone",
+      "info": {
+        "Red": "Torre Pokémon, pisos 5–7.",
+        "Blue": "Torre Pokémon, pisos 5–7.",
+        "Yellow": "Torre Pokémon, pisos 5–7; Zona Safari Áreas 2–4."
+      }
+    },
+    "105": {
+      "name": "Marowak",
+      "info": {
+        "Red": "Evoluciona de Cubone al nivel 28.",
+        "Blue": "Evoluciona de Cubone al nivel 28.",
+        "Yellow": "Evoluciona de Cubone al nivel 28. Zona Safari Áreas 2 y 4."
+      }
+    },
+    "106": {
+      "name": "Hitmonlee",
+      "info": "Se obtiene tras ganar en el Dojo de Combate."
+    },
+    "107": {
+      "name": "Hitmonchan",
+      "info": "Se obtiene tras ganar en el Dojo de Combate."
+    },
+    "108": {
+      "name": "Lickitung",
+      "info": {
+        "Red": "Intercambio en la puerta de la Ruta 18 por Slowbro.",
+        "Blue": "Intercambio en la puerta de la Ruta 18 por Slowbro.",
+        "Yellow": "Aparece en la Cueva Celeste."
+      }
+    },
+    "109": {
+      "name": "Koffing",
+      "info": {
+        "Red": "Aparece en la Mansión Pokémon.",
+        "Blue": "Aparece en la Mansión Pokémon.",
+        "Yellow": "Aparece, entre otros lugares, en el escondite del Team Rocket."
+      }
+    },
+    "110": {
+      "name": "Weezing",
+      "info": "Evoluciona de Koffing al nivel 35."
+    },
+    "111": {
+      "name": "Rhyhorn",
+      "info": "Aparece en la Zona Safari."
+    },
+    "112": {
+      "name": "Rhydon",
+      "info": "Evoluciona de Rhyhorn al nivel 42."
+    },
+    "113": {
+      "name": "Chansey",
+      "info": "Aparece raramente en la Zona Safari."
+    },
+    "114": {
+      "name": "Tangela",
+      "info": "Aparece en la Zona Safari."
+    },
+    "115": {
+      "name": "Kangaskhan",
+      "info": "Aparece raramente en la Zona Safari."
+    },
+    "116": {
+      "name": "Horsea",
+      "info": {
+        "Red": "Súper Caña: Ruta 19.",
+        "Blue": "Súper Caña: Ruta 19.",
+        "Yellow": "Súper Caña: Ciudad Carmín, Ruta 10, Ruta 12 y Ruta 13."
+      }
+    },
+    "117": {
+      "name": "Seadra",
+      "info": {
+        "Red": "Evoluciona de Horsea al nivel 32.",
+        "Blue": "Evoluciona de Horsea al nivel 32.",
+        "Yellow": "Súper Caña: Ruta 12 y Ruta 13."
+      }
+    },
+    "118": {
+      "name": "Goldeen",
+      "info": {
+        "Red": "Caña Buena: en el 95 % de los puntos de pesca.",
+        "Blue": "Caña Buena: en el 95 % de los puntos de pesca.",
+        "Yellow": "Caña Buena: en el 95 % de los puntos de pesca. Súper Caña: Ruta 6, Ruta 24, Ciudad Azulona, Gimnasio Celeste."
+      }
+    },
+    "119": {
+      "name": "Seaking",
+      "info": {
+        "Red": "Evoluciona de Goldeen al nivel 33.",
+        "Blue": "Evoluciona de Goldeen al nivel 33.",
+        "Yellow": "Evoluciona de Goldeen al nivel 33. Súper Caña: Ruta 24 y Gimnasio Celeste."
+      }
+    },
+    "120": {
+      "name": "Staryu",
+      "info": {
+        "Red": "Súper Caña: Ruta 19.",
+        "Blue": "Súper Caña: Ruta 19.",
+        "Yellow": "Súper Caña: Ruta 19 y Pueblo Paleta."
+      }
+    },
+    "121": {
+      "name": "Starmie",
+      "info": "Evoluciona de Staryu con una Piedra Agua.",
+      "notes": "Las piedras evolutivas se compran en el Centro Comercial Azulona (4.º piso)."
+    },
+    "122": {
+      "name": "Mr. Mime",
+      "info": "Se obtiene mediante intercambio (cerca de la Cueva Diglett).",
+      "notes": {
+        "Red": "Solo disponible mediante intercambio. Se requiere un Pokémon específico.",
+        "Blue": "Solo disponible mediante intercambio. Se requiere un Pokémon específico.",
+        "Yellow": "Solo disponible mediante intercambio. El Pokémon requerido difiere de Rojo/Azul."
+      }
+    },
+    "123": {
+      "name": "Scyther",
+      "info": {
+        "Red": "Casino de Ciudad Azulona: 5.500 fichas. Zona Safari Áreas 1 y 2.",
+        "Yellow": "Casino de Ciudad Azulona: 6.500 fichas. Zona Safari Áreas 2 y 3."
+      }
+    },
+    "124": {
+      "name": "Jynx",
+      "info": "Ciudad Celeste: intercambio por Poliwhirl en la casa junto al Centro Pokémon."
+    },
+    "125": {
+      "name": "Electabuzz",
+      "info": "Central Eléctrica en Ruta 10: requiere SURF."
+    },
+    "126": {
+      "name": "Magmar",
+      "info": "Mansión Pokémon en Isla Canela."
+    },
+    "127": {
+      "name": "Pinsir",
+      "info": {
+        "Blue": "Casino de Ciudad Azulona: 5.500 fichas. Zona Safari Áreas 1 y 2.",
+        "Yellow": "Casino de Ciudad Azulona: 6.500 fichas. Zona Safari Áreas 3 y 4."
+      }
+    },
+    "128": {
+      "name": "Tauros",
+      "info": "Aparece raramente en la Zona Safari."
+    },
+    "129": {
+      "name": "Magikarp",
+      "info": "Se compra por 500¥ en el Centro Pokémon de la Ruta 3 o se pesca en cualquier zona con agua."
+    },
+    "130": {
+      "name": "Gyarados",
+      "info": "Evoluciona de Magikarp al nivel 20."
+    },
+    "131": {
+      "name": "Lapras",
+      "info": "Se obtiene en el edificio Silph S.A.",
+      "notes": "Asegúrate de tener espacio en el equipo."
+    },
+    "132": {
+      "name": "Ditto",
+      "info": "Aparece en la Mansión Pokémon B1F."
+    },
+    "133": {
+      "name": "Eevee",
+      "info": "Se obtiene en el edificio de la Mansión Azulona."
+    },
+    "134": {
+      "name": "Vaporeon",
+      "info": "Evoluciona de Eevee con una Piedra Agua."
+    },
+    "135": {
+      "name": "Jolteon",
+      "info": "Evoluciona de Eevee con una Piedra Trueno."
+    },
+    "136": {
+      "name": "Flareon",
+      "info": "Evoluciona de Eevee con una Piedra Fuego."
+    },
+    "137": {
+      "name": "Porygon",
+      "info": "Disponible en el Casino de Ciudad Azulona."
+    },
+    "138": {
+      "name": "Omanyte",
+      "info": "Revivir a partir del Fósil Helix en el laboratorio de Isla Canela. El fósil se obtiene en el Monte Luna."
+    },
+    "139": {
+      "name": "Omastar",
+      "info": "Evoluciona de Omanyte al nivel 40."
+    },
+    "140": {
+      "name": "Kabuto",
+      "info": "Revivir a partir del Fósil Domo en el laboratorio de Isla Canela. El fósil se obtiene en el Monte Luna."
+    },
+    "141": {
+      "name": "Kabutops",
+      "info": "Evoluciona de Kabuto al nivel 40."
+    },
+    "142": {
+      "name": "Aerodactyl",
+      "info": "Revivir a partir del Ámbar Viejo en el laboratorio de Isla Canela. El ámbar se obtiene por la entrada lateral del Museo de Ciudad Plateada."
+    },
+    "143": {
+      "name": "Snorlax",
+      "info": "Encuentro en la Ruta 12 o Ruta 16. Requiere Poké Flauta. Se recomienda guardar."
+    },
+    "144": {
+      "name": "Articuno",
+      "info": "Encuentro en las Islas Espuma B4F. ¡GUARDA ANTES DE INTERACTUAR!"
+    },
+    "145": {
+      "name": "Zapdos",
+      "info": "Central Eléctrica en Ruta 10: requiere SURF. ¡GUARDA ANTES DE INTERACTUAR!"
+    },
+    "146": {
+      "name": "Moltres",
+      "info": "Encuentro en la Calle Victoria. ¡GUARDA ANTES DE INTERACTUAR!"
+    },
+    "147": {
+      "name": "Dratini",
+      "info": {
+        "Red": "Casino de Ciudad Azulona: 2.800 fichas.",
+        "Blue": "Casino de Ciudad Azulona: 2.800 fichas.",
+        "Yellow": "Súper Caña: Zona Safari."
+      }
+    },
+    "148": {
+      "name": "Dragonair",
+      "info": {
+        "Red": "Evoluciona de Dratini al nivel 30.",
+        "Blue": "Evoluciona de Dratini al nivel 30.",
+        "Yellow": "Evoluciona de Dratini al nivel 30. Súper Caña: Zona Safari Área 1."
+      }
+    },
+    "149": {
+      "name": "Dragonite",
+      "info": "Evoluciona de Dragonair al nivel 55."
+    },
+    "150": {
+      "name": "Mewtwo",
+      "info": "Encuentro en la Cueva Celeste B1F. ¡GUARDA ANTES DE INTERACTUAR!"
+    }
+  }
+}
