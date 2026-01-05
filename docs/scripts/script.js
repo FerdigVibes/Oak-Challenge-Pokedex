@@ -214,6 +214,16 @@ function rebuildPokemonListFromCurrentData() {
    });
   });
 }
+
+function renderSection(sectionKey) {
+  const section = currentLang.sections[sectionKey];
+
+  if (section.note) {
+    renderSectionNote(section.note);
+  }
+
+  renderPokemonList(sectionKey);
+}
 /* =========================================================
    DATA LOADING
    ========================================================= */
