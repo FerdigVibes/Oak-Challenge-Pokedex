@@ -438,13 +438,27 @@ function escapeHtml(str) {
 }
 
 function getPokemonNotes(pokemon, sectionKey) {
-  if (
-    sectionKey === "MOON_STONE_2" &&
-    ["031", "034", "036", "040"].includes(pokemon.dex)
-  ) {
-    return "残りのつきのいしは2こあります：\n1. ロケットだんのアジト。\n2. タマムシシティ（いあいぎり使用）。";
+  const moonStonePokemon = ["031", "034", "036", "040"];
+
+  // Moon Stone 1 (Mt. Moon stones)
+  if (sectionKey === "MOON_STONE_1" && moonStonePokemon.includes(pokemon.dex)) {
+    return (
+      "つきのいしは2こ入手可能：\n" +
+      "1. おつきみやま1F（ハイカー付近のどうぐ）。\n" +
+      "2. おつきみやまB2F（かせき手前の右側のかくし場所）。"
+    );
   }
 
+  // Moon Stone 2 (Rocket Hideout + Celadon)
+  if (sectionKey === "MOON_STONE_2" && moonStonePokemon.includes(pokemon.dex)) {
+    return (
+      "残りのつきのいしは2こあります：\n" +
+      "1. ロケットだんのアジト。\n" +
+      "2. タマムシシティ（いあいぎり使用）。"
+    );
+  }
+
+  // Default behavior
   return pokemon.notes?.[currentVersion] || null;
 }
 
