@@ -416,10 +416,15 @@ function renderRows() {
     const text = document.createElement('div');
     text.className = 'text';
 
+    const resolvedNotes = getPokemonNotes(
+     { ...item, dex: item.dex },
+     item.sectionKey
+    );
+
     text.innerHTML = `
-      <div class="name">${escapeHtml(localizedName)}</div>
-      ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
-      ${item.notes ? `<div class="notes">${escapeHtml(item.notes)}</div>` : ''}
+     <div class="name">${escapeHtml(localizedName)}</div>
+     ${item.info ? `<div class="info">${escapeHtml(item.info)}</div>` : ''}
+     ${resolvedNotes ? `<div class="notes">${escapeHtml(resolvedNotes)}</div>` : ''}
     `;
 
     r.append(cb, ball, sprite, text);
