@@ -940,19 +940,6 @@ function t(path, fallback = null) {
   return cur ??fallback;
 }
 
-function t(text) {
-  if (!text) return text;
-
-  const translated = translations.strings?.[text]
-                  ?? translations.ui?.[text];
-
-  if (!translated && currentLang !== 'en') {
-    console.warn(`Missing translation: "${text}"`);
-  }
-
-  return translated ?? text;
-}
-
 function applyStaticUIText() {
   const title = document.querySelector('.title');
   if (title) {
