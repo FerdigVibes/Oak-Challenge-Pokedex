@@ -28,6 +28,13 @@ const STORAGE_KEY = 'oak-challenge-v1';
 const STORAGE_MUTE_KEY = 'criesMuted';
 const BASE_URL = new URL('.', document.baseURI); // folder containing index.html
 const urlFromBase = (p) => new URL(p, BASE_URL).toString();
+const LANGUAGES = {
+  en: { label: 'English', file: 'en.json' },
+  ja: { label: '日本語', file: 'ja.json' },
+  de: { label: 'Deutsch', file: 'de.json' },
+  es: { label: 'Español', file: 'es.json' },
+  fr: { label: 'Français', file: 'fr.json' }
+};
 
 /* =========================================================
    CRY SYSTEM
@@ -912,25 +919,35 @@ function applyAutoSectionCompletion() {
 }
 
 function wireLanguageDropdown() {
-   const select = document.getElementById('language');
-   if (!select) return;
+  const select = document.getElementById('language');
+  if (!select) return;
 
-   select.value = currentLang;
+  // 🔑 Populate options
+  select.innerHTML = '';
+  for (const [code, lang] of Object.entries(LANGUAGES)) {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = lang.label;
+    select.appendChild(opt);
+  }
 
-   select.addEventListener('change', async () => {
-      await loadLanguage(select.value);
+  // Set current language
+  select.value = currentLang;
 
-      setBodyTheme(currentVersion);
+  // Handle changes
+  select.addEventListener('change', async () => {
+    await loadLanguage(select.value);
 
-      applyStaticUIText();
-      localizeVersionDropdown();
+    setBodyTheme(currentVersion);
+    applyStaticUIText();
+    localizeVersionDropdown();
 
-      rebuildPokemonListFromCurrentData();
-      rebuildResetDropdown();
+    rebuildPokemonListFromCurrentData();
+    rebuildResetDropdown();
 
-      renderRows();
-      refreshUI();
-   });
+    renderRows();
+    refreshUI();
+  });
 }
 
 /* =========================================================
