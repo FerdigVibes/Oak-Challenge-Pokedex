@@ -1362,6 +1362,47 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+
+  /* Ensure reset controls are tappable */
+  .reset-section,
+  .reset-button,
+  .reset-dropdown,
+  .reset-section-button {
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  /* Increase tap target size */
+  .reset-section,
+  .reset-button,
+  .reset-section-button {
+    min-height: 44px;           /* Apple HIG */
+    padding: 12px 16px;
+    font-size: 16px;            /* Prevent iOS zoom */
+  }
+
+  /* Make sure it's on top */
+  .reset-section,
+  .reset-button,
+  .reset-section-button {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* If inside a sticky bar, ensure bar allows interaction */
+  .top-bar,
+  .sticky-bar {
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  /* Prevent invisible overlays from blocking taps */
+  .top-bar * {
+    pointer-events: auto;
+  }
+}
+
 /* =========================================================
    TOP BAR – ROW 3 FIXED 3-COLUMN LAYOUT (TABLET + MOBILE)
    ========================================================= */
