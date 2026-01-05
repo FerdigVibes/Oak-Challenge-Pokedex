@@ -1,1 +1,1021 @@
+{
+  "meta": {
+    "language": "Français",
+    "code": "fr",
+    "fallback": "en"
+  },
 
+  "ui": {
+    "title": "Défi du Professeur Chen – Région de Kanto",
+    "currentObjective": "Objectif actuel",
+    "resetSection": "Réinitialiser la section",
+    "resetAll": "Tout réinitialiser",
+    "resetConfirm": "Voulez-vous réinitialiser cette section ?",
+    "resetAllConfirm": "Voulez-vous réinitialiser toute la progression ?",
+    "resetSectionLabel": "Réinitialiser la section",
+    "loading": "Chargement des données…",
+    "version": "Version",
+    "muteCries": "Cris des Pokémon",
+    "caught": "Capturé",
+    "complete": "Terminé !",
+    "challengeComplete": "Défi terminé !",
+    "confirmResetAll": "Voulez-vous réinitialiser toute la progression ?",
+    "confirmResetSection": "Voulez-vous réinitialiser cette section ?",
+    "confirmResetVersion": "Voulez-vous réinitialiser la progression de cette version ?",
+    "achievementComplete": "{section} terminé !"
+  },
+
+  "versions": {
+    "Red": "Rouge",
+    "Blue": "Bleu",
+    "Yellow": "Jaune"
+  },
+
+  "sections": {
+    "STARTER": {
+      "title": "Choisis ton premier Pokémon !",
+      "objective": "Choisis ton premier partenaire",
+      "reset": "Réinitialiser le starter"
+    },
+    "PEWTER": {
+      "title": "Pokémon d’Argenta",
+      "objective": "Rassembler des Pokémon avant l’Arène d’Argenta",
+      "reset": "Réinitialiser Argenta"
+    },
+    "CERULEAN": {
+      "title": "Pokémon d’Azuria",
+      "objective": "Rassembler des Pokémon avant l’Arène d’Azuria",
+      "reset": "Réinitialiser Azuria"
+    },
+    "MOON_STONE_1": {
+      "title": "Premières évolutions avec Pierre Lune",
+      "objective": "Faire évoluer 2 Pokémon avec des Pierres Lune",
+      "reset": "Réinitialiser Pierres Lune (première partie)",
+      "note": "Il n’y a que 2 Pierres Lune disponibles. ① Mont Sélénite, 1F, près du Montagnard (objet). ② Mont Sélénite, B2F, à droite avant les fossiles (objet caché)."
+    },
+    "FUCHSIA": {
+      "title": "Pokémon de Parmanie",
+      "objective": "Rassembler des Pokémon avant l’Arène de Parmanie",
+      "reset": "Réinitialiser Parmanie"
+    },
+    "MOON_STONE_2": {
+      "title": "Évolutions restantes avec Pierre Lune",
+      "objective": "Faire évoluer 2 Pokémon supplémentaires avec des Pierres Lune",
+      "reset": "Réinitialiser Pierres Lune (seconde partie)"
+    },
+    "CELADON": {
+      "title": "Pokémon de Céladopole",
+      "objective": "Rassembler des Pokémon avant l’Arène de Céladopole",
+      "reset": "Réinitialiser Céladopole"
+    },
+    "FOSSIL": {
+      "title": "Pokémon fossiles",
+      "objective": "Réanimer l’un des fossiles",
+      "reset": "Réinitialiser les fossiles"
+    },
+    "SQUIRTLE": {
+      "title": "Escouade Carapuce",
+      "objective": "Obtenir Carapuce auprès de l’Escouade Carapuce",
+      "reset": "Réinitialiser l’Escouade Carapuce"
+    },
+    "EEVEE": {
+      "title": "Évolutions d’Évoli",
+      "objective": "Choisir une évolution",
+      "reset": "Réinitialiser l’évolution d’Évoli"
+    },
+    "HITMON": {
+      "title": "Dojo de Combat",
+      "objective": "Choisir le Pokémon de récompense",
+      "reset": "Réinitialiser le Dojo de Combat"
+    },
+    "ARTICUNO": {
+      "title": "Artikodin",
+      "objective": "Capturer Artikodin",
+      "reset": "Réinitialiser Artikodin"
+    },
+    "MOLTRES": {
+      "title": "Sulfura",
+      "objective": "Capturer Sulfura",
+      "reset": "Réinitialiser Sulfura"
+    },
+    "CERULEAN_CAVE": {
+      "title": "Grotte Azurée",
+      "objective": "Capturer Mewtwo",
+      "reset": "Réinitialiser la Grotte Azurée"
+    }
+  },
+
+  "strings": {
+    "Your first Pokémon, enjoy your journey!": "Ton premier Pokémon. Profite bien de ton aventure !",
+    "Your bestest friend!": "Ton meilleur ami !",
+    "Evolve at Lv. 16": "Évolue au niveau 16",
+    "Evolve at Lv. 20": "Évolue au niveau 20",
+    "Evolve at Lv. 22": "Évolue au niveau 22",
+    "Evolve at Lv. 25": "Évolue au niveau 25",
+    "Evolve at Lv. 28": "Évolue au niveau 28",
+    "Evolve at Lv. 30": "Évolue au niveau 30",
+    "Evolve at Lv. 31": "Évolue au niveau 31",
+    "Evolve at Lv. 32": "Évolue au niveau 32",
+    "Evolve at Lv. 33": "Évolue au niveau 33",
+    "Evolve at Lv. 34": "Évolue au niveau 34",
+    "Evolve at Lv. 36": "Évolue au niveau 36",
+    "Evolve at Lv. 37": "Évolue au niveau 37",
+    "Evolve at Lv. 40": "Évolue au niveau 40",
+    "Evolve at Lv. 42": "Évolue au niveau 42",
+    "Evolve at Lv. 55": "Évolue au niveau 55",
+
+    "Viridian Forest": "Forêt de Jade",
+    "Route 1": "Route 1",
+    "Route 2": "Route 2",
+    "Route 3": "Route 3",
+    "Route 4": "Route 4",
+    "Route 5": "Route 5",
+    "Route 6": "Route 6",
+    "Route 7": "Route 7",
+    "Route 8": "Route 8",
+    "Route 10": "Route 10",
+    "Route 11": "Route 11",
+    "Route 12": "Route 12",
+    "Route 13": "Route 13",
+    "Route 16": "Route 16",
+    "Route 17": "Route 17",
+    "Route 18": "Route 18",
+    "Route 19": "Route 19",
+    "Route 21": "Route 21",
+    "Route 22": "Route 22",
+    "Route 24": "Route 24",
+    "Route 25": "Route 25",
+
+    "Mt. Moon — catch before leaving": "Mont Sélénite — capturer avant de partir",
+    "Diglett’s Cave": "Cave Taupiqueur",
+    "Rock Tunnel": "Grotte",
+    "Pokémon Tower": "Tour Pokémon",
+    "Safari Zone": "Parc Safari",
+    "Seafoam Islands": "Îles Écume",
+    "Power Plant on Route 10": "Centrale sur la Route 10",
+    "Cerulean Cave B1F": "Grotte Azurée B1F",
+
+    "Old Rod anywhere": "Canne : partout près de l’eau",
+    "Good Rod: most areas": "Super Canne : dans la plupart des zones",
+    "Super Rod: coastal routes": "Méga Canne : routes côtières",
+
+    "SAVE BEFORE INTERACTING!!!": "SAUVEGARDE AVANT D’INTERAGIR !!!",
+    "Make sure you have space in your party": "Assure-toi d’avoir de la place dans ton équipe",
+    "Requires Pikachu to have high happiness": "Pikachu doit avoir un haut niveau de bonheur"
+  },
+  "pokemon": {
+    "001": {
+      "name": "Bulbizarre",
+      "info": {
+        "Red": "Ton premier Pokémon. Profite bien de ton aventure !",
+        "Blue": "Ton premier Pokémon. Profite bien de ton aventure !",
+        "Yellow": "Obtenu auprès de Mélanie à Azuria."
+      },
+      "notes": {
+        "Yellow": "Pikachu doit avoir un haut niveau de bonheur."
+      }
+    },
+    "002": {
+      "name": "Herbizarre",
+      "info": "Évolue de Bulbizarre au niveau 16."
+    },
+    "003": {
+      "name": "Florizarre",
+      "info": "Évolue de Herbizarre au niveau 32."
+    },
+
+    "004": {
+      "name": "Salamèche",
+      "info": {
+        "Red": "Ton premier Pokémon. Profite bien de ton aventure !",
+        "Blue": "Ton premier Pokémon. Profite bien de ton aventure !",
+        "Yellow": "Obtenu auprès de Damien sur la Route 24."
+      }
+    },
+    "005": {
+      "name": "Reptincel",
+      "info": "Évolue de Salamèche au niveau 16."
+    },
+    "006": {
+      "name": "Dracaufeu",
+      "info": "Évolue de Reptincel au niveau 36."
+    },
+
+    "007": {
+      "name": "Carapuce",
+      "info": {
+        "Red": "Ton premier Pokémon. Profite bien de ton aventure !",
+        "Blue": "Ton premier Pokémon. Profite bien de ton aventure !",
+        "Yellow": "Obtenu auprès de l’Agent Jenny à Carmin-sur-Mer."
+      }
+    },
+    "008": {
+      "name": "Carabaffe",
+      "info": "Évolue de Carapuce au niveau 16."
+    },
+    "009": {
+      "name": "Tortank",
+      "info": "Évolue de Carabaffe au niveau 36."
+    },
+
+    "010": {
+      "name": "Chenipan",
+      "info": {
+        "Red": "Apparaît dans la Forêt de Jade.",
+        "Blue": "Apparaît dans la Forêt de Jade.",
+        "Yellow": "Apparaît dans la Forêt de Jade."
+      }
+    },
+    "011": {
+      "name": "Chrysacier",
+      "info": "Évolue de Chenipan au niveau 7. Apparaît dans la Forêt de Jade."
+    },
+    "012": {
+      "name": "Papilusion",
+      "info": "Évolue de Chrysacier au niveau 10."
+    },
+
+    "013": {
+      "name": "Aspicot",
+      "info": {
+        "Red": "Apparaît sur la Route 2 et dans la Forêt de Jade.",
+        "Blue": "Apparaît sur la Route 2 et dans la Forêt de Jade."
+      }
+    },
+    "014": {
+      "name": "Coconfort",
+      "info": "Évolue de Aspicot au niveau 7. Apparaît dans la Forêt de Jade."
+    },
+    "015": {
+      "name": "Dardargnan",
+      "info": "Évolue de Coconfort au niveau 10."
+    },
+
+    "016": {
+      "name": "Roucool",
+      "info": "Apparaît sur les Routes 1 et 2."
+    },
+    "017": {
+      "name": "Roucoups",
+      "info": "Évolue de Roucool au niveau 18."
+    },
+    "018": {
+      "name": "Roucarnage",
+      "info": "Évolue de Roucoups au niveau 36."
+    },
+
+    "019": {
+      "name": "Rattata",
+      "info": "Apparaît sur les Routes 1, 2 et 22."
+    },
+    "020": {
+      "name": "Rattatac",
+      "info": "Évolue de Rattata au niveau 20."
+    },
+
+    "021": {
+      "name": "Piafabec",
+      "info": "Apparaît sur la Route 22.",
+      "notes": {
+        "Red": "Un second exemplaire est requis pour un échange.",
+        "Blue": "Un second exemplaire est requis pour un échange."
+      }
+    },
+    "022": {
+      "name": "Rapasdepic",
+      "info": "Évolue de Piafabec au niveau 20."
+    },
+
+    "023": {
+      "name": "Abo",
+      "info": "Apparaît sur les Routes 4 et 11."
+    },
+    "024": {
+      "name": "Arbok",
+      "info": "Évolue de Abo au niveau 22."
+    },
+
+    "025": {
+      "name": "Pikachu",
+      "info": {
+        "Red": "Apparaît dans la Forêt de Jade.",
+        "Blue": "Apparaît dans la Forêt de Jade.",
+        "Yellow": "Pokémon partenaire du joueur."
+      },
+      "notes": {
+        "Yellow": "Le bonheur est important. Ne peut pas évoluer."
+      }
+    },
+    "026": {
+      "name": "Raichu",
+      "info": "Évolue de Pikachu avec une Pierre Foudre.",
+      "notes": {
+        "Red": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage).",
+        "Blue": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage)."
+      }
+    },
+
+    "027": {
+      "name": "Sabelette",
+      "info": {
+        "Blue": "Apparaît sur les Routes 4 et 11.",
+        "Yellow": "Apparaît sur les Routes 3 et 4."
+      }
+    },
+    "028": {
+      "name": "Sablaireau",
+      "info": "Évolue de Sabelette au niveau 22."
+    },
+
+    "029": {
+      "name": "Nidoran♀",
+      "info": "Apparaît sur la Route 22."
+    },
+    "030": {
+      "name": "Nidorina",
+      "info": "Évolue de Nidoran♀ au niveau 16."
+    },
+    "031": {
+      "name": "Nidoqueen",
+      "info": "Évolue de Nidorina avec une Pierre Lune."
+    },
+
+    "032": {
+      "name": "Nidoran♂",
+      "info": "Apparaît sur la Route 22."
+    },
+    "033": {
+      "name": "Nidorino",
+      "info": "Évolue de Nidoran♂ au niveau 16."
+    },
+    "034": {
+      "name": "Nidoking",
+      "info": "Évolue de Nidorino avec une Pierre Lune."
+    },
+
+    "035": {
+      "name": "Mélofée",
+      "info": {
+        "Red": "Apparaît au Mont Sélénite.",
+        "Blue": "Apparaît au Mont Sélénite.",
+        "Yellow": "Attraper un second exemplaire au Mont Sélénite pour un échange futur."
+      }
+    },
+    "036": {
+      "name": "Mélodelfe",
+      "info": "Évolue de Mélofée avec une Pierre Lune."
+    },
+
+    "037": {
+      "name": "Goupix",
+      "info": {
+        "Blue": "Apparaît sur les Routes 7 et 8.",
+        "Yellow": "Échange au Casino de Céladopole."
+      }
+    },
+    "038": {
+      "name": "Feunard",
+      "info": "Évolue de Goupix avec une Pierre Feu."
+    },
+
+    "039": {
+      "name": "Rondoudou",
+      "info": "Apparaît sur la Route 3."
+    },
+    "040": {
+      "name": "Grodoudou",
+      "info": "Évolue de Rondoudou avec une Pierre Lune."
+    },
+
+    "041": {
+      "name": "Nosferapti",
+      "info": "Apparaît au Mont Sélénite."
+    },
+    "042": {
+      "name": "Nosferalto",
+      "info": "Évolue de Nosferapti au niveau 22."
+    },
+
+    "043": {
+      "name": "Mystherbe",
+      "info": {
+        "Red": "Apparaît sur les Routes 5, 6, 24 et 25.",
+        "Yellow": "Apparaît sur les Routes 24 et 25."
+      }
+    },
+    "044": {
+      "name": "Ortide",
+      "info": "Évolue de Mystherbe au niveau 21."
+    },
+    "045": {
+      "name": "Rafflesia",
+      "info": "Évolue de Ortide avec une Pierre Plante.",
+      "notes": {
+        "Red": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage).",
+        "Blue": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage).",
+        "Yellow": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage)."
+      }
+    },
+
+    "046": {
+      "name": "Paras",
+      "info": "Apparaît au Mont Sélénite."
+    },
+    "047": {
+      "name": "Parasect",
+      "info": "Évolue de Paras au niveau 24."
+    },
+
+    "048": {
+      "name": "Mimitoss",
+      "info": {
+        "Red": "Apparaît sur les Routes 12 à 15 et au Parc Safari.",
+        "Yellow": "Apparaît sur les Routes 24 et 25."
+      },
+      "notes": {
+        "Red": "Un second exemplaire est requis pour un échange.",
+        "Blue": "Un second exemplaire est requis pour un échange.",
+        "Yellow": "Un second exemplaire est requis pour un échange."
+      }
+    },
+    "049": {
+      "name": "Aéromite",
+      "info": {
+        "Red": "Évolue de Mimitoss au niveau 31. Apparaît au Parc Safari (Zones 3 et 4).",
+        "Blue": "Évolue de Mimitoss au niveau 31. Apparaît au Parc Safari (Zones 3 et 4).",
+        "Yellow": "Évolue de Mimitoss au niveau 31."
+      }
+    },
+    "050": {
+      "name": "Taupiqueur",
+      "info": "Apparaît dans la Cave Taupiqueur."
+    },
+    "051": {
+      "name": "Triopikeur",
+      "info": "Évolue de Taupiqueur au niveau 26. Apparaît dans la Cave Taupiqueur."
+    },
+    "052": {
+      "name": "Miaouss",
+      "info": {
+        "Red": "Apparaît sur les Routes 5 et 6.",
+        "Blue": "Apparaît sur les Routes 5 et 6.",
+        "Yellow": "Obtenu dans des lieux comme le Repaire de la Team Rocket."
+      }
+    },
+    "053": {
+      "name": "Persian",
+      "info": "Évolue de Miaouss au niveau 28."
+    },
+    "054": {
+      "name": "Psykokwak",
+      "info": {
+        "Red": "Pêchable avec la Méga Canne. Apparaît au Parc Safari, à l’Arène d’Azuria et sur les Routes 24 et 25.",
+        "Blue": "Pêchable avec la Méga Canne. Apparaît au Parc Safari, à l’Arène d’Azuria et sur les Routes 24 et 25.",
+        "Yellow": "Apparaît sur la Route 6 en utilisant SURF."
+      }
+    },
+    "055": {
+      "name": "Akwakwak",
+      "info": {
+        "Red": "Évolue de Psykokwak au niveau 33.",
+        "Blue": "Évolue de Psykokwak au niveau 33.",
+        "Yellow": "Évolue de Psykokwak au niveau 33. Apparaît aussi sur la Route 6 avec SURF."
+      }
+    },
+    "056": {
+      "name": "Férosinge",
+      "info": {
+        "Red": "Apparaît sur les Routes 5 et 6.",
+        "Blue": "Apparaît sur les Routes 5 et 6.",
+        "Yellow": "Apparaît sur la Route 22."
+      }
+    },
+    "057": {
+      "name": "Colossinge",
+      "info": "Évolue de Férosinge au niveau 28."
+    },
+    "058": {
+      "name": "Caninos",
+      "info": {
+        "Red": "Apparaît sur les Routes 7 et 8.",
+        "Blue": "Apparaît sur les Routes 7 et 8.",
+        "Yellow": "Apparaît au Manoir Pokémon."
+      },
+      "notes": {
+        "Yellow": "Il est utile d’en capturer un second pour un échange."
+      }
+    },
+    "059": {
+      "name": "Arcanin",
+      "info": "Évolue de Caninos avec une Pierre Feu.",
+      "notes": {
+        "Red": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage).",
+        "Blue": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage).",
+        "Yellow": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage)."
+      }
+    },
+    "060": {
+      "name": "Ptitard",
+      "info": "• Super Canne : dans la majorité des zones (env. 90 %)\n• Méga Canne : Bourg Palette, Jadielle et Route 22"
+    },
+    "061": {
+      "name": "Têtarte",
+      "info": "Évolue de Ptitard au niveau 25.",
+      "notes": {
+        "Red": "• Évolue de Ptitard au niveau 25\n• Méga Canne : Route 10 et Céladopole\n• Un second exemplaire est requis pour un échange",
+        "Blue": "• Évolue de Ptitard au niveau 25\n• Méga Canne : Route 10 et Céladopole\n• Un second exemplaire est requis pour un échange",
+        "Yellow": "• Évolue de Ptitard au niveau 25\n• Méga Canne : Route 10 et Céladopole"
+      }
+    },
+    "062": {
+      "name": "Tartard",
+      "info": "Évolue de Têtarte avec une Pierre Eau.",
+      "notes": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage)."
+    },
+    "063": {
+      "name": "Abra",
+      "info": {
+        "Red": "Apparaît sur les Routes 24 et 25. Un second exemplaire est requis pour un échange.",
+        "Blue": "Apparaît sur les Routes 24 et 25. Un second exemplaire est requis pour un échange.",
+        "Yellow": "Apparaît sur les Routes 5 et 6."
+      }
+    },
+    "064": {
+      "name": "Kadabra",
+      "info": "Évolue de Abra au niveau 16."
+    },
+    "065": {
+      "name": "Alakazam",
+      "info": "Évolue de Kadabra par échange."
+    },
+    "066": {
+      "name": "Machoc",
+      "info": "• Route 10\n• Grotte"
+    },
+    "067": {
+      "name": "Machopeur",
+      "info": {
+        "Red": "Évolue de Machoc au niveau 28.",
+        "Blue": "Évolue de Machoc au niveau 28.",
+        "Yellow": "• Évolue au niveau 28\n• Échange contre un Osselait dans le Souterrain Routes 5/6 (pour Mackogneur)"
+      }
+    },
+    "068": {
+      "name": "Mackogneur",
+      "info": "Évolue de Machopeur par échange."
+    },
+    "069": {
+      "name": "Chétiflor",
+      "info": {
+        "Red": "Apparaît sur les Routes 24 et 25.",
+        "Blue": "Apparaît sur les Routes 24 et 25.",
+        "Yellow": "Apparaît sur les Routes 24 et 25."
+      }
+    },
+    "070": {
+      "name": "Boustiflor",
+      "info": "Évolue de Chétiflor au niveau 21."
+    },
+    "071": {
+      "name": "Empiflor",
+      "info": "Évolue de Boustiflor avec une Pierre Plante."
+    },
+    "072": {
+      "name": "Tentacool",
+      "info": "Apparaît en mer en utilisant SURF."
+    },
+    "073": {
+      "name": "Tentacruel",
+      "info": {
+        "Red": "Évolue de Tentacool au niveau 30.",
+        "Blue": "Évolue de Tentacool au niveau 30.",
+        "Yellow": "Évolue de Tentacool au niveau 30. Méga Canne : Route 19"
+      }
+    },
+    "074": {
+      "name": "Racaillou",
+      "info": "Apparaît au Mont Sélénite."
+    },
+    "075": {
+      "name": "Gravalanch",
+      "info": "Évolue de Racaillou au niveau 25."
+    },
+    "076": {
+      "name": "Grolem",
+      "info": "Évolue de Gravalanch par échange."
+    },
+    "077": {
+      "name": "Ponyta",
+      "info": "Apparaît sur la Route 17.",
+      "notes": {
+        "Red": "Un second exemplaire est requis pour un échange.",
+        "Blue": "Un second exemplaire est requis pour un échange."
+      }
+    },
+    "078": {
+      "name": "Galopa",
+      "info": "Évolue de Ponyta au niveau 40."
+    },
+    "079": {
+      "name": "Ramoloss",
+      "info": {
+        "Red": "Méga Canne : Route 10, Céladopole et Parc Safari.",
+        "Blue": "Méga Canne : Route 10, Céladopole et Parc Safari."
+      }
+    },
+    "080": {
+      "name": "Flagadoss",
+      "info": "Évolue de Ramoloss au niveau 37. Un second exemplaire est requis pour un échange."
+    },
+    "081": {
+      "name": "Magnéti",
+      "info": {
+        "Red": "Centrale sur la Route 10 : SURF requis.",
+        "Blue": "Centrale sur la Route 10 : SURF requis.",
+        "Yellow": "Route 10"
+      }
+    },
+    "082": {
+      "name": "Magnéton",
+      "info": "Évolue de Magnéti au niveau 30."
+    },
+    "083": {
+      "name": "Canarticho",
+      "info": {
+        "Red": "Échange à Carmin-sur-Mer contre un Piafabec.",
+        "Blue": "Échange à Carmin-sur-Mer contre un Piafabec.",
+        "Yellow": "Apparaît sur les Routes 12 et 13."
+      }
+    },
+    "084": {
+      "name": "Doduo",
+      "info": {
+        "Red": "Apparaît sur les Routes 16 à 18 et au Parc Safari (Zone 4).",
+        "Blue": "Apparaît sur les Routes 16 à 18 et au Parc Safari (Zone 4).",
+        "Yellow": "Apparaît sur les Routes 16 à 18."
+      }
+    },
+    "085": {
+      "name": "Dodrio",
+      "info": {
+        "Red": "Évolue de Doduo au niveau 31.",
+        "Blue": "Évolue de Doduo au niveau 31.",
+        "Yellow": "Route 17. Évolue de Doduo au niveau 31."
+      }
+    },
+    "086": {
+      "name": "Otaria",
+      "info": {
+        "Red": "Échange contre Ponyta au laboratoire de l’Île Cramois’Île. Îles Écume.",
+        "Blue": "Échange contre Ponyta au laboratoire de l’Île Cramois’Île. Îles Écume.",
+        "Yellow": "Îles Écume"
+      }
+    },
+    "087": {
+      "name": "Lamantine",
+      "info": {
+        "Red": "Otaria évolue au niveau 34. Îles Écume B1F et B3F.",
+        "Blue": "Otaria évolue au niveau 34. Îles Écume B1F et B3F.",
+        "Yellow": "Otaria évolue au niveau 34. Îles Écume B1F et B3F. Échange au laboratoire de l’Île Cramois’Île contre Caninos."
+      }
+    },
+    "088": {
+      "name": "Tadmorv",
+      "info": {
+        "Red": "Manoir Pokémon à l’Île Cramois’Île.",
+        "Blue": "Manoir Pokémon à l’Île Cramois’Île.",
+        "Yellow": "Centrale sur la Route 10 : SURF requis. Manoir Pokémon à l’Île Cramois’Île."
+      }
+    },
+    "089": {
+      "name": "Grotadmorv",
+      "info": {
+        "Red": "Évolue de Tadmorv au niveau 38. Manoir Pokémon à l’Île Cramois’Île.",
+        "Blue": "Évolue de Tadmorv au niveau 38. Manoir Pokémon à l’Île Cramois’Île.",
+        "Yellow": "Évolue de Tadmorv au niveau 38. Centrale sur la Route 10 : SURF requis. Manoir Pokémon à l’Île Cramois’Île."
+      }
+    },
+    "090": {
+      "name": "Kokiyas",
+      "info": {
+        "Red": "Méga Canne : Route 6, Carmin-sur-Mer et Route 19.",
+        "Blue": "Méga Canne : Route 6, Carmin-sur-Mer et Route 19.",
+        "Yellow": "Méga Canne : Route 17."
+      }
+    },
+    "091": {
+      "name": "Crustabri",
+      "info": "Évolue de Kokiyas avec une Pierre Eau."
+    },
+    "092": {
+      "name": "Fantominus",
+      "info": "Apparaît à la Tour Pokémon."
+    },
+    "093": {
+      "name": "Spectrum",
+      "info": "Évolue de Fantominus au niveau 25. Apparaît à la Tour Pokémon."
+    },
+    "094": {
+      "name": "Ectoplasma",
+      "info": "Évolue de Spectrum par échange."
+    },
+    "095": {
+      "name": "Onix",
+      "info": "Apparaît dans la Grotte."
+    },
+    "096": {
+      "name": "Soporifik",
+      "info": "Apparaît sur la Route 11."
+    },
+    "097": {
+      "name": "Hypnomade",
+      "info": "Évolue de Soporifik au niveau 26."
+    },
+    "098": {
+      "name": "Krabby",
+      "info": {
+        "Red": "Méga Canne : Routes 6, 12, 13, 17, 18, 24, 25 ; Arène d’Azuria ; Carmin-sur-Mer ; Parmanie ; Parc Safari.",
+        "Blue": "Méga Canne : Routes 6, 12, 13, 17, 18, 24, 25 ; Arène d’Azuria ; Carmin-sur-Mer ; Parmanie ; Parc Safari.",
+        "Yellow": "Méga Canne : Route 10 et Route 25."
+      }
+    },
+    "099": {
+      "name": "Krabboss",
+      "info": {
+        "Red": "Évolue de Krabby au niveau 28.",
+        "Blue": "Évolue de Krabby au niveau 28.",
+        "Yellow": "Évolue de Krabby au niveau 28. Méga Canne : Route 10 et Route 25."
+      }
+    },
+    "100": {
+      "name": "Voltorbe",
+      "info": {
+        "Red": "Route 10.",
+        "Blue": "Route 10.",
+        "Yellow": "Centrale sur la Route 10 : SURF requis."
+      }
+    },
+     "101": {
+      "name": "Électrode",
+      "info": {
+        "Red": "Évolue de Voltorbe au niveau 30.",
+        "Blue": "Évolue de Voltorbe au niveau 30.",
+        "Yellow": "Centrale sur la Route 10 : SURF requis."
+      }
+    },
+    "102": {
+      "name": "Nœunœuf",
+      "info": "Apparaît au Parc Safari."
+    },
+    "103": {
+      "name": "Noadkoko",
+      "info": "Évolue de Nœunœuf avec une Pierre Plante.",
+      "notes": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage)."
+    },
+    "104": {
+      "name": "Osselait",
+      "info": {
+        "Red": "Tour Pokémon, étages 5 à 7.",
+        "Blue": "Tour Pokémon, étages 5 à 7.",
+        "Yellow": "Tour Pokémon, étages 5 à 7 ; Parc Safari Zones 2 à 4."
+      }
+    },
+    "105": {
+      "name": "Ossatueur",
+      "info": {
+        "Red": "Évolue d’Osselait au niveau 28.",
+        "Blue": "Évolue d’Osselait au niveau 28.",
+        "Yellow": "Évolue d’Osselait au niveau 28. Parc Safari Zones 2 et 4."
+      }
+    },
+    "106": {
+      "name": "Kicklee",
+      "info": "Obtenu après avoir remporté le Dojo de Combat."
+    },
+    "107": {
+      "name": "Tygnon",
+      "info": "Obtenu après avoir remporté le Dojo de Combat."
+    },
+    "108": {
+      "name": "Excelangue",
+      "info": {
+        "Red": "Échange à la porte de la Route 18 contre un Flagadoss.",
+        "Blue": "Échange à la porte de la Route 18 contre un Flagadoss.",
+        "Yellow": "Apparaît dans la Grotte Azurée."
+      }
+    },
+    "109": {
+      "name": "Smogo",
+      "info": {
+        "Red": "Apparaît au Manoir Pokémon.",
+        "Blue": "Apparaît au Manoir Pokémon.",
+        "Yellow": "Apparaît notamment dans le Repaire de la Team Rocket."
+      }
+    },
+    "110": {
+      "name": "Smogogo",
+      "info": "Évolue de Smogo au niveau 35."
+    },
+    "111": {
+      "name": "Rhinocorne",
+      "info": "Apparaît au Parc Safari."
+    },
+    "112": {
+      "name": "Rhinoféros",
+      "info": "Évolue de Rhinocorne au niveau 42."
+    },
+    "113": {
+      "name": "Leveinard",
+      "info": "Apparaît rarement au Parc Safari."
+    },
+    "114": {
+      "name": "Saquedeneu",
+      "info": "Apparaît au Parc Safari."
+    },
+    "115": {
+      "name": "Kangourex",
+      "info": "Apparaît rarement au Parc Safari."
+    },
+    "116": {
+      "name": "Hypotrempe",
+      "info": {
+        "Red": "Méga Canne : Route 19.",
+        "Blue": "Méga Canne : Route 19.",
+        "Yellow": "Méga Canne : Carmin-sur-Mer, Route 10, Routes 12 et 13."
+      }
+    },
+    "117": {
+      "name": "Hypocéan",
+      "info": {
+        "Red": "Évolue d’Hypotrempe au niveau 32.",
+        "Blue": "Évolue d’Hypotrempe au niveau 32.",
+        "Yellow": "Méga Canne : Routes 12 et 13."
+      }
+    },
+    "118": {
+      "name": "Poissirène",
+      "info": {
+        "Red": "Super Canne : 95 % des points de pêche.",
+        "Blue": "Super Canne : 95 % des points de pêche.",
+        "Yellow": "Super Canne : 95 % des points de pêche. Méga Canne : Route 6, Route 24, Céladopole, Arène d’Azuria."
+      }
+    },
+    "119": {
+      "name": "Poissoroy",
+      "info": {
+        "Red": "Évolue de Poissirène au niveau 33.",
+        "Blue": "Évolue de Poissirène au niveau 33.",
+        "Yellow": "Évolue de Poissirène au niveau 33. Méga Canne : Route 24 et Arène d’Azuria."
+      }
+    },
+    "120": {
+      "name": "Stari",
+      "info": {
+        "Red": "Méga Canne : Route 19.",
+        "Blue": "Méga Canne : Route 19.",
+        "Yellow": "Méga Canne : Route 19 et Bourg Palette."
+      }
+    },
+    "121": {
+      "name": "Staross",
+      "info": "Évolue de Stari avec une Pierre Eau.",
+      "notes": "Les pierres évolutives sont en vente au Centre Commercial de Céladopole (4e étage)."
+    },
+    "122": {
+      "name": "M. Mime",
+      "info": "Obtenu par échange (près de la Grotte Taupiqueur).",
+      "notes": {
+        "Red": "Uniquement par échange. Un Pokémon spécifique est requis.",
+        "Blue": "Uniquement par échange. Un Pokémon spécifique est requis.",
+        "Yellow": "Uniquement par échange. Le Pokémon requis diffère de Rouge/Bleu."
+      }
+    },
+    "123": {
+      "name": "Insécateur",
+      "info": {
+        "Red": "Casino de Céladopole : 5 500 jetons. Parc Safari Zones 1 et 2.",
+        "Yellow": "Casino de Céladopole : 6 500 jetons. Parc Safari Zones 2 et 3."
+      }
+    },
+    "124": {
+      "name": "Lippoutou",
+      "info": "Azuria : échange contre Têtarte dans la maison à côté du Centre Pokémon."
+    },
+    "125": {
+      "name": "Élektek",
+      "info": "Centrale sur la Route 10 : SURF requis."
+    },
+    "126": {
+      "name": "Magmar",
+      "info": "Manoir Pokémon à l’Île Cramois’Île."
+    },
+    "127": {
+      "name": "Scarabrute",
+      "info": {
+        "Blue": "Casino de Céladopole : 5 500 jetons. Parc Safari Zones 1 et 2.",
+        "Yellow": "Casino de Céladopole : 6 500 jetons. Parc Safari Zones 3 et 4."
+      }
+    },
+    "128": {
+      "name": "Tauros",
+      "info": "Apparaît rarement au Parc Safari."
+    },
+    "129": {
+      "name": "Magicarpe",
+      "info": "Acheté pour 500¥ au Centre Pokémon de la Route 3 ou pêché dans toute zone avec de l’eau."
+    },
+    "130": {
+      "name": "Léviator",
+      "info": "Évolue de Magicarpe au niveau 20."
+    },
+    "131": {
+      "name": "Lokhlass",
+      "info": "Obtenu dans le bâtiment de la Sylphe SARL.",
+      "notes": "Assurez-vous d’avoir de la place dans l’équipe."
+    },
+    "132": {
+      "name": "Métamorph",
+      "info": "Apparaît au Manoir Pokémon B1F."
+    },
+    "133": {
+      "name": "Évoli",
+      "info": "Obtenu dans le bâtiment de la Résidence de Céladopole."
+    },
+    "134": {
+      "name": "Aquali",
+      "info": "Évolue d’Évoli avec une Pierre Eau."
+    },
+    "135": {
+      "name": "Voltali",
+      "info": "Évolue d’Évoli avec une Pierre Foudre."
+    },
+    "136": {
+      "name": "Pyroli",
+      "info": "Évolue d’Évoli avec une Pierre Feu."
+    },
+    "137": {
+      "name": "Porygon",
+      "info": "Disponible au Casino de Céladopole."
+    },
+    "138": {
+      "name": "Amonita",
+      "info": "Ranimé à partir du Fossile Nautile au laboratoire de l’Île Cramois’Île. Fossile obtenu au Mont Sélénite."
+    },
+    "139": {
+      "name": "Amonistar",
+      "info": "Évolue d’Amonita au niveau 40."
+    },
+    "140": {
+      "name": "Kabuto",
+      "info": "Ranimé à partir du Fossile Dôme au laboratoire de l’Île Cramois’Île. Fossile obtenu au Mont Sélénite."
+    },
+    "141": {
+      "name": "Kabutops",
+      "info": "Évolue de Kabuto au niveau 40."
+    },
+    "142": {
+      "name": "Ptéra",
+      "info": "Ranimé à partir de l’Ambre Vieil au laboratoire de l’Île Cramois’Île. Ambre trouvé via l’entrée latérale du Musée d’Argenta."
+    },
+    "143": {
+      "name": "Ronflex",
+      "info": "Rencontre sur la Route 12 ou la Route 16. Poké Flûte requise. Sauvegarde recommandée."
+    },
+    "144": {
+      "name": "Artikodin",
+      "info": "Rencontre aux Îles Écume B4F. SAUVEGARDE AVANT D’INTERAGIR !"
+    },
+    "145": {
+      "name": "Électhor",
+      "info": "Centrale sur la Route 10 : SURF requis. SAUVEGARDE AVANT D’INTERAGIR !"
+    },
+    "146": {
+      "name": "Sulfura",
+      "info": "Rencontre sur la Route Victoire. SAUVEGARDE AVANT D’INTERAGIR !"
+    },
+    "147": {
+      "name": "Minidraco",
+      "info": {
+        "Red": "Casino de Céladopole : 2 800 jetons.",
+        "Blue": "Casino de Céladopole : 2 800 jetons.",
+        "Yellow": "Méga Canne : Parc Safari."
+      }
+    },
+    "148": {
+      "name": "Draco",
+      "info": {
+        "Red": "Évolue de Minidraco au niveau 30.",
+        "Blue": "Évolue de Minidraco au niveau 30.",
+        "Yellow": "Évolue de Minidraco au niveau 30. Méga Canne : Parc Safari Zone 1."
+      }
+    },
+    "149": {
+      "name": "Dracolosse",
+      "info": "Évolue de Draco au niveau 55."
+    },
+    "150": {
+      "name": "Mewtwo",
+      "info": "Rencontre dans la Grotte Azurée B1F. SAUVEGARDE AVANT D’INTERAGIR !"
+    }
+  }
+}
