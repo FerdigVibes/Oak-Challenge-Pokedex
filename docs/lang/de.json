@@ -1,1 +1,1032 @@
+{
+  "meta": {
+    "language": "Deutsch",
+    "code": "de",
+    "fallback": "en"
+  },
 
+  "ui": {
+    "title": "Pokémon-Professor-Eich-Challenge – Kanto-Region",
+    "currentObjective": "Aktuelles Ziel",
+    "resetSection": "Abschnitt zurücksetzen",
+    "resetAll": "Alles zurücksetzen",
+    "resetConfirm": "Möchtest du diesen Abschnitt wirklich zurücksetzen?",
+    "resetAllConfirm": "Möchtest du wirklich den gesamten Fortschritt zurücksetzen?",
+    "resetSectionLabel": "Abschnitt zurücksetzen",
+    "loading": "Daten werden geladen …",
+    "version": "Version",
+    "muteCries": "Pokémon-Rufe",
+    "caught": "Gefangen",
+    "complete": "Abgeschlossen!",
+    "challengeComplete": "Challenge abgeschlossen!",
+    "confirmResetAll": "Möchtest du wirklich den gesamten Fortschritt zurücksetzen?",
+    "confirmResetSection": "Möchtest du diesen Abschnitt wirklich zurücksetzen?",
+    "confirmResetVersion": "Möchtest du den Fortschritt dieser Version zurücksetzen?",
+    "achievementComplete": "{section} abgeschlossen!"
+  },
+
+  "versions": {
+    "Red": "Rot",
+    "Blue": "Blau",
+    "Yellow": "Gelb"
+  },
+
+  "sections": {
+    "STARTER": {
+      "title": "Wähle dein erstes Pokémon!",
+      "objective": "Wähle deinen ersten Partner",
+      "reset": "Starter zurücksetzen"
+    },
+    "PEWTER": {
+      "title": "Pokémon von Marmoria City",
+      "objective": "Sammle Pokémon vor der Marmoria-Arena",
+      "reset": "Marmoria City zurücksetzen"
+    },
+    "CERULEAN": {
+      "title": "Pokémon von Azuria City",
+      "objective": "Sammle Pokémon vor der Azuria-Arena",
+      "reset": "Azuria City zurücksetzen"
+    },
+    "MOON_STONE_1": {
+      "title": "Erste Mondstein-Entwicklungen",
+      "objective": "Entwickle 2 Pokémon mit Mondsteinen",
+      "reset": "Mondsteine (erste Hälfte) zurücksetzen",
+      "note": "Es sind nur 2 Mondsteine erhältlich. ① Mondberg 1F nahe dem Wanderer (Item). ② Mondberg B2F rechts vor den Fossilien (verstecktes Item)."
+    },
+    "FUCHSIA": {
+      "title": "Pokémon von Fuchsia City",
+      "objective": "Sammle Pokémon vor der Fuchsia-Arena",
+      "reset": "Fuchsia City zurücksetzen"
+    },
+    "MOON_STONE_2": {
+      "title": "Verbleibende Mondstein-Entwicklungen",
+      "objective": "Entwickle 2 weitere Pokémon mit Mondsteinen",
+      "reset": "Mondsteine (zweite Hälfte) zurücksetzen"
+    },
+    "CELADON": {
+      "title": "Pokémon von Prismania City",
+      "objective": "Sammle Pokémon vor der Prismania-Arena",
+      "reset": "Prismania City zurücksetzen"
+    },
+    "FOSSIL": {
+      "title": "Fossil-Pokémon",
+      "objective": "Belebe eines der Fossilien wieder",
+      "reset": "Fossilien zurücksetzen"
+    },
+    "SQUIRTLE": {
+      "title": "Schiggy-Trupp",
+      "objective": "Erhalte Schiggy vom Schiggy-Trupp",
+      "reset": "Schiggy-Trupp zurücksetzen"
+    },
+    "EEVEE": {
+      "title": "Evolis Entwicklungen",
+      "objective": "Wähle eine Entwicklung",
+      "reset": "Evoli-Entwicklung zurücksetzen"
+    },
+    "HITMON": {
+      "title": "Kampfdojo",
+      "objective": "Wähle dein Belohnungs-Pokémon",
+      "reset": "Kampfdojo zurücksetzen"
+    },
+    "ARTICUNO": {
+      "title": "Arktos",
+      "objective": "Fange Arktos",
+      "reset": "Arktos zurücksetzen"
+    },
+    "MOLTRES": {
+      "title": "Lavados",
+      "objective": "Fange Lavados",
+      "reset": "Lavados zurücksetzen"
+    },
+    "CERULEAN_CAVE": {
+      "title": "Azuria-Höhle",
+      "objective": "Fange Mewtu",
+      "reset": "Azuria-Höhle zurücksetzen"
+    }
+  },
+
+  "strings": {
+    "Your first Pokémon, enjoy your journey!": "Dein erstes Pokémon – genieße dein Abenteuer!",
+    "Your bestest friend!": "Dein bester Freund!",
+    "Evolve at Lv. 16": "Entwickelt sich auf Level 16",
+    "Evolve at Lv. 20": "Entwickelt sich auf Level 20",
+    "Evolve at Lv. 22": "Entwickelt sich auf Level 22",
+    "Evolve at Lv. 25": "Entwickelt sich auf Level 25",
+    "Evolve at Lv. 28": "Entwickelt sich auf Level 28",
+    "Evolve at Lv. 30": "Entwickelt sich auf Level 30",
+    "Evolve at Lv. 31": "Entwickelt sich auf Level 31",
+    "Evolve at Lv. 32": "Entwickelt sich auf Level 32",
+    "Evolve at Lv. 33": "Entwickelt sich auf Level 33",
+    "Evolve at Lv. 34": "Entwickelt sich auf Level 34",
+    "Evolve at Lv. 36": "Entwickelt sich auf Level 36",
+    "Evolve at Lv. 37": "Entwickelt sich auf Level 37",
+    "Evolve at Lv. 40": "Entwickelt sich auf Level 40",
+    "Evolve at Lv. 42": "Entwickelt sich auf Level 42",
+    "Evolve at Lv. 55": "Entwickelt sich auf Level 55",
+
+    "Viridian Forest": "Vertania-Wald",
+    "Route 1": "Route 1",
+    "Route 2": "Route 2",
+    "Route 3": "Route 3",
+    "Route 4": "Route 4",
+    "Route 5": "Route 5",
+    "Route 6": "Route 6",
+    "Route 7": "Route 7",
+    "Route 8": "Route 8",
+    "Route 10": "Route 10",
+    "Route 11": "Route 11",
+    "Route 12": "Route 12",
+    "Route 13": "Route 13",
+    "Route 16": "Route 16",
+    "Route 17": "Route 17",
+    "Route 18": "Route 18",
+    "Route 19": "Route 19",
+    "Route 21": "Route 21",
+    "Route 22": "Route 22",
+    "Route 24": "Route 24",
+    "Route 25": "Route 25",
+
+    "Mt. Moon — catch before leaving": "Mondberg – vor dem Verlassen fangen",
+    "Diglett’s Cave": "Digda-Höhle",
+    "Rock Tunnel": "Felstunnel",
+    "Pokémon Tower": "Pokémon-Turm",
+    "Safari Zone": "Safari-Zone",
+    "Seafoam Islands": "Seeschauminseln",
+    "Power Plant on Route 10": "Kraftwerk auf Route 10",
+    "Cerulean Cave B1F": "Azuria-Höhle B1F",
+
+    "Old Rod anywhere": "Angel: überall an Gewässern",
+    "Good Rod: most areas": "Superangel: in den meisten Gebieten",
+    "Super Rod: coastal routes": "Profiangel: Küstenrouten",
+    "Two remaining Moon Stones:\n1. Team Rocket Hideout.\n2. Celadon City (CUT required).":
+      "Zwei verbleibende Mondsteine:\n1. Versteck von Team Rocket.\n2. Prismania City (Zerschneider erforderlich).",
+
+    "Evolve with a Moon Stone": "Entwicklung mit einem Mondstein",
+    "Evolve with a Fire Stone": "Entwicklung mit einem Feuerstein",
+    "Evolve with a Water Stone": "Entwicklung mit einem Wasserstein",
+    "Evolve with a Thunder Stone": "Entwicklung mit einem Donnerstein",
+    "Evolve with a Leaf Stone": "Entwicklung mit einem Blattstein",
+
+    "The Evolution Stones can be bought from the Celadon Mall on Floor 4":
+      "Entwicklungssteine können im Prismania-Kaufhaus im 4. Stock gekauft werden",
+
+    "SAVE BEFORE INTERACTING!!!": "VOR DER INTERAKTION SPEICHERN!!!",
+    "Make sure you have space in your party": "Stelle sicher, dass dein Team Platz hat",
+    "Requires Pikachu to have high happiness": "Pikachu benötigt hohe Zuneigung"
+  },
+  "pokemon": {
+    "001": {
+      "name": "Bisasam",
+      "info": {
+        "Red": "Dein erstes Pokémon – genieße dein Abenteuer!",
+        "Blue": "Dein erstes Pokémon – genieße dein Abenteuer!",
+        "Yellow": "Wird von Melanie in Azuria City erhalten."
+      },
+      "notes": {
+        "Yellow": "Pikachu muss eine hohe Zuneigung haben."
+      }
+    },
+    "002": {
+      "name": "Bisaknosp",
+      "info": "Entwickelt sich aus Bisasam auf Level 16."
+    },
+    "003": {
+      "name": "Bisaflor",
+      "info": "Entwickelt sich aus Bisaknosp auf Level 32."
+    },
+    "004": {
+      "name": "Glumanda",
+      "info": {
+        "Red": "Dein erstes Pokémon – genieße dein Abenteuer!",
+        "Blue": "Dein erstes Pokémon – genieße dein Abenteuer!",
+        "Yellow": "Wird von Damian auf Route 24 erhalten."
+      }
+    },
+    "005": {
+      "name": "Glutexo",
+      "info": "Entwickelt sich aus Glumanda auf Level 16."
+    },
+    "006": {
+      "name": "Glurak",
+      "info": "Entwickelt sich aus Glutexo auf Level 36."
+    },
+
+    "007": {
+      "name": "Schiggy",
+      "info": {
+        "Red": "Dein erstes Pokémon – genieße dein Abenteuer!",
+        "Blue": "Dein erstes Pokémon – genieße dein Abenteuer!",
+        "Yellow": "Wird von Officer Jenny in Orania City erhalten."
+      }
+    },
+    "008": {
+      "name": "Schillok",
+      "info": "Entwickelt sich aus Schiggy auf Level 16."
+    },
+    "009": {
+      "name": "Turtok",
+      "info": "Entwickelt sich aus Schillok auf Level 36."
+    },
+
+    "010": {
+      "name": "Raupy",
+      "info": {
+        "Red": "Erscheint im Vertania-Wald.",
+        "Blue": "Erscheint im Vertania-Wald.",
+        "Yellow": "Erscheint im Vertania-Wald."
+      }
+    },
+    "011": {
+      "name": "Safcon",
+      "info": "Entwickelt sich aus Raupy auf Level 7. Erscheint im Vertania-Wald."
+    },
+    "012": {
+      "name": "Smettbo",
+      "info": "Entwickelt sich aus Safcon auf Level 10."
+    },
+
+    "013": {
+      "name": "Hornliu",
+      "info": {
+        "Red": "Erscheint auf Route 2 und im Vertania-Wald.",
+        "Blue": "Erscheint auf Route 2 und im Vertania-Wald."
+      }
+    },
+    "014": {
+      "name": "Kokuna",
+      "info": "Entwickelt sich aus Hornliu auf Level 7. Erscheint im Vertania-Wald."
+    },
+    "015": {
+      "name": "Bibor",
+      "info": "Entwickelt sich aus Kokuna auf Level 10."
+    },
+
+    "016": {
+      "name": "Taubsi",
+      "info": "Erscheint auf Route 1 und Route 2."
+    },
+    "017": {
+      "name": "Tauboga",
+      "info": "Entwickelt sich aus Taubsi auf Level 18."
+    },
+    "018": {
+      "name": "Tauboss",
+      "info": "Entwickelt sich aus Tauboga auf Level 36."
+    },
+
+    "019": {
+      "name": "Rattfratz",
+      "info": "Erscheint auf Route 1, Route 2 und Route 22."
+    },
+    "020": {
+      "name": "Rattikarl",
+      "info": "Entwickelt sich aus Rattfratz auf Level 20."
+    },
+
+    "021": {
+      "name": "Habitak",
+      "info": "Erscheint auf Route 22.",
+      "notes": {
+        "Red": "Ein zweites Exemplar wird für einen Tausch benötigt.",
+        "Blue": "Ein zweites Exemplar wird für einen Tausch benötigt."
+      }
+    },
+    "022": {
+      "name": "Ibitak",
+      "info": "Entwickelt sich aus Habitak auf Level 20."
+    },
+
+    "023": {
+      "name": "Rettan",
+      "info": "Erscheint auf Route 4 und Route 11."
+    },
+    "024": {
+      "name": "Arbok",
+      "info": "Entwickelt sich aus Rettan auf Level 22."
+    },
+
+    "025": {
+      "name": "Pikachu",
+      "info": {
+        "Red": "Erscheint im Vertania-Wald.",
+        "Blue": "Erscheint im Vertania-Wald.",
+        "Yellow": "Partner-Pokémon des Spielers."
+      },
+      "notes": {
+        "Yellow": "Zuneigung ist wichtig. Kann sich nicht entwickeln."
+      }
+    },
+    "026": {
+      "name": "Raichu",
+      "info": "Entwicklung von Pikachu mit einem Donnerstein.",
+      "notes": {
+        "Red": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich.",
+        "Blue": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich."
+      }
+    },
+
+    "027": {
+      "name": "Sandan",
+      "info": {
+        "Blue": "Erscheint auf Route 4 und Route 11.",
+        "Yellow": "Erscheint auf Route 3 und Route 4."
+      }
+    },
+    "028": {
+      "name": "Sandamer",
+      "info": "Entwickelt sich aus Sandan auf Level 22."
+    },
+
+    "029": {
+      "name": "Nidoran♀",
+      "info": "Erscheint auf Route 22."
+    },
+    "030": {
+      "name": "Nidorina",
+      "info": "Entwickelt sich aus Nidoran♀ auf Level 16."
+    },
+    "031": {
+      "name": "Nidoqueen",
+      "info": "Entwicklung von Nidorina mit einem Mondstein."
+    },
+
+    "032": {
+      "name": "Nidoran♂",
+      "info": "Erscheint auf Route 22."
+    },
+    "033": {
+      "name": "Nidorino",
+      "info": "Entwickelt sich aus Nidoran♂ auf Level 16."
+    },
+    "034": {
+      "name": "Nidoking",
+      "info": "Entwicklung von Nidorino mit einem Mondstein."
+    },
+
+    "035": {
+      "name": "Piepi",
+      "info": {
+        "Red": "Erscheint im Mondberg.",
+        "Blue": "Erscheint im Mondberg.",
+        "Yellow": "Im Mondberg fangen – ein zweites Exemplar für einen späteren Tausch aufbewahren."
+      }
+    },
+    "036": {
+      "name": "Pixi",
+      "info": "Entwicklung von Piepi mit einem Mondstein."
+    },
+
+    "037": {
+      "name": "Vulpix",
+      "info": {
+        "Blue": "Erscheint auf Route 7 und Route 8.",
+        "Yellow": "Tausch im Prismania-Game-Corner."
+      }
+    },
+    "038": {
+      "name": "Vulnona",
+      "info": "Entwicklung von Vulpix mit einem Feuerstein."
+    },
+
+    "039": {
+      "name": "Pummeluff",
+      "info": "Erscheint auf Route 3."
+    },
+    "040": {
+      "name": "Knuddeluff",
+      "info": "Entwicklung von Pummeluff mit einem Mondstein."
+    },
+
+    "041": {
+      "name": "Zubat",
+      "info": "Erscheint im Mondberg."
+    },
+    "042": {
+      "name": "Golbat",
+      "info": "Entwickelt sich aus Zubat auf Level 22."
+    },
+
+    "043": {
+      "name": "Myrapla",
+      "info": {
+        "Red": "Erscheint auf Route 5, 6, 24 und 25.",
+        "Yellow": "Erscheint auf Route 24 und Route 25."
+      }
+    },
+    "044": {
+      "name": "Duflor",
+      "info": "Entwickelt sich aus Myrapla auf Level 21."
+    },
+    "045": {
+      "name": "Giflor",
+      "info": "Entwicklung von Duflor mit einem Blattstein.",
+      "notes": {
+        "Red": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich.",
+        "Blue": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich.",
+        "Yellow": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich."
+      }
+    },
+
+    "046": {
+      "name": "Paras",
+      "info": "Erscheint im Mondberg."
+    },
+    "047": {
+      "name": "Parasek",
+      "info": "Entwickelt sich aus Paras auf Level 24."
+    },
+
+    "048": {
+      "name": "Bluzuk",
+      "info": {
+        "Red": "Erscheint auf Route 12–15 und in der Safari-Zone.",
+        "Yellow": "Erscheint auf Route 24 und Route 25."
+      },
+      "notes": {
+        "Red": "Ein zweites Exemplar wird für einen Tausch benötigt.",
+        "Blue": "Ein zweites Exemplar wird für einen Tausch benötigt.",
+        "Yellow": "Ein zweites Exemplar wird für einen Tausch benötigt."
+      }
+    },
+    "049": {
+      "name": "Omot",
+      "info": {
+        "Red": "Entwickelt sich aus Bluzuk auf Level 31. Erscheint in der Safari-Zone (Areal 3–4).",
+        "Blue": "Entwickelt sich aus Bluzuk auf Level 31. Erscheint in der Safari-Zone (Areal 3–4).",
+        "Yellow": "Entwickelt sich aus Bluzuk auf Level 31."
+      }
+    },
+
+    "050": {
+      "name": "Digda",
+      "info": "Erscheint in der Digda-Höhle."
+    },
+    "051": {
+      "name": "Digdri",
+      "info": "Entwickelt sich aus Digda auf Level 26. Erscheint in der Digda-Höhle."
+    },
+    "052": {
+      "name": "Mauzi",
+      "info": {
+        "Red": "Erscheint auf Route 5 und Route 6.",
+        "Blue": "Erscheint auf Route 5 und Route 6.",
+        "Yellow": "Erhältlich u. a. im Versteck von Team Rocket."
+      }
+    },
+    "053": {
+      "name": "Snobilikat",
+      "info": "Entwickelt sich aus Mauzi auf Level 28."
+    },
+    "054": {
+      "name": "Enton",
+      "info": {
+        "Red": "Mit der Profiangel fangbar. Erscheint in der Safari-Zone, der Azuria-Arena sowie auf Route 24 und Route 25.",
+        "Blue": "Mit der Profiangel fangbar. Erscheint in der Safari-Zone, der Azuria-Arena sowie auf Route 24 und Route 25.",
+        "Yellow": "Erscheint auf Route 6 bei Einsatz von Surfer."
+      }
+    },
+    "055": {
+      "name": "Entoron",
+      "info": {
+        "Red": "Entwickelt sich aus Enton auf Level 33.",
+        "Blue": "Entwickelt sich aus Enton auf Level 33.",
+        "Yellow": "Entwickelt sich aus Enton auf Level 33. Zusätzlich auf Route 6 mit Surfer anzutreffen."
+      }
+    },
+    "056": {
+      "name": "Menki",
+      "info": {
+        "Red": "Erscheint auf Route 5 und Route 6.",
+        "Blue": "Erscheint auf Route 5 und Route 6.",
+        "Yellow": "Erscheint auf Route 22."
+      }
+    },
+    "057": {
+      "name": "Rasaff",
+      "info": "Entwickelt sich aus Menki auf Level 28."
+    },
+    "058": {
+      "name": "Fukano",
+      "info": {
+        "Red": "Erscheint auf Route 7 und Route 8.",
+        "Blue": "Erscheint auf Route 7 und Route 8.",
+        "Yellow": "Erscheint im Pokémon-Haus."
+      },
+      "notes": {
+        "Yellow": "Es ist hilfreich, ein zweites Exemplar für einen Tausch zu fangen."
+      }
+    },
+    "059": {
+      "name": "Arkani",
+      "info": "Entwicklung von Fukano mit einem Feuerstein.",
+      "notes": {
+        "Red": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich.",
+        "Blue": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich.",
+        "Yellow": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich."
+      }
+    },
+    "060": {
+      "name": "Quapsel",
+      "info": "• Superangel: an den meisten Angelplätzen (ca. 90 %)\n• Profiangel: Alabastia, Vertania City, Route 22"
+    },
+    "061": {
+      "name": "Quaputzi",
+      "info": "Entwickelt sich aus Quapsel auf Level 25.",
+      "notes": {
+        "Red": "• Entwicklung von Quapsel auf Level 25\n• Profiangel: Route 10, Prismania City\n• Zweites Exemplar für Tausch erforderlich!",
+        "Blue": "• Entwicklung von Quapsel auf Level 25\n• Profiangel: Route 10, Prismania City\n• Zweites Exemplar für Tausch erforderlich!",
+        "Yellow": "• Entwicklung von Quapsel auf Level 25\n• Profiangel: Route 10, Prismania City"
+      }
+    },
+    "062": {
+      "name": "Quappo",
+      "info": "Entwicklung von Quaputzi mit einem Wasserstein.",
+      "notes": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich."
+    },
+    "063": {
+      "name": "Abra",
+      "info": {
+        "Red": "Erscheint auf Route 24 und Route 25. Zweites Exemplar für Tausch erforderlich.",
+        "Blue": "Erscheint auf Route 24 und Route 25. Zweites Exemplar für Tausch erforderlich.",
+        "Yellow": "Erscheint auf Route 5 und Route 6."
+      }
+    },
+    "064": {
+      "name": "Kadabra",
+      "info": "Entwickelt sich aus Abra auf Level 16."
+    },
+    "065": {
+      "name": "Simsala",
+      "info": "Entwickelt sich durch Tausch aus Kadabra."
+    },
+    "066": {
+      "name": "Machollo",
+      "info": "• Route 10\n• Felstunnel"
+    },
+    "067": {
+      "name": "Maschock",
+      "info": {
+        "Red": "Entwickelt sich aus Machollo auf Level 28.",
+        "Blue": "Entwickelt sich aus Machollo auf Level 28.",
+        "Yellow": "• Entwicklung auf Level 28\n• Tausch gegen Knogga im Untergrund von Route 5/6 (für Machomei)"
+      }
+    },
+    "068": {
+      "name": "Machomei",
+      "info": "Entwickelt sich durch Tausch aus Maschock."
+    },
+    "069": {
+      "name": "Knofensa",
+      "info": {
+        "Red": "Erscheint auf Route 24 und Route 25.",
+        "Blue": "Erscheint auf Route 24 und Route 25.",
+        "Yellow": "Erscheint auf Route 24 und Route 25."
+      }
+    },
+    "070": {
+      "name": "Ultrigaria",
+      "info": "Entwickelt sich aus Knofensa auf Level 21."
+    },
+    "071": {
+      "name": "Sarzenia",
+      "info": "Entwicklung von Ultrigaria mit einem Blattstein."
+    },
+    "072": {
+      "name": "Tentacha",
+      "info": "Erscheint auf dem Meer mit Surfer."
+    },
+    "073": {
+      "name": "Tentoxa",
+      "info": {
+        "Red": "Entwickelt sich aus Tentacha auf Level 30.",
+        "Blue": "Entwickelt sich aus Tentacha auf Level 30.",
+        "Yellow": "Entwickelt sich aus Tentacha auf Level 30. Profiangel: Route 19"
+      }
+    },
+    "074": {
+      "name": "Kleinstein",
+      "info": "Erscheint im Mondberg."
+    },
+    "075": {
+      "name": "Georok",
+      "info": "Entwickelt sich aus Kleinstein auf Level 25."
+    },
+    "076": {
+      "name": "Geowaz",
+      "info": "Entwickelt sich durch Tausch aus Georok."
+    },
+    "077": {
+      "name": "Ponita",
+      "info": "Erscheint auf Route 17.",
+      "notes": {
+        "Red": "Zweites Exemplar für Tausch erforderlich.",
+        "Blue": "Zweites Exemplar für Tausch erforderlich."
+      }
+    },
+    "078": {
+      "name": "Gallopa",
+      "info": "Entwickelt sich aus Ponita auf Level 40."
+    },
+    "079": {
+      "name": "Flegmon",
+      "info": {
+        "Red": "Profiangel: Route 10, Prismania City, Safari-Zone",
+        "Blue": "Profiangel: Route 10, Prismania City, Safari-Zone"
+      }
+    },
+    "080": {
+      "name": "Lahmus",
+      "info": "Entwickelt sich aus Flegmon auf Level 37. Zweites Exemplar für Tausch erforderlich."
+    },
+    "081": {
+      "name": "Magnetilo",
+      "info": {
+        "Red": "Kraftwerk auf Route 10: Surfer erforderlich",
+        "Blue": "Kraftwerk auf Route 10: Surfer erforderlich",
+        "Yellow": "Route 10"
+      }
+    },
+    "082": {
+      "name": "Magneton",
+      "info": "Entwickelt sich aus Magnetilo auf Level 30."
+    },
+    "083": {
+      "name": "Porenta",
+      "info": {
+        "Red": "Tausch in Orania City gegen Habitak.",
+        "Blue": "Tausch in Orania City gegen Habitak.",
+        "Yellow": "Erscheint auf Route 12 und Route 13."
+      }
+    },
+    "084": {
+      "name": "Dodu",
+      "info": {
+        "Red": "Erscheint auf Route 16–18. Safari-Zone Areal 4.",
+        "Blue": "Erscheint auf Route 16–18. Safari-Zone Areal 4.",
+        "Yellow": "Erscheint auf Route 16–18."
+      }
+    },
+    "085": {
+      "name": "Dodri",
+      "info": {
+        "Red": "Entwickelt sich aus Dodu auf Level 31.",
+        "Blue": "Entwickelt sich aus Dodu auf Level 31.",
+        "Yellow": "Route 17, entwickelt sich aus Dodu auf Level 31."
+      }
+    },
+    "086": {
+      "name": "Jurob",
+      "info": {
+        "Red": "Tausch gegen Ponita im Labor auf Cinnabar Island. Seeschauminseln.",
+        "Blue": "Tausch gegen Ponita im Labor auf Cinnabar Island. Seeschauminseln.",
+        "Yellow": "Seeschauminseln"
+      }
+    },
+    "087": {
+      "name": "Jugong",
+      "info": {
+        "Red": "Jurob entwickelt sich auf Level 34. Seeschauminseln B1F und B3F.",
+        "Blue": "Jurob entwickelt sich auf Level 34. Seeschauminseln B1F und B3F.",
+        "Yellow": "Jurob entwickelt sich auf Level 34. Seeschauminseln B1F und B3F. Tausch im Labor auf Cinnabar Island gegen Fukano."
+      }
+    },
+    "088": {
+      "name": "Sleima",
+      "info": {
+        "Red": "Pokémon-Haus auf Cinnabar Island.",
+        "Blue": "Pokémon-Haus auf Cinnabar Island.",
+        "Yellow": "Kraftwerk auf Route 10: Surfer erforderlich. Pokémon-Haus auf Cinnabar Island."
+      }
+    },
+    "089": {
+      "name": "Sleimok",
+      "info": {
+        "Red": "Entwicklung von Sleima auf Level 38. Pokémon-Haus auf Cinnabar Island.",
+        "Blue": "Entwicklung von Sleima auf Level 38. Pokémon-Haus auf Cinnabar Island.",
+        "Yellow": "Entwicklung von Sleima auf Level 38. Kraftwerk auf Route 10: Surfer erforderlich. Pokémon-Haus auf Cinnabar Island."
+      }
+    },
+    "090": {
+      "name": "Muschas",
+      "info": {
+        "Red": "Profiangel: Route 6, Orania City, Route 19",
+        "Blue": "Profiangel: Route 6, Orania City, Route 19",
+        "Yellow": "Profiangel: Route 17"
+      }
+    },
+    "091": {
+      "name": "Austos",
+      "info": "Entwicklung von Muschas mit einem Wasserstein."
+    },
+    "092": {
+      "name": "Nebulak",
+      "info": "Erscheint im Pokémon-Turm."
+    },
+    "093": {
+      "name": "Alpollo",
+      "info": "Entwickelt sich aus Nebulak auf Level 25. Erscheint im Pokémon-Turm."
+    },
+    "094": {
+      "name": "Gengar",
+      "info": "Entwickelt sich durch Tausch aus Alpollo."
+    },
+    "095": {
+      "name": "Onix",
+      "info": "Erscheint im Felstunnel."
+    },
+    "096": {
+      "name": "Traumato",
+      "info": "Erscheint auf Route 11."
+    },
+    "097": {
+      "name": "Hypno",
+      "info": "Entwickelt sich aus Traumato auf Level 26."
+    },
+    "098": {
+      "name": "Krabby",
+      "info": {
+        "Red": "Profiangel: Route 6, 12, 13, 17, 18, 24, 25, Azuria-Arena, Orania City, Fuchsia City, Safari-Zone",
+        "Blue": "Profiangel: Route 6, 12, 13, 17, 18, 24, 25, Azuria-Arena, Orania City, Fuchsia City, Safari-Zone",
+        "Yellow": "Profiangel: Route 10, Route 25"
+      }
+    },
+    "099": {
+      "name": "Kingler",
+      "info": {
+        "Red": "Entwickelt sich aus Krabby auf Level 28.",
+        "Blue": "Entwickelt sich aus Krabby auf Level 28.",
+        "Yellow": "Entwickelt sich aus Krabby auf Level 28. Profiangel: Route 10 und Route 25"
+      }
+    },
+    "100": {
+      "name": "Voltobal",
+      "info": {
+        "Red": "Route 10",
+        "Blue": "Route 10",
+        "Yellow": "Kraftwerk auf Route 10: Surfer erforderlich"
+      }
+    },
+    "101": {
+      "name": "Lektrobal",
+      "info": {
+        "Red": "Entwickelt sich aus Voltobal auf Level 30.",
+        "Blue": "Entwickelt sich aus Voltobal auf Level 30.",
+        "Yellow": "Kraftwerk auf Route 10: Surfer erforderlich"
+      }
+    },
+    "102": {
+      "name": "Owei",
+      "info": "Erscheint in der Safari-Zone."
+    },
+    "103": {
+      "name": "Kokowei",
+      "info": "Entwicklung von Owei mit einem Blattstein.",
+      "notes": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich."
+    },
+    "104": {
+      "name": "Tragosso",
+      "info": {
+        "Red": "Pokémon-Turm 5.–7. Stock.",
+        "Blue": "Pokémon-Turm 5.–7. Stock.",
+        "Yellow": "Pokémon-Turm 5.–7. Stock, Safari-Zone Areal 2–4."
+      }
+    },
+    "105": {
+      "name": "Knogga",
+      "info": {
+        "Red": "Entwickelt sich aus Tragosso auf Level 28.",
+        "Blue": "Entwickelt sich aus Tragosso auf Level 28.",
+        "Yellow": "Entwickelt sich aus Tragosso auf Level 28. Safari-Zone Areal 2 und 4."
+      }
+    },
+    "106": {
+      "name": "Kicklee",
+      "info": "Erhältlich nach dem Sieg im Kampfdojo."
+    },
+    "107": {
+      "name": "Nockchan",
+      "info": "Erhältlich nach dem Sieg im Kampfdojo."
+    },
+    "108": {
+      "name": "Schlurp",
+      "info": {
+        "Red": "Tausch am Tor von Route 18 gegen Lahmus.",
+        "Blue": "Tausch am Tor von Route 18 gegen Lahmus.",
+        "Yellow": "Erscheint in der Azuria-Höhle."
+      }
+    },
+    "109": {
+      "name": "Smogon",
+      "info": {
+        "Red": "Erscheint im Pokémon-Haus.",
+        "Blue": "Erscheint im Pokémon-Haus.",
+        "Yellow": "Erscheint u. a. im Versteck von Team Rocket."
+      }
+    },
+    "110": {
+      "name": "Smogmog",
+      "info": "Entwickelt sich aus Smogon auf Level 35."
+    },
+    "111": {
+      "name": "Rihorn",
+      "info": "Erscheint in der Safari-Zone."
+    },
+    "112": {
+      "name": "Rizeros",
+      "info": "Entwickelt sich aus Rihorn auf Level 42."
+    },
+    "113": {
+      "name": "Chaneira",
+      "info": "Erscheint selten in der Safari-Zone."
+    },
+    "114": {
+      "name": "Tangela",
+      "info": "Erscheint in der Safari-Zone."
+    },
+    "115": {
+      "name": "Kangama",
+      "info": "Erscheint selten in der Safari-Zone."
+    },
+    "116": {
+      "name": "Seeper",
+      "info": {
+        "Red": "Profiangel: Route 19",
+        "Blue": "Profiangel: Route 19",
+        "Yellow": "Profiangel: Orania City, Route 10, Route 12, Route 13"
+      }
+    },
+    "117": {
+      "name": "Seemon",
+      "info": {
+        "Red": "Entwickelt sich aus Seeper auf Level 32.",
+        "Blue": "Entwickelt sich aus Seeper auf Level 32.",
+        "Yellow": "Profiangel: Route 12 und Route 13"
+      }
+    },
+    "118": {
+      "name": "Goldini",
+      "info": {
+        "Red": "Superangel: an 95 % aller Angelplätze",
+        "Blue": "Superangel: an 95 % aller Angelplätze",
+        "Yellow": "Superangel: an 95 % aller Angelplätze. Profiangel: Route 6, Route 24, Prismania City, Azuria-Arena"
+      }
+    },
+    "119": {
+      "name": "Golking",
+      "info": {
+        "Red": "Entwickelt sich aus Goldini auf Level 33.",
+        "Blue": "Entwickelt sich aus Goldini auf Level 33.",
+        "Yellow": "Entwickelt sich aus Goldini auf Level 33. Profiangel: Route 24 und Azuria-Arena"
+      }
+    },
+    "120": {
+      "name": "Sterndu",
+      "info": {
+        "Red": "Profiangel: Route 19",
+        "Blue": "Profiangel: Route 19",
+        "Yellow": "Profiangel: Route 19 und Alabastia"
+      }
+    },
+    "121": {
+      "name": "Starmie",
+      "info": "Entwicklung von Sterndu mit einem Wasserstein.",
+      "notes": "Entwicklungssteine sind im Prismania-Kaufhaus (4. Stock) erhältlich."
+    },
+    "122": {
+      "name": "Pantimos",
+      "info": "Durch Tausch erhältlich (nahe der Digda-Höhle).",
+      "notes": {
+        "Red": "Nur durch Tausch erhältlich. Ein bestimmtes Pokémon wird benötigt.",
+        "Blue": "Nur durch Tausch erhältlich. Ein bestimmtes Pokémon wird benötigt.",
+        "Yellow": "Nur durch Tausch erhältlich. Das benötigte Pokémon unterscheidet sich von Rot/Blau."
+      }
+    },
+    "123": {
+      "name": "Sichlor",
+      "info": {
+        "Red": "Prismania-Game-Corner: 5.500 Münzen. Safari-Zone Areal 1 und 2.",
+        "Yellow": "Prismania-Game-Corner: 6.500 Münzen. Safari-Zone Areal 2 und 3."
+      }
+    },
+    "124": {
+      "name": "Rossana",
+      "info": "Azuria City: Tausch gegen Quaputzi im Haus neben dem Pokémon-Center."
+    },
+    "125": {
+      "name": "Elektek",
+      "info": "Kraftwerk auf Route 10: Surfer erforderlich"
+    },
+    "126": {
+      "name": "Magmar",
+      "info": "Pokémon-Haus auf Cinnabar Island."
+    },
+    "127": {
+      "name": "Pinsir",
+      "info": {
+        "Blue": "Prismania-Game-Corner: 5.500 Münzen. Safari-Zone Areal 1 und 2.",
+        "Yellow": "Prismania-Game-Corner: 6.500 Münzen. Safari-Zone Areal 3 und 4."
+      }
+    },
+    "128": {
+      "name": "Tauros",
+      "info": "Erscheint selten in der Safari-Zone."
+    },
+    "129": {
+      "name": "Karpador",
+      "info": "Für 500¥ im Pokémon-Center auf Route 3 erhältlich oder mit der Angel an jedem Gewässer fangbar."
+    },
+    "130": {
+      "name": "Garados",
+      "info": "Entwickelt sich aus Karpador auf Level 20."
+    },
+    "131": {
+      "name": "Lapras",
+      "info": "Begegnung im Silph Co.-Gebäude.",
+      "notes": "Stelle sicher, dass dein Team Platz hat."
+    },
+    "132": {
+      "name": "Ditto",
+      "info": "Erscheint im Pokémon-Haus B1F."
+    },
+    "133": {
+      "name": "Evoli",
+      "info": "Erhältlich im Gebäude des Prismania-Anwesens."
+    },
+    "134": {
+      "name": "Aquana",
+      "info": "Entwicklung von Evoli mit einem Wasserstein."
+    },
+    "135": {
+      "name": "Blitza",
+      "info": "Entwicklung von Evoli mit einem Donnerstein."
+    },
+    "136": {
+      "name": "Flamara",
+      "info": "Entwicklung von Evoli mit einem Feuerstein."
+    },
+    "137": {
+      "name": "Porygon",
+      "info": "Im Prismania-Game-Corner erhältlich."
+    },
+    "138": {
+      "name": "Amonitas",
+      "info": "Wiederbelebung aus dem Helixfossil im Labor auf Cinnabar Island. Helixfossil im Mondberg erhalten."
+    },
+    "139": {
+      "name": "Amoroso",
+      "info": "Entwickelt sich aus Amonitas auf Level 40."
+    },
+    "140": {
+      "name": "Kabuto",
+      "info": "Wiederbelebung aus dem Domfossil im Labor auf Cinnabar Island. Domfossil im Mondberg erhalten."
+    },
+    "141": {
+      "name": "Kabutops",
+      "info": "Entwickelt sich aus Kabuto auf Level 40."
+    },
+    "142": {
+      "name": "Aerodactyl",
+      "info": "Wiederbelebung aus dem Altbernstein im Labor auf Cinnabar Island. Altbernstein über den Seiteneingang des Museums von Marmoria City."
+    },
+    "143": {
+      "name": "Relaxo",
+      "info": "Begegnung auf Route 12 oder Route 16. Pokéflöte erforderlich. Speichern empfohlen."
+    },
+    "144": {
+      "name": "Arktos",
+      "info": "Begegnung auf den Seeschauminseln B4F. Vor der Interaktion speichern!"
+    },
+    "145": {
+      "name": "Zapdos",
+      "info": "Kraftwerk auf Route 10: Surfer erforderlich. Vor der Interaktion speichern!"
+    },
+    "146": {
+      "name": "Lavados",
+      "info": "Begegnung auf dem Siegesweg. Vor der Interaktion speichern!"
+    },
+    "147": {
+      "name": "Dratini",
+      "info": {
+        "Red": "Prismania-Game-Corner: 2.800 Münzen",
+        "Blue": "Prismania-Game-Corner: 2.800 Münzen",
+        "Yellow": "Profiangel: Safari-Zone"
+      }
+    },
+    "148": {
+      "name": "Dragonir",
+      "info": {
+        "Red": "Entwickelt sich aus Dratini auf Level 30.",
+        "Blue": "Entwickelt sich aus Dratini auf Level 30.",
+        "Yellow": "Entwickelt sich aus Dratini auf Level 30. Profiangel: Safari-Zone Areal 1"
+      }
+    },
+    "149": {
+      "name": "Dragoran",
+      "info": "Entwickelt sich aus Dragonir auf Level 55."
+    },
+    "150": {
+      "name": "Mewtu",
+      "info": "Begegnung in der Azuria-Höhle B1F. Vor der Interaktion speichern!"
+    }
+  }
+}
