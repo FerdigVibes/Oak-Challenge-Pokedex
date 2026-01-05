@@ -437,6 +437,17 @@ function escapeHtml(str) {
     .replaceAll("'", '&#39;');
 }
 
+function getPokemonNotes(pokemon, sectionKey) {
+  if (
+    sectionKey === "MOON_STONE_2" &&
+    ["031", "034", "036", "040"].includes(pokemon.dex)
+  ) {
+    return "残りのつきのいしは2こあります：\n1. ロケットだんのアジト。\n2. タマムシシティ（いあいぎり使用）。";
+  }
+
+  return pokemon.notes?.[currentVersion] || null;
+}
+
 /* =========================================================
    UI RULES (JSON-DRIVEN)
    ========================================================= */
