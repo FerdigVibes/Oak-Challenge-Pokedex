@@ -50,8 +50,7 @@
     "MOON_STONE_1": {
       "title": "Erste Mondstein-Entwicklungen",
       "objective": "Entwickle 2 Pokémon mit Mondsteinen",
-      "reset": "Mondsteine (erste Hälfte) zurücksetzen",
-      "note": "Es sind nur 2 Mondsteine erhältlich. ① Mondberg 1F nahe dem Wanderer (Item). ② Mondberg B2F rechts vor den Fossilien (verstecktes Item)."
+      "reset": "Mondsteine (erste Hälfte) zurücksetzen"
     },
     "FUCHSIA": {
       "title": "Pokémon von Fuchsia City",
