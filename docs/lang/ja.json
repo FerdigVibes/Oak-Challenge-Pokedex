@@ -50,8 +50,7 @@
     "MOON_STONE_1": {
       "title": "最初の月の石進化",
       "objective": "月の石で2匹進化させよう",
-      "reset": "月の石（前半）をリセット",
-      "note": "つきのいしは2こだけ入手可能。① おつきみやま1F・ハイカー付近（アイテム）。② おつきみやまB2F・かせき手前右側のかくれた場所（かくしアイテム）。"
+      "reset": "月の石（前半）をリセット"
     },
     "FUCHSIA": {
       "title": "セキチクシティのポケモン",
@@ -154,11 +153,12 @@
     "Seafoam Islands": "ふたごじま",
     "Power Plant on Route 10": "10ばんどうろのはつでんしょ",
     "Cerulean Cave B1F": "ハナダどうくつ B1F",
+    "Two remaining Moon Stones:\n1. Team Rocket Hideout.\n2. Celadon City (CUT required).": "残りのつきのいしは2こあります。\n1. ロケットだんのアジト。\n2. タマムシシティ（いあいぎり使用）。",
+    "Only two Moon Stones are obtainable:\n1. Mt. Moon 1F near the Hiker.\n2. Mt. Moon B2F near the fossils (hidden).": "つきのいしは2こだけ入手可能。\n1. おつきみやま1F・ハイカー付近。\n2. おつきみやまB2F・かせき付近（かくし）。",
 
     "Old Rod anywhere": "ボロのつりざお：水辺ならどこでも",
     "Good Rod: most areas": "いいつりざお：多くの場所",
     "Super Rod: coastal routes": "すごいつりざお：かいがんルート",
-    "Two remaining Moon Stones:\n1. Team Rocket Hideout.\n2. Celadon City (CUT required).": "残りのつきのいしは2こあります：\n1. ロケットだんのアジト。\n2. タマムシシティ（いあいぎり使用）。",
 
     "Evolve with a Moon Stone": "つきのいしで進化",
     "Evolve with a Fire Stone": "ほのおのいしで進化",
