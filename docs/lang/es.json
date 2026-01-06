@@ -50,8 +50,7 @@
     "MOON_STONE_1": {
       "title": "Primeras evoluciones con Piedra Lunar",
       "objective": "Evoluciona 2 Pokémon con Piedras Lunares",
-      "reset": "Restablecer Piedras Lunares (primera parte)",
-      "note": "Solo se pueden obtener 2 Piedras Lunares. ① Monte Luna, 1F, cerca del montañero (objeto). ② Monte Luna, B2F, a la derecha antes de los fósiles (objeto oculto)."
+      "reset": "Restablecer Piedras Lunares (primera parte)"
     },
     "FUCHSIA": {
       "title": "Pokémon de Ciudad Fucsia",
