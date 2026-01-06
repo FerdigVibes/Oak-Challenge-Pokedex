@@ -460,18 +460,12 @@ function escapeHtml(str) {
 }
 
 function getPokemonNotes(pokemon, sectionKey) {
-
-  const moonStoneDex = ["031", "034", "036", "040"];
-
-  if (moonStoneDex.includes(pokemon.dex)) {
-
-    if (sectionKey === "MOON_STONE_1") {
-      return t(MOON_STONE_1_TEXT, MOON_STONE_1_TEXT);
-    }
-
-    if (sectionKey === "MOON_STONE_2") {
-      return t(MOON_STONE_2_TEXT, MOON_STONE_2_TEXT);
-    }
+  // Moon Stone override (only these four Pokémon)
+  if (
+    ["031", "034", "036", "040"].includes(pokemon.dex) &&
+    (sectionKey === "MOON_STONE_1" || sectionKey === "MOON_STONE_2")
+  ) {
+    return getMoonStoneNote(sectionKey);
   }
 
   return pokemon.notes?.[currentVersion] || null;
@@ -1033,6 +1027,22 @@ function resolveLocalizedField(path, version, fallback) {
 
   // Plain string
   return val;
+}
+
+function getMoonStoneNote(sectionKey) {
+  if (sectionKey === "MOON_STONE_1") {
+    return "Only two Moon Stones are obtainable:\n" +
+           "1. Mt. Moon 1F near the Hiker.\n" +
+           "2. Mt. Moon B2F near the fossils (hidden).";
+  }
+
+  if (sectionKey === "MOON_STONE_2") {
+    return "Two remaining Moon Stones:\n" +
+           "1. Team Rocket Hideout.\n" +
+           "2. Celadon City (CUT required).";
+  }
+
+  return null;
 }
 
 /* =========================================================
