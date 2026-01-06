@@ -36,6 +36,16 @@ const LANGUAGES = {
   fr: { label: 'Français', file: 'fr.json' }
 };
 
+const MOON_STONE_1_TEXT =
+  "Only two Moon Stones are obtainable:\n" +
+  "1. Mt. Moon 1F near the Hiker.\n" +
+  "2. Mt. Moon B2F near the fossils (hidden).";
+
+const MOON_STONE_2_TEXT =
+  "Two remaining Moon Stones:\n" +
+  "1. Team Rocket Hideout.\n" +
+  "2. Celadon City (CUT required).";
+
 /* =========================================================
    CRY SYSTEM
    ========================================================= */
@@ -450,27 +460,20 @@ function escapeHtml(str) {
 }
 
 function getPokemonNotes(pokemon, sectionKey) {
-  const moonStonePokemon = ["031", "034", "036", "040"];
 
-  // Moon Stone 1 (Mt. Moon stones)
-  if (sectionKey === "MOON_STONE_1" && moonStonePokemon.includes(pokemon.dex)) {
-    return (
-      "つきのいしは2こ入手可能：\n" +
-      "1. おつきみやま1F（ハイカー付近のどうぐ）。\n" +
-      "2. おつきみやまB2F（かせき手前の右側のかくし場所）。"
-    );
+  const moonStoneDex = ["031", "034", "036", "040"];
+
+  if (moonStoneDex.includes(pokemon.dex)) {
+
+    if (sectionKey === "MOON_STONE_1") {
+      return t(MOON_STONE_1_TEXT, MOON_STONE_1_TEXT);
+    }
+
+    if (sectionKey === "MOON_STONE_2") {
+      return t(MOON_STONE_2_TEXT, MOON_STONE_2_TEXT);
+    }
   }
 
-  // Moon Stone 2 (Rocket Hideout + Celadon)
-  if (sectionKey === "MOON_STONE_2" && moonStonePokemon.includes(pokemon.dex)) {
-    return (
-      "残りのつきのいしは2こあります：\n" +
-      "1. ロケットだんのアジト。\n" +
-      "2. タマムシシティ（いあいぎり使用）。"
-    );
-  }
-
-  // Default behavior
   return pokemon.notes?.[currentVersion] || null;
 }
 
