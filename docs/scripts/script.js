@@ -36,16 +36,61 @@ const LANGUAGES = {
   fr: { label: 'Français', file: 'fr.json' }
 };
 
-const MOON_STONE_1_TEXT =
-  "Only two Moon Stones are obtainable:\n" +
-  "1. Mt. Moon 1F near the Hiker.\n" +
-  "2. Mt. Moon B2F near the fossils (hidden).";
+const MOON_STONE_NOTES = {
+  MOON_STONE_1: {
+    en:
+      "Only two Moon Stones are obtainable:\n" +
+      "1. Mt. Moon 1F near the Hiker.\n" +
+      "2. Mt. Moon B2F near the fossils (hidden).",
 
-const MOON_STONE_2_TEXT =
-  "Two remaining Moon Stones:\n" +
-  "1. Team Rocket Hideout.\n" +
-  "2. Celadon City (CUT required).";
+    ja:
+      "つきのいしは2こだけ入手可能。\n" +
+      "1. おつきみやま1F・ハイカー付近。\n" +
+      "2. おつきみやまB2F・かせき付近（かくし）。",
 
+    es:
+      "Solo se pueden obtener dos Piedras Lunares:\n" +
+      "1. Monte Luna, 1F, cerca del montañero.\n" +
+      "2. Monte Luna, B2F, cerca de los fósiles (oculto).",
+
+    fr:
+      "Seulement deux Pierres Lune sont disponibles :\n" +
+      "1. Mont Sélénite, 1F, près du Montagnard.\n" +
+      "2. Mont Sélénite, B2F, près des fossiles (caché).",
+
+    de:
+      "Es sind nur zwei Mondsteine erhältlich:\n" +
+      "1. Mondberg 1F nahe dem Wanderer.\n" +
+      "2. Mondberg B2F nahe der Fossilien (versteckt)."
+  },
+
+  MOON_STONE_2: {
+    en:
+      "Two remaining Moon Stones:\n" +
+      "1. Team Rocket Hideout.\n" +
+      "2. Celadon City (CUT required).",
+
+    ja:
+      "残りのつきのいしは2こあります。\n" +
+      "1. ロケットだんのアジト。\n" +
+      "2. タマムシシティ（いあいぎり使用）。",
+
+    es:
+      "Quedan dos Piedras Lunares:\n" +
+      "1. Escondite del Team Rocket.\n" +
+      "2. Ciudad Azulona (requiere Corte).",
+
+    fr:
+      "Il reste deux Pierres Lune :\n" +
+      "1. Repaire de la Team Rocket.\n" +
+      "2. Céladopole (Coupe requise).",
+
+    de:
+      "Zwei Mondsteine verbleiben:\n" +
+      "1. Versteck von Team Rocket.\n" +
+      "2. Prismania City (Zerschneider nötig)."
+  }
+};
 /* =========================================================
    CRY SYSTEM
    ========================================================= */
@@ -460,7 +505,6 @@ function escapeHtml(str) {
 }
 
 function getPokemonNotes(pokemon, sectionKey) {
-  // Moon Stone override (only these four Pokémon)
   if (
     ["031", "034", "036", "040"].includes(pokemon.dex) &&
     (sectionKey === "MOON_STONE_1" || sectionKey === "MOON_STONE_2")
@@ -1030,19 +1074,10 @@ function resolveLocalizedField(path, version, fallback) {
 }
 
 function getMoonStoneNote(sectionKey) {
-  if (sectionKey === "MOON_STONE_1") {
-    return "Only two Moon Stones are obtainable:\n" +
-           "1. Mt. Moon 1F near the Hiker.\n" +
-           "2. Mt. Moon B2F near the fossils (hidden).";
-  }
+  const langBlock = MOON_STONE_NOTES[sectionKey];
+  if (!langBlock) return null;
 
-  if (sectionKey === "MOON_STONE_2") {
-    return "Two remaining Moon Stones:\n" +
-           "1. Team Rocket Hideout.\n" +
-           "2. Celadon City (CUT required).";
-  }
-
-  return null;
+  return langBlock[currentLang] || langBlock.en;
 }
 
 /* =========================================================
